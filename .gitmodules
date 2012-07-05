@@ -1,0 +1,3 @@
+[submodule "pjsip/source"]
+	path = pjsip/source
+	url = git://github.com/chakrit/pjsip.git
