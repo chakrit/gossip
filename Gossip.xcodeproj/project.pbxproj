@@ -28,6 +28,8 @@
 		22AD82D615A5A0350000D05C /* libspeex-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22AD82C315A5A0350000D05C /* libspeex-arm-apple-darwin9.a */; };
 		22AD82D715A5A0350000D05C /* libsrtp-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22AD82C415A5A0350000D05C /* libsrtp-arm-apple-darwin9.a */; };
 		22AD82D915A5A03B0000D05C /* libg729a.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22AD82D815A5A03B0000D05C /* libg729a.a */; };
+		22AD82DD15A5A1550000D05C /* GSUserAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = 22AD82DB15A5A1550000D05C /* GSUserAgent.h */; };
+		22AD82DE15A5A1550000D05C /* GSUserAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AD82DC15A5A1550000D05C /* GSUserAgent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		22AD82C315A5A0350000D05C /* libspeex-arm-apple-darwin9.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libspeex-arm-apple-darwin9.a"; path = "pjsip/lib/libspeex-arm-apple-darwin9.a"; sourceTree = "<group>"; };
 		22AD82C415A5A0350000D05C /* libsrtp-arm-apple-darwin9.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libsrtp-arm-apple-darwin9.a"; path = "pjsip/lib/libsrtp-arm-apple-darwin9.a"; sourceTree = "<group>"; };
 		22AD82D815A5A03B0000D05C /* libg729a.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libg729a.a; path = pjsip/libg729a.a; sourceTree = "<group>"; };
+		22AD82DB15A5A1550000D05C /* GSUserAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSUserAgent.h; sourceTree = "<group>"; };
+		22AD82DC15A5A1550000D05C /* GSUserAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSUserAgent.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,8 @@
 		22AD824815A5987C0000D05C /* Gossip */ = {
 			isa = PBXGroup;
 			children = (
+				22AD82DB15A5A1550000D05C /* GSUserAgent.h */,
+				22AD82DC15A5A1550000D05C /* GSUserAgent.m */,
 				22AD824A15A5987C0000D05C /* Gossip-Prefix.pch */,
 			);
 			path = Gossip;
@@ -156,6 +162,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22AD82DD15A5A1550000D05C /* GSUserAgent.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22AD82DE15A5A1550000D05C /* GSUserAgent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
