@@ -185,6 +185,7 @@
 		22AD823A15A5987C0000D05C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = GS;
 				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "Oozou Ltd.";
 			};
