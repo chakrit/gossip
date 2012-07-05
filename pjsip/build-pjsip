@@ -1,0 +1,35 @@
+#!/bin/sh
+
+pushd .
+cd source
+
+# clean pjsip folder
+echo ""
+echo In directory: `pwd`
+git clean -xdn
+echo "CTRL+C to cancel or press any key to continue."
+read
+git clean -xdf
+
+# add required config_site.h file
+echo "#define PJ_CONFIG_IPHONE 1" > pjlib/include/pj/config_site.h
+echo "#include <pj/config_site_sample.h>" >> pjlib/include/pj/config_site.h
+cat pjlib/include/pj/config_site.h
+
+# ... and build
+./configure-iphone
+make dep
+make
+popd
+
+# copy all built static libs into one folder so it's easy to use.
+for x in `find source | grep "\.a$"`
+do
+  cp ./$x ./lib
+done
+
+# list all include folders for convenience (when configuring the xcode target)
+echo
+echo "### includes"
+find source | grep "\\include$"
+
