@@ -19,4 +19,7 @@
 #import <pj/config_site.h>
 
 // Place any requried PJSIP includes/imports *below* this line
+#import <pj/types.h>
+#import <pjsip/sip_errno.h>
 #import <pjsua-lib/pjsua.h>
+

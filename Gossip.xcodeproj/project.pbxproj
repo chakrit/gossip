@@ -30,6 +30,8 @@
 		22AD82D915A5A03B0000D05C /* libg729a.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22AD82D815A5A03B0000D05C /* libg729a.a */; };
 		22AD82DD15A5A1550000D05C /* GSUserAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = 22AD82DB15A5A1550000D05C /* GSUserAgent.h */; };
 		22AD82DE15A5A1550000D05C /* GSUserAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AD82DC15A5A1550000D05C /* GSUserAgent.m */; };
+		22AD82EE15A5A7340000D05C /* NSError+pj_status_t.h in Headers */ = {isa = PBXBuildFile; fileRef = 22AD82EC15A5A7340000D05C /* NSError+pj_status_t.h */; };
+		22AD82EF15A5A7340000D05C /* NSError+pj_status_t.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AD82ED15A5A7340000D05C /* NSError+pj_status_t.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,8 @@
 		22AD82DB15A5A1550000D05C /* GSUserAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSUserAgent.h; sourceTree = "<group>"; };
 		22AD82DC15A5A1550000D05C /* GSUserAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSUserAgent.m; sourceTree = "<group>"; };
 		22AD82EA15A5A3CC0000D05C /* PJSIP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PJSIP.h; sourceTree = "<group>"; };
+		22AD82EC15A5A7340000D05C /* NSError+pj_status_t.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+pj_status_t.h"; sourceTree = "<group>"; };
+		22AD82ED15A5A7340000D05C /* NSError+pj_status_t.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+pj_status_t.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +127,10 @@
 			isa = PBXGroup;
 			children = (
 				22AD82DB15A5A1550000D05C /* GSUserAgent.h */,
+				22AD82EC15A5A7340000D05C /* NSError+pj_status_t.h */,
 				22AD82EA15A5A3CC0000D05C /* PJSIP.h */,
 				22AD82DC15A5A1550000D05C /* GSUserAgent.m */,
+				22AD82ED15A5A7340000D05C /* NSError+pj_status_t.m */,
 				22AD824A15A5987C0000D05C /* Gossip-Prefix.pch */,
 			);
 			path = Gossip;
@@ -165,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22AD82DD15A5A1550000D05C /* GSUserAgent.h in Headers */,
+				22AD82EE15A5A7340000D05C /* NSError+pj_status_t.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22AD82DE15A5A1550000D05C /* GSUserAgent.m in Sources */,
+				22AD82EF15A5A7340000D05C /* NSError+pj_status_t.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
