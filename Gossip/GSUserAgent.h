@@ -5,6 +5,7 @@
 //  Created by Chakrit Wichian on 7/5/12.
 //
 
+#import <Foundation/Foundation.h>
 #import "GSAccount.h"
 #import "GSConfiguration.h"
 

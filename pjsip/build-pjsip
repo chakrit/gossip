@@ -11,10 +11,12 @@ echo "CTRL+C to cancel or press any key to continue."
 read
 git clean -xdf
 
-# add required config_site.h file
+# configure PJSIP builds
 echo "#define PJ_CONFIG_IPHONE 1" > pjlib/include/pj/config_site.h
 echo "#include <pj/config_site_sample.h>" >> pjlib/include/pj/config_site.h
 cat pjlib/include/pj/config_site.h
+
+export ARCH="-arch armv7"
 
 # ... and build
 ./configure-iphone

@@ -6,6 +6,8 @@
 //
 
 #import "GSAccount.h"
+#import "PJSIP.h"
+#import "Util.h"
 
 
 @implementation GSAccount {
@@ -25,7 +27,12 @@
 }
 
 - (void)dealloc {
-    _accountId = PJSUA_INVALID_ID;
+    if (_accountId != PJSUA_INVALID_ID) {
+        pj_status_t status = pjsua_acc_del(_accountId);
+        LOG_IF_FAILED(status);
+        _accountId = PJSUA_INVALID_ID;
+    }
+    
     _config = nil;
 }
 
@@ -37,8 +44,8 @@
     pjsua_acc_config accConfig;
     pjsua_acc_config_default(&accConfig);
     
-    accConfig.id = [_config.address PJStringWithSIPPrefix];
-    accConfig.reg_uri = [_config.domain PJStringWithSIPPrefix];
+    accConfig.id = [GSPJUtil PJAddressWithString:_config.address];
+    accConfig.reg_uri = [GSPJUtil PJAddressWithString:_config.domain];
     accConfig.register_on_acc_add = PJ_FALSE; // connect manually
     accConfig.publish_enabled = YES;
     
@@ -46,7 +53,7 @@
         accConfig.proxy_cnt = 0;
     } else {
         accConfig.proxy_cnt = 1;
-        accConfig.proxy[0] = [_config.proxyServer PJStringWithSIPPrefix];
+        accConfig.proxy[0] = [GSPJUtil PJAddressWithString:_config.proxyServer];
     }
 
     status = pjsua_acc_add(&accConfig, PJ_TRUE, &_accountId);

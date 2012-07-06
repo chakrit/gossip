@@ -1,16 +1,16 @@
 //
-//  NSError+pj_status_t.m
+//  GSPJUtil.m
 //  Gossip
 //
-//  Created by Chakrit Wichian on 7/5/12.
+//  Created by Chakrit Wichian on 7/6/12.
 //
 
-#import "NSError+pj_status_t.h"
+#import "GSPJUtil.h"
 
 
-@implementation NSError (PJSIP)
+@implementation GSPJUtil
 
-+ (id)errorWithSIPStatus:(pj_status_t)status {
++ (NSError *)errorWithSIPStatus:(pj_status_t)status {
     int errNumber = PJSIP_ERRNO_FROM_SIP_STATUS(status);
     
     pj_size_t bufferSize = sizeof(char) * 255;    
@@ -31,6 +31,29 @@
                           userInfo:info];
     
     return err;
+}
+
+
++ (NSString *)stringWithPJString:(const pj_str_t *)pjString {
+    NSString *result = [NSString alloc];
+    result = [result initWithBytesNoCopy:pjString->ptr
+                                  length:pjString->slen
+                                encoding:NSASCIIStringEncoding
+                            freeWhenDone:NO];
+    
+    return result;
+}
+
++ (pj_str_t)PJStringWithString:(NSString *)string {
+    const char *cStr = [string cStringUsingEncoding:NSASCIIStringEncoding]; // TODO: UTF8?
+
+    pj_str_t result;
+    pj_cstr(&result, cStr);
+    return result;
+}
+
++ (pj_str_t)PJAddressWithString:(NSString *)string {
+    return [self PJStringWithString:[@"sip:" stringByAppendingString:string]];
 }
 
 @end

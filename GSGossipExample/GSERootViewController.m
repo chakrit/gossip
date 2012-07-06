@@ -37,17 +37,10 @@
     [[self view] addSubview:[_nav view]];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-//    [self transitionFromViewController:nil
-//                      toViewController:_nav
-//                              duration:0.0
-//                               options:UIViewAnimationTransitionNone
-//                            animations:nil
-//                            completion:nil];
-}
-
 
 #pragma mark - UINavigationControllerDelegate
+
+// TODO: ?
+
 
 @end

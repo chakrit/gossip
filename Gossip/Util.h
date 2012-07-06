@@ -6,10 +6,18 @@
 //
 
 
+// additional util imports
+#import "GSPJUtil.h"
+
+
 // SIP Status checks macros
+#define LOG_IF_FAILED(status_)                                      \
+    if (status != PJ_SUCCESS)                                       \
+        NSLog(@"GOSSIP: %@", [GSPJUtil errorWithSIPStatus:status]);
+
 #define RETURN_IF_FAILED(status_, value_)                           \
     if (status != PJ_SUCCESS) {                                     \
-        NSLog(@"GOSSIP: %@", [NSError errorWithSIPStatus:status]);  \
+        NSLog(@"GOSSIP: %@", [GSPJUtil errorWithSIPStatus:status]);  \
         return value_;                                              \
     }
 

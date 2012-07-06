@@ -6,6 +6,8 @@
 //
 
 #import "GSUserAgent.h"
+#import "PJSIP.h"
+#import "Util.h"
 
 
 void onRegistrationState(pjsua_acc_id accountId);

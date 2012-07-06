@@ -8,5 +8,6 @@
 /// Main export files.
 
 #import "GSConfiguration.h"
+#import "GSAccountConfiguration.h"
 #import "GSUserAgent.h"
 #import "GSAccount.h"
