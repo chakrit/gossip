@@ -34,8 +34,8 @@
     _address = nil;
     _domain = nil;
     _proxyServer = nil;
-    _authScheme = nil;
-    _authRealm = nil;
+    _authScheme = @"digest";
+    _authRealm = @"*";
     _username = nil;
     _password = nil;
     return self;
