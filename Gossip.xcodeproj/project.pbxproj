@@ -16,6 +16,13 @@
 		224EFF8215A6C7D100CD541C /* GSAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 224EFF8015A6C7D100CD541C /* GSAccount.m */; };
 		224EFF8615A6CC1F00CD541C /* GSAccountConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 224EFF8415A6CC1F00CD541C /* GSAccountConfiguration.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		224EFF8715A6CC1F00CD541C /* GSAccountConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 224EFF8515A6CC1F00CD541C /* GSAccountConfiguration.m */; };
+		224EFF8F15A6D27600CD541C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224EFF8E15A6D27600CD541C /* UIKit.framework */; };
+		224EFF9015A6D27600CD541C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22AD824615A5987C0000D05C /* Foundation.framework */; };
+		224EFF9215A6D27600CD541C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224EFF9115A6D27600CD541C /* CoreGraphics.framework */; };
+		224EFF9815A6D27600CD541C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 224EFF9615A6D27600CD541C /* InfoPlist.strings */; };
+		224EFF9A15A6D27600CD541C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 224EFF9915A6D27600CD541C /* main.m */; };
+		224EFF9E15A6D27600CD541C /* GSEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 224EFF9D15A6D27600CD541C /* GSEAppDelegate.m */; };
+		224EFFA415A6D28B00CD541C /* libGossip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22AD824315A5987C0000D05C /* libGossip.a */; };
 		22AD824715A5987C0000D05C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22AD824615A5987C0000D05C /* Foundation.framework */; };
 		22AD82C515A5A0350000D05C /* libg7221codec-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22AD82B215A5A0350000D05C /* libg7221codec-arm-apple-darwin9.a */; };
 		22AD82C615A5A0350000D05C /* libgsmcodec-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22AD82B315A5A0350000D05C /* libgsmcodec-arm-apple-darwin9.a */; };
@@ -43,6 +50,16 @@
 		22AD82EF15A5A7340000D05C /* NSError+pj_status_t.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AD82ED15A5A7340000D05C /* NSError+pj_status_t.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		224EFFA215A6D28800CD541C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22AD823A15A5987C0000D05C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 22AD824215A5987C0000D05C;
+			remoteInfo = Gossip;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		224EFF7115A6B2A900CD541C /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		224EFF7315A6B97F00CD541C /* GSConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSConfiguration.h; sourceTree = "<group>"; };
@@ -54,6 +71,15 @@
 		224EFF8015A6C7D100CD541C /* GSAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSAccount.m; sourceTree = "<group>"; };
 		224EFF8415A6CC1F00CD541C /* GSAccountConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSAccountConfiguration.h; sourceTree = "<group>"; };
 		224EFF8515A6CC1F00CD541C /* GSAccountConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSAccountConfiguration.m; sourceTree = "<group>"; };
+		224EFF8C15A6D27600CD541C /* GSGossipExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSGossipExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		224EFF8E15A6D27600CD541C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		224EFF9115A6D27600CD541C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		224EFF9515A6D27600CD541C /* GSGossipExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GSGossipExample-Info.plist"; sourceTree = "<group>"; };
+		224EFF9715A6D27600CD541C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		224EFF9915A6D27600CD541C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		224EFF9B15A6D27600CD541C /* GSGossipExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GSGossipExample-Prefix.pch"; sourceTree = "<group>"; };
+		224EFF9C15A6D27600CD541C /* GSEAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSEAppDelegate.h; sourceTree = "<group>"; };
+		224EFF9D15A6D27600CD541C /* GSEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GSEAppDelegate.m; sourceTree = "<group>"; };
 		22AD824315A5987C0000D05C /* libGossip.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGossip.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		22AD824615A5987C0000D05C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		22AD824A15A5987C0000D05C /* Gossip-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gossip-Prefix.pch"; sourceTree = "<group>"; };
@@ -85,6 +111,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		224EFF8915A6D27600CD541C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				224EFFA415A6D28B00CD541C /* libGossip.a in Frameworks */,
+				224EFF8F15A6D27600CD541C /* UIKit.framework in Frameworks */,
+				224EFF9015A6D27600CD541C /* Foundation.framework in Frameworks */,
+				224EFF9215A6D27600CD541C /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		22AD824015A5987C0000D05C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -141,11 +178,34 @@
 			name = Configuration;
 			sourceTree = "<group>";
 		};
+		224EFF9315A6D27600CD541C /* ExampleApp */ = {
+			isa = PBXGroup;
+			children = (
+				224EFF9C15A6D27600CD541C /* GSEAppDelegate.h */,
+				224EFF9D15A6D27600CD541C /* GSEAppDelegate.m */,
+				224EFF9415A6D27600CD541C /* Supporting Files */,
+			);
+			name = ExampleApp;
+			path = GSGossipExample;
+			sourceTree = "<group>";
+		};
+		224EFF9415A6D27600CD541C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				224EFF9915A6D27600CD541C /* main.m */,
+				224EFF9B15A6D27600CD541C /* GSGossipExample-Prefix.pch */,
+				224EFF9515A6D27600CD541C /* GSGossipExample-Info.plist */,
+				224EFF9615A6D27600CD541C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		22AD823815A5987C0000D05C = {
 			isa = PBXGroup;
 			children = (
-				22AD824815A5987C0000D05C /* Gossip */,
+				224EFF9315A6D27600CD541C /* ExampleApp */,
 				22AD824515A5987C0000D05C /* Frameworks */,
+				22AD824815A5987C0000D05C /* Gossip */,
 				22AD824415A5987C0000D05C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -154,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				22AD824315A5987C0000D05C /* libGossip.a */,
+				224EFF8C15A6D27600CD541C /* GSGossipExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -163,6 +224,8 @@
 			children = (
 				22AD824615A5987C0000D05C /* Foundation.framework */,
 				22AD826415A59F7D0000D05C /* PJSIP */,
+				224EFF8E15A6D27600CD541C /* UIKit.framework */,
+				224EFF9115A6D27600CD541C /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -228,6 +291,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		224EFF8B15A6D27600CD541C /* GSGossipExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 224EFF9F15A6D27600CD541C /* Build configuration list for PBXNativeTarget "GSGossipExample" */;
+			buildPhases = (
+				224EFF8815A6D27600CD541C /* Sources */,
+				224EFF8915A6D27600CD541C /* Frameworks */,
+				224EFF8A15A6D27600CD541C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				224EFFA315A6D28800CD541C /* PBXTargetDependency */,
+			);
+			name = GSGossipExample;
+			productName = GSGossipExample;
+			productReference = 224EFF8C15A6D27600CD541C /* GSGossipExample.app */;
+			productType = "com.apple.product-type.application";
+		};
 		22AD824215A5987C0000D05C /* Gossip */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22AD825015A5987C0000D05C /* Build configuration list for PBXNativeTarget "Gossip" */;
@@ -268,11 +349,32 @@
 			projectRoot = "";
 			targets = (
 				22AD824215A5987C0000D05C /* Gossip */,
+				224EFF8B15A6D27600CD541C /* GSGossipExample */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		224EFF8A15A6D27600CD541C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				224EFF9815A6D27600CD541C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		224EFF8815A6D27600CD541C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				224EFF9A15A6D27600CD541C /* main.m in Sources */,
+				224EFF9E15A6D27600CD541C /* GSEAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		22AD823F15A5987C0000D05C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -288,7 +390,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		224EFFA315A6D28800CD541C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 22AD824215A5987C0000D05C /* Gossip */;
+			targetProxy = 224EFFA215A6D28800CD541C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		224EFF9615A6D27600CD541C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				224EFF9715A6D27600CD541C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		224EFFA015A6D27600CD541C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GSGossipExample/GSGossipExample-Prefix.pch";
+				INFOPLIST_FILE = "GSGossipExample/GSGossipExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		224EFFA115A6D27600CD541C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GSGossipExample/GSGossipExample-Prefix.pch";
+				INFOPLIST_FILE = "GSGossipExample/GSGossipExample-Info.plist";
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		22AD824E15A5987C0000D05C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -383,6 +529,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		224EFF9F15A6D27600CD541C /* Build configuration list for PBXNativeTarget "GSGossipExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				224EFFA015A6D27600CD541C /* Debug */,
+				224EFFA115A6D27600CD541C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		22AD823D15A5987C0000D05C /* Build configuration list for PBXProject "Gossip" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
