@@ -9,3 +9,4 @@
 
 #import "GSConfiguration.h"
 #import "GSUserAgent.h"
+#import "GSAccount.h"

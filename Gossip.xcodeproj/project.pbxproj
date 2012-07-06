@@ -12,9 +12,9 @@
 		224EFF7915A6BAEC00CD541C /* Gossip.h in Headers */ = {isa = PBXBuildFile; fileRef = 224EFF7815A6BA9000CD541C /* Gossip.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		224EFF7C15A6C29500CD541C /* NSString+pj_str_t.h in Headers */ = {isa = PBXBuildFile; fileRef = 224EFF7A15A6C29400CD541C /* NSString+pj_str_t.h */; };
 		224EFF7D15A6C29500CD541C /* NSString+pj_str_t.m in Sources */ = {isa = PBXBuildFile; fileRef = 224EFF7B15A6C29500CD541C /* NSString+pj_str_t.m */; };
-		224EFF8115A6C7D100CD541C /* GSAccount.h in Headers */ = {isa = PBXBuildFile; fileRef = 224EFF7F15A6C7D100CD541C /* GSAccount.h */; };
+		224EFF8115A6C7D100CD541C /* GSAccount.h in Headers */ = {isa = PBXBuildFile; fileRef = 224EFF7F15A6C7D100CD541C /* GSAccount.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		224EFF8215A6C7D100CD541C /* GSAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 224EFF8015A6C7D100CD541C /* GSAccount.m */; };
-		224EFF8615A6CC1F00CD541C /* GSAccountConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 224EFF8415A6CC1F00CD541C /* GSAccountConfiguration.h */; };
+		224EFF8615A6CC1F00CD541C /* GSAccountConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 224EFF8415A6CC1F00CD541C /* GSAccountConfiguration.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		224EFF8715A6CC1F00CD541C /* GSAccountConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 224EFF8515A6CC1F00CD541C /* GSAccountConfiguration.m */; };
 		22AD824715A5987C0000D05C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22AD824615A5987C0000D05C /* Foundation.framework */; };
 		22AD82C515A5A0350000D05C /* libg7221codec-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22AD82B215A5A0350000D05C /* libg7221codec-arm-apple-darwin9.a */; };
@@ -216,12 +216,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				224EFF7915A6BAEC00CD541C /* Gossip.h in Headers */,
-				22AD82DD15A5A1550000D05C /* GSUserAgent.h in Headers */,
+				224EFF8615A6CC1F00CD541C /* GSAccountConfiguration.h in Headers */,
 				224EFF7515A6B97F00CD541C /* GSConfiguration.h in Headers */,
+				224EFF8115A6C7D100CD541C /* GSAccount.h in Headers */,
+				22AD82DD15A5A1550000D05C /* GSUserAgent.h in Headers */,
 				22AD82EE15A5A7340000D05C /* NSError+pj_status_t.h in Headers */,
 				224EFF7C15A6C29500CD541C /* NSString+pj_str_t.h in Headers */,
-				224EFF8115A6C7D100CD541C /* GSAccount.h in Headers */,
-				224EFF8615A6CC1F00CD541C /* GSAccountConfiguration.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
