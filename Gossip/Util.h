@@ -14,4 +14,5 @@
     }
 
 #define RETURN_NIL_IF_FAILED(status_) RETURN_IF_FAILED(status_, nil);
+#define RETURN_NO_IF_FAILED(status_) RETURN_IF_FAILED(status_, NO);
 #define RETURN_VOID_IF_FAILED(status_) RETURN_IF_FAILED(status_, );

@@ -13,3 +13,4 @@
 
 // categories
 #import "NSError+pj_status_t.h"
+#import "NSString+pj_str_t.h"
