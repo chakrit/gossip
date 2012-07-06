@@ -35,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		224EFF7115A6B2A900CD541C /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		22AD824315A5987C0000D05C /* libGossip.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGossip.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		22AD824615A5987C0000D05C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		22AD824A15A5987C0000D05C /* Gossip-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gossip-Prefix.pch"; sourceTree = "<group>"; };
@@ -129,6 +130,7 @@
 				22AD82DB15A5A1550000D05C /* GSUserAgent.h */,
 				22AD82EC15A5A7340000D05C /* NSError+pj_status_t.h */,
 				22AD82EA15A5A3CC0000D05C /* PJSIP.h */,
+				224EFF7115A6B2A900CD541C /* Util.h */,
 				22AD82DC15A5A1550000D05C /* GSUserAgent.m */,
 				22AD82ED15A5A7340000D05C /* NSError+pj_status_t.m */,
 				22AD824A15A5987C0000D05C /* Gossip-Prefix.pch */,
