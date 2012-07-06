@@ -26,19 +26,23 @@
 }
 
 - (void)loadTestAccounts {
-    GSAccountConfiguration *account1 = [GSAccountConfiguration defaultConfiguration];
-    account1.address = @"chakrit@getonsip.com";
-    account1.username = @"getonsip_chakrit";
-    account1.password = @"3WLDiLdLaUQiA5rr";
-    account1.domain = @"getonsip.com";
-    account1.proxyServer = @"sip.onsip.com";
+    NSMutableArray *accounts = [NSMutableArray arrayWithCapacity:2];
     
-    GSAccountConfiguration *account2 = [account1 copy];
-    account2.address = @"chakrit2@getonsip.com";
-    account2.username = @"getonsip_chakrit2";
-    account2.password = @"RsbRokgpDZcbmuBT";
+    GSAccountConfiguration *account = [GSAccountConfiguration defaultConfiguration];
+    account.address = @"chakrit@getonsip.com";
+    account.username = @"getonsip_chakrit";
+    account.password = @"3WLDiLdLaUQiA5rr";
+    account.domain = @"getonsip.com";
+    account.proxyServer = @"sip.onsip.com";
+    [accounts addObject:account];
     
-    _testAccounts = [NSArray arrayWithObjects:account1, account2, nil];
+    account = [account copy];
+    account.address = @"chakrit2@getonsip.com";
+    account.username = @"getonsip_chakrit2";
+    account.password = @"RsbRokgpDZcbmuBT";
+    [accounts addObject:account];
+    
+    _testAccounts = [NSArray arrayWithArray:accounts];
 }
 
 - (void)loadView {
