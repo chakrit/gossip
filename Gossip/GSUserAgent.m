@@ -20,8 +20,10 @@ void onCallState(pjsua_call_id callId, pjsip_event *e);
     BOOL _suaInitialized;
     
     pjsua_transport_id _transportId;
-    pjsua_acc_id _accountId;
 }
+
+@synthesize account = _account;
+
 
 + (id)sharedAgent {
     static GSUserAgent *agent = nil;
@@ -38,6 +40,7 @@ void onCallState(pjsua_call_id callId, pjsip_event *e);
     if (self = [super init]) {
         _suaCreated = NO;
         _suaInitialized = NO;
+        _account = nil;
         _config = nil;
     }
     return self;
@@ -50,6 +53,7 @@ void onCallState(pjsua_call_id callId, pjsip_event *e);
         _suaCreated = NO;
     }
     
+    _account = nil;
     _config = nil;
 }
 
@@ -97,46 +101,20 @@ void onCallState(pjsua_call_id callId, pjsip_event *e);
     status = pjsua_transport_create(PJSIP_TRANSPORT_UDP, &transportConfig, &_transportId);
     RETURN_NO_IF_FAILED(status);
     
-    return YES; // successful so far
+    // configure account
+    _account = [[GSAccount alloc] init];
+    return [_account configure:_config.account];
 }
 
 
-// TODO: Seperate accounts from user agent.
 - (BOOL)connect {
-    pj_status_t status = pjsua_start();
-    RETURN_NO_IF_FAILED(status);
-    
-    // setup account
-    pjsua_acc_config accConfig;
-    pjsua_acc_config_default(&accConfig);
-    
-    accConfig.id = [_config.sipAddress PJStringWithSIPPrefix];
-    accConfig.reg_uri = [_config.sipDomain PJStringWithSIPPrefix];
-    accConfig.register_on_acc_add = PJ_TRUE;
-    accConfig.publish_enabled = PJ_TRUE;
-    
-    if (!_config.sipProxyServer) {
-        accConfig.proxy_cnt = 0;
-    } else {
-        accConfig.proxy_cnt = 1;
-        accConfig.proxy[0] = [_config.sipProxyServer PJStringWithSIPPrefix];
-    }
-    
-    status = pjsua_acc_add(&accConfig, PJ_TRUE, 0);
-    RETURN_NO_IF_FAILED(status);
-    
-    return YES;
-}
-
-- (BOOL)disconnect {
-    pjsua_acc_del(_accountId);
-    RETURN_NO_IF_FAILED(status);
-
-    return YES;
+    NSAssert(_suaInitialized && !!_account, @"User agent not configured.");
+    return [_account connect];
 }
 
 @end
 
+// TODO: Move dispatch stuff to another file
 
 void onRegistrationState(pjsua_acc_id accountId) {
 

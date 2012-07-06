@@ -170,12 +170,12 @@
 		22AD824815A5987C0000D05C /* Gossip */ = {
 			isa = PBXGroup;
 			children = (
-				224EFF8315A6C83C00CD541C /* Configuration */,
 				224EFF7815A6BA9000CD541C /* Gossip.h */,
 				224EFF7F15A6C7D100CD541C /* GSAccount.h */,
 				22AD82DB15A5A1550000D05C /* GSUserAgent.h */,
 				224EFF8015A6C7D100CD541C /* GSAccount.m */,
 				22AD82DC15A5A1550000D05C /* GSUserAgent.m */,
+				224EFF8315A6C83C00CD541C /* Configuration */,
 				224EFF7E15A6C29900CD541C /* Util */,
 			);
 			path = Gossip;

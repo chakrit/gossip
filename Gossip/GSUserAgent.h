@@ -5,11 +5,15 @@
 //  Created by Chakrit Wichian on 7/5/12.
 //
 
+#import "GSAccount.h"
 #import "GSConfiguration.h"
+
 
 /// Mains user agent interface. Applications should interact mainly with this class.
 /// Applications must call -(void)configure on launch.
 @interface GSUserAgent : NSObject
+
+@property (nonatomic, strong, readonly) GSAccount *account;
 
 /// Obtains the shared user agent instance.
 + (id)sharedAgent;
