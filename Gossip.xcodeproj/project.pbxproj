@@ -12,6 +12,10 @@
 		224EFF7915A6BAEC00CD541C /* Gossip.h in Headers */ = {isa = PBXBuildFile; fileRef = 224EFF7815A6BA9000CD541C /* Gossip.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		224EFF7C15A6C29500CD541C /* NSString+pj_str_t.h in Headers */ = {isa = PBXBuildFile; fileRef = 224EFF7A15A6C29400CD541C /* NSString+pj_str_t.h */; };
 		224EFF7D15A6C29500CD541C /* NSString+pj_str_t.m in Sources */ = {isa = PBXBuildFile; fileRef = 224EFF7B15A6C29500CD541C /* NSString+pj_str_t.m */; };
+		224EFF8115A6C7D100CD541C /* GSAccount.h in Headers */ = {isa = PBXBuildFile; fileRef = 224EFF7F15A6C7D100CD541C /* GSAccount.h */; };
+		224EFF8215A6C7D100CD541C /* GSAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 224EFF8015A6C7D100CD541C /* GSAccount.m */; };
+		224EFF8615A6CC1F00CD541C /* GSAccountConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 224EFF8415A6CC1F00CD541C /* GSAccountConfiguration.h */; };
+		224EFF8715A6CC1F00CD541C /* GSAccountConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 224EFF8515A6CC1F00CD541C /* GSAccountConfiguration.m */; };
 		22AD824715A5987C0000D05C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22AD824615A5987C0000D05C /* Foundation.framework */; };
 		22AD82C515A5A0350000D05C /* libg7221codec-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22AD82B215A5A0350000D05C /* libg7221codec-arm-apple-darwin9.a */; };
 		22AD82C615A5A0350000D05C /* libgsmcodec-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22AD82B315A5A0350000D05C /* libgsmcodec-arm-apple-darwin9.a */; };
@@ -46,6 +50,10 @@
 		224EFF7815A6BA9000CD541C /* Gossip.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Gossip.h; sourceTree = "<group>"; };
 		224EFF7A15A6C29400CD541C /* NSString+pj_str_t.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+pj_str_t.h"; sourceTree = "<group>"; };
 		224EFF7B15A6C29500CD541C /* NSString+pj_str_t.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+pj_str_t.m"; sourceTree = "<group>"; };
+		224EFF7F15A6C7D100CD541C /* GSAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSAccount.h; sourceTree = "<group>"; };
+		224EFF8015A6C7D100CD541C /* GSAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSAccount.m; sourceTree = "<group>"; };
+		224EFF8415A6CC1F00CD541C /* GSAccountConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSAccountConfiguration.h; sourceTree = "<group>"; };
+		224EFF8515A6CC1F00CD541C /* GSAccountConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSAccountConfiguration.m; sourceTree = "<group>"; };
 		22AD824315A5987C0000D05C /* libGossip.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGossip.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		22AD824615A5987C0000D05C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		22AD824A15A5987C0000D05C /* Gossip-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gossip-Prefix.pch"; sourceTree = "<group>"; };
@@ -122,6 +130,17 @@
 			name = Util;
 			sourceTree = "<group>";
 		};
+		224EFF8315A6C83C00CD541C /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				224EFF8415A6CC1F00CD541C /* GSAccountConfiguration.h */,
+				224EFF7315A6B97F00CD541C /* GSConfiguration.h */,
+				224EFF8515A6CC1F00CD541C /* GSAccountConfiguration.m */,
+				224EFF7415A6B97F00CD541C /* GSConfiguration.m */,
+			);
+			name = Configuration;
+			sourceTree = "<group>";
+		};
 		22AD823815A5987C0000D05C = {
 			isa = PBXGroup;
 			children = (
@@ -151,10 +170,11 @@
 		22AD824815A5987C0000D05C /* Gossip */ = {
 			isa = PBXGroup;
 			children = (
+				224EFF8315A6C83C00CD541C /* Configuration */,
 				224EFF7815A6BA9000CD541C /* Gossip.h */,
-				224EFF7315A6B97F00CD541C /* GSConfiguration.h */,
+				224EFF7F15A6C7D100CD541C /* GSAccount.h */,
 				22AD82DB15A5A1550000D05C /* GSUserAgent.h */,
-				224EFF7415A6B97F00CD541C /* GSConfiguration.m */,
+				224EFF8015A6C7D100CD541C /* GSAccount.m */,
 				22AD82DC15A5A1550000D05C /* GSUserAgent.m */,
 				224EFF7E15A6C29900CD541C /* Util */,
 			);
@@ -200,6 +220,8 @@
 				224EFF7515A6B97F00CD541C /* GSConfiguration.h in Headers */,
 				22AD82EE15A5A7340000D05C /* NSError+pj_status_t.h in Headers */,
 				224EFF7C15A6C29500CD541C /* NSString+pj_str_t.h in Headers */,
+				224EFF8115A6C7D100CD541C /* GSAccount.h in Headers */,
+				224EFF8615A6CC1F00CD541C /* GSAccountConfiguration.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +281,8 @@
 				22AD82EF15A5A7340000D05C /* NSError+pj_status_t.m in Sources */,
 				224EFF7615A6B97F00CD541C /* GSConfiguration.m in Sources */,
 				224EFF7D15A6C29500CD541C /* NSString+pj_str_t.m in Sources */,
+				224EFF8215A6C7D100CD541C /* GSAccount.m in Sources */,
+				224EFF8715A6CC1F00CD541C /* GSAccountConfiguration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -128,6 +128,13 @@ void onCallState(pjsua_call_id callId, pjsip_event *e);
     return YES;
 }
 
+- (BOOL)disconnect {
+    pjsua_acc_del(_accountId);
+    RETURN_NO_IF_FAILED(status);
+
+    return YES;
+}
+
 @end
 
 

@@ -16,13 +16,7 @@
 @synthesize clockRate = _clockRate;
 @synthesize soundClockRate = _soundClockRate;
 
-@synthesize sipAddress = _sipAddress;
-@synthesize sipDomain = _sipDomain;
-@synthesize sipProxyServer = _sipProxyServer;
-@synthesize sipAuthScheme = _sipAuthScheme;
-@synthesize sipAuthRealm = _sipAuthRealm;
-@synthesize sipUsername = _sipUsername;
-@synthesize sipPassword = _sipPassword;
+@synthesize account = _account;
 
 
 + (id)defaultConfiguration {
@@ -45,17 +39,13 @@
     _clockRate = 8000;
     _soundClockRate = 8000;
     
+    _account = [GSAccountConfiguration defaultConfiguration];
+    
     return self;
 }
 
 - (void)dealloc {
-    _sipAddress = nil;
-    _sipDomain = nil;
-    _sipProxyServer = nil;
-    _sipAuthScheme = nil;
-    _sipAuthRealm = nil;
-    _sipUsername = nil;
-    _sipPassword = nil;
+    _account = nil;
 }
 
 
@@ -68,12 +58,7 @@
     replica.clockRate = self.clockRate;
     replica.soundClockRate = self.soundClockRate;
     
-    replica.sipAddress = self.sipAddress;
-    replica.sipDomain = self.sipDomain;
-    replica.sipProxyServer = self.sipProxyServer;
-    replica.sipAuthScheme = self.sipAuthScheme;
-    replica.sipUsername = self.sipUsername;
-    replica.sipPassword = self.sipPassword;
+    replica.account = [self.account copy];
     
     return replica;
 }
