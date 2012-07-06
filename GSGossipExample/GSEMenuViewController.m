@@ -6,34 +6,40 @@
 //
 
 #import "GSEMenuViewController.h"
+#import "Gossip.h"
 
 
 @implementation GSEMenuViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+@synthesize statusLabel = _statusLabel;
+
+- (void)dealloc {
+    _statusLabel = nil;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+
+- (NSString *)title {
+    return @"Menu";
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
+
+- (void)viewDidLoad {
+    [[self navigationItem] setHidesBackButton:YES];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+
+- (IBAction)userDidTapConnect {
+    GSUserAgent *agent = [GSUserAgent sharedAgent];
+    [agent.account connect];
+}
+
+- (IBAction)userDidTapDisconnect {
+    GSUserAgent *agent = [GSUserAgent sharedAgent];
+    [agent.account disconnect];    
+}
+
+- (IBAction)userDidTapMakeCall {
+    // TODO: Show call screen.
 }
 
 @end

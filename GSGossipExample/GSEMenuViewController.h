@@ -5,8 +5,13 @@
 //  Created by Chakrit Wichian on 7/6/12.
 //
 
-#import <UIKit/UIKit.h>
 
 @interface GSEMenuViewController : UIViewController
+
+@property (nonatomic, strong) IBOutlet UILabel *statusLabel;
+
+- (IBAction)userDidTapConnect;
+- (IBAction)userDidTapDisconnect;
+- (IBAction)userDidTapMakeCall;
 
 @end

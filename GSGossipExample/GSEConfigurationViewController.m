@@ -7,6 +7,7 @@
 
 #import "GSEConfigurationViewController.h"
 #import "Gossip.h"
+#import "GSEMenuViewController.h"
 
 
 @interface GSEConfigurationViewController () <UITableViewDataSource, UITableViewDelegate> @end
@@ -74,6 +75,9 @@
     
     GSUserAgent *agent = [GSUserAgent sharedAgent];
     [agent configure:configuration];
+    
+    GSEMenuViewController *menu = [[GSEMenuViewController alloc] init];
+    [[self navigationController] pushViewController:menu animated:YES];
 }
 
 
