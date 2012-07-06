@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		222D263015A702D00035CB04 /* GSDispatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 222D262E15A702D00035CB04 /* GSDispatch.h */; };
+		222D263115A702D00035CB04 /* GSDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 222D262F15A702D00035CB04 /* GSDispatch.m */; };
 		2242FB8B15A6D8A500B34D4F /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2242FB8A15A6D8A500B34D4F /* CoreAudio.framework */; };
 		2242FB8D15A6D8B000B34D4F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2242FB8C15A6D8B000B34D4F /* CFNetwork.framework */; };
 		2242FB8F15A6D8D400B34D4F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2242FB8C15A6D8B000B34D4F /* CFNetwork.framework */; };
@@ -78,6 +80,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		222D262E15A702D00035CB04 /* GSDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSDispatch.h; sourceTree = "<group>"; };
+		222D262F15A702D00035CB04 /* GSDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSDispatch.m; sourceTree = "<group>"; };
 		2242FB8A15A6D8A500B34D4F /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		2242FB8C15A6D8B000B34D4F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		2242FB9115A6D8F500B34D4F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -285,8 +289,10 @@
 			children = (
 				224EFF7815A6BA9000CD541C /* Gossip.h */,
 				224EFF7F15A6C7D100CD541C /* GSAccount.h */,
+				222D262E15A702D00035CB04 /* GSDispatch.h */,
 				22AD82DB15A5A1550000D05C /* GSUserAgent.h */,
 				224EFF8015A6C7D100CD541C /* GSAccount.m */,
+				222D262F15A702D00035CB04 /* GSDispatch.m */,
 				22AD82DC15A5A1550000D05C /* GSUserAgent.m */,
 				224EFF8315A6C83C00CD541C /* Configuration */,
 				224EFF7E15A6C29900CD541C /* Util */,
@@ -336,6 +342,7 @@
 				224A003C15A6F21100CC5890 /* PJSIP.h in Headers */,
 				224A003D15A6F21600CC5890 /* Util.h in Headers */,
 				224A004415A6FA2600CC5890 /* GSPJUtil.h in Headers */,
+				222D263015A702D00035CB04 /* GSDispatch.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +446,7 @@
 				224EFF8215A6C7D100CD541C /* GSAccount.m in Sources */,
 				224EFF8715A6CC1F00CD541C /* GSAccountConfiguration.m in Sources */,
 				224A004515A6FA2600CC5890 /* GSPJUtil.m in Sources */,
+				222D263115A702D00035CB04 /* GSDispatch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

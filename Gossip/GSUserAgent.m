@@ -6,14 +6,9 @@
 //
 
 #import "GSUserAgent.h"
+#import "GSDispatch.h"
 #import "PJSIP.h"
 #import "Util.h"
-
-
-void onRegistrationState(pjsua_acc_id accountId);
-void onIncomingCall(pjsua_acc_id accountId, pjsua_call_id callId, pjsip_rx_data *rdata);
-void onCallMediaState(pjsua_call_id callId);
-void onCallState(pjsua_call_id callId, pjsip_event *e);
 
 
 @implementation GSUserAgent {
@@ -78,10 +73,7 @@ void onCallState(pjsua_call_id callId, pjsip_event *e);
     pjsua_media_config mediaConfig;
     
     pjsua_config_default(&uaConfig);
-    uaConfig.cb.on_incoming_call = &onIncomingCall;
-    uaConfig.cb.on_call_media_state = &onCallMediaState;
-    uaConfig.cb.on_call_state = &onCallState;
-    uaConfig.cb.on_reg_state = &onRegistrationState;
+    [GSDispatch configureCallbacksForAgent:&uaConfig];
     
     pjsua_logging_config_default(&logConfig);
     logConfig.level = _config.logLevel;
@@ -115,21 +107,3 @@ void onCallState(pjsua_call_id callId, pjsip_event *e);
 }
 
 @end
-
-// TODO: Move dispatch stuff to another file
-
-void onRegistrationState(pjsua_acc_id accountId) {
-
-}
-
-void onIncomingCall(pjsua_acc_id accountId, pjsua_call_id callId, pjsip_rx_data *rdata) {
-    
-}
-
-void onCallMediaState(pjsua_call_id callId) {
-    
-}
-
-void onCallState(pjsua_call_id callId, pjsip_event *e) {
-    
-}
