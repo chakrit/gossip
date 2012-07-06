@@ -6,12 +6,26 @@
 //
 
 #import "GSEAppDelegate.h"
+#import "GSERootViewController.h"
+
+#import "GSConfiguration.h"
+#import "GSUserAgent.h"
 
 
-@implementation GSEAppDelegate
+@implementation GSEAppDelegate {
+    UIWindow *_window;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    // initialize view
+    GSERootViewController *root = [[GSERootViewController alloc] init];
+    
+    _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [_window setRootViewController:root];
+    [_window makeKeyAndVisible];
+    
+    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application { }

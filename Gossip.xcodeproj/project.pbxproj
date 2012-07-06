@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2242FB8B15A6D8A500B34D4F /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2242FB8A15A6D8A500B34D4F /* CoreAudio.framework */; };
+		2242FB8D15A6D8B000B34D4F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2242FB8C15A6D8B000B34D4F /* CFNetwork.framework */; };
+		2242FB8F15A6D8D400B34D4F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2242FB8C15A6D8B000B34D4F /* CFNetwork.framework */; };
+		2242FB9015A6D8D600B34D4F /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2242FB8A15A6D8A500B34D4F /* CoreAudio.framework */; };
+		2242FB9215A6D8F500B34D4F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2242FB9115A6D8F500B34D4F /* AudioToolbox.framework */; };
+		2242FB9415A6D8FC00B34D4F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2242FB9315A6D8FC00B34D4F /* AVFoundation.framework */; };
+		2242FB9515A6D90000B34D4F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2242FB9315A6D8FC00B34D4F /* AVFoundation.framework */; };
+		2242FB9615A6D90000B34D4F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2242FB9115A6D8F500B34D4F /* AudioToolbox.framework */; };
 		224EFF7515A6B97F00CD541C /* GSConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 224EFF7315A6B97F00CD541C /* GSConfiguration.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		224EFF7615A6B97F00CD541C /* GSConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 224EFF7415A6B97F00CD541C /* GSConfiguration.m */; };
 		224EFF7915A6BAEC00CD541C /* Gossip.h in Headers */ = {isa = PBXBuildFile; fileRef = 224EFF7815A6BA9000CD541C /* Gossip.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -23,6 +31,8 @@
 		224EFF9A15A6D27600CD541C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 224EFF9915A6D27600CD541C /* main.m */; };
 		224EFF9E15A6D27600CD541C /* GSEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 224EFF9D15A6D27600CD541C /* GSEAppDelegate.m */; };
 		224EFFA415A6D28B00CD541C /* libGossip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22AD824315A5987C0000D05C /* libGossip.a */; };
+		224EFFAD15A6D39200CD541C /* GSERootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224EFFAA15A6D37D00CD541C /* GSERootViewController.m */; };
+		224EFFB615A6D7D000CD541C /* GSEConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224EFFB315A6D7C300CD541C /* GSEConfigurationViewController.m */; };
 		22AD824715A5987C0000D05C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22AD824615A5987C0000D05C /* Foundation.framework */; };
 		22AD82C515A5A0350000D05C /* libg7221codec-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22AD82B215A5A0350000D05C /* libg7221codec-arm-apple-darwin9.a */; };
 		22AD82C615A5A0350000D05C /* libgsmcodec-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22AD82B315A5A0350000D05C /* libgsmcodec-arm-apple-darwin9.a */; };
@@ -61,6 +71,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2242FB8A15A6D8A500B34D4F /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		2242FB8C15A6D8B000B34D4F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		2242FB9115A6D8F500B34D4F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		2242FB9315A6D8FC00B34D4F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		224EFF7115A6B2A900CD541C /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		224EFF7315A6B97F00CD541C /* GSConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSConfiguration.h; sourceTree = "<group>"; };
 		224EFF7415A6B97F00CD541C /* GSConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSConfiguration.m; sourceTree = "<group>"; };
@@ -71,7 +85,7 @@
 		224EFF8015A6C7D100CD541C /* GSAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSAccount.m; sourceTree = "<group>"; };
 		224EFF8415A6CC1F00CD541C /* GSAccountConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSAccountConfiguration.h; sourceTree = "<group>"; };
 		224EFF8515A6CC1F00CD541C /* GSAccountConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSAccountConfiguration.m; sourceTree = "<group>"; };
-		224EFF8C15A6D27600CD541C /* GSGossipExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSGossipExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		224EFF8C15A6D27600CD541C /* GossipExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GossipExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		224EFF8E15A6D27600CD541C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		224EFF9115A6D27600CD541C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		224EFF9515A6D27600CD541C /* GSGossipExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GSGossipExample-Info.plist"; sourceTree = "<group>"; };
@@ -80,6 +94,10 @@
 		224EFF9B15A6D27600CD541C /* GSGossipExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GSGossipExample-Prefix.pch"; sourceTree = "<group>"; };
 		224EFF9C15A6D27600CD541C /* GSEAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSEAppDelegate.h; sourceTree = "<group>"; };
 		224EFF9D15A6D27600CD541C /* GSEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GSEAppDelegate.m; sourceTree = "<group>"; };
+		224EFFA915A6D37D00CD541C /* GSERootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSERootViewController.h; sourceTree = "<group>"; };
+		224EFFAA15A6D37D00CD541C /* GSERootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSERootViewController.m; sourceTree = "<group>"; };
+		224EFFB215A6D7C300CD541C /* GSEConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSEConfigurationViewController.h; sourceTree = "<group>"; };
+		224EFFB315A6D7C300CD541C /* GSEConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSEConfigurationViewController.m; sourceTree = "<group>"; };
 		22AD824315A5987C0000D05C /* libGossip.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGossip.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		22AD824615A5987C0000D05C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		22AD824A15A5987C0000D05C /* Gossip-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gossip-Prefix.pch"; sourceTree = "<group>"; };
@@ -119,6 +137,10 @@
 				224EFF8F15A6D27600CD541C /* UIKit.framework in Frameworks */,
 				224EFF9015A6D27600CD541C /* Foundation.framework in Frameworks */,
 				224EFF9215A6D27600CD541C /* CoreGraphics.framework in Frameworks */,
+				2242FB8F15A6D8D400B34D4F /* CFNetwork.framework in Frameworks */,
+				2242FB9015A6D8D600B34D4F /* CoreAudio.framework in Frameworks */,
+				2242FB9515A6D90000B34D4F /* AVFoundation.framework in Frameworks */,
+				2242FB9615A6D90000B34D4F /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +148,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2242FB9415A6D8FC00B34D4F /* AVFoundation.framework in Frameworks */,
+				2242FB9215A6D8F500B34D4F /* AudioToolbox.framework in Frameworks */,
+				2242FB8D15A6D8B000B34D4F /* CFNetwork.framework in Frameworks */,
+				2242FB8B15A6D8A500B34D4F /* CoreAudio.framework in Frameworks */,
 				22AD824715A5987C0000D05C /* Foundation.framework in Frameworks */,
 				22AD82C515A5A0350000D05C /* libg7221codec-arm-apple-darwin9.a in Frameworks */,
 				22AD82C615A5A0350000D05C /* libgsmcodec-arm-apple-darwin9.a in Frameworks */,
@@ -182,7 +208,11 @@
 			isa = PBXGroup;
 			children = (
 				224EFF9C15A6D27600CD541C /* GSEAppDelegate.h */,
+				224EFFB215A6D7C300CD541C /* GSEConfigurationViewController.h */,
+				224EFFA915A6D37D00CD541C /* GSERootViewController.h */,
 				224EFF9D15A6D27600CD541C /* GSEAppDelegate.m */,
+				224EFFB315A6D7C300CD541C /* GSEConfigurationViewController.m */,
+				224EFFAA15A6D37D00CD541C /* GSERootViewController.m */,
 				224EFF9415A6D27600CD541C /* Supporting Files */,
 			);
 			name = ExampleApp;
@@ -192,6 +222,8 @@
 		224EFF9415A6D27600CD541C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				224EFF9115A6D27600CD541C /* CoreGraphics.framework */,
+				224EFF8E15A6D27600CD541C /* UIKit.framework */,
 				224EFF9915A6D27600CD541C /* main.m */,
 				224EFF9B15A6D27600CD541C /* GSGossipExample-Prefix.pch */,
 				224EFF9515A6D27600CD541C /* GSGossipExample-Info.plist */,
@@ -214,7 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				22AD824315A5987C0000D05C /* libGossip.a */,
-				224EFF8C15A6D27600CD541C /* GSGossipExample.app */,
+				224EFF8C15A6D27600CD541C /* GossipExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -222,10 +254,12 @@
 		22AD824515A5987C0000D05C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2242FB9115A6D8F500B34D4F /* AudioToolbox.framework */,
+				2242FB9315A6D8FC00B34D4F /* AVFoundation.framework */,
+				2242FB8C15A6D8B000B34D4F /* CFNetwork.framework */,
+				2242FB8A15A6D8A500B34D4F /* CoreAudio.framework */,
 				22AD824615A5987C0000D05C /* Foundation.framework */,
 				22AD826415A59F7D0000D05C /* PJSIP */,
-				224EFF8E15A6D27600CD541C /* UIKit.framework */,
-				224EFF9115A6D27600CD541C /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -291,9 +325,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		224EFF8B15A6D27600CD541C /* GSGossipExample */ = {
+		224EFF8B15A6D27600CD541C /* GossipExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 224EFF9F15A6D27600CD541C /* Build configuration list for PBXNativeTarget "GSGossipExample" */;
+			buildConfigurationList = 224EFF9F15A6D27600CD541C /* Build configuration list for PBXNativeTarget "GossipExample" */;
 			buildPhases = (
 				224EFF8815A6D27600CD541C /* Sources */,
 				224EFF8915A6D27600CD541C /* Frameworks */,
@@ -304,9 +338,9 @@
 			dependencies = (
 				224EFFA315A6D28800CD541C /* PBXTargetDependency */,
 			);
-			name = GSGossipExample;
+			name = GossipExample;
 			productName = GSGossipExample;
-			productReference = 224EFF8C15A6D27600CD541C /* GSGossipExample.app */;
+			productReference = 224EFF8C15A6D27600CD541C /* GossipExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 		22AD824215A5987C0000D05C /* Gossip */ = {
@@ -349,7 +383,7 @@
 			projectRoot = "";
 			targets = (
 				22AD824215A5987C0000D05C /* Gossip */,
-				224EFF8B15A6D27600CD541C /* GSGossipExample */,
+				224EFF8B15A6D27600CD541C /* GossipExample */,
 			);
 		};
 /* End PBXProject section */
@@ -372,6 +406,8 @@
 			files = (
 				224EFF9A15A6D27600CD541C /* main.m in Sources */,
 				224EFF9E15A6D27600CD541C /* GSEAppDelegate.m in Sources */,
+				224EFFAD15A6D39200CD541C /* GSERootViewController.m in Sources */,
+				224EFFB615A6D7D000CD541C /* GSEConfigurationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,13 +565,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		224EFF9F15A6D27600CD541C /* Build configuration list for PBXNativeTarget "GSGossipExample" */ = {
+		224EFF9F15A6D27600CD541C /* Build configuration list for PBXNativeTarget "GossipExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				224EFFA015A6D27600CD541C /* Debug */,
 				224EFFA115A6D27600CD541C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		22AD823D15A5987C0000D05C /* Build configuration list for PBXProject "Gossip" */ = {
 			isa = XCConfigurationList;

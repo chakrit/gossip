@@ -1,0 +1,117 @@
+//
+//  GSEConfigurationViewController.m
+//  Gossip
+//
+//  Created by Chakrit Wichian on 7/6/12.
+//
+
+#import "GSEConfigurationViewController.h"
+#import "Gossip.h"
+
+
+@interface GSEConfigurationViewController () <UITableViewDataSource, UITableViewDelegate> @end
+
+
+@implementation GSEConfigurationViewController {
+//    UITableView *_tableView;
+    NSArray *_testAccounts;
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    if (self = [super initWithNibName:nil bundle:nil]) {
+        _testAccounts = nil;
+        [self loadTestAccounts];
+    }
+    return self;
+}
+
+- (void)loadTestAccounts {
+    GSAccountConfiguration *account1 = [GSAccountConfiguration defaultConfiguration];
+    account1.address = @"chakrit@getonsip.com";
+    account1.username = @"getonsip_chakrit";
+    account1.password = @"3WLDiLdLaUQiA5rr";
+    account1.domain = @"getonsip.com";
+    account1.proxyServer = @"sip.onsip.com";
+    
+    GSAccountConfiguration *account2 = [account1 copy];
+    account2.address = @"chakrit2@getonsip.com";
+    account2.username = @"getonsip_chakrit2";
+    account2.password = @"RsbRokgpDZcbmuBT";
+    
+    _testAccounts = [NSArray arrayWithObjects:account1, account2, nil];
+}
+
+- (void)loadView {
+    CGRect frame = CGRectMake(0, 0, 320, 480);
+    
+    UITableView *tableView = [UITableView alloc];
+    tableView = [tableView initWithFrame:frame style:UITableViewStylePlain];
+    [tableView setDelegate:self];
+    [tableView setDataSource:self];
+    
+    UIView *container = [[UIView alloc] init];
+    [container addSubview:tableView];
+    [self setView:container];
+}
+
+- (void)dealloc {
+    _testAccounts = nil;
+}
+
+
+- (NSString *)title {
+    return @"Account";
+}
+
+
+- (void)userDidSelectAccount:(GSAccountConfiguration *)accountConfig {
+    GSConfiguration *configuration = [GSConfiguration defaultConfiguration];
+    configuration.account = accountConfig;
+    
+    GSUserAgent *agent = [GSUserAgent sharedAgent];
+    [agent configure:configuration];
+}
+
+
+#pragma mark - UITableViewDatasource && UITableViewDelegate
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section {
+    return [_testAccounts count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *const kCellId = @"sip_account";
+    
+    NSInteger row = [indexPath row];
+    if (row < 0 || row == [_testAccounts count])
+        return nil;
+    
+    // build table cell
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellId];
+    if (!cell) {
+        cell = [UITableViewCell alloc];
+        cell = [cell initWithStyle:UITableViewCellStyleDefault
+                   reuseIdentifier:kCellId];
+    }
+    
+    GSAccountConfiguration *account = [_testAccounts objectAtIndex:row];
+    [[cell textLabel] setText:account.address];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger row = [indexPath row];
+    if (row < 0 || row == [_testAccounts count])
+        return;
+    
+    GSAccountConfiguration *account = [_testAccounts objectAtIndex:row];
+    [self userDidSelectAccount:account];
+}
+
+@end
