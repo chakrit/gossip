@@ -6,8 +6,6 @@
 //
 
 #import "GSDispatch.h"
-#import "GSNotifications.h"
-#import "PJSIP.h"
 
 
 void onRegistrationState(pjsua_acc_id accountId);
@@ -37,8 +35,8 @@ void onCallState(pjsua_call_id callId, pjsip_event *e);
                                        forKey:GSSIPAccountIdKey];
 
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    [center postNotificationName:GSSIPDidChangeRegistrationStateNotification
-                          object:nil
+    [center postNotificationName:GSSIPRegistrationStateDidChangeNotification
+                          object:self
                         userInfo:info];
 }
 
@@ -67,7 +65,7 @@ void onCallState(pjsua_call_id callId, pjsip_event *e);
                                        forKey:GSSIPCallIdKey];
     
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    [center postNotificationName:GSSIPDidChangeCallMediaStateNotification
+    [center postNotificationName:GSSIPCallMediaStateDidChangeNotification
                           object:self
                         userInfo:info];
 }
@@ -81,7 +79,7 @@ void onCallState(pjsua_call_id callId, pjsip_event *e);
             [NSValue valueWithPointer:e], GSSIPDataKey, nil];
     
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    [center postNotificationName:GSSIPDidChangeCallMediaStateNotification
+    [center postNotificationName:GSSIPCallStateDidChangeNotification
                           object:self
                         userInfo:info];
 }
@@ -91,32 +89,39 @@ void onCallState(pjsua_call_id callId, pjsip_event *e);
 
 #pragma mark - C event sink
 
-// NOTE: Needs to use dispatch_sync because we do not know the lifetime of the stuff being
+// Bridge C-land callbacks to ObjC-land.
+
+// NOTE: Why dispatch_sync() instead of dispatch_async() ?
+//   Needs to use dispatch_sync because we do not know the lifetime of the stuff being
 //   given to us by PJSIP (e.g. pjsip_rx_data*) so we must process it completely before
 //   the method ends.
 
-// Bridge C-land callbacks to ObjC-land.
+// NOTE: Why dispatch_get_current_queue() and not dispatch_get_main_queue() ?
+//   These almost alway gets called from a PJSIP-owned thread (not the main thread.)
+//   And that most pjsua calls will expects this to be true as well so we can't dispatch
+//   cross thread boundary immediately. This should be done at the notification receiver
+//   end once all processing is complete (to avoid any weird PJSIP cross-thread errors.)
+//   For example, pjsua_acc_get_info when used on the wrong thread in onRegistrationState
+//   change callback will cause the calling method to exit abrubtly without even returning
+//   any error value.
+
+static inline void dispatch(dispatch_block_t block) {
+    dispatch_sync(dispatch_get_current_queue(), block);
+}
+
 
 void onRegistrationState(pjsua_acc_id accountId) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        [GSDispatch dispatchRegistrationState:accountId];
-    });
+    dispatch(^{ [GSDispatch dispatchRegistrationState:accountId]; });
 }
 
 void onIncomingCall(pjsua_acc_id accountId, pjsua_call_id callId, pjsip_rx_data *rdata) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        [GSDispatch dispatchIncomingCall:accountId callId:callId data:rdata];
-    });
+    dispatch(^{ [GSDispatch dispatchIncomingCall:accountId callId:callId data:rdata]; });
 }
 
 void onCallMediaState(pjsua_call_id callId) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        [GSDispatch dispatchCallMediaState:callId];
-    });
+    dispatch(^{ [GSDispatch dispatchCallMediaState:callId]; });
 }
 
 void onCallState(pjsua_call_id callId, pjsip_event *e) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        [GSDispatch dispatchCallState:callId event:e];
-    });
+    dispatch(^{ [GSDispatch dispatchCallState:callId event:e]; });
 }

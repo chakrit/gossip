@@ -6,6 +6,7 @@
 //
 
 #import "GSAccount.h"
+#import "GSDispatch.h"
 #import "PJSIP.h"
 #import "Util.h"
 
@@ -22,11 +23,20 @@
         _status = GSAccountStatusOffline;
         _config = nil;
         _accountId = PJSUA_INVALID_ID;
+        
+        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+        [center addObserver:self
+                   selector:@selector(registrationStateDidChange:)
+                       name:GSSIPRegistrationStateDidChangeNotification
+                     object:[GSDispatch class]];
     }
     return self;
 }
 
 - (void)dealloc {
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center removeObserver:self];
+    
     if (_accountId != PJSUA_INVALID_ID) {
         pj_status_t status = pjsua_acc_del(_accountId);
         LOG_IF_FAILED(status);
@@ -92,6 +102,42 @@
     RETURN_NO_IF_FAILED(status);
     
     return YES;
+}
+
+
+- (void)registrationStateDidChange:(NSNotification *)notif {
+    pjsua_acc_id accountId = [[[notif userInfo] objectForKey:GSSIPAccountIdKey] intValue];
+    if (accountId == PJSUA_INVALID_ID || accountId != _accountId)
+        return;
+    
+    GSAccountStatus accStatus;
+    
+    pjsua_acc_info info;
+    pj_status_t status = pjsua_acc_get_info(accountId, &info);
+    RETURN_VOID_IF_FAILED(status);
+    
+    if (info.reg_last_err != PJ_SUCCESS) {
+        accStatus = GSAccountStatusInvalid;
+        
+    } else {
+        pjsip_status_code code = info.status;
+        if (code == 0) {
+            accStatus = GSAccountStatusOffline;
+        } else if (PJSIP_IS_STATUS_IN_CLASS(info.status, 100)) {
+            accStatus = GSAccountStatusConnecting;
+        } else if (PJSIP_IS_STATUS_IN_CLASS(info.status, 200)) {
+            accStatus = GSAccountStatusConnected;
+        } else {
+            accStatus = GSAccountStatusInvalid;
+        }
+    }
+    
+    // TODO: Execution order guarantee?
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self willChangeValueForKey:@"status"];
+        _status = accStatus;
+        [self didChangeValueForKey:@"status"];
+    });
 }
 
 @end

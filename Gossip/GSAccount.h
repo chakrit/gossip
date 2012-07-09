@@ -12,6 +12,7 @@
 typedef enum {
     GSAccountStatusOffline,
     GSAccountStatusInvalid,
+    GSAccountStatusConnecting,
     GSAccountStatusConnected,
 } GSAccountStatus;
 

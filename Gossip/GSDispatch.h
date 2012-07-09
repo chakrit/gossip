@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "PJSIP.h"
+#import "GSNotifications.h" // almost always needed by importers
 
 
 @interface GSDispatch : NSObject

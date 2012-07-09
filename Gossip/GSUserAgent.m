@@ -100,10 +100,4 @@
     return [_account configure:_config.account];
 }
 
-
-- (BOOL)connect {
-    NSAssert(_suaInitialized && !!_account, @"User agent not configured.");
-    return [_account connect];
-}
-
 @end

@@ -13,11 +13,11 @@
 // SIP Status checks macros
 #define LOG_IF_FAILED(status_)                                      \
     if (status != PJ_SUCCESS)                                       \
-        NSLog(@"GOSSIP: %@", [GSPJUtil errorWithSIPStatus:status]);
+        NSLog(@"Gossip: %@", [GSPJUtil errorWithSIPStatus:status]);
 
 #define RETURN_IF_FAILED(status_, value_)                           \
     if (status != PJ_SUCCESS) {                                     \
-        NSLog(@"GOSSIP: %@", [GSPJUtil errorWithSIPStatus:status]);  \
+        NSLog(@"Gossip: %@", [GSPJUtil errorWithSIPStatus:status]);  \
         return value_;                                              \
     }
 

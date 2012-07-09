@@ -9,10 +9,10 @@
 
 #define NOTIF_SYNT(name_) NSString *const name_ = @#name_;
 
-NOTIF_SYNT(GSSIPDidChangeRegistrationStateNotification);
-NOTIF_SYNT(GSSIPDidChangeCallStateNotification);
+NOTIF_SYNT(GSSIPRegistrationStateDidChangeNotification);
+NOTIF_SYNT(GSSIPCallStateDidChangeNotification);
 NOTIF_SYNT(GSSIPIncomingCallNotification);
-NOTIF_SYNT(GSSIPDidChangeCallMediaStateNotification);
+NOTIF_SYNT(GSSIPCallMediaStateDidChangeNotification);
 
 NOTIF_SYNT(GSSIPAccountIdKey);
 NOTIF_SYNT(GSSIPCallIdKey);
