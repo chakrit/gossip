@@ -84,6 +84,10 @@
     pj_status_t status = pjsua_call_hangup(_callId, 0, NULL, NULL);
     RETURN_NO_IF_FAILED(status);
     
+    [self willChangeValueForKey:@"status"];
+    _status = GSCallStatusDisconnected;
+    [self didChangeValueForKey:@"status"];
+    
     _callId = PJSUA_INVALID_ID;
     return YES;
 }
