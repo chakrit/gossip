@@ -6,6 +6,7 @@
 //
 
 #import "GSDispatch.h"
+#import "GSNotifications.h"
 #import "PJSIP.h"
 
 
@@ -26,21 +27,63 @@ void onCallState(pjsua_call_id callId, pjsip_event *e);
 
 
 + (void)dispatchRegistrationState:(pjsua_acc_id)accountId {
-    NSLog(@"DISPATCH: dispatchRegistrationState");
+    // TODO: May need to implement some form of subscriber filtering
+    //   orthogonaly/globally if we're to scale. But right now a few
+    //   dictionary lookups on the receiver side probably wouldn't hurt much.
+    NSLog(@"Gossip: dispatchRegistrationState(%d)", accountId);
+    
+    NSDictionary *info = nil;
+    info = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:accountId]
+                                       forKey:GSSIPAccountIdKey];
+
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center postNotificationName:GSSIPDidChangeRegistrationStateNotification
+                          object:nil
+                        userInfo:info];
 }
 
 + (void)dispatchIncomingCall:(pjsua_acc_id)accountId
                       callId:(pjsua_call_id)callId
                         data:(pjsip_rx_data *)data {
-    NSLog(@"DISPATCH: incoming call...");
+    NSLog(@"Gossip: dispatchIncomingCall(%d, %d)", accountId, callId);
+    
+    NSDictionary *info = nil;
+    info = [NSDictionary dictionaryWithObjectsAndKeys:
+            [NSNumber numberWithInt:accountId], GSSIPAccountIdKey,
+            [NSNumber numberWithInt:callId], GSSIPCallIdKey,
+            [NSValue valueWithPointer:data], GSSIPDataKey,nil];
+    
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center postNotificationName:GSSIPIncomingCallNotification
+                          object:self
+                        userInfo:info];
 }
 
 + (void)dispatchCallMediaState:(pjsua_call_id)callId {
-    NSLog(@"DISPATCH: call media state changed!");
+    NSLog(@"Gossip: dispatchCallMediaState(%d)", callId);
+    
+    NSDictionary *info = nil;
+    info = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:callId]
+                                       forKey:GSSIPCallIdKey];
+    
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center postNotificationName:GSSIPDidChangeCallMediaStateNotification
+                          object:self
+                        userInfo:info];
 }
 
 + (void)dispatchCallState:(pjsua_call_id)callId event:(pjsip_event *)e {
-    NSLog(@"DISPATCH: call state...");
+    NSLog(@"Gossip: dispatchCallState(%d)", callId);
+
+    NSDictionary *info = nil;
+    info = [NSDictionary dictionaryWithObjectsAndKeys:
+            [NSNumber numberWithInt:callId], GSSIPCallIdKey,
+            [NSValue valueWithPointer:e], GSSIPDataKey, nil];
+    
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center postNotificationName:GSSIPDidChangeCallMediaStateNotification
+                          object:self
+                        userInfo:info];
 }
 
 @end
@@ -49,7 +92,10 @@ void onCallState(pjsua_call_id callId, pjsip_event *e);
 #pragma mark - C event sink
 
 // NOTE: Needs to use dispatch_sync because we do not know the lifetime of the stuff being
-//   given to us by PJSIP (e.g. pjsip_rx_data) so we can't be doing async dispatching.
+//   given to us by PJSIP (e.g. pjsip_rx_data*) so we must process it completely before
+//   the method ends.
+
+// Bridge C-land callbacks to ObjC-land.
 
 void onRegistrationState(pjsua_acc_id accountId) {
     dispatch_sync(dispatch_get_main_queue(), ^{

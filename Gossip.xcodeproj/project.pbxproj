@@ -67,6 +67,7 @@
 		22AD824715A5987C0000D05C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22AD824615A5987C0000D05C /* Foundation.framework */; };
 		22AD82DD15A5A1550000D05C /* GSUserAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = 22AD82DB15A5A1550000D05C /* GSUserAgent.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		22AD82DE15A5A1550000D05C /* GSUserAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AD82DC15A5A1550000D05C /* GSUserAgent.m */; };
+		22D43D8315AAA5FE0099C79F /* GSNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D43D8215AAA5FE0099C79F /* GSNotifications.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +140,8 @@
 		22AD82DB15A5A1550000D05C /* GSUserAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSUserAgent.h; sourceTree = "<group>"; };
 		22AD82DC15A5A1550000D05C /* GSUserAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSUserAgent.m; sourceTree = "<group>"; };
 		22AD82EA15A5A3CC0000D05C /* PJSIP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PJSIP.h; sourceTree = "<group>"; };
+		22D43D8015AAA5270099C79F /* GSNotifications.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSNotifications.h; sourceTree = "<group>"; };
+		22D43D8215AAA5FE0099C79F /* GSNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSNotifications.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,9 +293,11 @@
 				224EFF7815A6BA9000CD541C /* Gossip.h */,
 				224EFF7F15A6C7D100CD541C /* GSAccount.h */,
 				222D262E15A702D00035CB04 /* GSDispatch.h */,
+				22D43D8015AAA5270099C79F /* GSNotifications.h */,
 				22AD82DB15A5A1550000D05C /* GSUserAgent.h */,
 				224EFF8015A6C7D100CD541C /* GSAccount.m */,
 				222D262F15A702D00035CB04 /* GSDispatch.m */,
+				22D43D8215AAA5FE0099C79F /* GSNotifications.m */,
 				22AD82DC15A5A1550000D05C /* GSUserAgent.m */,
 				224EFF8315A6C83C00CD541C /* Configuration */,
 				224EFF7E15A6C29900CD541C /* Util */,
@@ -447,6 +452,7 @@
 				224EFF8715A6CC1F00CD541C /* GSAccountConfiguration.m in Sources */,
 				224A004515A6FA2600CC5890 /* GSPJUtil.m in Sources */,
 				222D263115A702D00035CB04 /* GSDispatch.m in Sources */,
+				22D43D8315AAA5FE0099C79F /* GSNotifications.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
