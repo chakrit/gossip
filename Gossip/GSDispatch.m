@@ -14,7 +14,14 @@ void onCallMediaState(pjsua_call_id callId);
 void onCallState(pjsua_call_id callId, pjsip_event *e);
 
 
+static dispatch_queue_t _queue = NULL;
+
+
 @implementation GSDispatch
+
++ (void)initialize {
+    _queue = dispatch_queue_create("GSDispatch", DISPATCH_QUEUE_SERIAL);
+}
 
 + (void)configureCallbacksForAgent:(pjsua_config *)uaConfig {
     uaConfig->cb.on_incoming_call = &onIncomingCall;
@@ -96,17 +103,10 @@ void onCallState(pjsua_call_id callId, pjsip_event *e);
 //   given to us by PJSIP (e.g. pjsip_rx_data*) so we must process it completely before
 //   the method ends.
 
-// NOTE: Why dispatch_get_current_queue() and not dispatch_get_main_queue() ?
-//   These almost alway gets called from a PJSIP-owned thread (not the main thread.)
-//   And that most pjsua calls will expects this to be true as well so we can't dispatch
-//   cross thread boundary immediately. This should be done at the notification receiver
-//   end once all processing is complete (to avoid any weird PJSIP cross-thread errors.)
-//   For example, pjsua_acc_get_info when used on the wrong thread in onRegistrationState
-//   change callback will cause the calling method to exit abrubtly without even returning
-//   any error value.
-
 static inline void dispatch(dispatch_block_t block) {
-    dispatch_sync(dispatch_get_current_queue(), block);
+    @autoreleasepool { // TODO: Not sure if required?
+        dispatch_sync(_queue, block);
+    }
 }
 
 
