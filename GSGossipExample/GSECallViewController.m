@@ -25,7 +25,8 @@
 }
 
 - (void)dealloc {
-    _call = nil;
+    self.call = nil;
+    
     _statusLabel = nil;
     _hangupButton = nil;
 }
