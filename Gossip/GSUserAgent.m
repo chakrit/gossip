@@ -44,6 +44,11 @@
 }
 
 - (void)dealloc {
+    if (_transportId != PJSUA_INVALID_ID) {
+        pjsua_transport_close(_transportId, PJ_TRUE);
+        _transportId = PJSUA_INVALID_ID;
+    }
+    
     if (_suaCreated) {
         pjsua_destroy();
         _suaInitialized = NO;
