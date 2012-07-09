@@ -139,7 +139,7 @@
     }
     
     // TODO: Execution order guarantee?
-    dispatch_async(dispatch_get_main_queue(), ^{
+    dispatch_sync(dispatch_get_main_queue(), ^{
         [self willChangeValueForKey:@"status"];
         _status = accStatus;
         [self didChangeValueForKey:@"status"];
