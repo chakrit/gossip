@@ -13,16 +13,16 @@
 
 @implementation GSAccount {
     GSAccountConfiguration *_config;
-    pjsua_acc_id _accountId;
 }
 
+@synthesize accountId = _accountId;
 @synthesize status = _status;
 
 - (id)init {
     if (self = [super init]) {
+        _accountId = PJSUA_INVALID_ID;
         _status = GSAccountStatusOffline;
         _config = nil;
-        _accountId = PJSUA_INVALID_ID;
         
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         [center addObserver:self

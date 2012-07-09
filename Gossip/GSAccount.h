@@ -19,6 +19,7 @@ typedef enum {
 
 @interface GSAccount : NSObject
 
+@property (nonatomic, readonly) NSInteger accountId;
 @property (nonatomic, readonly) GSAccountStatus status;
 
 - (BOOL)configure:(GSAccountConfiguration *)configuration;
