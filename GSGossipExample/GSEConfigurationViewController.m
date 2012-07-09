@@ -75,8 +75,10 @@
     
     GSUserAgent *agent = [GSUserAgent sharedAgent];
     [agent configure:configuration];
+    [agent start];
     
     GSEMenuViewController *menu = [[GSEMenuViewController alloc] init];
+    menu.account = agent.account; // only one account supported, for now.
     [[self navigationController] pushViewController:menu animated:YES];
 }
 

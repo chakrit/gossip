@@ -6,15 +6,16 @@
 //
 
 #import "GSEMenuViewController.h"
-#import "Gossip.h"
+#import "GSECallInitController.h"
 
 
 @implementation GSEMenuViewController {
-    GSAccount *_account;
+    GSECallInitController *_callInit;
 }
 
-@synthesize statusLabel = _statusLabel;
+@synthesize account = _account;
 
+@synthesize statusLabel = _statusLabel;
 @synthesize connectButton = _connectButton;
 @synthesize disconnectButton = _disconnectButton;
 @synthesize makeCallButton = _makeCallButton;
@@ -22,14 +23,15 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        _account = [GSUserAgent sharedAgent].account;
+        _account = nil;
+        _callInit = nil;
     }
     return self;
 }
 
 - (void)dealloc {
-    [_account removeObserver:self forKeyPath:@"status"];
-    _account = nil;
+    self.account = nil;
+    _callInit = nil;
     
     _statusLabel = nil;
     _connectButton = nil;
@@ -40,6 +42,17 @@
 
 - (NSString *)title {
     return @"Menu";
+}
+
+- (void)setAccount:(GSAccount *)account {
+    [self willChangeValueForKey:@"account"];
+    [_account removeObserver:self forKeyPath:@"status"];
+    _account = account;
+    [_account addObserver:self
+               forKeyPath:@"status"
+                  options:NSKeyValueObservingOptionInitial
+                  context:nil];
+    [self didChangeValueForKey:@"account"];
 }
 
 
@@ -61,7 +74,12 @@
 }
 
 - (IBAction)userDidTapMakeCall {
-    // TODO: Show call screen.
+    if (!_callInit) {
+        _callInit = [[GSECallInitController alloc] init];
+        _callInit.navigationController = [self navigationController];
+    }
+    
+    [_callInit makeNewCall];
 }
 
 

@@ -5,8 +5,12 @@
 //  Created by Chakrit Wichian on 7/6/12.
 //
 
+#import "Gossip.h"
+
 
 @interface GSEMenuViewController : UIViewController
+
+@property (nonatomic, strong) GSAccount *account;
 
 @property (nonatomic, strong) IBOutlet UILabel *statusLabel;
 @property (nonatomic, strong) IBOutlet UIButton *connectButton;

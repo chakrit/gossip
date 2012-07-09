@@ -23,4 +23,6 @@
 /// For implementors, check the http://www.pjsip.org/pjsip/docs/html/structpjsua__acc__config.htm for reference.
 - (BOOL)configure:(GSConfiguration *)config;
 
+- (BOOL)start;
+
 @end

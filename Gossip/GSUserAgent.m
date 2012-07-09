@@ -37,6 +37,8 @@
         _suaInitialized = NO;
         _account = nil;
         _config = nil;
+        
+        _transportId = PJSUA_INVALID_ID;
     }
     return self;
 }
@@ -86,7 +88,8 @@
     RETURN_NO_IF_FAILED(status);
     _suaInitialized = YES;
     
-    // create UDP transport (TODO: Make configurable? i.e. which protocol to use)
+    // create UDP transport
+    // TODO: Make configurable? (which transport type to use/other transport opts)
     pjsua_transport_config transportConfig;
     pjsua_transport_config_default(&transportConfig);
     
@@ -96,6 +99,14 @@
     // configure account
     _account = [[GSAccount alloc] init];
     return [_account configure:_config.account];
+}
+
+
+- (BOOL)start {
+    pj_status_t status = pjsua_start();
+    RETURN_NO_IF_FAILED(status);
+    
+    return YES;
 }
 
 @end

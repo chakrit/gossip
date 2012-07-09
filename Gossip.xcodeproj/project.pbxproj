@@ -70,6 +70,9 @@
 		22D43D8315AAA5FE0099C79F /* GSNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D43D8215AAA5FE0099C79F /* GSNotifications.m */; };
 		22D43D8615AAC1C40099C79F /* GSCall.h in Headers */ = {isa = PBXBuildFile; fileRef = 22D43D8415AAC1C40099C79F /* GSCall.h */; };
 		22D43D8715AAC1C40099C79F /* GSCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D43D8515AAC1C40099C79F /* GSCall.m */; };
+		22D43D9115AAC9120099C79F /* GSECallInitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D43D8E15AAC90B0099C79F /* GSECallInitController.m */; };
+		22D43D9415AACD680099C79F /* GSECallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D43D9315AACD680099C79F /* GSECallViewController.m */; };
+		22D43D9615AACFAD0099C79F /* GSECallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D43D9515AACFAD0099C79F /* GSECallViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +149,11 @@
 		22D43D8215AAA5FE0099C79F /* GSNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSNotifications.m; sourceTree = "<group>"; };
 		22D43D8415AAC1C40099C79F /* GSCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSCall.h; sourceTree = "<group>"; };
 		22D43D8515AAC1C40099C79F /* GSCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSCall.m; sourceTree = "<group>"; };
+		22D43D8D15AAC90B0099C79F /* GSECallInitController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSECallInitController.h; sourceTree = "<group>"; };
+		22D43D8E15AAC90B0099C79F /* GSECallInitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSECallInitController.m; sourceTree = "<group>"; };
+		22D43D9215AACD680099C79F /* GSECallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSECallViewController.h; sourceTree = "<group>"; };
+		22D43D9315AACD680099C79F /* GSECallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSECallViewController.m; sourceTree = "<group>"; };
+		22D43D9515AACFAD0099C79F /* GSECallViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSECallViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,15 +238,20 @@
 			isa = PBXGroup;
 			children = (
 				224EFF9C15A6D27600CD541C /* GSEAppDelegate.h */,
+				22D43D8D15AAC90B0099C79F /* GSECallInitController.h */,
+				22D43D9215AACD680099C79F /* GSECallViewController.h */,
 				224EFFB215A6D7C300CD541C /* GSEConfigurationViewController.h */,
 				224A004615A6FD9800CC5890 /* GSEMenuViewController.h */,
 				224EFFA915A6D37D00CD541C /* GSERootViewController.h */,
 				224EFF9D15A6D27600CD541C /* GSEAppDelegate.m */,
+				22D43D8E15AAC90B0099C79F /* GSECallInitController.m */,
+				22D43D9315AACD680099C79F /* GSECallViewController.m */,
 				224EFFB315A6D7C300CD541C /* GSEConfigurationViewController.m */,
 				224A004715A6FD9800CC5890 /* GSEMenuViewController.m */,
 				224EFFAA15A6D37D00CD541C /* GSERootViewController.m */,
 				224A004C15A6FFBC00CC5890 /* GSEMenuViewController.xib */,
 				224EFF9415A6D27600CD541C /* Supporting Files */,
+				22D43D9515AACFAD0099C79F /* GSECallViewController.xib */,
 			);
 			name = ExampleApp;
 			path = GSGossipExample;
@@ -431,6 +444,7 @@
 			files = (
 				224EFF9815A6D27600CD541C /* InfoPlist.strings in Resources */,
 				224A004D15A6FFBC00CC5890 /* GSEMenuViewController.xib in Resources */,
+				22D43D9615AACFAD0099C79F /* GSECallViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +460,8 @@
 				224EFFAD15A6D39200CD541C /* GSERootViewController.m in Sources */,
 				224EFFB615A6D7D000CD541C /* GSEConfigurationViewController.m in Sources */,
 				224A004A15A6FD9B00CC5890 /* GSEMenuViewController.m in Sources */,
+				22D43D9115AAC9120099C79F /* GSECallInitController.m in Sources */,
+				22D43D9415AACD680099C79F /* GSECallViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

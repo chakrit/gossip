@@ -29,7 +29,7 @@
         _account = account;
         _callId = PJSUA_INVALID_ID;
         _status = GSCallStatusReady;
-        _callUri = callUri;
+        _callUri = [callUri copy];
     }
     return self;
 }
@@ -48,6 +48,9 @@
 
 
 - (BOOL)begin {
+    if (![_callUri hasPrefix:@"sip:"])
+        _callUri = [@"sip:" stringByAppendingString:_callUri];
+    
     pj_str_t callUriStr = [GSPJUtil PJStringWithString:_callUri];
     
     pjsua_call_setting callSetting;
