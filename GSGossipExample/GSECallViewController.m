@@ -64,15 +64,6 @@
 
 - (void)userDidTapHangUp {
     [_call end];
-    
-    // pop view after 1s
-    const double delayInSeconds = 1.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-
-    __block id self_ = self;
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [[self_ navigationController] popViewControllerAnimated:YES];
-    });
 }
 
 
@@ -80,6 +71,11 @@
     switch (_call.status) {
         case GSCallStatusReady: {
             [_statusLabel setText:@"Ready."];
+            [_hangupButton setEnabled:NO];
+        } break;
+            
+        case GSCallStatusConnecting: {
+            [_statusLabel setText:@"Connecting..."];
             [_hangupButton setEnabled:NO];
         } break;
             
@@ -96,6 +92,15 @@
         case GSCallStatusDisconnected: {
             [_statusLabel setText:@"Disconnected."];
             [_hangupButton setEnabled:YES];
+            
+            // pop view after 2s
+            const double delayInSeconds = 2.0;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+            
+            __block id self_ = self;
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                [[self_ navigationController] popViewControllerAnimated:YES];
+            });
         } break;
     }
 }

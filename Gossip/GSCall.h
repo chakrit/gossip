@@ -12,6 +12,7 @@
 typedef enum {
     GSCallStatusReady,
     GSCallStatusCalling,
+    GSCallStatusConnecting,
     GSCallStatusConnected,
     GSCallStatusDisconnected,
 } GSCallStatus;
