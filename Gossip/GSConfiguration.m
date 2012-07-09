@@ -33,8 +33,8 @@
         return nil; // init failed.
     
     // default values (taken form the Siphon project source)
-    _logLevel = 3;
-    _consoleLogLevel = 3;
+    _logLevel = 2;
+    _consoleLogLevel = 2;
     
     _clockRate = 8000;
     _soundClockRate = 8000;
