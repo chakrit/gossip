@@ -52,6 +52,7 @@
     UIAlertView *alertView = [[UIAlertView alloc] init];
     [alertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
     [alertView setTitle:@"Enter Address (or Number)"];
+    [[alertView textFieldAtIndex:0] setText:@"chakrit2@getonsip.com"];
     [alertView setDelegate:self];
     [alertView addButtonWithTitle:@"Cancel"];
     [alertView addButtonWithTitle:@"Call"];
