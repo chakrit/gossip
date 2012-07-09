@@ -52,7 +52,7 @@
     _account = nil;
     _callUri = nil;
     
-    if (pjsua_call_is_active(_callId)) {
+    if (_callId != PJSUA_INVALID_ID && pjsua_call_is_active(_callId)) {
         pj_status_t status = pjsua_call_hangup(_callId, 0, NULL, NULL);
         LOG_IF_FAILED(status);
     }
