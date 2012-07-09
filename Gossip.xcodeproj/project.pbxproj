@@ -110,10 +110,10 @@
 		224EFF8C15A6D27600CD541C /* GossipExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GossipExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		224EFF8E15A6D27600CD541C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		224EFF9115A6D27600CD541C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		224EFF9515A6D27600CD541C /* GSGossipExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GSGossipExample-Info.plist"; sourceTree = "<group>"; };
+		224EFF9515A6D27600CD541C /* GossipExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GossipExample-Info.plist"; sourceTree = "<group>"; };
 		224EFF9715A6D27600CD541C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		224EFF9915A6D27600CD541C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		224EFF9B15A6D27600CD541C /* GSGossipExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GSGossipExample-Prefix.pch"; sourceTree = "<group>"; };
+		224EFF9B15A6D27600CD541C /* GossipExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GossipExample-Prefix.pch"; sourceTree = "<group>"; };
 		224EFF9C15A6D27600CD541C /* GSEAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSEAppDelegate.h; sourceTree = "<group>"; };
 		224EFF9D15A6D27600CD541C /* GSEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GSEAppDelegate.m; sourceTree = "<group>"; };
 		224EFFA915A6D37D00CD541C /* GSERootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSERootViewController.h; sourceTree = "<group>"; };
@@ -254,7 +254,7 @@
 				22D43D9515AACFAD0099C79F /* GSECallViewController.xib */,
 			);
 			name = ExampleApp;
-			path = GSGossipExample;
+			path = GossipExample;
 			sourceTree = "<group>";
 		};
 		224EFF9415A6D27600CD541C /* Supporting Files */ = {
@@ -263,8 +263,8 @@
 				224EFF9115A6D27600CD541C /* CoreGraphics.framework */,
 				224EFF8E15A6D27600CD541C /* UIKit.framework */,
 				224EFF9915A6D27600CD541C /* main.m */,
-				224EFF9B15A6D27600CD541C /* GSGossipExample-Prefix.pch */,
-				224EFF9515A6D27600CD541C /* GSGossipExample-Info.plist */,
+				224EFF9B15A6D27600CD541C /* GossipExample-Prefix.pch */,
+				224EFF9515A6D27600CD541C /* GossipExample-Info.plist */,
 				224EFF9615A6D27600CD541C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -388,7 +388,7 @@
 				224EFFA315A6D28800CD541C /* PBXTargetDependency */,
 			);
 			name = GossipExample;
-			productName = GSGossipExample;
+			productName = GossipExample;
 			productReference = 224EFF8C15A6D27600CD541C /* GossipExample.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -507,8 +507,8 @@
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "GSGossipExample/GSGossipExample-Prefix.pch";
-				INFOPLIST_FILE = "GSGossipExample/GSGossipExample-Info.plist";
+				GCC_PREFIX_HEADER = "GossipExample/GossipExample-Prefix.pch";
+				INFOPLIST_FILE = "GossipExample/GossipExample-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/pjsip/lib\"",
@@ -525,8 +525,8 @@
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "GSGossipExample/GSGossipExample-Prefix.pch";
-				INFOPLIST_FILE = "GSGossipExample/GSGossipExample-Info.plist";
+				GCC_PREFIX_HEADER = "GossipExample/GossipExample-Prefix.pch";
+				INFOPLIST_FILE = "GossipExample/GossipExample-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/pjsip/lib\"",
