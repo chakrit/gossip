@@ -92,13 +92,19 @@
     pj_status_t status = pjsua_acc_set_registration(_accountId, PJ_TRUE);
     RETURN_NO_IF_FAILED(status);
     
+    status = pjsua_acc_set_online_status(_accountId, PJ_TRUE);
+    RETURN_NO_IF_FAILED(status);
+    
     return YES;
 }
 
 - (BOOL)disconnect {
     NSAssert(!!_config, @"GSAccount not configured.");
+        
+    pj_status_t status = pjsua_acc_set_online_status(_accountId, PJ_FALSE);
+    RETURN_NO_IF_FAILED(status);
     
-    pj_status_t status = pjsua_acc_set_registration(_accountId, PJ_FALSE);
+    status = pjsua_acc_set_registration(_accountId, PJ_FALSE);
     RETURN_NO_IF_FAILED(status);
     
     return YES;
@@ -115,17 +121,17 @@
     pjsua_acc_info info;
     pj_status_t status = pjsua_acc_get_info(accountId, &info);
     RETURN_VOID_IF_FAILED(status);
-    
+
     if (info.reg_last_err != PJ_SUCCESS) {
         accStatus = GSAccountStatusInvalid;
         
     } else {
         pjsip_status_code code = info.status;
-        if (code == 0) {
+        if (code == 0 || (info.online_status == PJ_FALSE)) {
             accStatus = GSAccountStatusOffline;
-        } else if (PJSIP_IS_STATUS_IN_CLASS(info.status, 100)) {
+        } else if (PJSIP_IS_STATUS_IN_CLASS(code, 100)) {
             accStatus = GSAccountStatusConnecting;
-        } else if (PJSIP_IS_STATUS_IN_CLASS(info.status, 200)) {
+        } else if (PJSIP_IS_STATUS_IN_CLASS(code, 200)) {
             accStatus = GSAccountStatusConnected;
         } else {
             accStatus = GSAccountStatusInvalid;
