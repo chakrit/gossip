@@ -25,9 +25,7 @@
 + (GSUserAgent *)sharedAgent {
     static GSUserAgent *agent = nil;
     static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        agent = [[GSUserAgent alloc] init];
-    });
+    dispatch_once(&onceToken, ^{ agent = [[GSUserAgent alloc] init]; });
     
     return agent;
 }

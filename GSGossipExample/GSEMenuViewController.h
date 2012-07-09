@@ -9,6 +9,9 @@
 @interface GSEMenuViewController : UIViewController
 
 @property (nonatomic, strong) IBOutlet UILabel *statusLabel;
+@property (nonatomic, strong) IBOutlet UIButton *connectButton;
+@property (nonatomic, strong) IBOutlet UIButton *disconnectButton;
+@property (nonatomic, strong) IBOutlet UIButton *makeCallButton;
 
 - (IBAction)userDidTapConnect;
 - (IBAction)userDidTapDisconnect;

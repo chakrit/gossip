@@ -15,6 +15,11 @@
 
 @synthesize statusLabel = _statusLabel;
 
+@synthesize connectButton = _connectButton;
+@synthesize disconnectButton = _disconnectButton;
+@synthesize makeCallButton = _makeCallButton;
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
         _account = [GSUserAgent sharedAgent].account;
@@ -23,10 +28,13 @@
 }
 
 - (void)dealloc {
-    [self unobserveAccount];
-    
+    [_account removeObserver:self forKeyPath:@"status"];
     _account = nil;
+    
     _statusLabel = nil;
+    _connectButton = nil;
+    _disconnectButton = nil;
+    _makeCallButton = nil;
 }
 
 
@@ -35,21 +43,12 @@
 }
 
 
-- (void)observeAccount {
+- (void)viewDidLoad {
+    [[self navigationItem] setHidesBackButton:YES];
     [_account addObserver:self
                forKeyPath:@"status"
                   options:NSKeyValueObservingOptionInitial
                   context:nil];
-}
-
-- (void)unobserveAccount {
-    [_account removeObserver:self forKeyPath:@"status"];
-}
-
-
-- (void)viewDidLoad {
-    [[self navigationItem] setHidesBackButton:YES];
-    [self observeAccount];
 }
 
 
@@ -67,15 +66,35 @@
 
 
 - (void)statusDidChange {
-    NSString *status = nil;
     switch (_account.status) {
-        case GSAccountStatusOffline: status = @"offline"; break;
-        case GSAccountStatusConnecting: status = @"connecting"; break;
-        case GSAccountStatusConnected: status = @"connected"; break;
-        case GSAccountStatusInvalid: status = @"invalid"; break;
+        case GSAccountStatusOffline: {
+            [_statusLabel setText:@"Offline."];
+            [_connectButton setEnabled:YES];
+            [_disconnectButton setEnabled:NO];
+            [_makeCallButton setEnabled:NO];
+        } break;
+            
+        case GSAccountStatusConnecting: {
+            [_statusLabel setText:@"Connecting..."];
+            [_connectButton setEnabled:NO];
+            [_disconnectButton setEnabled:NO];
+            [_makeCallButton setEnabled:NO];
+        } break;
+            
+        case GSAccountStatusConnected: {
+            [_statusLabel setText:@"Connected."];
+            [_connectButton setEnabled:NO];
+            [_disconnectButton setEnabled:YES];
+            [_makeCallButton setEnabled:YES];
+        } break;
+            
+        case GSAccountStatusInvalid: {
+            [_statusLabel setText:@"Invalid account info."];
+            [_connectButton setEnabled:YES];
+            [_disconnectButton setEnabled:NO];
+            [_makeCallButton setEnabled:NO];
+        } break;
     }
-    
-    [_statusLabel setText:status];
 }
 
 
