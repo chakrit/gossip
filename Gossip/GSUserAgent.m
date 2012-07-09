@@ -22,7 +22,7 @@
 @synthesize account = _account;
 
 
-+ (id)sharedAgent {
++ (GSUserAgent *)sharedAgent {
     static GSUserAgent *agent = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

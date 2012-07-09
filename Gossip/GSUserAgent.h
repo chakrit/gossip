@@ -17,7 +17,7 @@
 @property (nonatomic, strong, readonly) GSAccount *account;
 
 /// Obtains the shared user agent instance.
-+ (id)sharedAgent;
++ (GSUserAgent *)sharedAgent;
 
 /// Configure the agent for use.
 /// For implementors, check the http://www.pjsip.org/pjsip/docs/html/structpjsua__acc__config.htm for reference.
