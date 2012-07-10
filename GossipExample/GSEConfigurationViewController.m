@@ -72,6 +72,8 @@
 - (void)userDidSelectAccount:(GSAccountConfiguration *)accountConfig {
     GSConfiguration *configuration = [GSConfiguration defaultConfiguration];
     configuration.account = accountConfig;
+    configuration.logLevel = 3;
+    configuration.consoleLogLevel = 3;
     
     GSUserAgent *agent = [GSUserAgent sharedAgent];
     [agent configure:configuration];
