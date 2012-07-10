@@ -116,6 +116,9 @@
 
 
 - (void)setStatus:(GSAccountStatus)newStatus {
+    if (_status == newStatus) // don't send KVO notices unless it really changes.
+        return;
+    
     [self willChangeValueForKey:@"status"];
     _status = newStatus;
     [self didChangeValueForKey:@"status"];
