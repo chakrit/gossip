@@ -14,6 +14,7 @@ typedef enum {
     GSAccountStatusInvalid,
     GSAccountStatusConnecting,
     GSAccountStatusConnected,
+    GSAccountStatusDisconnecting,
 } GSAccountStatus;
 
 

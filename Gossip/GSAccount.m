@@ -26,6 +26,10 @@
         
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         [center addObserver:self
+                   selector:@selector(registrationDidStart:)
+                       name:GSSIPRegistrationDidStartNotification
+                     object:[GSDispatch class]];
+        [center addObserver:self
                    selector:@selector(registrationStateDidChange:)
                        name:GSSIPRegistrationStateDidChangeNotification
                      object:[GSDispatch class]];
@@ -111,6 +115,27 @@
 }
 
 
+- (void)setStatus:(GSAccountStatus)newStatus {
+    [self willChangeValueForKey:@"status"];
+    _status = newStatus;
+    [self didChangeValueForKey:@"status"];
+}
+
+
+- (void)registrationDidStart:(NSNotification *)notif {
+    NSDictionary *notifInfo = [notif userInfo];
+    pjsua_acc_id accountId = [[notifInfo objectForKey:GSSIPAccountIdKey] intValue];
+    pj_bool_t renew = [[notifInfo objectForKey:GSSIPRenewKey] boolValue];
+    if (accountId == PJSUA_INVALID_ID || accountId != _accountId)
+        return;
+    
+    GSAccountStatus accStatus = 0;
+    accStatus = renew ? GSAccountStatusConnecting : GSAccountStatusDisconnecting;
+
+    __block id self_ = self;
+    dispatch_async(dispatch_get_main_queue(), ^{ [self_ setStatus:accStatus]; });
+}
+
 - (void)registrationStateDidChange:(NSNotification *)notif {
     pjsua_acc_id accountId = [[[notif userInfo] objectForKey:GSSIPAccountIdKey] intValue];
     if (accountId == PJSUA_INVALID_ID || accountId != _accountId)
@@ -129,7 +154,7 @@
         pjsip_status_code code = info.status;
         if (code == 0 || (info.online_status == PJ_FALSE)) {
             accStatus = GSAccountStatusOffline;
-        } else if (PJSIP_IS_STATUS_IN_CLASS(code, 100)) {
+        } else if (PJSIP_IS_STATUS_IN_CLASS(code, 100) || PJSIP_IS_STATUS_IN_CLASS(code, 300)) {
             accStatus = GSAccountStatusConnecting;
         } else if (PJSIP_IS_STATUS_IN_CLASS(code, 200)) {
             accStatus = GSAccountStatusConnected;
@@ -138,12 +163,8 @@
         }
     }
     
-    // TODO: Execution order guarantee?
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        [self willChangeValueForKey:@"status"];
-        _status = accStatus;
-        [self didChangeValueForKey:@"status"];
-    });
+    __block id self_ = self;
+    dispatch_async(dispatch_get_main_queue(), ^{ [self_ setStatus:accStatus]; });
 }
 
 @end

@@ -106,6 +106,13 @@
             [_makeCallButton setEnabled:YES];
         } break;
             
+        case GSAccountStatusDisconnecting: {
+            [_statusLabel setText:@"Disconnecting..."];
+            [_connectButton setEnabled:NO];
+            [_disconnectButton setEnabled:NO];
+            [_makeCallButton setEnabled:NO];
+        } break;
+            
         case GSAccountStatusInvalid: {
             [_statusLabel setText:@"Invalid account info."];
             [_connectButton setEnabled:YES];
