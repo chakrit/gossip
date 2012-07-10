@@ -8,6 +8,7 @@
 #import "GSDispatch.h"
 
 
+void onRegistrationStarted(pjsua_acc_id accountId, pj_bool_t renew);
 void onRegistrationState(pjsua_acc_id accountId);
 void onIncomingCall(pjsua_acc_id accountId, pjsua_call_id callId, pjsip_rx_data *rdata);
 void onCallMediaState(pjsua_call_id callId);
@@ -24,17 +25,35 @@ static dispatch_queue_t _queue = NULL;
 }
 
 + (void)configureCallbacksForAgent:(pjsua_config *)uaConfig {
+    uaConfig->cb.on_reg_started = &onRegistrationStarted;
+    uaConfig->cb.on_reg_state = &onRegistrationState;
     uaConfig->cb.on_incoming_call = &onIncomingCall;
     uaConfig->cb.on_call_media_state = &onCallMediaState;
     uaConfig->cb.on_call_state = &onCallState;
-    uaConfig->cb.on_reg_state = &onRegistrationState;
 }
 
 
+#pragma mark - Dispatch sink
+
+// TODO: May need to implement some form of subscriber filtering
+//   orthogonaly/globally if we're to scale. But right now a few
+//   dictionary lookups on the receiver side probably wouldn't hurt much.
+
++ (void)dispatchRegistrationStarted:(pjsua_acc_id)accountId renew:(pj_bool_t)renew {
+    NSLog(@"Gossip: dispatchRegistrationStarted(%d, %d)", accountId, renew);
+    
+    NSDictionary *info = nil;
+    info = [NSDictionary dictionaryWithObjectsAndKeys:
+            [NSNumber numberWithInt:accountId], GSSIPAccountIdKey,
+            [NSNumber numberWithBool:renew], GSSIPRenewKey, nil];
+    
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center postNotificationName:GSSIPRegistrationDidStartNotification
+                          object:self
+                        userInfo:info];
+}
+
 + (void)dispatchRegistrationState:(pjsua_acc_id)accountId {
-    // TODO: May need to implement some form of subscriber filtering
-    //   orthogonaly/globally if we're to scale. But right now a few
-    //   dictionary lookups on the receiver side probably wouldn't hurt much.
     NSLog(@"Gossip: dispatchRegistrationState(%d)", accountId);
     
     NSDictionary *info = nil;
@@ -56,7 +75,7 @@ static dispatch_queue_t _queue = NULL;
     info = [NSDictionary dictionaryWithObjectsAndKeys:
             [NSNumber numberWithInt:accountId], GSSIPAccountIdKey,
             [NSNumber numberWithInt:callId], GSSIPCallIdKey,
-            [NSValue valueWithPointer:data], GSSIPDataKey,nil];
+            [NSValue valueWithPointer:data], GSSIPDataKey, nil];
     
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center postNotificationName:GSSIPIncomingCallNotification
@@ -94,7 +113,7 @@ static dispatch_queue_t _queue = NULL;
 @end
 
 
-#pragma mark - C event sink
+#pragma mark - C event bridge
 
 // Bridge C-land callbacks to ObjC-land.
 
@@ -109,6 +128,10 @@ static inline void dispatch(dispatch_block_t block) {
     }
 }
 
+
+void onRegistrationStarted(pjsua_acc_id accountId, pj_bool_t renew) {
+    dispatch(^{ [GSDispatch dispatchRegistrationStarted:accountId renew:renew]; });
+}
 
 void onRegistrationState(pjsua_acc_id accountId) {
     dispatch(^{ [GSDispatch dispatchRegistrationState:accountId]; });

@@ -11,10 +11,12 @@
 #define NOTIF_DECL(name_) extern NSString *const name_;
 
 NOTIF_DECL(GSSIPRegistrationStateDidChangeNotification);
+NOTIF_DECL(GSSIPRegistrationDidStartNotification);
 NOTIF_DECL(GSSIPCallStateDidChangeNotification);
 NOTIF_DECL(GSSIPIncomingCallNotification);
 NOTIF_DECL(GSSIPCallMediaStateDidChangeNotification);
 
 NOTIF_DECL(GSSIPAccountIdKey);
+NOTIF_DECL(GSSIPRenewKey);
 NOTIF_DECL(GSSIPCallIdKey);
 NOTIF_DECL(GSSIPDataKey);
