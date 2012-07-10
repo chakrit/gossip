@@ -8,15 +8,22 @@
 #import <Foundation/Foundation.h>
 
 /// Defines notification names
-#define NOTIF_DECL(name_) extern NSString *const name_;
+#define GSConstDefine(name_) extern NSString *const name_;
 
-NOTIF_DECL(GSSIPRegistrationStateDidChangeNotification);
-NOTIF_DECL(GSSIPRegistrationDidStartNotification);
-NOTIF_DECL(GSSIPCallStateDidChangeNotification);
-NOTIF_DECL(GSSIPIncomingCallNotification);
-NOTIF_DECL(GSSIPCallMediaStateDidChangeNotification);
+GSConstDefine(GSSIPRegistrationStateDidChangeNotification);
+GSConstDefine(GSSIPRegistrationDidStartNotification);
+GSConstDefine(GSSIPCallStateDidChangeNotification);
+GSConstDefine(GSSIPIncomingCallNotification);
+GSConstDefine(GSSIPCallMediaStateDidChangeNotification);
 
-NOTIF_DECL(GSSIPAccountIdKey);
-NOTIF_DECL(GSSIPRenewKey);
-NOTIF_DECL(GSSIPCallIdKey);
-NOTIF_DECL(GSSIPDataKey);
+GSConstDefine(GSSIPAccountIdKey);
+GSConstDefine(GSSIPRenewKey);
+GSConstDefine(GSSIPCallIdKey);
+GSConstDefine(GSSIPDataKey);
+
+
+// helper macros
+#define GSNotifGetInt(notif_, key_) ([[[notif_ userInfo] objectForKey:key_] intValue])
+#define GSNotifGetBool(notif_, key_) ([[[notif_ userInfo] objectForKey:key_] boolValue])
+#define GSNotifGetString(info_, key_) ((NSString *)[[notif_ userInfo] objectForKey:key_]) 
+

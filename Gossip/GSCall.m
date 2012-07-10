@@ -94,9 +94,8 @@
 
 
 - (void)callStateDidChange:(NSNotification *)notif {
-    NSDictionary *info = [notif userInfo];
-    pjsua_call_id callId = [[info objectForKey:GSSIPCallIdKey] intValue];
-    pjsua_acc_id accountId = [[info objectForKey:GSSIPAccountIdKey] intValue];    
+    pjsua_call_id callId = GSNotifGetInt(notif, GSSIPCallIdKey);
+    pjsua_acc_id accountId = GSNotifGetInt(notif, GSSIPAccountIdKey);
     if (callId != _callId || accountId != _account.accountId)
         return;
     
@@ -136,7 +135,7 @@
 }
 
 - (void)callMediaStateDidChange:(NSNotification *)notif {
-    pjsua_call_id callId = [[[notif userInfo] objectForKey:GSSIPCallIdKey] intValue];
+    pjsua_call_id callId = GSNotifGetInt(notif, GSSIPCallIdKey);
     if (callId != _callId)
         return;
     

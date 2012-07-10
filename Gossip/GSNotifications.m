@@ -7,15 +7,15 @@
 
 #import "GSNotifications.h"
 
-#define NOTIF_SYNT(name_) NSString *const name_ = @#name_;
+#define GSConstSynthesize(name_) NSString *const name_ = @#name_;
 
-NOTIF_SYNT(GSSIPRegistrationStateDidChangeNotification);
-NOTIF_SYNT(GSSIPRegistrationDidStartNotification);
-NOTIF_SYNT(GSSIPCallStateDidChangeNotification);
-NOTIF_SYNT(GSSIPIncomingCallNotification);
-NOTIF_SYNT(GSSIPCallMediaStateDidChangeNotification);
+GSConstSynthesize(GSSIPRegistrationStateDidChangeNotification);
+GSConstSynthesize(GSSIPRegistrationDidStartNotification);
+GSConstSynthesize(GSSIPCallStateDidChangeNotification);
+GSConstSynthesize(GSSIPIncomingCallNotification);
+GSConstSynthesize(GSSIPCallMediaStateDidChangeNotification);
 
-NOTIF_SYNT(GSSIPAccountIdKey);
-NOTIF_SYNT(GSSIPRenewKey);
-NOTIF_SYNT(GSSIPCallIdKey);
-NOTIF_SYNT(GSSIPDataKey);
+GSConstSynthesize(GSSIPAccountIdKey);
+GSConstSynthesize(GSSIPRenewKey);
+GSConstSynthesize(GSSIPCallIdKey);
+GSConstSynthesize(GSSIPDataKey);

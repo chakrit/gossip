@@ -126,9 +126,8 @@
 
 
 - (void)registrationDidStart:(NSNotification *)notif {
-    NSDictionary *notifInfo = [notif userInfo];
-    pjsua_acc_id accountId = [[notifInfo objectForKey:GSSIPAccountIdKey] intValue];
-    pj_bool_t renew = [[notifInfo objectForKey:GSSIPRenewKey] boolValue];
+    pjsua_acc_id accountId = GSNotifGetInt(notif, GSSIPAccountIdKey);
+    pj_bool_t renew = GSNotifGetBool(notif, GSSIPRenewKey);
     if (accountId == PJSUA_INVALID_ID || accountId != _accountId)
         return;
     
@@ -140,7 +139,7 @@
 }
 
 - (void)registrationStateDidChange:(NSNotification *)notif {
-    pjsua_acc_id accountId = [[[notif userInfo] objectForKey:GSSIPAccountIdKey] intValue];
+    pjsua_acc_id accountId = GSNotifGetInt(notif, GSSIPAccountIdKey);
     if (accountId == PJSUA_INVALID_ID || accountId != _accountId)
         return;
     
