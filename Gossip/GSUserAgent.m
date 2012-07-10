@@ -61,15 +61,11 @@
 
 
 - (BOOL)configure:(GSConfiguration *)config {
+    GSAssert(!_config, @"Gossip: User agent is already configured.");
     _config = [config copy];
     
-    pj_status_t status;
-    _suaCreated = NO;
-    _suaInitialized = NO;
-    
     // create agent
-    status = pjsua_create();
-    RETURN_NO_IF_FAILED(status);
+    GSReturnNoIfFails(pjsua_create());
     _suaCreated = YES;
     
     // configure agent
@@ -89,8 +85,7 @@
     mediaConfig.snd_clock_rate = _config.soundClockRate;
     mediaConfig.ec_tail_len = 0; // not sure what this does (Siphon use this.)
     
-    status = pjsua_init(&uaConfig, &logConfig, &mediaConfig);
-    RETURN_NO_IF_FAILED(status);
+    GSReturnNoIfFails(pjsua_init(&uaConfig, &logConfig, &mediaConfig));
     _suaInitialized = YES;
     
     // create UDP transport
@@ -98,8 +93,8 @@
     pjsua_transport_config transportConfig;
     pjsua_transport_config_default(&transportConfig);
     
-    status = pjsua_transport_create(PJSIP_TRANSPORT_UDP, &transportConfig, &_transportId);
-    RETURN_NO_IF_FAILED(status);
+    pjsip_transport_type_e transportType = PJSIP_TRANSPORT_UDP;
+    GSReturnNoIfFails(pjsua_transport_create(transportType, &transportConfig, &_transportId));
     
     // configure account
     _account = [[GSAccount alloc] init];
@@ -108,9 +103,7 @@
 
 
 - (BOOL)start {
-    pj_status_t status = pjsua_start();
-    RETURN_NO_IF_FAILED(status);
-    
+    GSReturnNoIfFails(pjsua_start());    
     return YES;
 }
 

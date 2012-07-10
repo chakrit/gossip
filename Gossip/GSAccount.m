@@ -42,8 +42,7 @@
     [center removeObserver:self];
     
     if (_accountId != PJSUA_INVALID_ID) {
-        pj_status_t status = pjsua_acc_del(_accountId);
-        LOG_IF_FAILED(status);
+        GSLogIfFails(pjsua_acc_del(_accountId));
         _accountId = PJSUA_INVALID_ID;
     }
     
@@ -55,7 +54,6 @@
     _config = [configuration copy];
     
     // prepare account config
-    pj_status_t status;
     pjsua_acc_config accConfig;
     pjsua_acc_config_default(&accConfig);
     
@@ -83,9 +81,7 @@
     accConfig.cred_count = 1;
 
     // finish
-    status = pjsua_acc_add(&accConfig, PJ_TRUE, &_accountId);
-    RETURN_NO_IF_FAILED(status);
-    
+    GSReturnNoIfFails(pjsua_acc_add(&accConfig, PJ_TRUE, &_accountId));    
     return YES;
 }
 
@@ -93,24 +89,16 @@
 - (BOOL)connect {
     NSAssert(!!_config, @"GSAccount not configured.");
 
-    pj_status_t status = pjsua_acc_set_registration(_accountId, PJ_TRUE);
-    RETURN_NO_IF_FAILED(status);
-    
-    status = pjsua_acc_set_online_status(_accountId, PJ_TRUE);
-    RETURN_NO_IF_FAILED(status);
-    
+    GSReturnNoIfFails(pjsua_acc_set_registration(_accountId, PJ_TRUE));
+    GSReturnNoIfFails(pjsua_acc_set_online_status(_accountId, PJ_TRUE));    
     return YES;
 }
 
 - (BOOL)disconnect {
     NSAssert(!!_config, @"GSAccount not configured.");
         
-    pj_status_t status = pjsua_acc_set_online_status(_accountId, PJ_FALSE);
-    RETURN_NO_IF_FAILED(status);
-    
-    status = pjsua_acc_set_registration(_accountId, PJ_FALSE);
-    RETURN_NO_IF_FAILED(status);
-    
+    GSReturnNoIfFails(pjsua_acc_set_online_status(_accountId, PJ_FALSE));
+    GSReturnNoIfFails(pjsua_acc_set_registration(_accountId, PJ_FALSE));
     return YES;
 }
 
@@ -146,8 +134,7 @@
     GSAccountStatus accStatus;
     
     pjsua_acc_info info;
-    pj_status_t status = pjsua_acc_get_info(accountId, &info);
-    RETURN_VOID_IF_FAILED(status);
+    GSReturnIfFails(pjsua_acc_get_info(accountId, &info));
 
     if (info.reg_last_err != PJ_SUCCESS) {
         accStatus = GSAccountStatusInvalid;

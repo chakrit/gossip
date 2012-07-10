@@ -53,8 +53,7 @@
     _callUri = nil;
     
     if (_callId != PJSUA_INVALID_ID && pjsua_call_is_active(_callId)) {
-        pj_status_t status = pjsua_call_hangup(_callId, 0, NULL, NULL);
-        LOG_IF_FAILED(status);
+        GSLogIfFails(pjsua_call_hangup(_callId, 0, NULL, NULL));
     }
     
     _callId = PJSUA_INVALID_ID;
@@ -72,17 +71,14 @@
     callSetting.aud_cnt = 1;
     callSetting.vid_cnt = 0; // TODO: Video calling support?
     
-    pj_status_t status = pjsua_call_make_call(_account.accountId, &callUriStr, &callSetting, NULL, NULL, &_callId);
-    RETURN_NO_IF_FAILED(status);
-    
+    GSReturnNoIfFails(pjsua_call_make_call(_account.accountId, &callUriStr, &callSetting, NULL, NULL, &_callId));
     return YES;
 }
 
 - (BOOL)end {
     NSAssert(_callId != PJSUA_INVALID_ID, @"Call has not begun yet.");
     
-    pj_status_t status = pjsua_call_hangup(_callId, 0, NULL, NULL);
-    RETURN_NO_IF_FAILED(status);
+    GSReturnNoIfFails(pjsua_call_hangup(_callId, 0, NULL, NULL));
     
     [self willChangeValueForKey:@"status"];
     _status = GSCallStatusDisconnected;
@@ -140,15 +136,15 @@
         return;
     
     pjsua_call_info callInfo;
-    pjsua_call_get_info(_callId, &callInfo);
+    GSReturnIfFails(pjsua_call_get_info(_callId, &callInfo));
+    
     pjsua_conf_port_id callPort = pjsua_call_get_conf_port(_callId);
     
     if (callInfo.media_status == PJSUA_CALL_MEDIA_ACTIVE) {
-        pjsua_conf_connect(callPort, 0);
-        pjsua_conf_connect(0, callPort);
-        
-        pjsua_conf_adjust_rx_level(callPort, 3.0);
-        pjsua_conf_adjust_tx_level(callPort, 3.0);
+        GSLogIfFails(pjsua_conf_connect(callPort, 0));
+        GSLogIfFails(pjsua_conf_connect(0, callPort));        
+        GSLogIfFails(pjsua_conf_adjust_rx_level(callPort, 3.0));
+        GSLogIfFails(pjsua_conf_adjust_tx_level(callPort, 3.0));
     }
 }
 

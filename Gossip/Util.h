@@ -10,17 +10,27 @@
 #import "GSPJUtil.h"
 
 
-// SIP Status checks macros
-#define LOG_IF_FAILED(status_)                                      \
-    if (status != PJ_SUCCESS)                                       \
-        NSLog(@"Gossip: %@", [GSPJUtil errorWithSIPStatus:status]);
+// just in case we need to compile w/o assertions
+#define GSAssert NSAssert
 
-#define RETURN_IF_FAILED(status_, value_)                           \
-    if (status != PJ_SUCCESS) {                                     \
-        NSLog(@"Gossip: %@", [GSPJUtil errorWithSIPStatus:status]);  \
-        return value_;                                              \
-    }
 
-#define RETURN_NIL_IF_FAILED(status_) RETURN_IF_FAILED(status_, nil);
-#define RETURN_NO_IF_FAILED(status_) RETURN_IF_FAILED(status_, NO);
-#define RETURN_VOID_IF_FAILED(status_) RETURN_IF_FAILED(status_, );
+// PJSIP status check macros
+#define GSLogSipError(status_)                                      \
+    NSLog(@"Gossip: %@", [GSPJUtil errorWithSIPStatus:status_]);
+
+#define GSLogIfFails(aStatement_) do {      \
+    pj_status_t status = (aStatement_);     \
+    if (status != PJ_SUCCESS)               \
+        GSLogSipError(status);              \
+} while (0)
+
+#define GSReturnValueIfFails(aStatement_, returnValue_) do {            \
+    pj_status_t status = (aStatement_);                                 \
+    if (status != PJ_SUCCESS) {                                         \
+        GSLogSipError(status);                                          \
+        return returnValue_;                                            \
+    }                                                                   \
+} while(0)
+
+#define GSReturnIfFails(aStatement_) GSReturnValueIfFails(aStatement_, )
+#define GSReturnNoIfFails(aStatement_) GSReturnValueIfFails(aStatement_, NO)
