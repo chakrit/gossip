@@ -128,12 +128,17 @@
     if (accountId == PJSUA_INVALID_ID || accountId != _accountId)
         return;
     
-    GSCall *call = [GSCall incomingCallWithId:callId toAccount:self];
-    if ([_delegate respondsToSelector:@selector(account:didReceiveIncomingCall:)]) {
-        [_delegate performSelector:@selector(account:didReceiveIncomingCall:)
-                        withObject:self
+    __block GSAccount *self_ = self;
+    __block id delegate_ = _delegate;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        GSCall *call = [GSCall incomingCallWithId:callId toAccount:self];        
+        if (![delegate_ respondsToSelector:@selector(account:didReceiveIncomingCall:)])
+            return; // call is disposed/hungup on dealloc
+        
+        [delegate_ performSelector:@selector(account:didReceiveIncomingCall:)
+                        withObject:self_
                         withObject:call];
-    }
+    });
 }
 
 - (void)registrationDidStart:(NSNotification *)notif {

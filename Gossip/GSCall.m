@@ -64,16 +64,16 @@
     [center removeObserver:self];
 
     if (_callId != PJSUA_INVALID_ID && pjsua_call_is_active(_callId)) {
-        GSLogIfFails(pjsua_call_hangup(self.callId, 0, NULL, NULL));
+        GSLogIfFails(pjsua_call_hangup(_callId, 0, NULL, NULL));
     }
     
     _account = nil;
+    _callId = PJSUA_INVALID_ID;
 }
 
 
 - (NSInteger)callId {
-    // for child overrides only
-    return PJSUA_INVALID_ID;
+    return _callId;
 }
 
 - (void)setCallId:(NSInteger)callId {

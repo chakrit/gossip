@@ -57,6 +57,7 @@
     [self willChangeValueForKey:@"account"];
     [_account removeObserver:self forKeyPath:@"status"];
     _account = account;
+    _account.delegate = self;
     [_account addObserver:self
                forKeyPath:@"status"
                   options:NSKeyValueObservingOptionInitial
@@ -89,6 +90,19 @@
     }
     
     [_callInit makeNewCall];
+}
+
+
+- (void)userDidPickupCall {
+    GSECallViewController *controller = [[GSECallViewController alloc] init];
+    controller.call = _incomingCall;
+    
+    [[self navigationController] pushViewController:controller animated:YES];
+}
+
+- (void)userDidDenyCall {
+    [_incomingCall end];
+    _incomingCall = nil;
 }
 
 
@@ -137,7 +151,7 @@
 - (void)account:(GSAccount *)account didReceiveIncomingCall:(GSCall *)call {
     _incomingCall = call;
     
-    UIAlertView *alert = [UIAlertView alloc];
+    UIAlertView *alert = [[UIAlertView alloc] init];
     [alert setAlertViewStyle:UIAlertViewStyleDefault];
     [alert setDelegate:self];
     [alert setTitle:@"Incoming call."];
@@ -151,18 +165,11 @@
 #pragma mark - UIAlertViewDelegate
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == [alertView cancelButtonIndex])
-        return;
-    
-    GSECallViewController *controller = [[GSECallViewController alloc] init];
-    controller.call = _incomingCall;
-    
-    [[self navigationController] pushViewController:controller animated:YES];
-}
-
-- (void)alertViewCancel:(UIAlertView *)alertView {
-    [_incomingCall end];
-    _incomingCall = nil;
+    if (buttonIndex == [alertView cancelButtonIndex]) {
+        [self userDidDenyCall];
+    } else {
+        [self userDidPickupCall];
+    }
 }
 
 
