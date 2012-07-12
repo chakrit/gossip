@@ -90,10 +90,18 @@
     
     // create UDP transport
     // TODO: Make configurable? (which transport type to use/other transport opts)
+    // TODO: Make separate class? since things like public_addr might be useful to some.
     pjsua_transport_config transportConfig;
     pjsua_transport_config_default(&transportConfig);
     
-    pjsip_transport_type_e transportType = PJSIP_TRANSPORT_UDP;
+    pjsip_transport_type_e transportType = 0;
+    switch (_config.transportType) {
+        case GSUDPTransportType: transportType = PJSIP_TRANSPORT_UDP; break;
+        case GSUDP6TransportType: transportType = PJSIP_TRANSPORT_UDP6; break;
+        case GSTCPTransportType: transportType = PJSIP_TRANSPORT_TCP; break;
+        case GSTCP6TransportType: transportType = PJSIP_TRANSPORT_TCP6; break;
+    }
+    
     GSReturnNoIfFails(pjsua_transport_create(transportType, &transportConfig, &_transportId));
     
     // configure account

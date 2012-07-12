@@ -13,6 +13,8 @@
 @synthesize logLevel = _logLevel;
 @synthesize consoleLogLevel = _consoleLogLevel;
 
+@synthesize transportType = _transportType;
+
 @synthesize clockRate = _clockRate;
 @synthesize soundClockRate = _soundClockRate;
 
@@ -36,6 +38,8 @@
     _logLevel = 2;
     _consoleLogLevel = 2;
     
+    _transportType = GSUDPTransportType;
+    
     _clockRate = 8000;
     _soundClockRate = 8000;
     
@@ -52,9 +56,10 @@
 - (id)copyWithZone:(NSZone *)zone {
     GSConfiguration *replica = [[[self class] allocWithZone:zone] init];
     
-    // TODO: Probably better to do via property lists.
+    // TODO: Probably better to do via class_copyPropertyList.
     replica.logLevel = self.logLevel;
     replica.consoleLogLevel = self.consoleLogLevel;
+    replica.transportType = self.transportType;
     replica.clockRate = self.clockRate;
     replica.soundClockRate = self.soundClockRate;
     

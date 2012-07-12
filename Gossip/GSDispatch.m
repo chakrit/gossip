@@ -117,13 +117,16 @@ static dispatch_queue_t _queue = NULL;
 
 // Bridge C-land callbacks to ObjC-land.
 
-// NOTE: Why dispatch_sync() instead of dispatch_async() ?
-//   Needs to use dispatch_sync because we do not know the lifetime of the stuff being
-//   given to us by PJSIP (e.g. pjsip_rx_data*) so we must process it completely before
-//   the method ends.
+static inline void dispatch(dispatch_block_t block) {    
+    // autorelease here since events wouldn't be triggered that often.
+    // + GCD autorelease pool do not have drainage time guarantee (== possible mem headaches).
+    // See the "Implementing tasks using blocks" section for more info
+    // REF: http://developer.apple.com/library/ios/#documentation/General/Conceptual/ConcurrencyProgrammingGuide/OperationQueues/OperationQueues.html
+    @autoreleasepool {
 
-static inline void dispatch(dispatch_block_t block) {
-    @autoreleasepool { // TODO: Not sure if required?
+        // NOTE: Needs to use dispatch_sync() instead of dispatch_async() because we do not know
+        //   the lifetime of the stuff being given to us by PJSIP (e.g. pjsip_rx_data*) so we
+        //   must process it completely before the method ends.
         dispatch_sync(_queue, block);
     }
 }

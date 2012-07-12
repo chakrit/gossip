@@ -9,10 +9,20 @@
 #import "GSAccountConfiguration.h"
 
 
+typedef enum {
+    GSUDPTransportType,
+    GSUDP6TransportType,
+    GSTCPTransportType,
+    GSTCP6TransportType,
+} GSTransportType;
+
+
 @interface GSConfiguration : NSObject <NSCopying>
 
 @property (nonatomic) NSUInteger logLevel;
 @property (nonatomic) NSUInteger consoleLogLevel;
+
+@property (nonatomic) GSTransportType transportType;
 
 @property (nonatomic) NSUInteger clockRate;
 @property (nonatomic) NSUInteger soundClockRate;
