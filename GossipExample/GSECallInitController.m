@@ -75,8 +75,7 @@
 - (void)makeTheCall {
     // TODO: add call view controller
     GSAccount *account = [GSUserAgent sharedAgent].account;
-    GSCall *call = [[GSCall alloc] initWithCallUri:_address
-                                       fromAccount:account];
+    GSCall *call = [GSCall outgoingCallToUri:_address fromAccount:account];
     
     GSECallViewController *controller = [[GSECallViewController alloc] init];
     controller.call = call;

@@ -24,11 +24,12 @@ typedef enum {
 @property (nonatomic, unsafe_unretained, readonly) GSAccount *account;
 
 @property (nonatomic, readonly) NSInteger callId;
-@property (nonatomic, copy, readonly) NSString *callUri;
 @property (nonatomic, readonly) GSCallStatus status;
 
-- (id)initWithCallUri:(NSString *)callUri
-          fromAccount:(GSAccount *)account;
++ (id)outgoingCallToUri:(NSString *)remoteUri fromAccount:(GSAccount *)account;
++ (id)incomingCallWithId:(NSInteger)callId toAccount:(GSAccount *)account;
+
+- (id)initWithAccount:(GSAccount *)account;
 
 - (BOOL)begin;
 - (BOOL)end;

@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "GSAccountConfiguration.h"
+@class GSAccount, GSCall;
 
 
 typedef enum {
@@ -18,10 +19,19 @@ typedef enum {
 } GSAccountStatus;
 
 
+@protocol GSAccountDelegate <NSObject>
+
+- (void)account:(GSAccount *)account didReceiveIncomingCall:(GSCall *)call;
+
+@end
+
+
 @interface GSAccount : NSObject
 
 @property (nonatomic, readonly) NSInteger accountId;
 @property (nonatomic, readonly) GSAccountStatus status;
+
+@property (nonatomic, unsafe_unretained) id<GSAccountDelegate> delegate;
 
 - (BOOL)configure:(GSAccountConfiguration *)configuration;
 

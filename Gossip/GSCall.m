@@ -6,31 +6,45 @@
 //
 
 #import "GSCall.h"
-#import "PJSIP.h"
+#import "GSCall+Private.h"
 #import "GSDispatch.h"
+#import "GSIncomingCall.h"
+#import "GSOutgoingCall.h"
+#import "PJSIP.h"
 #import "Util.h"
 
 
-@implementation GSCall
+@implementation GSCall {
+    pjsua_call_id _callId;
+}
 
 @synthesize account = _account;
-
-@synthesize callId = _callId;
-@synthesize callUri = _callUri;
 @synthesize status = _status;
+
++ (id)outgoingCallToUri:(NSString *)remoteUri fromAccount:(GSAccount *)account {
+    GSOutgoingCall *call = [GSOutgoingCall alloc];
+    call = [call initWithRemoteUri:remoteUri fromAccount:account];
+    
+    return call;
+}
+
++ (id)incomingCallWithId:(NSInteger)callId toAccount:(GSAccount *)account {
+    GSIncomingCall *call = [GSIncomingCall alloc];
+    call = [call initWithCallId:callId toAccount:account];
+
+    return call;
+}
 
 
 - (id)init {
-    NSAssert(NO, @"Must use initWithCallUri:fromAccount:");
-    return nil;
+    return [self initWithAccount:nil];
 }
 
-- (id)initWithCallUri:(NSString *)callUri fromAccount:(GSAccount *)account {
+- (id)initWithAccount:(GSAccount *)account {
     if (self = [super init]) {
         _account = account;
-        _callId = PJSUA_INVALID_ID;
         _status = GSCallStatusReady;
-        _callUri = [callUri copy];
+        _callId = PJSUA_INVALID_ID;
         
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         [center addObserver:self
@@ -48,44 +62,41 @@
 - (void)dealloc {
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center removeObserver:self];
-    
-    _account = nil;
-    _callUri = nil;
-    
+
     if (_callId != PJSUA_INVALID_ID && pjsua_call_is_active(_callId)) {
-        GSLogIfFails(pjsua_call_hangup(_callId, 0, NULL, NULL));
+        GSLogIfFails(pjsua_call_hangup(self.callId, 0, NULL, NULL));
     }
     
-    _callId = PJSUA_INVALID_ID;
+    _account = nil;
+}
+
+
+- (NSInteger)callId {
+    // for child overrides only
+    return PJSUA_INVALID_ID;
+}
+
+- (void)setCallId:(NSInteger)callId {
+    [self willChangeValueForKey:@"callId"];
+    _callId = callId;
+    [self didChangeValueForKey:@"callId"];
+}
+
+- (void)setStatus:(GSCallStatus)status {
+    [self willChangeValueForKey:@"status"];
+    _status = status;
+    [self didChangeValueForKey:@"status"];
 }
 
 
 - (BOOL)begin {
-    if (![_callUri hasPrefix:@"sip:"])
-        _callUri = [@"sip:" stringByAppendingString:_callUri];
-    
-    pj_str_t callUriStr = [GSPJUtil PJStringWithString:_callUri];
-    
-    pjsua_call_setting callSetting;
-    pjsua_call_setting_default(&callSetting);
-    callSetting.aud_cnt = 1;
-    callSetting.vid_cnt = 0; // TODO: Video calling support?
-    
-    GSReturnNoIfFails(pjsua_call_make_call(_account.accountId, &callUriStr, &callSetting, NULL, NULL, &_callId));
-    return YES;
+    // for child overrides only
+    return NO;
 }
 
 - (BOOL)end {
-    NSAssert(_callId != PJSUA_INVALID_ID, @"Call has not begun yet.");
-    
-    GSReturnNoIfFails(pjsua_call_hangup(_callId, 0, NULL, NULL));
-    
-    [self willChangeValueForKey:@"status"];
-    _status = GSCallStatusDisconnected;
-    [self didChangeValueForKey:@"status"];
-    
-    _callId = PJSUA_INVALID_ID;
-    return YES;
+    // for child overrides only
+    return NO;
 }
 
 
@@ -123,11 +134,8 @@
         } break;
     }
     
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        [self willChangeValueForKey:@"status"];
-        _status = callStatus;
-        [self didChangeValueForKey:@"status"];
-    });        
+    __block id self_ = self;
+    dispatch_async(dispatch_get_main_queue(), ^{ [self_ setStatus:callStatus]; });
 }
 
 - (void)callMediaStateDidChange:(NSNotification *)notif {
@@ -139,7 +147,6 @@
     GSReturnIfFails(pjsua_call_get_info(_callId, &callInfo));
     
     pjsua_conf_port_id callPort = pjsua_call_get_conf_port(_callId);
-    
     if (callInfo.media_status == PJSUA_CALL_MEDIA_ACTIVE) {
         GSLogIfFails(pjsua_conf_connect(callPort, 0));
         GSLogIfFails(pjsua_conf_connect(0, callPort));        

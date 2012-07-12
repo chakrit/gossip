@@ -18,13 +18,21 @@
 @synthesize accountId = _accountId;
 @synthesize status = _status;
 
+@synthesize delegate = _delegate;
+
 - (id)init {
     if (self = [super init]) {
         _accountId = PJSUA_INVALID_ID;
         _status = GSAccountStatusOffline;
         _config = nil;
         
+        _delegate = nil;
+        
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+        [center addObserver:self
+                   selector:@selector(didReceiveIncomingCall:)
+                       name:GSSIPIncomingCallNotification
+                     object:[GSDispatch class]];
         [center addObserver:self
                    selector:@selector(registrationDidStart:)
                        name:GSSIPRegistrationDidStartNotification
@@ -112,6 +120,13 @@
     [self didChangeValueForKey:@"status"];
 }
 
+
+- (void)didReceiveIncomingCall:(NSNotification *)notif {
+    pjsua_acc_id accountId = GSNotifGetInt(notif, GSSIPAccountIdKey);
+    pjsua_call_id callId = GSNotifGetInt(notif, GSSIPCallIdKey);
+    
+//    GSCall *call = [GSCall incomingCallWithId:callId toAccount:self];
+}
 
 - (void)registrationDidStart:(NSNotification *)notif {
     pjsua_acc_id accountId = GSNotifGetInt(notif, GSSIPAccountIdKey);
