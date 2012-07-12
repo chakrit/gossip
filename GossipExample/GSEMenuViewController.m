@@ -7,10 +7,15 @@
 
 #import "GSEMenuViewController.h"
 #import "GSECallInitController.h"
+#import "GSECallViewController.h"
+
+
+@interface GSEMenuViewController () <GSAccountDelegate, UIAlertViewDelegate> @end
 
 
 @implementation GSEMenuViewController {
     GSECallInitController *_callInit;
+    GSCall *_incomingCall;
 }
 
 @synthesize account = _account;
@@ -25,13 +30,17 @@
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
         _account = nil;
         _callInit = nil;
+        _incomingCall = nil;
     }
     return self;
 }
 
 - (void)dealloc {
-    self.account = nil;
+    [_account removeObserver:self forKeyPath:@"status"];
+    _account = nil;
+    
     _callInit = nil;
+    _incomingCall = nil;
     
     _statusLabel = nil;
     _connectButton = nil;
@@ -122,6 +131,42 @@
     }
 }
 
+
+#pragma mark - GSAccountDelegate
+
+- (void)account:(GSAccount *)account didReceiveIncomingCall:(GSCall *)call {
+    _incomingCall = call;
+    
+    UIAlertView *alert = [UIAlertView alloc];
+    [alert setAlertViewStyle:UIAlertViewStyleDefault];
+    [alert setDelegate:self];
+    [alert setTitle:@"Incoming call."];
+    [alert addButtonWithTitle:@"Deny"];
+    [alert addButtonWithTitle:@"Answer"];
+    [alert setCancelButtonIndex:0];
+    [alert show];
+}
+
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == [alertView cancelButtonIndex])
+        return;
+    
+    GSECallViewController *controller = [[GSECallViewController alloc] init];
+    controller.call = _incomingCall;
+    
+    [[self navigationController] pushViewController:controller animated:YES];
+}
+
+- (void)alertViewCancel:(UIAlertView *)alertView {
+    [_incomingCall end];
+    _incomingCall = nil;
+}
+
+
+#pragma mark - KVO
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object

@@ -6,6 +6,7 @@
 //
 
 #import "GSAccount.h"
+#import "GSCall.h"
 #import "GSDispatch.h"
 #import "PJSIP.h"
 #import "Util.h"
@@ -124,8 +125,15 @@
 - (void)didReceiveIncomingCall:(NSNotification *)notif {
     pjsua_acc_id accountId = GSNotifGetInt(notif, GSSIPAccountIdKey);
     pjsua_call_id callId = GSNotifGetInt(notif, GSSIPCallIdKey);
+    if (accountId == PJSUA_INVALID_ID || accountId != _accountId)
+        return;
     
-//    GSCall *call = [GSCall incomingCallWithId:callId toAccount:self];
+    GSCall *call = [GSCall incomingCallWithId:callId toAccount:self];
+    if ([_delegate respondsToSelector:@selector(account:didReceiveIncomingCall:)]) {
+        [_delegate performSelector:@selector(account:didReceiveIncomingCall:)
+                        withObject:self
+                        withObject:call];
+    }
 }
 
 - (void)registrationDidStart:(NSNotification *)notif {

@@ -34,3 +34,4 @@
 
 #define GSReturnIfFails(aStatement_) GSReturnValueIfFails(aStatement_, )
 #define GSReturnNoIfFails(aStatement_) GSReturnValueIfFails(aStatement_, NO)
+#define GSReturnNilIfFails(aStatement_) GSReturnValueIfFails(aStatement_, nil)
