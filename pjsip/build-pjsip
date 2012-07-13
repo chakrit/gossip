@@ -18,8 +18,12 @@ cat pjlib/include/pj/config_site.h
 
 export ARCH="-arch armv7"
 
+# copy libg729a.a into pjsib lib search path
+mkdir -p third_party/g729/lib
+cp ../libg729a.a third_party/g729/lib
+
 # ... and build
-./configure-iphone | tee ../configure.log
+./configure-iphone --enable-g729-codec | tee ../configure.log
 make depA | tee ../make-dep.log
 make | tee ../make.log
 popd
