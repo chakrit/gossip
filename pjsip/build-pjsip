@@ -19,9 +19,9 @@ cat pjlib/include/pj/config_site.h
 export ARCH="-arch armv7"
 
 # ... and build
-./configure-iphone
-make dep
-make
+./configure-iphone | tee ../configure.log
+make depA | tee ../make-dep.log
+make | tee ../make.log
 popd
 
 # copy all built static libs into one folder so it's easy to use.
