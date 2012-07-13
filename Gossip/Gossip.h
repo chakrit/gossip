@@ -12,3 +12,4 @@
 #import "GSUserAgent.h"
 #import "GSAccount.h"
 #import "GSCall.h"
+#import "GSCodecInfo.h"

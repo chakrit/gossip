@@ -17,6 +17,7 @@
 @property (nonatomic, strong) IBOutlet UIButton *disconnectButton;
 @property (nonatomic, strong) IBOutlet UIButton *makeCallButton;
 
+- (IBAction)userDidTapDebug;
 - (IBAction)userDidTapConnect;
 - (IBAction)userDidTapDisconnect;
 - (IBAction)userDidTapMakeCall;

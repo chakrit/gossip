@@ -7,6 +7,7 @@
 
 #import "GSEConfigurationViewController.h"
 #import "Gossip.h"
+#import "GSECodecsViewController.h"
 #import "GSEMenuViewController.h"
 
 

@@ -8,6 +8,7 @@
 #import "GSEMenuViewController.h"
 #import "GSECallInitController.h"
 #import "GSECallViewController.h"
+#import "GSECodecsViewController.h"
 
 
 @interface GSEMenuViewController () <GSAccountDelegate, UIAlertViewDelegate> @end
@@ -72,6 +73,14 @@
                forKeyPath:@"status"
                   options:NSKeyValueObservingOptionInitial
                   context:nil];
+}
+
+
+- (IBAction)userDidTapDebug {
+    GSECodecsViewController *controller = [GSECodecsViewController alloc];
+    controller = [controller init];
+    
+    [[self navigationController] pushViewController:controller animated:YES];
 }
 
 

@@ -6,6 +6,8 @@
 //
 
 #import "GSUserAgent.h"
+#import "GSCodecInfo.h"
+#import "GSCodecInfo+Private.h"
 #import "GSDispatch.h"
 #import "PJSIP.h"
 #import "Util.h"
@@ -109,10 +111,30 @@
     return [_account configure:_config.account];
 }
 
-
 - (BOOL)start {
     GSReturnNoIfFails(pjsua_start());    
     return YES;
+}
+
+
+- (NSArray *)arrayOfAvailableCodecs {
+    GSAssert(!!_config, @"Gossip: User agent not configured.");
+    
+    NSMutableArray *arr = [[NSMutableArray alloc] init];
+    
+    unsigned int count = 255;
+    pjsua_codec_info codecs[count];
+    GSReturnNilIfFails(pjsua_enum_codecs(codecs, &count));
+    
+    for (int i = 0; i < count; i++) {
+        pjsua_codec_info pjCodec = codecs[i];
+        
+        GSCodecInfo *codec = [GSCodecInfo alloc];
+        codec = [codec initWithCodecInfo:&pjCodec];
+        [arr addObject:codec];
+    }
+    
+    return [NSArray arrayWithArray:arr];
 }
 
 @end
