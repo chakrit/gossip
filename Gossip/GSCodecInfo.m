@@ -42,4 +42,13 @@
     return YES;
 }
 
+- (BOOL)setMaxPriority {
+    return [self setPriority:255];
+}
+
+
+- (BOOL)disable {
+    return [self setPriority:0]; // 0 disables the codec as said in pjsua online doc
+}
+
 @end

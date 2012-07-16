@@ -6,6 +6,7 @@
 //
 
 #import "GSEMenuViewController.h"
+#import "Gossip.h"
 #import "GSECallInitController.h"
 #import "GSECallViewController.h"
 #import "GSECodecsViewController.h"
@@ -76,11 +77,25 @@
 }
 
 
-- (IBAction)userDidTapDebug {
+- (void)userDidTapCodecs {
     GSECodecsViewController *controller = [GSECodecsViewController alloc];
     controller = [controller init];
     
     [[self navigationController] pushViewController:controller animated:YES];
+}
+
+- (void)userDidTapUseG729 {
+    GSUserAgent *agent = [GSUserAgent sharedAgent];
+    NSArray *codecs = [agent arrayOfAvailableCodecs];
+    for (GSCodecInfo *codec in codecs) {
+        if (![codec.codecId hasPrefix:@"G729"]) {
+            NSLog(@"Disabling: %@", codec.codecId);
+            [codec disable];
+        } else {x-v
+            NSLog(@"Maximizing: %@", codec.codecId);
+            [codec setPriority:254];
+        }
+    }
 }
 
 

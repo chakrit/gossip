@@ -42,7 +42,7 @@
 						<string key="NSFrame">{{20, 20}, {280, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
+						<reference key="NSNextKeyView" ref="1007125548"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -153,7 +153,7 @@
 					<object class="IBUIButton" id="794010292">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 224}, {280, 37}}</string>
+						<string key="NSFrame">{{20, 179}, {280, 37}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="642448653"/>
@@ -163,7 +163,30 @@
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">Debug</string>
+						<string key="IBUINormalTitle">Codecs</string>
+						<reference key="IBUIHighlightedTitleColor" ref="427413499"/>
+						<object class="NSColor" key="IBUINormalTitleColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+						</object>
+						<reference key="IBUINormalTitleShadowColor" ref="509680794"/>
+						<reference key="IBUIFontDescription" ref="664967825"/>
+						<reference key="IBUIFont" ref="796297912"/>
+					</object>
+					<object class="IBUIButton" id="1007125548">
+						<reference key="NSNextResponder" ref="191373211"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{20, 134}, {280, 37}}</string>
+						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="794010292"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="IBUIOpaque">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<int key="IBUIContentHorizontalAlignment">0</int>
+						<int key="IBUIContentVerticalAlignment">0</int>
+						<int key="IBUIButtonType">1</int>
+						<string key="IBUINormalTitle">Use G729</string>
 						<reference key="IBUIHighlightedTitleColor" ref="427413499"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
@@ -263,12 +286,21 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">userDidTapDebug</string>
+						<string key="label">userDidTapCodecs</string>
 						<reference key="source" ref="794010292"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">19</int>
+					<int key="connectionID">28</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">userDidTapUseG729</string>
+						<reference key="source" ref="1007125548"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">30</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -288,6 +320,7 @@
 							<reference ref="227580507"/>
 							<reference ref="642448653"/>
 							<reference ref="794010292"/>
+							<reference ref="1007125548"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -327,6 +360,11 @@
 						<reference key="object" ref="565899552"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">29</int>
+						<reference key="object" ref="1007125548"/>
+						<reference key="parent" ref="191373211"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -338,6 +376,7 @@
 				<string key="10.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="11.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="18.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="29.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="9.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
@@ -345,7 +384,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">27</int>
+			<int key="maxID">30</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -353,18 +392,19 @@
 					<string key="className">GSEMenuViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="userDidTapCodecs">id</string>
 						<string key="userDidTapConnect">id</string>
-						<string key="userDidTapDebug">id</string>
 						<string key="userDidTapDisconnect">id</string>
 						<string key="userDidTapMakeCall">id</string>
+						<string key="userDidTapUseG729">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="userDidTapConnect">
-							<string key="name">userDidTapConnect</string>
+						<object class="IBActionInfo" key="userDidTapCodecs">
+							<string key="name">userDidTapCodecs</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="userDidTapDebug">
-							<string key="name">userDidTapDebug</string>
+						<object class="IBActionInfo" key="userDidTapConnect">
+							<string key="name">userDidTapConnect</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="userDidTapDisconnect">
@@ -373,6 +413,10 @@
 						</object>
 						<object class="IBActionInfo" key="userDidTapMakeCall">
 							<string key="name">userDidTapMakeCall</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="userDidTapUseG729">
+							<string key="name">userDidTapUseG729</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>

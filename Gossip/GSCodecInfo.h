@@ -15,5 +15,8 @@
 @property (nonatomic, readonly) NSUInteger priority;
 
 - (BOOL)setPriority:(NSUInteger)newPriority;
+- (BOOL)setMaxPriority;
+
+- (BOOL)disable;
 
 @end
