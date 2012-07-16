@@ -17,12 +17,16 @@ cat pjlib/include/pj/config_site.h
 
 export ARCH="-arch armv7"
 
-# copy libg729a.a into pjsib lib search path
-mkdir -p third_party/g729/lib
-cp ../g729/libg729a.a third_party/g729/lib
+# copy G729 stuff into places
+cp -iv ../g729/g729a_include/*.h third_party/
+cp ../g729/pj_g729.h third_party/
+cp ../g729/pj_g729.c pjmedia/src/pjmedia-codec/g729.c # so it compiles as part of pjsip
+
+mkdir -p third_party/lib
+cp ../g729/libg729a.a third_party/lib/libg729codec-arm-apple-darwin9.a
 
 # ... and build
-./configure-iphone --enable-g729-codec | tee ../configure.log
+./configure-iphone | tee ../configure.log
 make depA | tee ../make-dep.log
 make | tee ../make.log
 popd
