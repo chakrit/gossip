@@ -12,8 +12,7 @@ read
 git clean -xdf
 
 # configure PJSIP builds
-echo "#define PJ_CONFIG_IPHONE 1" > pjlib/include/pj/config_site.h
-echo "#include <pj/config_site_sample.h>" >> pjlib/include/pj/config_site.h
+cp ../config_site.h pjlib/include/pj/config_site.h
 cat pjlib/include/pj/config_site.h
 
 export ARCH="-arch armv7"
