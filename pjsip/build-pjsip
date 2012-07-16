@@ -36,7 +36,7 @@ cp ../g729/libg729a.a third_party/lib/libg729codec-arm-apple-darwin9.a
 
 # ... and build
 ./configure-iphone | tee ../configure.log
-make depA | tee ../make-dep.log
+make dep | tee ../make-dep.log
 make | tee ../make.log
 popd
 

@@ -91,7 +91,7 @@
         if (![codec.codecId hasPrefix:@"G729"]) {
             NSLog(@"Disabling: %@", codec.codecId);
             [codec disable];
-        } else {x-v
+        } else {
             NSLog(@"Maximizing: %@", codec.codecId);
             [codec setPriority:254];
         }
