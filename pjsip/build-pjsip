@@ -20,7 +20,7 @@ export ARCH="-arch armv7"
 
 # copy libg729a.a into pjsib lib search path
 mkdir -p third_party/g729/lib
-cp ../libg729a.a third_party/g729/lib
+cp ../g729/libg729a.a third_party/g729/lib
 
 # ... and build
 ./configure-iphone --enable-g729-codec | tee ../configure.log
