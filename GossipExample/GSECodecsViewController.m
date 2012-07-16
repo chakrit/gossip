@@ -85,7 +85,7 @@
                      scrollPosition:UITableViewScrollPositionNone];
     
     GSCodecInfo *codec = [_codecs objectAtIndex:[indexPath row]];
-    [codec setPriority:255];
+    [codec disable];    
     [tableView reloadData];
 }
 
