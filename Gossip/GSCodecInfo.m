@@ -8,12 +8,20 @@
 #import "GSCodecInfo.h"
 #import "GSCodecInfo+Private.h"
 #import "PJSIP.h"
-#import "GSPJUtil.h"
+#import "Util.h"
 
 
 @implementation GSCodecInfo {
     pjsua_codec_info _info;
 }
+
+- (id)initWithCodecInfo:(pjsua_codec_info *)codecInfo {
+    if (self = [super init]) {
+        _info = *codecInfo;
+    }
+    return self;
+}
+
 
 - (NSString *)codecId {
     return [GSPJUtil stringWithPJString:&_info.codec_id];
@@ -27,12 +35,11 @@
     return _info.priority;
 }
 
-
-- (id)initWithCodecInfo:(pjsua_codec_info *)codecInfo {
-    if (self = [super init]) {
-        _info = *codecInfo;
-    }
-    return self;
+- (BOOL)setPriority:(NSUInteger)newPriority {
+    GSReturnNoIfFails(pjsua_codec_set_priority(&_info.codec_id, newPriority));
+    
+    _info.priority = newPriority; // update cached info
+    return YES;
 }
 
 @end

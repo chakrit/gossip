@@ -68,9 +68,25 @@
     
     GSCodecInfo *codec = [_codecs objectAtIndex:[indexPath row]];
     [[cell textLabel] setText:codec.codecId];
-    [[cell detailTextLabel] setText:codec.description];
     
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterBehaviorDefault];
+    [formatter setLocale:[NSLocale systemLocale]];
+    
+    NSNumber *priorityNum = [NSNumber numberWithUnsignedInteger:codec.priority];
+    NSString *priorityStr = [formatter stringFromNumber:priorityNum];    
+    [[cell detailTextLabel] setText:priorityStr];    
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
+                           animated:YES
+                     scrollPosition:UITableViewScrollPositionNone];
+    
+    GSCodecInfo *codec = [_codecs objectAtIndex:[indexPath row]];
+    [codec setPriority:255];
+    [tableView reloadData];
 }
 
 

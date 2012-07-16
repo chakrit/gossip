@@ -14,4 +14,6 @@
 @property (nonatomic, readonly) NSString *description;
 @property (nonatomic, readonly) NSUInteger priority;
 
+- (BOOL)setPriority:(NSUInteger)newPriority;
+
 @end
