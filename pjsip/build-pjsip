@@ -7,9 +7,16 @@ cd source
 echo ""
 echo In directory: `pwd`
 git clean -xdn
-echo "CTRL+C to cancel or press any key to continue."
+echo ""
+echo "Will do inside the pjsip source folder:"
+echo "    GIT CLEAN -XDF"
+echo "    GIT RESET --hard HEAD"
+echo ""
+echo "CTRL+C to cancel now or be _VERY_ sure you want to proceed by pressing any key."
+echo ""
 read
 git clean -xdf
+git reset --hard HEAD
 
 # configure PJSIP builds
 cp ../config_site.h pjlib/include/pj/config_site.h
@@ -17,7 +24,9 @@ cat pjlib/include/pj/config_site.h
 
 export ARCH="-arch armv7"
 
-# copy G729 stuff into places
+# apply G729 patch and copy all needed stuff into PJSIP source tree.
+git apply --stat ../g729/enable_g729.patch
+git apply ../g729/enable_g729.patch
 cp -iv ../g729/g729a_include/*.h third_party/
 cp ../g729/pj_g729.h third_party/
 cp ../g729/pj_g729.c pjmedia/src/pjmedia-codec/g729.c # so it compiles as part of pjsip
