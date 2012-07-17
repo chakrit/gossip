@@ -52,6 +52,9 @@
     [[self navigationItem] setHidesBackButton:YES];
     [_hangupButton setEnabled:NO];
     
+    // update calling status
+    [self callStatusDidChange];
+    
     // begin calling after 1s
     const double delayInSeconds = 1.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
