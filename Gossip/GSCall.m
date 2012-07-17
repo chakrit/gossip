@@ -149,9 +149,9 @@
     pjsua_conf_port_id callPort = pjsua_call_get_conf_port(_callId);
     if (callInfo.media_status == PJSUA_CALL_MEDIA_ACTIVE) {
         GSLogIfFails(pjsua_conf_connect(callPort, 0));
-        GSLogIfFails(pjsua_conf_connect(0, callPort));        
-        GSLogIfFails(pjsua_conf_adjust_rx_level(callPort, 3.0));
-        GSLogIfFails(pjsua_conf_adjust_tx_level(callPort, 3.0));
+        GSLogIfFails(pjsua_conf_connect(0, callPort));   
+        GSLogIfFails(pjsua_conf_adjust_rx_level(callPort, 1.0));
+        GSLogIfFails(pjsua_conf_adjust_tx_level(callPort, 1.0));
     }
 }
 
