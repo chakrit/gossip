@@ -1,3 +1,6 @@
 [submodule "pjsip/source"]
 	path = pjsip/source
 	url = git://github.com/chakrit/pjsip.git
+[submodule "docs"]
+	path = docs
+	url = git://github.com/chakrit/gossip.git
