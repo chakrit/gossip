@@ -46,7 +46,6 @@
 
 - (id)initWithAccount:(GSAccount *)account {
     if (self = [super init]) {
-        GSUserAgent *agent = [GSUserAgent sharedAgent];
         _account = account;
         _status = GSCallStatusReady;
         _callId = PJSUA_INVALID_ID;
@@ -174,8 +173,8 @@
     
     if (callInfo.media_status == PJSUA_CALL_MEDIA_ACTIVE) {
         pjsua_conf_port_id callPort = pjsua_call_get_conf_port(_callId);
-        GSReturnNoIfFails(pjsua_conf_connect(callPort, 0));
-        GSReturnNoIfFails(pjsua_conf_connect(0, callPort));
+        GSReturnIfFails(pjsua_conf_connect(callPort, 0));
+        GSReturnIfFails(pjsua_conf_connect(0, callPort));
         
         [self adjustVolume:_volume mic:_micVolume];
     }
