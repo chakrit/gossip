@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>GOSSIP Sip library.: GSAccount Class Reference</title>
+<title>GOSSIP: GSAccount Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">GOSSIP Sip library.
+   <div id="projectname">GOSSIP
    </div>
   </td>
  </tr>
@@ -42,7 +42,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -59,14 +61,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
           </span>
         </div>
       </li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
-      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
-      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -100,42 +94,44 @@ $(document).ready(function(){initNavTree('interface_g_s_account.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#properties">Properties</a> &#124;
-<a href="class_g_s_account-members.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
 <div class="title">GSAccount Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#import &quot;<a class="el" href="_g_s_account_8h_source.html">GSAccount.h</a>&quot;</code></p>
-<div class="dynheader">
-Inheritance diagram for GSAccount:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="interface_g_s_account.png" usemap="#GSAccount_map" alt=""/>
-  <map id="GSAccount_map" name="GSAccount_map">
-<area href="class_n_s_object.html" alt="NSObject" shape="rect" coords="0,0,76,24"/>
-</map>
- </div></div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:adeeaf5c19617d1188eef817792fbcd3b"><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_g_s_account.html#adeeaf5c19617d1188eef817792fbcd3b">configure:</a></td></tr>
-<tr class="memitem:a3fdbcfe73210024ce8a509266f01e96c"><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_g_s_account.html#a3fdbcfe73210024ce8a509266f01e96c">connect</a></td></tr>
-<tr class="memitem:ac9060f30c8eeedeb1b9393402a05c91c"><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_g_s_account.html#ac9060f30c8eeedeb1b9393402a05c91c">disconnect</a></td></tr>
-</table><table class="memberdecls">
+<a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Represents a single PJSIP account. Only one account per session is supported right now. </p>
+
+<p>Definition at line <a class="el" href="_g_s_account_8h_source.html#l00035">35</a> of file <a class="el" href="_g_s_account_8h_source.html">GSAccount.h</a>.</p>
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:a6104fd96cabe25fce5f5d1f42b277716"><td class="memItemLeft" align="right" valign="top">NSInteger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_account.html#a6104fd96cabe25fce5f5d1f42b277716">accountId</a></td></tr>
-<tr class="memitem:a7889f4725468ccfb1cbc80ecf31c4388"><td class="memItemLeft" align="right" valign="top">GSAccountStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_account.html#a7889f4725468ccfb1cbc80ecf31c4388">status</a></td></tr>
-<tr class="memitem:a2a2190b856891b2d578df1b064df9416"><td class="memItemLeft" align="right" valign="top">id&lt; <a class="el" href="protocol_g_s_account_delegate-p.html">GSAccountDelegate</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_account.html#a2a2190b856891b2d578df1b064df9416">delegate</a></td></tr>
+<tr class="memitem:a43d57805c8ac4d8546cd7ba42c74c3f1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a43d57805c8ac4d8546cd7ba42c74c3f1"></a>
+NSInteger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_account.html#a43d57805c8ac4d8546cd7ba42c74c3f1">accountId</a></td></tr>
+<tr class="memdesc:a43d57805c8ac4d8546cd7ba42c74c3f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Account Id, automatically assigned by PJSIP. <br/></td></tr>
+<tr class="memitem:ac3f1ab5cce517d01cef54b774aac829f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac3f1ab5cce517d01cef54b774aac829f"></a>
+id&lt; <a class="el" href="protocol_g_s_account_delegate-p.html">GSAccountDelegate</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_account.html#ac3f1ab5cce517d01cef54b774aac829f">delegate</a></td></tr>
+<tr class="memdesc:ac3f1ab5cce517d01cef54b774aac829f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Account activity delegate. <br/></td></tr>
+<tr class="memitem:a0ed0c6f66c3bb5e9e542ef30025382fc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0ed0c6f66c3bb5e9e542ef30025382fc"></a>
+GSAccountStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_account.html#a0ed0c6f66c3bb5e9e542ef30025382fc">status</a></td></tr>
+<tr class="memdesc:a0ed0c6f66c3bb5e9e542ef30025382fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Account registration status. Supports KVO notification. <br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a48949daf0ff2bc80ff3243f323571dfc"><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_g_s_account.html#a48949daf0ff2bc80ff3243f323571dfc">configure:</a></td></tr>
+<tr class="memdesc:a48949daf0ff2bc80ff3243f323571dfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures account with the specified configuration.  <a href="#a48949daf0ff2bc80ff3243f323571dfc"></a><br/></td></tr>
+<tr class="memitem:a777146c8eacc8297b16827875a48f220"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a777146c8eacc8297b16827875a48f220"></a>
+(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_g_s_account.html#a777146c8eacc8297b16827875a48f220">connect</a></td></tr>
+<tr class="memdesc:a777146c8eacc8297b16827875a48f220"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connects and begin registering with the configured SIP registration server. <br/></td></tr>
+<tr class="memitem:a6192f2d889f854c031b6c32f2d99f009"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6192f2d889f854c031b6c32f2d99f009"></a>
+(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_g_s_account.html#a6192f2d889f854c031b6c32f2d99f009">disconnect</a></td></tr>
+<tr class="memdesc:a6192f2d889f854c031b6c32f2d99f009"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unregister from the SIP registration server and disconnects. <br/></td></tr>
 </table>
-<a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="_g_s_account_8h_source.html#l00029">29</a> of file <a class="el" href="_g_s_account_8h_source.html">GSAccount.h</a>.</p>
-</div><h2>Member Function Documentation</h2>
-<a class="anchor" id="adeeaf5c19617d1188eef817792fbcd3b"></a>
+<h2>Member Function Documentation</h2>
+<a class="anchor" id="a48949daf0ff2bc80ff3243f323571dfc"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -149,111 +145,47 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Configures account with the specified configuration. </p>
+<p>Must be run once and only once before using the <a class="el" href="interface_g_s_account.html" title="Represents a single PJSIP account. Only one account per session is supported right now...">GSAccount</a> instance. Usually this is called automatically by the <a class="el" href="interface_g_s_user_agent.html" title="Mains SIP user agent interface. Applications should configure the shared instance on startup...">GSUserAgent</a> instance. </p>
+
 <p>Definition at line <a class="el" href="_g_s_account_8m_source.html#l00062">62</a> of file <a class="el" href="_g_s_account_8m_source.html">GSAccount.m</a>.</p>
 
 <p>References <a class="el" href="_g_s_p_j_util_8m_source.html#l00055">GSPJUtil::PJAddressWithString:</a>, and <a class="el" href="_g_s_p_j_util_8m_source.html#l00047">GSPJUtil::PJStringWithString:</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3fdbcfe73210024ce8a509266f01e96c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (BOOL) connect </td>
-          <td></td>
-          <td class="paramname"></td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_g_s_account_8m_source.html#l00098">98</a> of file <a class="el" href="_g_s_account_8m_source.html">GSAccount.m</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac9060f30c8eeedeb1b9393402a05c91c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (BOOL) disconnect </td>
-          <td></td>
-          <td class="paramname"></td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_g_s_account_8m_source.html#l00106">106</a> of file <a class="el" href="_g_s_account_8m_source.html">GSAccount.m</a>.</p>
-
-</div>
-</div>
-<h2>Property Documentation</h2>
-<a class="anchor" id="a6104fd96cabe25fce5f5d1f42b277716"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (NSInteger) accountId</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">nonatomic</span><span class="mlabel">assign</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_g_s_account_8h_source.html#l00031">31</a> of file <a class="el" href="_g_s_account_8h_source.html">GSAccount.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2a2190b856891b2d578df1b064df9416"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (id&lt;<a class="el" href="protocol_g_s_account_delegate-p.html">GSAccountDelegate</a>&gt;) delegate</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">write</span><span class="mlabel">nonatomic</span><span class="mlabel">unsafe_unretained</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_g_s_account_8h_source.html#l00034">34</a> of file <a class="el" href="_g_s_account_8h_source.html">GSAccount.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7889f4725468ccfb1cbc80ecf31c4388"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (GSAccountStatus) status</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">nonatomic</span><span class="mlabel">assign</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_g_s_account_8h_source.html#l00032">32</a> of file <a class="el" href="_g_s_account_8h_source.html">GSAccount.h</a>.</p>
-
+<div class="fragment"><div class="line">                 :(<a class="code" href="interface_g_s_account_configuration.html" title="Account configuration. Only supports &quot;digest&quot; and plain-text password authentication atm...">GSAccountConfiguration</a> *)configuration {</div>
+<div class="line">    _config = [configuration copy];</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// prepare account config</span></div>
+<div class="line">    pjsua_acc_config accConfig;</div>
+<div class="line">    pjsua_acc_config_default(&amp;accConfig);</div>
+<div class="line">    </div>
+<div class="line">    accConfig.id = [<a class="code" href="interface_g_s_p_j_util.html" title="General utilities for working with PJSIP in ObjC land.">GSPJUtil</a> <a class="code" href="interface_g_s_p_j_util.html#ab2f4d0463f26863cf4f81270d730389a" title="Creates pj_str_t from NSString prefixed with &quot;sip:&quot;. Instance lifetime depends on the NSString instan...">PJAddressWithString</a>:_config.address];</div>
+<div class="line">    accConfig.reg_uri = [<a class="code" href="interface_g_s_p_j_util.html" title="General utilities for working with PJSIP in ObjC land.">GSPJUtil</a> <a class="code" href="interface_g_s_p_j_util.html#ab2f4d0463f26863cf4f81270d730389a" title="Creates pj_str_t from NSString prefixed with &quot;sip:&quot;. Instance lifetime depends on the NSString instan...">PJAddressWithString</a>:_config.domain];</div>
+<div class="line">    accConfig.register_on_acc_add = PJ_FALSE; <span class="comment">// connect manually</span></div>
+<div class="line">    accConfig.publish_enabled = YES;</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">if</span> (!_config.proxyServer) {</div>
+<div class="line">        accConfig.proxy_cnt = 0;</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        accConfig.proxy_cnt = 1;</div>
+<div class="line">        accConfig.proxy[0] = [<a class="code" href="interface_g_s_p_j_util.html" title="General utilities for working with PJSIP in ObjC land.">GSPJUtil</a> <a class="code" href="interface_g_s_p_j_util.html#ab2f4d0463f26863cf4f81270d730389a" title="Creates pj_str_t from NSString prefixed with &quot;sip:&quot;. Instance lifetime depends on the NSString instan...">PJAddressWithString</a>:_config.proxyServer];</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// adds credentials info</span></div>
+<div class="line">    pjsip_cred_info creds;</div>
+<div class="line">    creds.scheme = [<a class="code" href="interface_g_s_p_j_util.html" title="General utilities for working with PJSIP in ObjC land.">GSPJUtil</a> <a class="code" href="interface_g_s_p_j_util.html#aae34f0f67289d0b9bc3ad916cf9dc642" title="Creates pj_str_t from NSString. Instance lifetime depends on the NSString instance.">PJStringWithString</a>:_config.authScheme];</div>
+<div class="line">    creds.realm = [<a class="code" href="interface_g_s_p_j_util.html" title="General utilities for working with PJSIP in ObjC land.">GSPJUtil</a> <a class="code" href="interface_g_s_p_j_util.html#aae34f0f67289d0b9bc3ad916cf9dc642" title="Creates pj_str_t from NSString. Instance lifetime depends on the NSString instance.">PJStringWithString</a>:_config.authRealm];</div>
+<div class="line">    creds.username = [<a class="code" href="interface_g_s_p_j_util.html" title="General utilities for working with PJSIP in ObjC land.">GSPJUtil</a> <a class="code" href="interface_g_s_p_j_util.html#aae34f0f67289d0b9bc3ad916cf9dc642" title="Creates pj_str_t from NSString. Instance lifetime depends on the NSString instance.">PJStringWithString</a>:_config.username];</div>
+<div class="line">    creds.data = [<a class="code" href="interface_g_s_p_j_util.html" title="General utilities for working with PJSIP in ObjC land.">GSPJUtil</a> <a class="code" href="interface_g_s_p_j_util.html#aae34f0f67289d0b9bc3ad916cf9dc642" title="Creates pj_str_t from NSString. Instance lifetime depends on the NSString instance.">PJStringWithString</a>:_config.password];</div>
+<div class="line">    creds.data_type = PJSIP_CRED_DATA_PLAIN_PASSWD;</div>
+<div class="line">    </div>
+<div class="line">    accConfig.cred_info[0] = creds;</div>
+<div class="line">    accConfig.cred_count = 1;</div>
+<div class="line"></div>
+<div class="line">    <span class="comment">// finish</span></div>
+<div class="line">    GSReturnNoIfFails(pjsua_acc_add(&amp;accConfig, PJ_TRUE, &amp;_accountId));    </div>
+<div class="line">    <span class="keywordflow">return</span> YES;</div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
@@ -266,7 +198,7 @@ Properties</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="interface_g_s_account.html">GSAccount</a></li>
-    <li class="footer">Generated on Wed Jul 18 2012 14:22:35 for GOSSIP Sip library. by
+    <li class="footer">Generated on Wed Jul 18 2012 17:00:36 for GOSSIP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

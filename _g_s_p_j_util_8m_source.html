@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>GOSSIP Sip library.: GSPJUtil.m Source File</title>
+<title>GOSSIP: GSPJUtil.m Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">GOSSIP Sip library.
+   <div id="projectname">GOSSIP
    </div>
   </td>
  </tr>
@@ -42,7 +42,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -105,9 +107,9 @@ $(document).ready(function(){initNavTree('_g_s_p_j_util_8m_source.html','');});
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#import &quot;GSPJUtil.h&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">@implementation </span><a class="code" href="interface_g_s_p_j_util.html" title="General utilities - since categories cause compilation problems when linked to an app...">GSPJUtil</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">@implementation </span><a class="code" href="interface_g_s_p_j_util.html" title="General utilities for working with PJSIP in ObjC land.">GSPJUtil</a></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="interface_g_s_p_j_util.html#ade496038efff3af056de4effd8e1fb4b">   13</a></span>&#160;+ (NSError *)errorWithSIPStatus:(pj_status_t)status {</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="interface_g_s_p_j_util.html#ad9a56a4ec6485073c508bcc6341c0c6b">   13</a></span>&#160;+ (NSError *)errorWithSIPStatus:(pj_status_t)status {</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">int</span> errNumber = PJSIP_ERRNO_FROM_SIP_STATUS(status);</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    </div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    pj_size_t bufferSize = <span class="keyword">sizeof</span>(char) * 255;    </div>
@@ -131,7 +133,7 @@ $(document).ready(function(){initNavTree('_g_s_p_j_util_8m_source.html','');});
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="interface_g_s_p_j_util.html#ad7b9222aeabfd4fedcb74a581685d808">   37</a></span>&#160;+ (NSString *)stringWithPJString:(const pj_str_t *)pjString {</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="interface_g_s_p_j_util.html#ae96c8ef26afe0653bf12bd34dea3cd60">   37</a></span>&#160;+ (NSString *)stringWithPJString:(const pj_str_t *)pjString {</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    NSString *result = [NSString alloc];</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    result = [result initWithBytesNoCopy:pjString-&gt;ptr</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                                  length:pjString-&gt;slen</div>
@@ -141,7 +143,7 @@ $(document).ready(function(){initNavTree('_g_s_p_j_util_8m_source.html','');});
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> result;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="interface_g_s_p_j_util.html#adb44e3998673a214c718bca4cb572c8c">   47</a></span>&#160;+ (pj_str_t)PJStringWithString:(NSString *)string {</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="interface_g_s_p_j_util.html#aae34f0f67289d0b9bc3ad916cf9dc642">   47</a></span>&#160;+ (pj_str_t)PJStringWithString:(NSString *)string {</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *cStr = [string cStringUsingEncoding:NSASCIIStringEncoding]; <span class="comment">// TODO: UTF8?</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    pj_str_t result;</div>
@@ -149,8 +151,8 @@ $(document).ready(function(){initNavTree('_g_s_p_j_util_8m_source.html','');});
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> result;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="interface_g_s_p_j_util.html#a80c2da24d7bf7d7c9393596cec79915a">   55</a></span>&#160;+ (pj_str_t)PJAddressWithString:(NSString *)string {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">return</span> [<span class="keyword">self</span> <a class="code" href="interface_g_s_p_j_util.html#adb44e3998673a214c718bca4cb572c8c" title="Creates pj_str_t from NSString. Instance lifetime depends on the NSString instance.">PJStringWithString</a>:[@&quot;sip:&quot; stringByAppendingString:string]];</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="interface_g_s_p_j_util.html#ab2f4d0463f26863cf4f81270d730389a">   55</a></span>&#160;+ (pj_str_t)PJAddressWithString:(NSString *)string {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">return</span> [<span class="keyword">self</span> <a class="code" href="interface_g_s_p_j_util.html#aae34f0f67289d0b9bc3ad916cf9dc642" title="Creates pj_str_t from NSString. Instance lifetime depends on the NSString instance.">PJStringWithString</a>:[@&quot;sip:&quot; stringByAppendingString:string]];</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">@end</span></div>
@@ -160,7 +162,7 @@ $(document).ready(function(){initNavTree('_g_s_p_j_util_8m_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>GSPJUtil.m</b></li>
-    <li class="footer">Generated on Wed Jul 18 2012 14:22:35 for GOSSIP Sip library. by
+    <li class="footer">Generated on Wed Jul 18 2012 17:00:36 for GOSSIP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

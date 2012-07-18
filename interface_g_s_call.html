@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>GOSSIP Sip library.: GSCall Class Reference</title>
+<title>GOSSIP: GSCall Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">GOSSIP Sip library.
+   <div id="projectname">GOSSIP
    </div>
   </td>
  </tr>
@@ -42,7 +42,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -59,14 +61,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
           </span>
         </div>
       </li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
-      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
-      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -100,90 +94,64 @@ $(document).ready(function(){initNavTree('interface_g_s_call.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#properties">Properties</a> &#124;
-<a href="class_g_s_call-members.html">List of all members</a>  </div>
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
 <div class="title">GSCall Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#import &quot;<a class="el" href="_g_s_call_8h_source.html">GSCall.h</a>&quot;</code></p>
-<div class="dynheader">
-Inheritance diagram for GSCall:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="interface_g_s_call.png" usemap="#GSCall_map" alt=""/>
-  <map id="GSCall_map" name="GSCall_map">
-<area href="class_n_s_object.html" alt="NSObject" shape="rect" coords="56,0,158,24"/>
-<area href="interface_g_s_incoming_call.html" alt="GSIncomingCall" shape="rect" coords="0,112,102,136"/>
-<area href="interface_g_s_outgoing_call.html" alt="GSOutgoingCall" shape="rect" coords="112,112,214,136"/>
-</map>
- </div></div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a8e832707917ec80542ec2f4517f94f7b"><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_g_s_call.html#a8e832707917ec80542ec2f4517f94f7b">initWithAccount:</a></td></tr>
-<tr class="memitem:a395adb921d87a18a036d3c7d4a46c539"><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_g_s_call.html#a395adb921d87a18a036d3c7d4a46c539">setVolume:</a></td></tr>
-<tr class="memitem:a53b91953baab286e48385c4a5e2040eb"><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_g_s_call.html#a53b91953baab286e48385c4a5e2040eb">setMicVolume:</a></td></tr>
-<tr class="memitem:aa9301606095be901d3feb5854feef9f6"><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_g_s_call.html#aa9301606095be901d3feb5854feef9f6">begin</a></td></tr>
-<tr class="memitem:a7cee50e731d5d8feb686ace8cc77d30c"><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_g_s_call.html#a7cee50e731d5d8feb686ace8cc77d30c">end</a></td></tr>
-<tr class="memitem:a8e71a19136603592e78cce981964f963"><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_g_s_call.html#a8e71a19136603592e78cce981964f963">setCallId:</a></td></tr>
-<tr class="memitem:abdee6b649114ed7f229098606209ab72"><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_g_s_call.html#abdee6b649114ed7f229098606209ab72">setStatus:</a></td></tr>
+<a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Represents a single calling session (either incoming or outgoing.) </p>
+
+<p>Definition at line <a class="el" href="_g_s_call_8h_source.html#l00024">24</a> of file <a class="el" href="_g_s_call_8h_source.html">GSCall.h</a>.</p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="properties"></a>
+Properties</h2></td></tr>
+<tr class="memitem:a78f44e0c3014bf1be70a7a430a409d9c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a78f44e0c3014bf1be70a7a430a409d9c"></a>
+<a class="el" href="interface_g_s_account.html">GSAccount</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_call.html#a78f44e0c3014bf1be70a7a430a409d9c">account</a></td></tr>
+<tr class="memdesc:a78f44e0c3014bf1be70a7a430a409d9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">An account this call is being made from. <br/></td></tr>
+<tr class="memitem:afa5eba4b7a80f556f042e971480cd3a2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa5eba4b7a80f556f042e971480cd3a2"></a>
+NSInteger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_call.html#afa5eba4b7a80f556f042e971480cd3a2">callId</a></td></tr>
+<tr class="memdesc:afa5eba4b7a80f556f042e971480cd3a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call id. Autogenerated from PJSIP. <br/></td></tr>
+<tr class="memitem:ae164b36753811f890f5d21e0a2387551"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae164b36753811f890f5d21e0a2387551"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_call.html#ae164b36753811f890f5d21e0a2387551">micVolume</a></td></tr>
+<tr class="memdesc:ae164b36753811f890f5d21e0a2387551"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call microphone volume. i.e. the volume to transmit sound from the mic. Set to 0 to mute. <br/></td></tr>
+<tr class="memitem:a39536dd34ebd231cb890b1f42dbb5b5b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a39536dd34ebd231cb890b1f42dbb5b5b"></a>
+GSCallStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_call.html#a39536dd34ebd231cb890b1f42dbb5b5b">status</a></td></tr>
+<tr class="memdesc:a39536dd34ebd231cb890b1f42dbb5b5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call status. Supports KVO notification. <br/></td></tr>
+<tr class="memitem:a016abda2855c77dcc1630f9d2f9f8d18"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a016abda2855c77dcc1630f9d2f9f8d18"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_call.html#a016abda2855c77dcc1630f9d2f9f8d18">volume</a></td></tr>
+<tr class="memdesc:a016abda2855c77dcc1630f9d2f9f8d18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call volume. Set to 0 to mute. <br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ad0e1b1b73cd7c7669d019f5da3ccd5fc"><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_g_s_call.html#ad0e1b1b73cd7c7669d019f5da3ccd5fc">outgoingCallToUri:fromAccount:</a></td></tr>
-<tr class="memitem:ace04cd708d9e266002f56ca343676916"><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_g_s_call.html#ace04cd708d9e266002f56ca343676916">incomingCallWithId:toAccount:</a></td></tr>
+<tr class="memitem:af050159f442cacecb3fc162324b6a51f"><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_g_s_call.html#af050159f442cacecb3fc162324b6a51f">incomingCallWithId:toAccount:</a></td></tr>
+<tr class="memdesc:af050159f442cacecb3fc162324b6a51f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new incoming call from the specified PJSIP call id. And associate it with the speicifed account.  <a href="#af050159f442cacecb3fc162324b6a51f"></a><br/></td></tr>
+<tr class="memitem:a1cfbe4f03ef891f327ecd443e9c8b262"><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_g_s_call.html#a1cfbe4f03ef891f327ecd443e9c8b262">outgoingCallToUri:fromAccount:</a></td></tr>
+<tr class="memdesc:a1cfbe4f03ef891f327ecd443e9c8b262"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creats a new outgoing call to the specified remoteUri.  <a href="#a1cfbe4f03ef891f327ecd443e9c8b262"></a><br/></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2><a name="properties"></a>
-Properties</h2></td></tr>
-<tr class="memitem:aa9b9a3a76fb43bbea3e9b4e50df49e59"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_g_s_account.html">GSAccount</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_call.html#aa9b9a3a76fb43bbea3e9b4e50df49e59">account</a></td></tr>
-<tr class="memitem:adab8f0154e29362634429ec7cdda9da6"><td class="memItemLeft" align="right" valign="top">NSInteger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_call.html#adab8f0154e29362634429ec7cdda9da6">callId</a></td></tr>
-<tr class="memitem:a2fae9e29a115bc3645074ea758f0a53a"><td class="memItemLeft" align="right" valign="top">GSCallStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_call.html#a2fae9e29a115bc3645074ea758f0a53a">status</a></td></tr>
-<tr class="memitem:a52af74b01e729e1dbdc51801830067dc"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_call.html#a52af74b01e729e1dbdc51801830067dc">volume</a></td></tr>
-<tr class="memitem:a7b3e2b939a7689096913732c65e4c512"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_call.html#a7b3e2b939a7689096913732c65e4c512">micVolume</a></td></tr>
+<tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:adec4e878ef9881d9a6ede9817e51c16d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adec4e878ef9881d9a6ede9817e51c16d"></a>
+(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_g_s_call.html#adec4e878ef9881d9a6ede9817e51c16d">begin</a></td></tr>
+<tr class="memdesc:adec4e878ef9881d9a6ede9817e51c16d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins calling for outgoing call or answer incoming call. <br/></td></tr>
+<tr class="memitem:ac88935300e8025b6671bc8fc541d149d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac88935300e8025b6671bc8fc541d149d"></a>
+(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_g_s_call.html#ac88935300e8025b6671bc8fc541d149d">end</a></td></tr>
+<tr class="memdesc:ac88935300e8025b6671bc8fc541d149d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop calling and/or hangup call. <br/></td></tr>
+<tr class="memitem:af98d60b5d05adfcd8f36f9858a2557d7"><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_g_s_call.html#af98d60b5d05adfcd8f36f9858a2557d7">initWithAccount:</a></td></tr>
+<tr class="memdesc:af98d60b5d05adfcd8f36f9858a2557d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a new call with the specified account.  <a href="#af98d60b5d05adfcd8f36f9858a2557d7"></a><br/></td></tr>
+<tr class="memitem:aa53f05d91770488ead49d7f2f95ee803"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa53f05d91770488ead49d7f2f95ee803"></a>
+(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_g_s_call.html#aa53f05d91770488ead49d7f2f95ee803">setMicVolume:</a></td></tr>
+<tr class="memdesc:aa53f05d91770488ead49d7f2f95ee803"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the microphone volume. Returns YES if successful. <br/></td></tr>
+<tr class="memitem:a530ef5dea24cb9a753eed7f93794229d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a530ef5dea24cb9a753eed7f93794229d"></a>
+(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_g_s_call.html#a530ef5dea24cb9a753eed7f93794229d">setVolume:</a></td></tr>
+<tr class="memdesc:a530ef5dea24cb9a753eed7f93794229d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the call volume. Returns YES if successful. <br/></td></tr>
 </table>
-<a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="_g_s_call_8h_source.html#l00022">22</a> of file <a class="el" href="_g_s_call_8h_source.html">GSCall.h</a>.</p>
-</div><h2>Member Function Documentation</h2>
-<a class="anchor" id="aa9301606095be901d3feb5854feef9f6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (BOOL) begin </td>
-          <td></td>
-          <td class="paramname"></td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_g_s_call_8m_source.html#l00125">125</a> of file <a class="el" href="_g_s_call_8m_source.html">GSCall.m</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7cee50e731d5d8feb686ace8cc77d30c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (BOOL) end </td>
-          <td></td>
-          <td class="paramname"></td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_g_s_call_8m_source.html#l00130">130</a> of file <a class="el" href="_g_s_call_8m_source.html">GSCall.m</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ace04cd708d9e266002f56ca343676916"></a>
+<h2>Member Function Documentation</h2>
+<a class="anchor" id="af050159f442cacecb3fc162324b6a51f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -207,13 +175,20 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Creates a new incoming call from the specified PJSIP call id. And associate it with the speicifed account. </p>
+<p>Do not call this method directly, implement <a class="el" href="protocol_g_s_account_delegate-p.html" title="Delegate to receive account activity.">GSAccountDelegate</a> and listen to the <a class="el" href="protocol_g_s_account_delegate-p.html#af5d41e244d0c3d413ebb978753b4bb8b" title="Called when an account recieves an incoming call.">account:didReceiveIncomingCall: (GSAccountDelegate-p)</a> message instead. </p>
+
 <p>Definition at line <a class="el" href="_g_s_call_8m_source.html#l00035">35</a> of file <a class="el" href="_g_s_call_8m_source.html">GSCall.m</a>.</p>
-
-<p>References <a class="el" href="_g_s_incoming_call_8m_source.html#l00016">GSIncomingCall::initWithCallId:toAccount:</a>.</p>
-
+<div class="fragment"><div class="line">                        :(NSInteger)<a class="code" href="interface_g_s_call.html#afa5eba4b7a80f556f042e971480cd3a2" title="Call id. Autogenerated from PJSIP.">callId</a> toAccount:(<a class="code" href="interface_g_s_account.html" title="Represents a single PJSIP account. Only one account per session is supported right now...">GSAccount</a> *)account {</div>
+<div class="line">    GSIncomingCall *call = [GSIncomingCall alloc];</div>
+<div class="line">    call = [call initWithCallId:callId toAccount:account];</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">return</span> call;</div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
-<a class="anchor" id="a8e832707917ec80542ec2f4517f94f7b"></a>
+<a class="anchor" id="af98d60b5d05adfcd8f36f9858a2557d7"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -227,13 +202,38 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initialize a new call with the specified account. </p>
+<p>Do not initialize a <a class="el" href="interface_g_s_call.html" title="Represents a single calling session (either incoming or outgoing.)">GSCall</a> instance directly, instead use one of the provided static methods. This method is only inteded to be used by child classes. </p>
+
 <p>Definition at line <a class="el" href="_g_s_call_8m_source.html#l00047">47</a> of file <a class="el" href="_g_s_call_8m_source.html">GSCall.m</a>.</p>
 
 <p>References <a class="el" href="_g_s_user_agent_8m_source.html#l00028">GSUserAgent::sharedAgent</a>.</p>
-
+<div class="fragment"><div class="line">                     :(<a class="code" href="interface_g_s_account.html" title="Represents a single PJSIP account. Only one account per session is supported right now...">GSAccount</a> *)account {</div>
+<div class="line">    <span class="keywordflow">if</span> (<span class="keyword">self</span> = [super init]) {</div>
+<div class="line">        _account = <a class="code" href="interface_g_s_call.html#a78f44e0c3014bf1be70a7a430a409d9c" title="An account this call is being made from.">account</a>;</div>
+<div class="line">        _status = GSCallStatusReady;</div>
+<div class="line">        _callId = PJSUA_INVALID_ID;</div>
+<div class="line">        </div>
+<div class="line">        _volumeScale = [<a class="code" href="interface_g_s_user_agent.html" title="Mains SIP user agent interface. Applications should configure the shared instance on startup...">GSUserAgent</a> <a class="code" href="interface_g_s_user_agent.html#a9ed3370759a75e7b9ac97241faeae519" title="Obtains the shared user agent instance.">sharedAgent</a>].configuration.volumeScale;</div>
+<div class="line">        _volume = 1.0 / _volumeScale;</div>
+<div class="line">        _micVolume = 1.0 / _volumeScale;</div>
+<div class="line">        </div>
+<div class="line">        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];</div>
+<div class="line">        [center addObserver:self</div>
+<div class="line">                   selector:@selector(callStateDidChange:)</div>
+<div class="line">                       name:GSSIPCallStateDidChangeNotification</div>
+<div class="line">                     object:[GSDispatch class]];</div>
+<div class="line">        [center addObserver:self</div>
+<div class="line">                   selector:@selector(callMediaStateDidChange:)</div>
+<div class="line">                       name:GSSIPCallMediaStateDidChangeNotification</div>
+<div class="line">                     object:[GSDispatch class]];</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">self</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
-<a class="anchor" id="ad0e1b1b73cd7c7669d019f5da3ccd5fc"></a>
+<a class="anchor" id="a1cfbe4f03ef891f327ecd443e9c8b262"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -257,191 +257,17 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Creats a new outgoing call to the specified remoteUri. </p>
+<p>Use <a class="el" href="interface_g_s_call.html#adec4e878ef9881d9a6ede9817e51c16d" title="Begins calling for outgoing call or answer incoming call.">begin</a> to begin calling. </p>
+
 <p>Definition at line <a class="el" href="_g_s_call_8m_source.html#l00028">28</a> of file <a class="el" href="_g_s_call_8m_source.html">GSCall.m</a>.</p>
-
-<p>References <a class="el" href="_g_s_outgoing_call_8m_source.html#l00018">GSOutgoingCall::initWithRemoteUri:fromAccount:</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a8e71a19136603592e78cce981964f963"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (void) setCallId: </td>
-          <td></td>
-          <td class="paramtype">(NSInteger)&#160;</td>
-          <td class="paramname"><em>callId</em></td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Referenced by <a class="el" href="_g_s_incoming_call_8m_source.html#l00016">GSIncomingCall::initWithCallId:toAccount:</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a53b91953baab286e48385c4a5e2040eb"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (BOOL) setMicVolume: </td>
-          <td></td>
-          <td class="paramtype">(float)&#160;</td>
-          <td class="paramname"><em>volume</em></td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_g_s_call_8m_source.html#l00116">116</a> of file <a class="el" href="_g_s_call_8m_source.html">GSCall.m</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="abdee6b649114ed7f229098606209ab72"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (void) setStatus: </td>
-          <td></td>
-          <td class="paramtype">(GSCallStatus)&#160;</td>
-          <td class="paramname"><em>status</em></td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a395adb921d87a18a036d3c7d4a46c539"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (BOOL) setVolume: </td>
-          <td></td>
-          <td class="paramtype">(float)&#160;</td>
-          <td class="paramname"><em>volume</em></td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_g_s_call_8m_source.html#l00104">104</a> of file <a class="el" href="_g_s_call_8m_source.html">GSCall.m</a>.</p>
-
-</div>
-</div>
-<h2>Property Documentation</h2>
-<a class="anchor" id="aa9b9a3a76fb43bbea3e9b4e50df49e59"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (<a class="el" href="interface_g_s_account.html">GSAccount</a>*) account</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">nonatomic</span><span class="mlabel">unsafe_unretained</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_g_s_call_8h_source.html#l00024">24</a> of file <a class="el" href="_g_s_call_8h_source.html">GSCall.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="adab8f0154e29362634429ec7cdda9da6"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (NSInteger) callId</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">nonatomic</span><span class="mlabel">assign</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_g_s_call_8h_source.html#l00026">26</a> of file <a class="el" href="_g_s_call_8h_source.html">GSCall.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7b3e2b939a7689096913732c65e4c512"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (float) micVolume</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">nonatomic</span><span class="mlabel">assign</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_g_s_call_8h_source.html#l00030">30</a> of file <a class="el" href="_g_s_call_8h_source.html">GSCall.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2fae9e29a115bc3645074ea758f0a53a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (GSCallStatus) status</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">nonatomic</span><span class="mlabel">assign</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_g_s_call_8h_source.html#l00027">27</a> of file <a class="el" href="_g_s_call_8h_source.html">GSCall.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a52af74b01e729e1dbdc51801830067dc"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (float) volume</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">nonatomic</span><span class="mlabel">assign</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_g_s_call_8h_source.html#l00029">29</a> of file <a class="el" href="_g_s_call_8h_source.html">GSCall.h</a>.</p>
-
+<div class="fragment"><div class="line">                       :(NSString *)remoteUri fromAccount:(<a class="code" href="interface_g_s_account.html" title="Represents a single PJSIP account. Only one account per session is supported right now...">GSAccount</a> *)account {</div>
+<div class="line">    GSOutgoingCall *call = [GSOutgoingCall alloc];</div>
+<div class="line">    call = [call initWithRemoteUri:remoteUri fromAccount:account];</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">return</span> call;</div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
@@ -454,7 +280,7 @@ Properties</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="interface_g_s_call.html">GSCall</a></li>
-    <li class="footer">Generated on Wed Jul 18 2012 14:22:35 for GOSSIP Sip library. by
+    <li class="footer">Generated on Wed Jul 18 2012 17:00:36 for GOSSIP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

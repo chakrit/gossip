@@ -1,22 +1,19 @@
 var NAVTREE =
 [
-  [ "GOSSIP Sip library.", "index.html", [
-    [ "Classes", null, [
-      [ "Class List", "annotated.html", "annotated" ],
-      [ "Class Index", "classes.html", null ],
-      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
-      [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
-        [ "Functions", "functions_func.html", null ],
-        [ "Properties", "functions_prop.html", null ]
-      ] ]
-    ] ]
+  [ "GOSSIP", "index.html", [
+    [ "Class List", "annotated.html", "annotated" ],
+    [ "Class Members", "functions.html", [
+      [ "All", "functions.html", null ],
+      [ "Functions", "functions_func.html", null ],
+      [ "Properties", "functions_prop.html", null ]
+    ] ],
+    [ "File List", "files.html", "files" ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"_g_s_account_8h_source.html"
 ];
 
 var navTreeSubIndices = new Array();

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>GOSSIP Sip library.: GSAccountConfiguration Class Reference</title>
+<title>GOSSIP: GSAccountConfiguration Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">GOSSIP Sip library.
+   <div id="projectname">GOSSIP
    </div>
   </td>
  </tr>
@@ -42,7 +42,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -59,14 +61,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
           </span>
         </div>
       </li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
-      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
-      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -100,235 +94,52 @@ $(document).ready(function(){initNavTree('interface_g_s_account_configuration.ht
 
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#properties">Properties</a> &#124;
-<a href="class_g_s_account_configuration-members.html">List of all members</a>  </div>
+<a href="#pub-static-methods">Static Public Member Functions</a>  </div>
   <div class="headertitle">
 <div class="title">GSAccountConfiguration Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#import &quot;<a class="el" href="_g_s_account_configuration_8h_source.html">GSAccountConfiguration.h</a>&quot;</code></p>
-<div class="dynheader">
-Inheritance diagram for GSAccountConfiguration:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="interface_g_s_account_configuration.png" usemap="#GSAccountConfiguration_map" alt=""/>
-  <map id="GSAccountConfiguration_map" name="GSAccountConfiguration_map">
-<area href="class_n_s_object.html" alt="NSObject" shape="rect" coords="0,0,152,24"/>
-<area href="class_n_s_copying-p.html" alt="NSCopying-p" shape="rect" coords="162,0,314,24"/>
-</map>
- </div></div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a30fbe0c121f7b70ef8e47f40cee4b2b2"><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_g_s_account_configuration.html#a30fbe0c121f7b70ef8e47f40cee4b2b2">defaultConfiguration</a></td></tr>
-<tr class="memitem:aa296ae9e38c5b801d27be5d5c1258672"><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_g_s_account_configuration.html#aa296ae9e38c5b801d27be5d5c1258672">configurationWithConfiguration:</a></td></tr>
-</table><table class="memberdecls">
+<a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Account configuration. Only supports "digest" and plain-text password authentication atm. </p>
+
+<p>Definition at line <a class="el" href="_g_s_account_configuration_8h_source.html#l00012">12</a> of file <a class="el" href="_g_s_account_configuration_8h_source.html">GSAccountConfiguration.h</a>.</p>
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:a5e5d7e08256e391da4ef4f4eb06355a2"><td class="memItemLeft" align="right" valign="top">NSString *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_account_configuration.html#a5e5d7e08256e391da4ef4f4eb06355a2">address</a></td></tr>
-<tr class="memitem:a49bb290eac15943b2a8bc73901d2b042"><td class="memItemLeft" align="right" valign="top">NSString *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_account_configuration.html#a49bb290eac15943b2a8bc73901d2b042">domain</a></td></tr>
-<tr class="memitem:a02fedaa71090de384fe7d8e5e910a294"><td class="memItemLeft" align="right" valign="top">NSString *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_account_configuration.html#a02fedaa71090de384fe7d8e5e910a294">proxyServer</a></td></tr>
-<tr class="memitem:add035c372f5e3c0e66ca00695e8ed3fb"><td class="memItemLeft" align="right" valign="top">NSString *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_account_configuration.html#add035c372f5e3c0e66ca00695e8ed3fb">authScheme</a></td></tr>
-<tr class="memitem:a889cb5709d468df89fbd12b6e6aee637"><td class="memItemLeft" align="right" valign="top">NSString *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_account_configuration.html#a889cb5709d468df89fbd12b6e6aee637">authRealm</a></td></tr>
-<tr class="memitem:a946e1ae4a964ab82a6480ffb61ec6f2f"><td class="memItemLeft" align="right" valign="top">NSString *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_account_configuration.html#a946e1ae4a964ab82a6480ffb61ec6f2f">username</a></td></tr>
-<tr class="memitem:a16bbd8886600529a9e3887336f4744f9"><td class="memItemLeft" align="right" valign="top">NSString *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_account_configuration.html#a16bbd8886600529a9e3887336f4744f9">password</a></td></tr>
+<tr class="memitem:a444397aa067cf65287a72615bdbdf076"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a444397aa067cf65287a72615bdbdf076"></a>
+NSString *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_account_configuration.html#a444397aa067cf65287a72615bdbdf076">address</a></td></tr>
+<tr class="memdesc:a444397aa067cf65287a72615bdbdf076"><td class="mdescLeft">&#160;</td><td class="mdescRight">SIP address. <br/></td></tr>
+<tr class="memitem:af77dd285e217d1dc73aa63c46ff1ac3c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af77dd285e217d1dc73aa63c46ff1ac3c"></a>
+NSString *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_account_configuration.html#af77dd285e217d1dc73aa63c46ff1ac3c">authRealm</a></td></tr>
+<tr class="memdesc:af77dd285e217d1dc73aa63c46ff1ac3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Authentication realm. Defaults to "*". <br/></td></tr>
+<tr class="memitem:ac9ed3de07a10f04e839bf9f880a1f26a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac9ed3de07a10f04e839bf9f880a1f26a"></a>
+NSString *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_account_configuration.html#ac9ed3de07a10f04e839bf9f880a1f26a">authScheme</a></td></tr>
+<tr class="memdesc:ac9ed3de07a10f04e839bf9f880a1f26a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Authentication scheme. Defaults to "digest". <br/></td></tr>
+<tr class="memitem:a10f83bae6e9c5171a100f808552cfb92"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a10f83bae6e9c5171a100f808552cfb92"></a>
+NSString *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_account_configuration.html#a10f83bae6e9c5171a100f808552cfb92">domain</a></td></tr>
+<tr class="memdesc:a10f83bae6e9c5171a100f808552cfb92"><td class="mdescLeft">&#160;</td><td class="mdescRight">SIP domain. <br/></td></tr>
+<tr class="memitem:acc98b6f3de9c91f6c76c9a90c640ffd8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc98b6f3de9c91f6c76c9a90c640ffd8"></a>
+NSString *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_account_configuration.html#acc98b6f3de9c91f6c76c9a90c640ffd8">password</a></td></tr>
+<tr class="memdesc:acc98b6f3de9c91f6c76c9a90c640ffd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">SIP password. <br/></td></tr>
+<tr class="memitem:a6beb0fe5d01e114db960527f08484794"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6beb0fe5d01e114db960527f08484794"></a>
+NSString *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_account_configuration.html#a6beb0fe5d01e114db960527f08484794">proxyServer</a></td></tr>
+<tr class="memdesc:a6beb0fe5d01e114db960527f08484794"><td class="mdescLeft">&#160;</td><td class="mdescRight">SIP outbound proxy server. <br/></td></tr>
+<tr class="memitem:a60e172c85c62e68c966d409f4e54b1c9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a60e172c85c62e68c966d409f4e54b1c9"></a>
+NSString *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_account_configuration.html#a60e172c85c62e68c966d409f4e54b1c9">username</a></td></tr>
+<tr class="memdesc:a60e172c85c62e68c966d409f4e54b1c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">SIP username. <br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a7792eeb98e6937df7eb1961675801444"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7792eeb98e6937df7eb1961675801444"></a>
+(id)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_g_s_account_configuration.html#a7792eeb98e6937df7eb1961675801444">configurationWithConfiguration:</a></td></tr>
+<tr class="memdesc:a7792eeb98e6937df7eb1961675801444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor. <br/></td></tr>
+<tr class="memitem:a929b75b9bd28c00de25599415c384b28"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a929b75b9bd28c00de25599415c384b28"></a>
+(id)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_g_s_account_configuration.html#a929b75b9bd28c00de25599415c384b28">defaultConfiguration</a></td></tr>
+<tr class="memdesc:a929b75b9bd28c00de25599415c384b28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="interface_g_s_account_configuration.html" title="Account configuration. Only supports &quot;digest&quot; and plain-text password authentication atm...">GSAccountConfiguration</a> instance with default configuration values. <br/></td></tr>
 </table>
-<a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="_g_s_account_configuration_8h_source.html#l00011">11</a> of file <a class="el" href="_g_s_account_configuration_8h_source.html">GSAccountConfiguration.h</a>.</p>
-</div><h2>Member Function Documentation</h2>
-<a class="anchor" id="aa296ae9e38c5b801d27be5d5c1258672"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">+ (id) configurationWithConfiguration: </td>
-          <td></td>
-          <td class="paramtype">(<a class="el" href="interface_g_s_account_configuration.html">GSAccountConfiguration</a> *)&#160;</td>
-          <td class="paramname"><em>configuration</em></td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_g_s_account_configuration_8m_source.html#l00025">25</a> of file <a class="el" href="_g_s_account_configuration_8m_source.html">GSAccountConfiguration.m</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a30fbe0c121f7b70ef8e47f40cee4b2b2"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">+ (id) defaultConfiguration </td>
-          <td></td>
-          <td class="paramname"></td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_g_s_account_configuration_8m_source.html#l00021">21</a> of file <a class="el" href="_g_s_account_configuration_8m_source.html">GSAccountConfiguration.m</a>.</p>
-
-</div>
-</div>
-<h2>Property Documentation</h2>
-<a class="anchor" id="a5e5d7e08256e391da4ef4f4eb06355a2"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (NSString*) address</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">write</span><span class="mlabel">nonatomic</span><span class="mlabel">copy</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_g_s_account_configuration_8h_source.html#l00013">13</a> of file <a class="el" href="_g_s_account_configuration_8h_source.html">GSAccountConfiguration.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a889cb5709d468df89fbd12b6e6aee637"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (NSString*) authRealm</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">write</span><span class="mlabel">nonatomic</span><span class="mlabel">copy</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_g_s_account_configuration_8h_source.html#l00017">17</a> of file <a class="el" href="_g_s_account_configuration_8h_source.html">GSAccountConfiguration.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="add035c372f5e3c0e66ca00695e8ed3fb"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (NSString*) authScheme</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">write</span><span class="mlabel">nonatomic</span><span class="mlabel">copy</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_g_s_account_configuration_8h_source.html#l00016">16</a> of file <a class="el" href="_g_s_account_configuration_8h_source.html">GSAccountConfiguration.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a49bb290eac15943b2a8bc73901d2b042"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (NSString*) domain</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">write</span><span class="mlabel">nonatomic</span><span class="mlabel">copy</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_g_s_account_configuration_8h_source.html#l00014">14</a> of file <a class="el" href="_g_s_account_configuration_8h_source.html">GSAccountConfiguration.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a16bbd8886600529a9e3887336f4744f9"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (NSString*) password</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">write</span><span class="mlabel">nonatomic</span><span class="mlabel">copy</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_g_s_account_configuration_8h_source.html#l00019">19</a> of file <a class="el" href="_g_s_account_configuration_8h_source.html">GSAccountConfiguration.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a02fedaa71090de384fe7d8e5e910a294"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (NSString*) proxyServer</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">write</span><span class="mlabel">nonatomic</span><span class="mlabel">copy</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_g_s_account_configuration_8h_source.html#l00015">15</a> of file <a class="el" href="_g_s_account_configuration_8h_source.html">GSAccountConfiguration.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a946e1ae4a964ab82a6480ffb61ec6f2f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (NSString*) username</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">write</span><span class="mlabel">nonatomic</span><span class="mlabel">copy</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_g_s_account_configuration_8h_source.html#l00018">18</a> of file <a class="el" href="_g_s_account_configuration_8h_source.html">GSAccountConfiguration.h</a>.</p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_g_s_account_configuration_8h_source.html">GSAccountConfiguration.h</a></li>
 <li><a class="el" href="_g_s_account_configuration_8m_source.html">GSAccountConfiguration.m</a></li>
@@ -339,7 +150,7 @@ Properties</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="interface_g_s_account_configuration.html">GSAccountConfiguration</a></li>
-    <li class="footer">Generated on Wed Jul 18 2012 14:22:35 for GOSSIP Sip library. by
+    <li class="footer">Generated on Wed Jul 18 2012 17:00:36 for GOSSIP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

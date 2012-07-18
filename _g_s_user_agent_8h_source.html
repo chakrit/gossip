@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>GOSSIP Sip library.: GSUserAgent.h Source File</title>
+<title>GOSSIP: GSUserAgent.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">GOSSIP Sip library.
+   <div id="projectname">GOSSIP
    </div>
   </td>
  </tr>
@@ -42,7 +42,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -107,25 +109,29 @@ $(document).ready(function(){initNavTree('_g_s_user_agent_8h_source.html','');})
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#import &quot;GSConfiguration.h&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="interface_g_s_user_agent.html">   15</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="interface_g_s_user_agent.html">GSUserAgent</a> : <a class="code" href="class_n_s_object.html">NSObject</a></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="interface_g_s_user_agent.html#ac518a23bdd66cf13db96a553e4313747">   17</a></span>&#160;<span class="keyword">@property</span> (nonatomic, strong, readonly) <a class="code" href="interface_g_s_account.html">GSAccount</a> *<a class="code" href="interface_g_s_user_agent.html#ac518a23bdd66cf13db96a553e4313747">account</a>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;+ (<a class="code" href="interface_g_s_user_agent.html">GSUserAgent</a> *)<a class="code" href="interface_g_s_user_agent.html#aed1f55b4f1aaa33d1a2b25e783ad15c4" title="Obtains the shared user agent instance.">sharedAgent</a>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;- (BOOL)configure:(<a class="code" href="interface_g_s_configuration.html">GSConfiguration</a> *)config;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;- (BOOL)<a class="code" href="interface_g_s_user_agent.html#a8ee45e9faffdf578c811a4de19096ea1">start</a>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;- (NSArray *)<a class="code" href="interface_g_s_user_agent.html#a9ed58289fac1fc7eb9d774ddac1f611d">arrayOfAvailableCodecs</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="interface_g_s_user_agent.html">   22</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="interface_g_s_user_agent.html" title="Mains SIP user agent interface. Applications should configure the shared instance on startup...">GSUserAgent</a> : NSObject</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">@property</span> (nonatomic, strong, readonly) <a class="code" href="interface_g_s_account.html" title="Represents a single PJSIP account. Only one account per session is supported right now...">GSAccount</a> *account;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;+ (<a class="code" href="interface_g_s_user_agent.html" title="Mains SIP user agent interface. Applications should configure the shared instance on startup...">GSUserAgent</a> *)<a class="code" href="interface_g_s_user_agent.html#a9ed3370759a75e7b9ac97241faeae519" title="Obtains the shared user agent instance.">sharedAgent</a>;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;- (BOOL)configure:(<a class="code" href="interface_g_s_configuration.html" title="Main class for configuring a SIP user agent.">GSConfiguration</a> *)config;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;- (BOOL)<a class="code" href="interface_g_s_user_agent.html#ae553dba0204e76ab3e172e8844ea911d" title="Starts the user agent.">start</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;- (NSArray *)<a class="code" href="interface_g_s_user_agent.html#a88aec5696df351dd7b6364eacc6c296e" title="Gets an array of GSCodecInfo for codecs loaded by PJSIP.">arrayOfAvailableCodecs</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">@end</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>GSUserAgent.h</b></li>
-    <li class="footer">Generated on Wed Jul 18 2012 14:22:35 for GOSSIP Sip library. by
+    <li class="footer">Generated on Wed Jul 18 2012 17:00:36 for GOSSIP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

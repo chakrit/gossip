@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['volume',['volume',['../interface_g_s_call.html#a52af74b01e729e1dbdc51801830067dc',1,'GSCall']]],
-  ['volumescale',['volumeScale',['../interface_g_s_configuration.html#a3a86bc3510e0950bf0dbca98cef95dc8',1,'GSConfiguration']]]
+  ['volume',['volume',['../interface_g_s_call.html#a016abda2855c77dcc1630f9d2f9f8d18',1,'GSCall']]]
 ];

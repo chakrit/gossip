@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>GOSSIP Sip library.: &lt;GSAccountDelegate&gt; Protocol Reference</title>
+<title>GOSSIP: &lt;GSAccountDelegate&gt; Protocol Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">GOSSIP Sip library.
+   <div id="projectname">GOSSIP
    </div>
   </td>
  </tr>
@@ -42,7 +42,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -59,14 +61,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
           </span>
         </div>
       </li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
-      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
-      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -100,33 +94,25 @@ $(document).ready(function(){initNavTree('protocol_g_s_account_delegate-p.html',
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="protocol_g_s_account_delegate-p-members.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
 <div class="title">&lt;GSAccountDelegate&gt; Protocol Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#import &quot;<a class="el" href="_g_s_account_8h_source.html">GSAccount.h</a>&quot;</code></p>
-<div class="dynheader">
-Inheritance diagram for &lt;GSAccountDelegate&gt;:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="protocol_g_s_account_delegate-p.png" usemap="#&lt;GSAccountDelegate&gt;_map" alt=""/>
-  <map id="&lt;GSAccountDelegate&gt;_map" name="&lt;GSAccountDelegate&gt;_map">
-<area href="class_n_s_object-p.html" alt="NSObject-p" shape="rect" coords="0,0,140,24"/>
-</map>
- </div></div>
-<table class="memberdecls">
+<a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Delegate to receive account activity. </p>
+
+<p>Definition at line <a class="el" href="_g_s_account_8h_source.html#l00024">24</a> of file <a class="el" href="_g_s_account_8h_source.html">GSAccount.h</a>.</p>
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2e342270e144d1220e3fa42adfda505f"><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="protocol_g_s_account_delegate-p.html#a2e342270e144d1220e3fa42adfda505f">account:didReceiveIncomingCall:</a></td></tr>
+<tr class="memitem:af5d41e244d0c3d413ebb978753b4bb8b"><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="protocol_g_s_account_delegate-p.html#af5d41e244d0c3d413ebb978753b4bb8b">account:didReceiveIncomingCall:</a></td></tr>
+<tr class="memdesc:af5d41e244d0c3d413ebb978753b4bb8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when an account recieves an incoming call.  <a href="#af5d41e244d0c3d413ebb978753b4bb8b"></a><br/></td></tr>
 </table>
-<a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="_g_s_account_8h_source.html#l00022">22</a> of file <a class="el" href="_g_s_account_8h_source.html">GSAccount.h</a>.</p>
-</div><h2>Member Function Documentation</h2>
-<a class="anchor" id="a2e342270e144d1220e3fa42adfda505f"></a>
+<h2>Member Function Documentation</h2>
+<a class="anchor" id="af5d41e244d0c3d413ebb978753b4bb8b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -150,6 +136,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Called when an account recieves an incoming call. </p>
+<p>Call <a class="el" href="interface_g_s_call.html#adec4e878ef9881d9a6ede9817e51c16d" title="Begins calling for outgoing call or answer incoming call.">begin (GSCall)</a> to accept incoming call or <a class="el" href="interface_g_s_call.html#ac88935300e8025b6671bc8fc541d149d" title="Stop calling and/or hangup call.">end (GSCall)</a> to deny. This should be done in a timely fashion since we do not support timeouts for incoming call yet. </p>
+
 </div>
 </div>
 <hr/>The documentation for this protocol was generated from the following file:<ul>
@@ -161,7 +150,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="protocol_g_s_account_delegate-p.html">GSAccountDelegate</a></li>
-    <li class="footer">Generated on Wed Jul 18 2012 14:22:35 for GOSSIP Sip library. by
+    <li class="footer">Generated on Wed Jul 18 2012 17:00:36 for GOSSIP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

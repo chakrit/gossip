@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>GOSSIP Sip library.: GSOutgoingCall.m Source File</title>
+<title>GOSSIP: GSOutgoingCall.m Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">GOSSIP Sip library.
+   <div id="projectname">GOSSIP
    </div>
   </td>
  </tr>
@@ -42,7 +42,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -108,13 +110,13 @@ $(document).ready(function(){initNavTree('_g_s_outgoing_call_8m_source.html','')
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#import &quot;Util.h&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">@implementation </span><a class="code" href="interface_g_s_outgoing_call.html">GSOutgoingCall</a></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">@implementation </span>GSOutgoingCall</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">@synthesize</span> <a class="code" href="interface_g_s_outgoing_call.html#afb9c83b84fb0746ca00d17cac02a756b">remoteUri</a> = _remoteUri;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">@synthesize</span> remoteUri = _remoteUri;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="interface_g_s_outgoing_call.html#a372c7f79fca94c28bc94cd631b2ed500">   18</a></span>&#160;- (id)initWithRemoteUri:(NSString *)remoteUri fromAccount:(<a class="code" href="interface_g_s_account.html">GSAccount</a> *)account {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;- (id)initWithRemoteUri:(NSString *)remoteUri fromAccount:(<a class="code" href="interface_g_s_account.html" title="Represents a single PJSIP account. Only one account per session is supported right now...">GSAccount</a> *)account {</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">self</span> = [super initWithAccount:account]) {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        _remoteUri = [<a class="code" href="interface_g_s_outgoing_call.html#afb9c83b84fb0746ca00d17cac02a756b">remoteUri</a> copy];</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        _remoteUri = [remoteUri copy];</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    }</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">self</span>;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
@@ -124,25 +126,25 @@ $(document).ready(function(){initNavTree('_g_s_outgoing_call_8m_source.html','')
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;- (BOOL)<a class="code" href="interface_g_s_call.html#aa9301606095be901d3feb5854feef9f6">begin</a> {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;- (BOOL)begin {</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">if</span> (![_remoteUri hasPrefix:<span class="stringliteral">@&quot;sip:&quot;</span>])</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        _remoteUri = [@&quot;sip:&quot; stringByAppendingString:_remoteUri];</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    pj_str_t <a class="code" href="interface_g_s_outgoing_call.html#afb9c83b84fb0746ca00d17cac02a756b">remoteUri</a> = [<a class="code" href="interface_g_s_p_j_util.html" title="General utilities - since categories cause compilation problems when linked to an app...">GSPJUtil</a> <a class="code" href="interface_g_s_p_j_util.html#adb44e3998673a214c718bca4cb572c8c" title="Creates pj_str_t from NSString. Instance lifetime depends on the NSString instance.">PJStringWithString</a>:_remoteUri];</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    pj_str_t remoteUri = [<a class="code" href="interface_g_s_p_j_util.html" title="General utilities for working with PJSIP in ObjC land.">GSPJUtil</a> <a class="code" href="interface_g_s_p_j_util.html#aae34f0f67289d0b9bc3ad916cf9dc642" title="Creates pj_str_t from NSString. Instance lifetime depends on the NSString instance.">PJStringWithString</a>:_remoteUri];</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    pjsua_call_setting callSetting;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    pjsua_call_setting_default(&amp;callSetting);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    callSetting.aud_cnt = 1;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    callSetting.vid_cnt = 0; <span class="comment">// TODO: Video calling support?</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    pjsua_call_id <a class="code" href="interface_g_s_call.html#adab8f0154e29362634429ec7cdda9da6">callId</a>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    GSReturnNoIfFails(pjsua_call_make_call(<span class="keyword">self</span>.account.<a class="code" href="interface_g_s_account.html#a6104fd96cabe25fce5f5d1f42b277716">accountId</a>, &amp;remoteUri, &amp;callSetting, NULL, NULL, &amp;callId));</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    pjsua_call_id <a class="code" href="interface_g_s_call.html#afa5eba4b7a80f556f042e971480cd3a2" title="Call id. Autogenerated from PJSIP.">callId</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    GSReturnNoIfFails(pjsua_call_make_call(<span class="keyword">self</span>.account.<a class="code" href="interface_g_s_account.html#a43d57805c8ac4d8546cd7ba42c74c3f1" title="Account Id, automatically assigned by PJSIP.">accountId</a>, &amp;remoteUri, &amp;callSetting, NULL, NULL, &amp;callId));</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    </div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    [<span class="keyword">self</span> setCallId:callId];</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">return</span> YES;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;- (BOOL)<a class="code" href="interface_g_s_call.html#a7cee50e731d5d8feb686ace8cc77d30c">end</a> {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;- (BOOL)end {</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    NSAssert(<span class="keyword">self</span>.callId != PJSUA_INVALID_ID, <span class="stringliteral">@&quot;Call has not begun yet.&quot;</span>);    </div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    GSReturnNoIfFails(pjsua_call_hangup(<span class="keyword">self</span>.callId, 0, NULL, NULL));</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    </div>
@@ -158,7 +160,7 @@ $(document).ready(function(){initNavTree('_g_s_outgoing_call_8m_source.html','')
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>GSOutgoingCall.m</b></li>
-    <li class="footer">Generated on Wed Jul 18 2012 14:22:35 for GOSSIP Sip library. by
+    <li class="footer">Generated on Wed Jul 18 2012 17:00:36 for GOSSIP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

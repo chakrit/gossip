@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>GOSSIP Sip library.: GSCodecInfo.m Source File</title>
+<title>GOSSIP: GSCodecInfo.m Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">GOSSIP Sip library.
+   <div id="projectname">GOSSIP
    </div>
   </td>
  </tr>
@@ -42,7 +42,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -108,7 +110,7 @@ $(document).ready(function(){initNavTree('_g_s_codec_info_8m_source.html','');})
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#import &quot;Util.h&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">@implementation </span><a class="code" href="interface_g_s_codec_info.html">GSCodecInfo</a> {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">@implementation </span><a class="code" href="interface_g_s_codec_info.html" title="Contains information for a codec.">GSCodecInfo</a> {</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    pjsua_codec_info _info;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
@@ -121,15 +123,15 @@ $(document).ready(function(){initNavTree('_g_s_codec_info_8m_source.html','');})
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;- (NSString *)codecId {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">return</span> [<a class="code" href="interface_g_s_p_j_util.html" title="General utilities - since categories cause compilation problems when linked to an app...">GSPJUtil</a> <a class="code" href="interface_g_s_p_j_util.html#ad7b9222aeabfd4fedcb74a581685d808" title="Creates NSString from pj_str_t. Instance usable as long as pj_str_t lives.">stringWithPJString</a>:&amp;_info.codec_id];</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">return</span> [<a class="code" href="interface_g_s_p_j_util.html" title="General utilities for working with PJSIP in ObjC land.">GSPJUtil</a> <a class="code" href="interface_g_s_p_j_util.html#ae96c8ef26afe0653bf12bd34dea3cd60" title="Creates NSString from pj_str_t. Instance usable as long as pj_str_t lives.">stringWithPJString</a>:&amp;_info.codec_id];</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;- (NSString *)description {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">return</span> [<a class="code" href="interface_g_s_p_j_util.html" title="General utilities - since categories cause compilation problems when linked to an app...">GSPJUtil</a> <a class="code" href="interface_g_s_p_j_util.html#ad7b9222aeabfd4fedcb74a581685d808" title="Creates NSString from pj_str_t. Instance usable as long as pj_str_t lives.">stringWithPJString</a>:&amp;_info.desc];</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">return</span> [<a class="code" href="interface_g_s_p_j_util.html" title="General utilities for working with PJSIP in ObjC land.">GSPJUtil</a> <a class="code" href="interface_g_s_p_j_util.html#ae96c8ef26afe0653bf12bd34dea3cd60" title="Creates NSString from pj_str_t. Instance usable as long as pj_str_t lives.">stringWithPJString</a>:&amp;_info.desc];</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;- (NSUInteger)priority {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">return</span> _info.<a class="code" href="interface_g_s_codec_info.html#a374a9a5901b4323d4cbd53f5e59b30d8">priority</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">return</span> _info.<a class="code" href="interface_g_s_codec_info.html#ade845a959c5f90e7f3984bd5be8e3b03" title="Codec priority in the range 1-254 or 0 to disable.">priority</a>;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;- (BOOL)setPriority:(NSUInteger)newPriority {</div>
@@ -140,7 +142,7 @@ $(document).ready(function(){initNavTree('_g_s_codec_info_8m_source.html','');})
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;- (BOOL)setMaxPriority {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">return</span> [<span class="keyword">self</span> setPriority:255];</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">return</span> [<span class="keyword">self</span> setPriority:254];</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
@@ -155,7 +157,7 @@ $(document).ready(function(){initNavTree('_g_s_codec_info_8m_source.html','');})
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>GSCodecInfo.m</b></li>
-    <li class="footer">Generated on Wed Jul 18 2012 14:22:35 for GOSSIP Sip library. by
+    <li class="footer">Generated on Wed Jul 18 2012 17:00:36 for GOSSIP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

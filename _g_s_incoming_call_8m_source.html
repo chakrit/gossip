@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>GOSSIP Sip library.: GSIncomingCall.m Source File</title>
+<title>GOSSIP: GSIncomingCall.m Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">GOSSIP Sip library.
+   <div id="projectname">GOSSIP
    </div>
   </td>
  </tr>
@@ -42,7 +42,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -108,27 +110,27 @@ $(document).ready(function(){initNavTree('_g_s_incoming_call_8m_source.html','')
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#import &quot;Util.h&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">@implementation </span><a class="code" href="interface_g_s_incoming_call.html">GSIncomingCall</a></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">@implementation </span>GSIncomingCall</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="interface_g_s_incoming_call.html#a933d9b59ea96b2dfab035adef1acc3f6">   16</a></span>&#160;- (id)initWithCallId:(NSInteger)callId toAccount:(<a class="code" href="interface_g_s_account.html">GSAccount</a> *)account {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;- (id)initWithCallId:(NSInteger)callId toAccount:(<a class="code" href="interface_g_s_account.html" title="Represents a single PJSIP account. Only one account per session is supported right now...">GSAccount</a> *)account {</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">self</span> = [super initWithAccount:account]) {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        [<span class="keyword">self</span> <a class="code" href="interface_g_s_call.html#a8e71a19136603592e78cce981964f963">setCallId</a>:callId];</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        [<span class="keyword">self</span> setCallId:callId];</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    }</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">self</span>;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;- (BOOL)<a class="code" href="interface_g_s_call.html#aa9301606095be901d3feb5854feef9f6">begin</a> {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    NSAssert(<span class="keyword">self</span>.<a class="code" href="interface_g_s_call.html#adab8f0154e29362634429ec7cdda9da6">callId</a> != PJSUA_INVALID_ID, <span class="stringliteral">@&quot;Call has already ended.&quot;</span>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;- (BOOL)begin {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    NSAssert(<span class="keyword">self</span>.callId != PJSUA_INVALID_ID, <span class="stringliteral">@&quot;Call has already ended.&quot;</span>);</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    GSReturnNoIfFails(pjsua_call_answer(<span class="keyword">self</span>.<a class="code" href="interface_g_s_call.html#adab8f0154e29362634429ec7cdda9da6">callId</a>, 200, NULL, NULL));</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    GSReturnNoIfFails(pjsua_call_answer(<span class="keyword">self</span>.callId, 200, NULL, NULL));</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">return</span> YES;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;- (BOOL)<a class="code" href="interface_g_s_call.html#a7cee50e731d5d8feb686ace8cc77d30c">end</a> {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    NSAssert(<span class="keyword">self</span>.<a class="code" href="interface_g_s_call.html#adab8f0154e29362634429ec7cdda9da6">callId</a> != PJSUA_INVALID_ID, <span class="stringliteral">@&quot;Call has already ended.&quot;</span>);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;- (BOOL)end {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    NSAssert(<span class="keyword">self</span>.callId != PJSUA_INVALID_ID, <span class="stringliteral">@&quot;Call has already ended.&quot;</span>);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    GSReturnNoIfFails(pjsua_call_hangup(<span class="keyword">self</span>.<a class="code" href="interface_g_s_call.html#adab8f0154e29362634429ec7cdda9da6">callId</a>, 0, NULL, NULL));</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    GSReturnNoIfFails(pjsua_call_hangup(<span class="keyword">self</span>.callId, 0, NULL, NULL));</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    [<span class="keyword">self</span> setStatus:GSCallStatusDisconnected];</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    [<span class="keyword">self</span> setCallId:PJSUA_INVALID_ID];</div>
@@ -142,7 +144,7 @@ $(document).ready(function(){initNavTree('_g_s_incoming_call_8m_source.html','')
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>GSIncomingCall.m</b></li>
-    <li class="footer">Generated on Wed Jul 18 2012 14:22:35 for GOSSIP Sip library. by
+    <li class="footer">Generated on Wed Jul 18 2012 17:00:36 for GOSSIP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

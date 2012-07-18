@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>GOSSIP Sip library.: GSUserAgent Class Reference</title>
+<title>GOSSIP: GSUserAgent Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">GOSSIP Sip library.
+   <div id="projectname">GOSSIP
    </div>
   </td>
  </tr>
@@ -42,7 +42,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -59,14 +61,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
           </span>
         </div>
       </li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
-      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
-      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -100,67 +94,44 @@ $(document).ready(function(){initNavTree('interface_g_s_user_agent.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#properties">Properties</a> &#124;
-<a href="class_g_s_user_agent-members.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
 <div class="title">GSUserAgent Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#import &quot;<a class="el" href="_g_s_user_agent_8h_source.html">GSUserAgent.h</a>&quot;</code></p>
-<div class="dynheader">
-Inheritance diagram for GSUserAgent:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="interface_g_s_user_agent.png" usemap="#GSUserAgent_map" alt=""/>
-  <map id="GSUserAgent_map" name="GSUserAgent_map">
-<area href="class_n_s_object.html" alt="NSObject" shape="rect" coords="0,0,88,24"/>
-</map>
- </div></div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:ab883e8f22e26b57aca2bada9e42b4f66"><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_g_s_user_agent.html#ab883e8f22e26b57aca2bada9e42b4f66">configure:</a></td></tr>
-<tr class="memitem:a8ee45e9faffdf578c811a4de19096ea1"><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_g_s_user_agent.html#a8ee45e9faffdf578c811a4de19096ea1">start</a></td></tr>
-<tr class="memitem:a9ed58289fac1fc7eb9d774ddac1f611d"><td class="memItemLeft" align="right" valign="top">(NSArray *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_g_s_user_agent.html#a9ed58289fac1fc7eb9d774ddac1f611d">arrayOfAvailableCodecs</a></td></tr>
-</table><table class="memberdecls">
+<a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Mains SIP user agent interface. Applications should configure the shared instance on startup. </p>
+<p>Only a single <a class="el" href="interface_g_s_user_agent.html" title="Mains SIP user agent interface. Applications should configure the shared instance on startup...">GSUserAgent</a> may be created for each application since PJSIP only supports a single user agent at a time. Applications should follow the following steps to initialize the agent:</p>
+<ol type="1">
+<li>Obtain an instance of this class using <a class="el" href="interface_g_s_user_agent.html#a9ed3370759a75e7b9ac97241faeae519" title="Obtains the shared user agent instance.">sharedAgent (GSUserAgent)</a></li>
+<li>Creates and configure an instance of <a class="el" href="interface_g_s_configuration.html" title="Main class for configuring a SIP user agent.">GSConfiguration</a>.</li>
+<li>Calls <a class="el" href="interface_g_s_user_agent.html#aff89119d852b605f9604ec96a606ce0b" title="Configure the agent for use.">configure: (GSUserAgent)</a> to configure the agent.</li>
+<li>(Optional) <a class="el" href="interface_g_s_account.html#a777146c8eacc8297b16827875a48f220" title="Connects and begin registering with the configured SIP registration server.">connect (GSAccount)</a> to the SIP server </li>
+</ol>
+
+<p>Definition at line <a class="el" href="_g_s_user_agent_8h_source.html#l00022">22</a> of file <a class="el" href="_g_s_user_agent_8h_source.html">GSUserAgent.h</a>.</p>
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aed1f55b4f1aaa33d1a2b25e783ad15c4"><td class="memItemLeft" align="right" valign="top">(<a class="el" href="interface_g_s_user_agent.html">GSUserAgent</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_g_s_user_agent.html#aed1f55b4f1aaa33d1a2b25e783ad15c4">sharedAgent</a></td></tr>
-<tr class="memdesc:aed1f55b4f1aaa33d1a2b25e783ad15c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtains the shared user agent instance.  <a href="#aed1f55b4f1aaa33d1a2b25e783ad15c4"></a><br/></td></tr>
+<tr class="memitem:a9ed3370759a75e7b9ac97241faeae519"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9ed3370759a75e7b9ac97241faeae519"></a>
+(<a class="el" href="interface_g_s_user_agent.html">GSUserAgent</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_g_s_user_agent.html#a9ed3370759a75e7b9ac97241faeae519">sharedAgent</a></td></tr>
+<tr class="memdesc:a9ed3370759a75e7b9ac97241faeae519"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtains the shared user agent instance. <br/></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2><a name="properties"></a>
-Properties</h2></td></tr>
-<tr class="memitem:ac518a23bdd66cf13db96a553e4313747"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_g_s_account.html">GSAccount</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_user_agent.html#ac518a23bdd66cf13db96a553e4313747">account</a></td></tr>
-<tr class="memitem:a13dfc227869e7d0bdf3a4f2283b4744d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_g_s_configuration.html">GSConfiguration</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_user_agent.html#a13dfc227869e7d0bdf3a4f2283b4744d">configuration</a></td></tr>
+<tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a88aec5696df351dd7b6364eacc6c296e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a88aec5696df351dd7b6364eacc6c296e"></a>
+(NSArray *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_g_s_user_agent.html#a88aec5696df351dd7b6364eacc6c296e">arrayOfAvailableCodecs</a></td></tr>
+<tr class="memdesc:a88aec5696df351dd7b6364eacc6c296e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets an array of <a class="el" href="interface_g_s_codec_info.html" title="Contains information for a codec.">GSCodecInfo</a> for codecs loaded by PJSIP. <br/></td></tr>
+<tr class="memitem:aff89119d852b605f9604ec96a606ce0b"><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_g_s_user_agent.html#aff89119d852b605f9604ec96a606ce0b">configure:</a></td></tr>
+<tr class="memdesc:aff89119d852b605f9604ec96a606ce0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the agent for use.  <a href="#aff89119d852b605f9604ec96a606ce0b"></a><br/></td></tr>
+<tr class="memitem:ae553dba0204e76ab3e172e8844ea911d"><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_g_s_user_agent.html#ae553dba0204e76ab3e172e8844ea911d">start</a></td></tr>
+<tr class="memdesc:ae553dba0204e76ab3e172e8844ea911d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the user agent.  <a href="#ae553dba0204e76ab3e172e8844ea911d"></a><br/></td></tr>
 </table>
-<a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Mains user agent interface. Applications should interact mainly with this class. Applications must call -(void)configure on launch. </p>
-
-<p>Definition at line <a class="el" href="_g_s_user_agent_8h_source.html#l00015">15</a> of file <a class="el" href="_g_s_user_agent_8h_source.html">GSUserAgent.h</a>.</p>
-</div><h2>Member Function Documentation</h2>
-<a class="anchor" id="a9ed58289fac1fc7eb9d774ddac1f611d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (NSArray *) arrayOfAvailableCodecs </td>
-          <td></td>
-          <td class="paramname"></td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_g_s_user_agent_8m_source.html#l00126">126</a> of file <a class="el" href="_g_s_user_agent_8m_source.html">GSUserAgent.m</a>.</p>
-
-<p>References <a class="el" href="interface_g_s_codec_info.html#a534399b5c3cfe01c5a0ce5dc54d6c7dc">GSCodecInfo::initWithCodecInfo:</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab883e8f22e26b57aca2bada9e42b4f66"></a>
+<h2>Member Function Documentation</h2>
+<a class="anchor" id="aff89119d852b605f9604ec96a606ce0b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -173,36 +144,63 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Configure the agent for use. For implementors, check the <a href="http://www.pjsip.org/pjsip/docs/html/structpjsua__acc__config.htm">http://www.pjsip.org/pjsip/docs/html/structpjsua__acc__config.htm</a> for reference. </p>
+
+<p>Configure the agent for use. </p>
+<p>This method must be called on application startup and before using any SIP functionality. Check <a href="http://www.pjsip.org/pjsip/docs/html/structpjsua__acc__config.htm">http://www.pjsip.org/pjsip/docs/html/structpjsua__acc__config.htm</a> for additional reference. </p>
 
 <p>Definition at line <a class="el" href="_g_s_user_agent_8m_source.html#l00071">71</a> of file <a class="el" href="_g_s_user_agent_8m_source.html">GSUserAgent.m</a>.</p>
-
-<p>References <a class="el" href="_g_s_dispatch_8m_source.html#l00027">GSDispatch::configureCallbacksForAgent:</a>.</p>
-
+<div class="fragment"><div class="line">                 :(<a class="code" href="interface_g_s_configuration.html" title="Main class for configuring a SIP user agent.">GSConfiguration</a> *)config {</div>
+<div class="line">    GSAssert(!_config, <span class="stringliteral">@&quot;Gossip: User agent is already configured.&quot;</span>);</div>
+<div class="line">    _config = [config copy];</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// create agent</span></div>
+<div class="line">    GSReturnNoIfFails(pjsua_create());</div>
+<div class="line">    _suaCreated = YES;</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// configure agent</span></div>
+<div class="line">    pjsua_config uaConfig;</div>
+<div class="line">    pjsua_logging_config logConfig;</div>
+<div class="line">    pjsua_media_config mediaConfig;</div>
+<div class="line">    </div>
+<div class="line">    pjsua_config_default(&amp;uaConfig);</div>
+<div class="line">    [GSDispatch configureCallbacksForAgent:&amp;uaConfig];</div>
+<div class="line">    </div>
+<div class="line">    pjsua_logging_config_default(&amp;logConfig);</div>
+<div class="line">    logConfig.level = _config.logLevel;</div>
+<div class="line">    logConfig.console_level = _config.consoleLogLevel;</div>
+<div class="line">    </div>
+<div class="line">    pjsua_media_config_default(&amp;mediaConfig);</div>
+<div class="line">    mediaConfig.clock_rate = _config.clockRate;</div>
+<div class="line">    mediaConfig.snd_clock_rate = _config.soundClockRate;</div>
+<div class="line">    mediaConfig.ec_tail_len = 0; <span class="comment">// not sure what this does (Siphon use this.)</span></div>
+<div class="line">    </div>
+<div class="line">    GSReturnNoIfFails(pjsua_init(&amp;uaConfig, &amp;logConfig, &amp;mediaConfig));</div>
+<div class="line">    _suaInitialized = YES;</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// create UDP transport</span></div>
+<div class="line">    <span class="comment">// TODO: Make configurable? (which transport type to use/other transport opts)</span></div>
+<div class="line">    <span class="comment">// TODO: Make separate class? since things like public_addr might be useful to some.</span></div>
+<div class="line">    pjsua_transport_config transportConfig;</div>
+<div class="line">    pjsua_transport_config_default(&amp;transportConfig);</div>
+<div class="line">    </div>
+<div class="line">    pjsip_transport_type_e transportType = 0;</div>
+<div class="line">    <span class="keywordflow">switch</span> (_config.transportType) {</div>
+<div class="line">        <span class="keywordflow">case</span> GSUDPTransportType: transportType = PJSIP_TRANSPORT_UDP; <span class="keywordflow">break</span>;</div>
+<div class="line">        <span class="keywordflow">case</span> GSUDP6TransportType: transportType = PJSIP_TRANSPORT_UDP6; <span class="keywordflow">break</span>;</div>
+<div class="line">        <span class="keywordflow">case</span> GSTCPTransportType: transportType = PJSIP_TRANSPORT_TCP; <span class="keywordflow">break</span>;</div>
+<div class="line">        <span class="keywordflow">case</span> GSTCP6TransportType: transportType = PJSIP_TRANSPORT_TCP6; <span class="keywordflow">break</span>;</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    GSReturnNoIfFails(pjsua_transport_create(transportType, &amp;transportConfig, &amp;_transportId));</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// configure account</span></div>
+<div class="line">    _account = [[<a class="code" href="interface_g_s_account.html" title="Represents a single PJSIP account. Only one account per session is supported right now...">GSAccount</a> alloc] init];</div>
+<div class="line">    <span class="keywordflow">return</span> [_account configure:_config.account];</div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
-<a class="anchor" id="aed1f55b4f1aaa33d1a2b25e783ad15c4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">+ (<a class="el" href="interface_g_s_user_agent.html">GSUserAgent</a> *) sharedAgent </td>
-          <td></td>
-          <td class="paramname"></td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Obtains the shared user agent instance. </p>
-
-<p>Definition at line <a class="el" href="_g_s_user_agent_8m_source.html#l00028">28</a> of file <a class="el" href="_g_s_user_agent_8m_source.html">GSUserAgent.m</a>.</p>
-
-<p>Referenced by <a class="el" href="_g_s_call_8m_source.html#l00047">GSCall::initWithAccount:</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a8ee45e9faffdf578c811a4de19096ea1"></a>
+<a class="anchor" id="ae553dba0204e76ab3e172e8844ea911d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -215,53 +213,16 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Starts the user agent. </p>
+<p>This method effectively cause PJSIP to begin connecting to the configured SIP server using the credentials specified when <a class="el" href="interface_g_s_user_agent.html#aff89119d852b605f9604ec96a606ce0b" title="Configure the agent for use.">configure:</a> was called. A <a class="el" href="interface_g_s_account.html" title="Represents a single PJSIP account. Only one account per session is supported right now...">GSAccount</a> instance will be created and used for registration automatically.</p>
+<p>After a successful start, application should call <a class="el" href="interface_g_s_account.html#a777146c8eacc8297b16827875a48f220" title="Connects and begin registering with the configured SIP registration server.">connect (GSAccount)</a> to connect to the SIP server to listen for incoming calls (or making outgoing calls.) </p>
+
 <p>Definition at line <a class="el" href="_g_s_user_agent_8m_source.html#l00120">120</a> of file <a class="el" href="_g_s_user_agent_8m_source.html">GSUserAgent.m</a>.</p>
-
-</div>
-</div>
-<h2>Property Documentation</h2>
-<a class="anchor" id="ac518a23bdd66cf13db96a553e4313747"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (<a class="el" href="interface_g_s_account.html">GSAccount</a>*) account</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">nonatomic</span><span class="mlabel">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_g_s_user_agent_8h_source.html#l00017">17</a> of file <a class="el" href="_g_s_user_agent_8h_source.html">GSUserAgent.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a13dfc227869e7d0bdf3a4f2283b4744d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (<a class="el" href="interface_g_s_configuration.html">GSConfiguration</a>*) configuration</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">nonatomic</span><span class="mlabel">assign</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_g_s_user_agent_09_private_8h_source.html#l00015">15</a> of file <a class="el" href="_g_s_user_agent_09_private_8h_source.html">GSUserAgent+Private.h</a>.</p>
-
+<div class="fragment"><div class="line">              {</div>
+<div class="line">    GSReturnNoIfFails(pjsua_start());    </div>
+<div class="line">    <span class="keywordflow">return</span> YES;</div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
@@ -274,7 +235,7 @@ Properties</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="interface_g_s_user_agent.html">GSUserAgent</a></li>
-    <li class="footer">Generated on Wed Jul 18 2012 14:22:35 for GOSSIP Sip library. by
+    <li class="footer">Generated on Wed Jul 18 2012 17:00:36 for GOSSIP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

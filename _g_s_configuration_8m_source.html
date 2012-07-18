@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>GOSSIP Sip library.: GSConfiguration.m Source File</title>
+<title>GOSSIP: GSConfiguration.m Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">GOSSIP Sip library.
+   <div id="projectname">GOSSIP
    </div>
   </td>
  </tr>
@@ -42,7 +42,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -105,25 +107,25 @@ $(document).ready(function(){initNavTree('_g_s_configuration_8m_source.html','')
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#import &quot;GSConfiguration.h&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">@implementation </span><a class="code" href="interface_g_s_configuration.html">GSConfiguration</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">@implementation </span><a class="code" href="interface_g_s_configuration.html" title="Main class for configuring a SIP user agent.">GSConfiguration</a></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">@synthesize</span> <a class="code" href="interface_g_s_configuration.html#acbb8464465d582d16becdddc2dfce649">logLevel</a> = _logLevel;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">@synthesize</span> <a class="code" href="interface_g_s_configuration.html#afce7f2d498f3a0e0218714c268550c2b">consoleLogLevel</a> = _consoleLogLevel;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">@synthesize</span> logLevel = _logLevel;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">@synthesize</span> consoleLogLevel = _consoleLogLevel;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">@synthesize</span> <a class="code" href="interface_g_s_configuration.html#a7db2823f5b2afbb7f674c212b67860a1">transportType</a> = _transportType;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">@synthesize</span> transportType = _transportType;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">@synthesize</span> <a class="code" href="interface_g_s_configuration.html#a56283ef1836d19f997c3784e7cb9e912">clockRate</a> = _clockRate;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">@synthesize</span> <a class="code" href="interface_g_s_configuration.html#a3b6b9f533746d873ea0750391d76aac6">soundClockRate</a> = _soundClockRate;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">@synthesize</span> <a class="code" href="interface_g_s_configuration.html#a3a86bc3510e0950bf0dbca98cef95dc8">volumeScale</a> = _volumeScale;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">@synthesize</span> clockRate = _clockRate;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">@synthesize</span> soundClockRate = _soundClockRate;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">@synthesize</span> volumeScale = _volumeScale;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">@synthesize</span> <a class="code" href="interface_g_s_configuration.html#a553ab7d4a2449537c91ec57bf24a4401">account</a> = _account;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">@synthesize</span> account = _account;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="code" href="interface_g_s_configuration.html#a9aaf3f850d976dc9a6fab7abf0ffcf7a">   25</a></span>&#160;+ (id)<a class="code" href="interface_g_s_configuration.html#a9aaf3f850d976dc9a6fab7abf0ffcf7a">defaultConfiguration</a> {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">return</span> [[<a class="code" href="interface_g_s_configuration.html">GSConfiguration</a> alloc] init];</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;+ (id)defaultConfiguration {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">return</span> [[<a class="code" href="interface_g_s_configuration.html" title="Main class for configuring a SIP user agent.">GSConfiguration</a> alloc] init];</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="code" href="interface_g_s_configuration.html#afbe1e83865faa76429e008ef303997ca">   29</a></span>&#160;+ (id)configurationWithConfiguration:(<a class="code" href="interface_g_s_configuration.html">GSConfiguration</a> *)configuration {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;+ (id)configurationWithConfiguration:(<a class="code" href="interface_g_s_configuration.html" title="Main class for configuring a SIP user agent.">GSConfiguration</a> *)configuration {</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">return</span> [configuration copy];</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
@@ -146,7 +148,7 @@ $(document).ready(function(){initNavTree('_g_s_configuration_8m_source.html','')
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">// default volume scale to 2.0 so 1.0 is twice as loud as PJSIP would normally emit.</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    _volumeScale = 2.0;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    _account = [<a class="code" href="interface_g_s_account_configuration.html">GSAccountConfiguration</a> <a class="code" href="interface_g_s_account_configuration.html#a30fbe0c121f7b70ef8e47f40cee4b2b2">defaultConfiguration</a>];</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    _account = [<a class="code" href="interface_g_s_account_configuration.html" title="Account configuration. Only supports &quot;digest&quot; and plain-text password authentication atm...">GSAccountConfiguration</a> <a class="code" href="interface_g_s_account_configuration.html#a929b75b9bd28c00de25599415c384b28" title="Creates a GSAccountConfiguration instance with default configuration values.">defaultConfiguration</a>];</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">self</span>;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
@@ -156,17 +158,17 @@ $(document).ready(function(){initNavTree('_g_s_configuration_8m_source.html','')
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;- (id)copyWithZone:(NSZone *)zone {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="interface_g_s_configuration.html">GSConfiguration</a> *replica = [[[<span class="keyword">self</span> class] allocWithZone:zone] init];</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="interface_g_s_configuration.html" title="Main class for configuring a SIP user agent.">GSConfiguration</a> *replica = [[[<span class="keyword">self</span> class] allocWithZone:zone] init];</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    </div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">// TODO: Probably better to do via class_copyPropertyList.</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    replica.<a class="code" href="interface_g_s_configuration.html#acbb8464465d582d16becdddc2dfce649">logLevel</a> = <span class="keyword">self</span>.logLevel;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    replica.<a class="code" href="interface_g_s_configuration.html#afce7f2d498f3a0e0218714c268550c2b">consoleLogLevel</a> = <span class="keyword">self</span>.consoleLogLevel;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    replica.<a class="code" href="interface_g_s_configuration.html#a7db2823f5b2afbb7f674c212b67860a1">transportType</a> = <span class="keyword">self</span>.transportType;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    replica.<a class="code" href="interface_g_s_configuration.html#a56283ef1836d19f997c3784e7cb9e912">clockRate</a> = <span class="keyword">self</span>.clockRate;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    replica.<a class="code" href="interface_g_s_configuration.html#a3b6b9f533746d873ea0750391d76aac6">soundClockRate</a> = <span class="keyword">self</span>.soundClockRate;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    replica.<a class="code" href="interface_g_s_configuration.html#a3a86bc3510e0950bf0dbca98cef95dc8">volumeScale</a> = <span class="keyword">self</span>.volumeScale;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    replica.logLevel = <span class="keyword">self</span>.logLevel;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    replica.consoleLogLevel = <span class="keyword">self</span>.consoleLogLevel;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    replica.transportType = <span class="keyword">self</span>.transportType;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    replica.clockRate = <span class="keyword">self</span>.clockRate;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    replica.soundClockRate = <span class="keyword">self</span>.soundClockRate;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    replica.volumeScale = <span class="keyword">self</span>.volumeScale;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    replica.<a class="code" href="interface_g_s_configuration.html#a553ab7d4a2449537c91ec57bf24a4401">account</a> = [<span class="keyword">self</span>.account copy];</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    replica.account = [<span class="keyword">self</span>.account copy];</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    </div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">return</span> replica;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
@@ -178,7 +180,7 @@ $(document).ready(function(){initNavTree('_g_s_configuration_8m_source.html','')
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>GSConfiguration.m</b></li>
-    <li class="footer">Generated on Wed Jul 18 2012 14:22:35 for GOSSIP Sip library. by
+    <li class="footer">Generated on Wed Jul 18 2012 17:00:36 for GOSSIP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

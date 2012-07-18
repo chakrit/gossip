@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>GOSSIP Sip library.: GSCall.m Source File</title>
+<title>GOSSIP: GSCall.m Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">GOSSIP Sip library.
+   <div id="projectname">GOSSIP
    </div>
   </td>
  </tr>
@@ -42,7 +42,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -112,7 +114,7 @@ $(document).ready(function(){initNavTree('_g_s_call_8m_source.html','');});
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#import &quot;Util.h&quot;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">@implementation </span><a class="code" href="interface_g_s_call.html">GSCall</a> {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">@implementation </span><a class="code" href="interface_g_s_call.html" title="Represents a single calling session (either incoming or outgoing.)">GSCall</a> {</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    pjsua_call_id _callId;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">float</span> _volume;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">float</span> _micVolume;</div>
@@ -122,16 +124,16 @@ $(document).ready(function(){initNavTree('_g_s_call_8m_source.html','');});
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">@synthesize</span> account = _account;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">@synthesize</span> status = _status;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="interface_g_s_call.html#ad0e1b1b73cd7c7669d019f5da3ccd5fc">   28</a></span>&#160;+ (id)outgoingCallToUri:(NSString *)remoteUri fromAccount:(<a class="code" href="interface_g_s_account.html">GSAccount</a> *)account {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="interface_g_s_outgoing_call.html">GSOutgoingCall</a> *call = [<a class="code" href="interface_g_s_outgoing_call.html">GSOutgoingCall</a> alloc];</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    call = [call <a class="code" href="interface_g_s_outgoing_call.html#a372c7f79fca94c28bc94cd631b2ed500">initWithRemoteUri</a>:remoteUri <a class="code" href="interface_g_s_outgoing_call.html#a372c7f79fca94c28bc94cd631b2ed500">fromAccount</a>:account];</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="interface_g_s_call.html#a1cfbe4f03ef891f327ecd443e9c8b262">   28</a></span>&#160;+ (id)outgoingCallToUri:(NSString *)remoteUri fromAccount:(<a class="code" href="interface_g_s_account.html" title="Represents a single PJSIP account. Only one account per session is supported right now...">GSAccount</a> *)account {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    GSOutgoingCall *call = [GSOutgoingCall alloc];</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    call = [call initWithRemoteUri:remoteUri fromAccount:account];</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">return</span> call;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="interface_g_s_call.html#ace04cd708d9e266002f56ca343676916">   35</a></span>&#160;+ (id)incomingCallWithId:(NSInteger)callId toAccount:(<a class="code" href="interface_g_s_account.html">GSAccount</a> *)account {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="interface_g_s_incoming_call.html">GSIncomingCall</a> *call = [<a class="code" href="interface_g_s_incoming_call.html">GSIncomingCall</a> alloc];</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    call = [call <a class="code" href="interface_g_s_incoming_call.html#a933d9b59ea96b2dfab035adef1acc3f6">initWithCallId</a>:callId <a class="code" href="interface_g_s_incoming_call.html#a933d9b59ea96b2dfab035adef1acc3f6">toAccount</a>:account];</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="interface_g_s_call.html#af050159f442cacecb3fc162324b6a51f">   35</a></span>&#160;+ (id)incomingCallWithId:(NSInteger)callId toAccount:(<a class="code" href="interface_g_s_account.html" title="Represents a single PJSIP account. Only one account per session is supported right now...">GSAccount</a> *)account {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    GSIncomingCall *call = [GSIncomingCall alloc];</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    call = [call initWithCallId:callId toAccount:account];</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">return</span> call;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
@@ -141,13 +143,13 @@ $(document).ready(function(){initNavTree('_g_s_call_8m_source.html','');});
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> [<span class="keyword">self</span> initWithAccount:nil];</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="interface_g_s_call.html#a8e832707917ec80542ec2f4517f94f7b">   47</a></span>&#160;- (id)initWithAccount:(<a class="code" href="interface_g_s_account.html">GSAccount</a> *)account {</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="interface_g_s_call.html#af98d60b5d05adfcd8f36f9858a2557d7">   47</a></span>&#160;- (id)initWithAccount:(<a class="code" href="interface_g_s_account.html" title="Represents a single PJSIP account. Only one account per session is supported right now...">GSAccount</a> *)account {</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">self</span> = [super init]) {</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        _account = account;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        _status = GSCallStatusReady;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        _callId = PJSUA_INVALID_ID;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        _volumeScale = [<a class="code" href="interface_g_s_user_agent.html">GSUserAgent</a> <a class="code" href="interface_g_s_user_agent.html#aed1f55b4f1aaa33d1a2b25e783ad15c4" title="Obtains the shared user agent instance.">sharedAgent</a>].configuration.volumeScale;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        _volumeScale = [<a class="code" href="interface_g_s_user_agent.html" title="Mains SIP user agent interface. Applications should configure the shared instance on startup...">GSUserAgent</a> <a class="code" href="interface_g_s_user_agent.html#a9ed3370759a75e7b9ac97241faeae519" title="Obtains the shared user agent instance.">sharedAgent</a>].configuration.volumeScale;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        _volume = 1.0 / _volumeScale;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        _micVolume = 1.0 / _volumeScale;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        </div>
@@ -155,11 +157,11 @@ $(document).ready(function(){initNavTree('_g_s_call_8m_source.html','');});
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        [center addObserver:self</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                   selector:@selector(callStateDidChange:)</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                       name:GSSIPCallStateDidChangeNotification</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                     object:[<a class="code" href="interface_g_s_dispatch.html">GSDispatch</a> class]];</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                     object:[GSDispatch class]];</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        [center addObserver:self</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                   selector:@selector(callMediaStateDidChange:)</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                       name:GSSIPCallMediaStateDidChangeNotification</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                     object:[<a class="code" href="interface_g_s_dispatch.html">GSDispatch</a> class]];</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                     object:[GSDispatch class]];</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">self</span>;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
@@ -198,7 +200,7 @@ $(document).ready(function(){initNavTree('_g_s_call_8m_source.html','');});
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">return</span> _volume;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="code" href="interface_g_s_call.html#a395adb921d87a18a036d3c7d4a46c539">  104</a></span>&#160;- (BOOL)setVolume:(<span class="keywordtype">float</span>)volume {</div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="code" href="interface_g_s_call.html#a530ef5dea24cb9a753eed7f93794229d">  104</a></span>&#160;- (BOOL)setVolume:(<span class="keywordtype">float</span>)volume {</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    [<span class="keyword">self</span> willChangeValueForKey:@&quot;volume&quot;];</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    BOOL result = [<span class="keyword">self</span> adjustVolume:volume mic:_micVolume];</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    [<span class="keyword">self</span> didChangeValueForKey:@&quot;volume&quot;];</div>
@@ -210,7 +212,7 @@ $(document).ready(function(){initNavTree('_g_s_call_8m_source.html','');});
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">return</span> _micVolume;</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
-<div class="line"><a name="l00116"></a><span class="lineno"><a class="code" href="interface_g_s_call.html#a53b91953baab286e48385c4a5e2040eb">  116</a></span>&#160;- (BOOL)setMicVolume:(<span class="keywordtype">float</span>)micVolume {</div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="code" href="interface_g_s_call.html#aa53f05d91770488ead49d7f2f95ee803">  116</a></span>&#160;- (BOOL)setMicVolume:(<span class="keywordtype">float</span>)micVolume {</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    [<span class="keyword">self</span> willChangeValueForKey:@&quot;micVolume&quot;];</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    BOOL result = [<span class="keyword">self</span> adjustVolume:_volume mic:micVolume];</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    [<span class="keyword">self</span> didChangeValueForKey:@&quot;micVolume&quot;];</div>
@@ -219,12 +221,12 @@ $(document).ready(function(){initNavTree('_g_s_call_8m_source.html','');});
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;}</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00125"></a><span class="lineno"><a class="code" href="interface_g_s_call.html#aa9301606095be901d3feb5854feef9f6">  125</a></span>&#160;- (BOOL)begin {</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="code" href="interface_g_s_call.html#adec4e878ef9881d9a6ede9817e51c16d">  125</a></span>&#160;- (BOOL)begin {</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="comment">// for child overrides only</span></div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordflow">return</span> NO;</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;}</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
-<div class="line"><a name="l00130"></a><span class="lineno"><a class="code" href="interface_g_s_call.html#a7cee50e731d5d8feb686ace8cc77d30c">  130</a></span>&#160;- (BOOL)end {</div>
+<div class="line"><a name="l00130"></a><span class="lineno"><a class="code" href="interface_g_s_call.html#ac88935300e8025b6671bc8fc541d149d">  130</a></span>&#160;- (BOOL)end {</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="comment">// for child overrides only</span></div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordflow">return</span> NO;</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;}</div>
@@ -328,7 +330,7 @@ $(document).ready(function(){initNavTree('_g_s_call_8m_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>GSCall.m</b></li>
-    <li class="footer">Generated on Wed Jul 18 2012 14:22:35 for GOSSIP Sip library. by
+    <li class="footer">Generated on Wed Jul 18 2012 17:00:36 for GOSSIP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>
