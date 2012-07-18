@@ -102,7 +102,11 @@
 }
 
 - (BOOL)setVolume:(float)volume {
-    return [self adjustVolume:volume mic:_micVolume];
+    [self willChangeValueForKey:@"volume"];
+    BOOL result = [self adjustVolume:volume mic:_micVolume];
+    [self didChangeValueForKey:@"volume"];
+    
+    return result;
 }
 
 - (float)micVolume {
@@ -110,7 +114,11 @@
 }
 
 - (BOOL)setMicVolume:(float)micVolume {
-    return [self adjustVolume:_volume mic:micVolume];
+    [self willChangeValueForKey:@"micVolume"];
+    BOOL result = [self adjustVolume:_volume mic:micVolume];
+    [self didChangeValueForKey:@"micVolume"];
+    
+    return result;
 }
 
 
