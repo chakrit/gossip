@@ -9,10 +9,12 @@
 #import "PJSIP.h"
 
 
-/// General utilities - since categories cause compilation problems when linked to an app.
+/// General utilities for working with PJSIP in ObjC land.
+/** Had to use a static class instead since categories cause compilation problems
+ *  when linked to an application. */
 @interface GSPJUtil : NSObject
 
-/// Creates an NSError from the given status using PJSIP macros and functions.
+/// Creates an NSError from the given PJSIP status using PJSIP macros and functions.
 + (NSError *)errorWithSIPStatus:(pj_status_t)status;
 
 /// Creates NSString from pj_str_t. Instance usable as long as pj_str_t lives.
@@ -21,8 +23,7 @@
 /// Creates pj_str_t from NSString. Instance lifetime depends on the NSString instance.
 + (pj_str_t)PJStringWithString:(NSString *)string;
 
-/// Creates pj_str_t from NSString with a "sip:" prefix.
-/// Instance lifetime depends on the NSString instance.
+/// Creates pj_str_t from NSString prefixed with "sip:". Instance lifetime depends on the NSString instance.
 + (pj_str_t)PJAddressWithString:(NSString *)string;
 
 @end

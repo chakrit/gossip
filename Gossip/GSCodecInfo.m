@@ -43,7 +43,7 @@
 }
 
 - (BOOL)setMaxPriority {
-    return [self setPriority:255];
+    return [self setPriority:254];
 }
 
 

@@ -9,14 +9,16 @@
 #import "GSAccountConfiguration.h"
 
 
+/// Supported transport types.
 typedef enum {
-    GSUDPTransportType,
-    GSUDP6TransportType,
-    GSTCPTransportType,
-    GSTCP6TransportType,
+    GSUDPTransportType, ///< UDP transport type.
+    GSUDP6TransportType, ///< UDP on IPv6 transport type.
+    GSTCPTransportType, ///< TCP transport type.
+    GSTCP6TransportType, ///< TCP on IPv6 transport type.
 } GSTransportType;
 
 
+/// Main class for configuring a SIP user agent.
 @interface GSConfiguration : NSObject <NSCopying>
 
 @property (nonatomic) NSUInteger logLevel;

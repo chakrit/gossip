@@ -68,6 +68,7 @@
 		224EFFAD15A6D39200CD541C /* GSERootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224EFFAA15A6D37D00CD541C /* GSERootViewController.m */; };
 		224EFFB615A6D7D000CD541C /* GSEConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224EFFB315A6D7C300CD541C /* GSEConfigurationViewController.m */; };
 		225D129615B67DA40041F416 /* GSUserAgent+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 225D129415B67DA40041F416 /* GSUserAgent+Private.h */; };
+		225D129C15B6B2780041F416 /* GSNotifications.h in Headers */ = {isa = PBXBuildFile; fileRef = 22D43D8015AAA5270099C79F /* GSNotifications.h */; };
 		22607EB215B421EA008F907D /* libg729codec-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22607EB115B421EA008F907D /* libg729codec-arm-apple-darwin9.a */; };
 		22AD824715A5987C0000D05C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22AD824615A5987C0000D05C /* Foundation.framework */; };
 		22AD82DD15A5A1550000D05C /* GSUserAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = 22AD82DB15A5A1550000D05C /* GSUserAgent.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -397,6 +398,7 @@
 				22AD82DD15A5A1550000D05C /* GSUserAgent.h in Headers */,
 				221BED8315B0338F00464679 /* GSCodecInfo.h in Headers */,
 				22D43D8615AAC1C40099C79F /* GSCall.h in Headers */,
+				225D129C15B6B2780041F416 /* GSNotifications.h in Headers */,
 				224A003C15A6F21100CC5890 /* PJSIP.h in Headers */,
 				224A003D15A6F21600CC5890 /* Util.h in Headers */,
 				224A004415A6FA2600CC5890 /* GSPJUtil.h in Headers */,

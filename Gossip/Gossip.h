@@ -5,7 +5,10 @@
 //  Created by Chakrit Wichian on 7/6/12.
 //
 
-/// Main export files.
+/** /file
+ *  /brief Convenience import for application developer.
+ */
+
 
 #import "GSConfiguration.h"
 #import "GSAccountConfiguration.h"
