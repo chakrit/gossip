@@ -1,0 +1,4 @@
+#!/bin/sh
+
+doxygen .doxygen
+open docs/index.html
