@@ -10,12 +10,16 @@
 #import "GSDispatch.h"
 #import "GSIncomingCall.h"
 #import "GSOutgoingCall.h"
+#import "GSUserAgent+Private.h"
 #import "PJSIP.h"
 #import "Util.h"
 
 
 @implementation GSCall {
     pjsua_call_id _callId;
+    float _volume;
+    float _micVolume;
+    float _volumeScale;
 }
 
 @synthesize account = _account;
@@ -42,9 +46,14 @@
 
 - (id)initWithAccount:(GSAccount *)account {
     if (self = [super init]) {
+        GSUserAgent *agent = [GSUserAgent sharedAgent];
         _account = account;
         _status = GSCallStatusReady;
         _callId = PJSUA_INVALID_ID;
+        
+        _volumeScale = [GSUserAgent sharedAgent].configuration.volumeScale;
+        _volume = 1.0 / _volumeScale;
+        _micVolume = 1.0 / _volumeScale;
         
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         [center addObserver:self
@@ -86,6 +95,23 @@
     [self willChangeValueForKey:@"status"];
     _status = status;
     [self didChangeValueForKey:@"status"];
+}
+
+
+- (float)volume {
+    return _volume;
+}
+
+- (BOOL)setVolume:(float)volume {
+    return [self adjustVolume:volume mic:_micVolume];
+}
+
+- (float)micVolume {
+    return _micVolume;
+}
+
+- (BOOL)setMicVolume:(float)micVolume {
+    return [self adjustVolume:_volume mic:micVolume];
 }
 
 
@@ -146,13 +172,38 @@
     pjsua_call_info callInfo;
     GSReturnIfFails(pjsua_call_get_info(_callId, &callInfo));
     
-    pjsua_conf_port_id callPort = pjsua_call_get_conf_port(_callId);
     if (callInfo.media_status == PJSUA_CALL_MEDIA_ACTIVE) {
-        GSLogIfFails(pjsua_conf_connect(callPort, 0));
-        GSLogIfFails(pjsua_conf_connect(0, callPort));   
-        GSLogIfFails(pjsua_conf_adjust_rx_level(callPort, 1.0));
-        GSLogIfFails(pjsua_conf_adjust_tx_level(callPort, 1.0));
+        pjsua_conf_port_id callPort = pjsua_call_get_conf_port(_callId);
+        GSReturnNoIfFails(pjsua_conf_connect(callPort, 0));
+        GSReturnNoIfFails(pjsua_conf_connect(0, callPort));
+        
+        [self adjustVolume:_volume mic:_micVolume];
     }
+}
+
+
+- (BOOL)adjustVolume:(float)volume mic:(float)micVolume {
+    GSAssert(0.0 <= volume && volume <= 1.0, @"Volume value must be between 0.0 and 1.0");
+    GSAssert(0.0 <= micVolume && micVolume <= 1.0, @"Mic Volume must be between 0.0 and 1.0");
+    
+    _volume = volume;
+    _micVolume = micVolume;
+    if (_callId == PJSUA_INVALID_ID)
+        return YES;
+    
+    pjsua_call_info callInfo;
+    pjsua_call_get_info(_callId, &callInfo);
+    if (callInfo.media_status == PJSUA_CALL_MEDIA_ACTIVE) {
+        
+        // scale volume so 1.0 is 2x louder
+        volume *= _volumeScale;
+        micVolume *= _volumeScale;        
+        pjsua_conf_port_id callPort = pjsua_call_get_conf_port(_callId);
+        GSReturnNoIfFails(pjsua_conf_adjust_rx_level(callPort, volume));
+        GSReturnNoIfFails(pjsua_conf_adjust_tx_level(callPort, micVolume));
+    }
+    
+    return YES;
 }
 
 @end

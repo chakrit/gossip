@@ -26,6 +26,7 @@ typedef enum {
 
 @property (nonatomic) NSUInteger clockRate;
 @property (nonatomic) NSUInteger soundClockRate;
+@property (nonatomic) float volumeScale;
 
 @property (nonatomic, strong) GSAccountConfiguration *account;
 

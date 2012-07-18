@@ -17,6 +17,7 @@
 
 @synthesize clockRate = _clockRate;
 @synthesize soundClockRate = _soundClockRate;
+@synthesize volumeScale = _volumeScale;
 
 @synthesize account = _account;
 
@@ -33,18 +34,22 @@
 - (id)init {
     if (!(self = [super init]))
         return nil; // init failed.
-    
-    // default values (taken form the Siphon project source)
+
+    // default values
     _logLevel = 2;
     _consoleLogLevel = 2;
     
     _transportType = GSUDPTransportType;
     
+    // clock rates taken from Siphon project, not sure why 8k
+    // maybe better to read the default from the codecs
     _clockRate = 8000;
     _soundClockRate = 8000;
     
-    _account = [GSAccountConfiguration defaultConfiguration];
+    // default volume scale to 2.0 so 1.0 is twice as loud as PJSIP would normally emit.
+    _volumeScale = 2.0;
     
+    _account = [GSAccountConfiguration defaultConfiguration];
     return self;
 }
 
@@ -62,6 +67,7 @@
     replica.transportType = self.transportType;
     replica.clockRate = self.clockRate;
     replica.soundClockRate = self.soundClockRate;
+    replica.volumeScale = self.volumeScale;
     
     replica.account = [self.account copy];
     

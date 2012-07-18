@@ -67,6 +67,7 @@
 		224EFF9E15A6D27600CD541C /* GSEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 224EFF9D15A6D27600CD541C /* GSEAppDelegate.m */; };
 		224EFFAD15A6D39200CD541C /* GSERootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224EFFAA15A6D37D00CD541C /* GSERootViewController.m */; };
 		224EFFB615A6D7D000CD541C /* GSEConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224EFFB315A6D7C300CD541C /* GSEConfigurationViewController.m */; };
+		225D129615B67DA40041F416 /* GSUserAgent+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 225D129415B67DA40041F416 /* GSUserAgent+Private.h */; };
 		22607EB215B421EA008F907D /* libg729codec-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22607EB115B421EA008F907D /* libg729codec-arm-apple-darwin9.a */; };
 		22AD824715A5987C0000D05C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22AD824615A5987C0000D05C /* Foundation.framework */; };
 		22AD82DD15A5A1550000D05C /* GSUserAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = 22AD82DB15A5A1550000D05C /* GSUserAgent.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -134,6 +135,7 @@
 		224EFFAA15A6D37D00CD541C /* GSERootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSERootViewController.m; sourceTree = "<group>"; };
 		224EFFB215A6D7C300CD541C /* GSEConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSEConfigurationViewController.h; sourceTree = "<group>"; };
 		224EFFB315A6D7C300CD541C /* GSEConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSEConfigurationViewController.m; sourceTree = "<group>"; };
+		225D129415B67DA40041F416 /* GSUserAgent+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GSUserAgent+Private.h"; sourceTree = "<group>"; };
 		22607EB115B421EA008F907D /* libg729codec-arm-apple-darwin9.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libg729codec-arm-apple-darwin9.a"; path = "pjsip/lib/libg729codec-arm-apple-darwin9.a"; sourceTree = "<group>"; };
 		22AD824315A5987C0000D05C /* libGossip.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGossip.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		22AD824615A5987C0000D05C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -338,6 +340,7 @@
 				22B7D11715AE95A50045C54A /* GSIncomingCall.h */,
 				22D43D8015AAA5270099C79F /* GSNotifications.h */,
 				22B7D10E15AE8A8E0045C54A /* GSOutgoingCall.h */,
+				225D129415B67DA40041F416 /* GSUserAgent+Private.h */,
 				22AD82DB15A5A1550000D05C /* GSUserAgent.h */,
 				224EFF8015A6C7D100CD541C /* GSAccount.m */,
 				22D43D8515AAC1C40099C79F /* GSCall.m */,
@@ -402,6 +405,7 @@
 				22B7D11515AE93DC0045C54A /* GSCall+Private.h in Headers */,
 				22B7D11915AE95A50045C54A /* GSIncomingCall.h in Headers */,
 				221BED8715B034CD00464679 /* GSCodecInfo+Private.h in Headers */,
+				225D129615B67DA40041F416 /* GSUserAgent+Private.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,7 @@
 //
 
 #import "GSUserAgent.h"
+#import "GSUserAgent+Private.h"
 #import "GSCodecInfo.h"
 #import "GSCodecInfo+Private.h"
 #import "GSDispatch.h"
@@ -59,6 +60,11 @@
     
     _account = nil;
     _config = nil;
+}
+
+
+- (GSConfiguration *)configuration {
+    return _config;
 }
 
 
