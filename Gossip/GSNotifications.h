@@ -15,11 +15,17 @@ GSConstDefine(GSSIPRegistrationDidStartNotification);
 GSConstDefine(GSSIPCallStateDidChangeNotification);
 GSConstDefine(GSSIPIncomingCallNotification);
 GSConstDefine(GSSIPCallMediaStateDidChangeNotification);
+GSConstDefine(GSSIPVolumeDidChangeNotification);
+
+GSConstDefine(GSVolumeDidChangeNotification);
 
 GSConstDefine(GSSIPAccountIdKey);
 GSConstDefine(GSSIPRenewKey);
 GSConstDefine(GSSIPCallIdKey);
 GSConstDefine(GSSIPDataKey);
+
+GSConstDefine(GSVolumeKey);
+GSConstDefine(GSMicVolumeKey);
 
 
 // helper macros

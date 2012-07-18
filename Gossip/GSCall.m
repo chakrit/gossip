@@ -196,11 +196,22 @@
         
         // scale volume so 1.0 is 2x louder
         volume *= _volumeScale;
-        micVolume *= _volumeScale;        
+        micVolume *= _volumeScale;
         pjsua_conf_port_id callPort = pjsua_call_get_conf_port(_callId);
         GSReturnNoIfFails(pjsua_conf_adjust_rx_level(callPort, volume));
         GSReturnNoIfFails(pjsua_conf_adjust_tx_level(callPort, micVolume));
     }
+    
+    // send volume change notification
+    NSDictionary *info = nil;
+    info = [NSDictionary dictionaryWithObjectsAndKeys:
+            [NSNumber numberWithFloat:volume], GSVolumeKey,
+            [NSNumber numberWithFloat:micVolume], GSMicVolumeKey, nil];
+    
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center postNotificationName:GSVolumeDidChangeNotification
+                          object:self
+                        userInfo:info];
     
     return YES;
 }
