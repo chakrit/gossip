@@ -94,6 +94,7 @@ $(document).ready(function(){initNavTree('interface_g_s_user_agent.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#properties">Properties</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
@@ -112,8 +113,17 @@ $(document).ready(function(){initNavTree('interface_g_s_user_agent.html','');});
 <li>(Optional) <a class="el" href="interface_g_s_account.html#a777146c8eacc8297b16827875a48f220" title="Connects and begin registering with the configured SIP registration server.">connect (GSAccount)</a> to the SIP server </li>
 </ol>
 
-<p>Definition at line <a class="el" href="_g_s_user_agent_8h_source.html#l00022">22</a> of file <a class="el" href="_g_s_user_agent_8h_source.html">GSUserAgent.h</a>.</p>
+<p>Definition at line <a class="el" href="_g_s_user_agent_8h_source.html#l00031">31</a> of file <a class="el" href="_g_s_user_agent_8h_source.html">GSUserAgent.h</a>.</p>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="properties"></a>
+Properties</h2></td></tr>
+<tr class="memitem:a78f44e0c3014bf1be70a7a430a409d9c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a78f44e0c3014bf1be70a7a430a409d9c"></a>
+<a class="el" href="interface_g_s_account.html">GSAccount</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_user_agent.html#a78f44e0c3014bf1be70a7a430a409d9c">account</a></td></tr>
+<tr class="memdesc:a78f44e0c3014bf1be70a7a430a409d9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default <a class="el" href="interface_g_s_account.html" title="Represents a single PJSIP account. Only one account per session is supported right now...">GSAccount</a> instance with the configured SIP account registration. <br/></td></tr>
+<tr class="memitem:a5fbfc11133b68d08c086347fb5d9ff1d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5fbfc11133b68d08c086347fb5d9ff1d"></a>
+GSUserAgentState&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_g_s_user_agent.html#a5fbfc11133b68d08c086347fb5d9ff1d">status</a></td></tr>
+<tr class="memdesc:a5fbfc11133b68d08c086347fb5d9ff1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">User agent configuration state. Supports KVO notification. <br/></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a9ed3370759a75e7b9ac97241faeae519"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9ed3370759a75e7b9ac97241faeae519"></a>
@@ -148,14 +158,14 @@ Public Member Functions</h2></td></tr>
 <p>Configure the agent for use. </p>
 <p>This method must be called on application startup and before using any SIP functionality. Check <a href="http://www.pjsip.org/pjsip/docs/html/structpjsua__acc__config.htm">http://www.pjsip.org/pjsip/docs/html/structpjsua__acc__config.htm</a> for additional reference. </p>
 
-<p>Definition at line <a class="el" href="_g_s_user_agent_8m_source.html#l00071">71</a> of file <a class="el" href="_g_s_user_agent_8m_source.html">GSUserAgent.m</a>.</p>
+<p>Definition at line <a class="el" href="_g_s_user_agent_8m_source.html#l00077">77</a> of file <a class="el" href="_g_s_user_agent_8m_source.html">GSUserAgent.m</a>.</p>
 <div class="fragment"><div class="line">                 :(<a class="code" href="interface_g_s_configuration.html" title="Main class for configuring a SIP user agent.">GSConfiguration</a> *)config {</div>
 <div class="line">    GSAssert(!_config, <span class="stringliteral">@&quot;Gossip: User agent is already configured.&quot;</span>);</div>
 <div class="line">    _config = [config copy];</div>
 <div class="line">    </div>
 <div class="line">    <span class="comment">// create agent</span></div>
 <div class="line">    GSReturnNoIfFails(pjsua_create());</div>
-<div class="line">    _suaCreated = YES;</div>
+<div class="line">    [<span class="keyword">self</span> setStatus:GSUserAgentStateCreated];</div>
 <div class="line">    </div>
 <div class="line">    <span class="comment">// configure agent</span></div>
 <div class="line">    pjsua_config uaConfig;</div>
@@ -175,7 +185,6 @@ Public Member Functions</h2></td></tr>
 <div class="line">    mediaConfig.ec_tail_len = 0; <span class="comment">// not sure what this does (Siphon use this.)</span></div>
 <div class="line">    </div>
 <div class="line">    GSReturnNoIfFails(pjsua_init(&amp;uaConfig, &amp;logConfig, &amp;mediaConfig));</div>
-<div class="line">    _suaInitialized = YES;</div>
 <div class="line">    </div>
 <div class="line">    <span class="comment">// create UDP transport</span></div>
 <div class="line">    <span class="comment">// TODO: Make configurable? (which transport type to use/other transport opts)</span></div>
@@ -192,7 +201,8 @@ Public Member Functions</h2></td></tr>
 <div class="line">    }</div>
 <div class="line">    </div>
 <div class="line">    GSReturnNoIfFails(pjsua_transport_create(transportType, &amp;transportConfig, &amp;_transportId));</div>
-<div class="line">    </div>
+<div class="line">    [<span class="keyword">self</span> setStatus:GSUserAgentStateConfigured];</div>
+<div class="line"></div>
 <div class="line">    <span class="comment">// configure account</span></div>
 <div class="line">    _account = [[<a class="code" href="interface_g_s_account.html" title="Represents a single PJSIP account. Only one account per session is supported right now...">GSAccount</a> alloc] init];</div>
 <div class="line">    <span class="keywordflow">return</span> [_account configure:_config.account];</div>
@@ -217,9 +227,10 @@ Public Member Functions</h2></td></tr>
 <p>This method effectively cause PJSIP to begin connecting to the configured SIP server using the credentials specified when <a class="el" href="interface_g_s_user_agent.html#aff89119d852b605f9604ec96a606ce0b" title="Configure the agent for use.">configure:</a> was called. A <a class="el" href="interface_g_s_account.html" title="Represents a single PJSIP account. Only one account per session is supported right now...">GSAccount</a> instance will be created and used for registration automatically.</p>
 <p>After a successful start, application should call <a class="el" href="interface_g_s_account.html#a777146c8eacc8297b16827875a48f220" title="Connects and begin registering with the configured SIP registration server.">connect (GSAccount)</a> to connect to the SIP server to listen for incoming calls (or making outgoing calls.) </p>
 
-<p>Definition at line <a class="el" href="_g_s_user_agent_8m_source.html#l00120">120</a> of file <a class="el" href="_g_s_user_agent_8m_source.html">GSUserAgent.m</a>.</p>
+<p>Definition at line <a class="el" href="_g_s_user_agent_8m_source.html#l00126">126</a> of file <a class="el" href="_g_s_user_agent_8m_source.html">GSUserAgent.m</a>.</p>
 <div class="fragment"><div class="line">              {</div>
-<div class="line">    GSReturnNoIfFails(pjsua_start());    </div>
+<div class="line">    GSReturnNoIfFails(pjsua_start());</div>
+<div class="line">    [<span class="keyword">self</span> setStatus:GSUserAgentStateStarted];</div>
 <div class="line">    <span class="keywordflow">return</span> YES;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
@@ -235,7 +246,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="interface_g_s_user_agent.html">GSUserAgent</a></li>
-    <li class="footer">Generated on Wed Jul 18 2012 17:00:36 for GOSSIP by
+    <li class="footer">Generated on Mon Jul 23 2012 16:55:07 for GOSSIP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>
