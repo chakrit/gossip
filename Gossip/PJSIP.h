@@ -17,6 +17,11 @@
 #define PJ_IS_BIG_ENDIAN 0
 #endif
 
+// fix darwin typedef conflict w/ PJSIP socklen_t when linking against ios5.1
+#ifndef _SOCKLEN_T
+#define _SOCKLEN_T 1
+#endif
+
 #define PJMEDIA_HAS_VIDEO 1
 #import <pj/config_site.h>
 
