@@ -12,5 +12,6 @@
 @interface GSUserAgent (Private)
 
 @property (nonatomic, readonly) GSConfiguration *configuration;
+@property (nonatomic, readwrite) GSUserAgentState status;
 
 @end

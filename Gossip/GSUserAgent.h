@@ -10,6 +10,15 @@
 #import "GSConfiguration.h"
 
 
+typedef enum {
+    GSUserAgentStateUninitialized = 0,
+    GSUserAgentStateCreated = 1,
+    GSUserAgentStateConfigured = 2,
+    GSUserAgentStateStarted = 3,
+    GSUserAgentStateDestroyed = -1, // TODO: No need for this state?
+} GSUserAgentState;
+
+
 /// Mains SIP user agent interface. Applications should configure the shared instance on startup.
 /** Only a single GSUserAgent may be created for each application since PJSIP only supports a single user agent at a time.
  *  Applications should follow the following steps to initialize the agent:
@@ -21,7 +30,8 @@
  */
 @interface GSUserAgent : NSObject
 
-@property (nonatomic, strong, readonly) GSAccount *account;
+@property (nonatomic, strong, readonly) GSAccount *account; ///< Default GSAccount instance with the configured SIP account registration.
+@property (nonatomic, readonly) GSUserAgentState status; ///< User agent configuration state. Supports KVO notification.
 
 /// Obtains the shared user agent instance.
 + (GSUserAgent *)sharedAgent;

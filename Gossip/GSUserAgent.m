@@ -16,13 +16,11 @@
 
 @implementation GSUserAgent {
     GSConfiguration *_config;
-    BOOL _suaCreated;
-    BOOL _suaInitialized;
-    
     pjsua_transport_id _transportId;
 }
 
 @synthesize account = _account;
+@synthesize status = _status;
 
 
 + (GSUserAgent *)sharedAgent {
@@ -36,12 +34,11 @@
 
 - (id)init {
     if (self = [super init]) {
-        _suaCreated = NO;
-        _suaInitialized = NO;
         _account = nil;
         _config = nil;
         
         _transportId = PJSUA_INVALID_ID;
+        _status = GSUserAgentStateUninitialized;
     }
     return self;
 }
@@ -52,19 +49,28 @@
         _transportId = PJSUA_INVALID_ID;
     }
     
-    if (_suaCreated) {
+    if (_status >= GSUserAgentStateConfigured) {
         pjsua_destroy();
-        _suaInitialized = NO;
-        _suaCreated = NO;
     }
     
     _account = nil;
     _config = nil;
+    _status = GSUserAgentStateDestroyed;
 }
 
 
 - (GSConfiguration *)configuration {
     return _config;
+}
+
+- (GSUserAgentState)status {
+    return _status;
+}
+
+- (void)setStatus:(GSUserAgentState)status {
+    [self willChangeValueForKey:@"status"];
+    _status = status;
+    [self didChangeValueForKey:@"status"];
 }
 
 
@@ -74,7 +80,7 @@
     
     // create agent
     GSReturnNoIfFails(pjsua_create());
-    _suaCreated = YES;
+    [self setStatus:GSUserAgentStateCreated];
     
     // configure agent
     pjsua_config uaConfig;
@@ -94,7 +100,6 @@
     mediaConfig.ec_tail_len = 0; // not sure what this does (Siphon use this.)
     
     GSReturnNoIfFails(pjsua_init(&uaConfig, &logConfig, &mediaConfig));
-    _suaInitialized = YES;
     
     // create UDP transport
     // TODO: Make configurable? (which transport type to use/other transport opts)
@@ -111,14 +116,16 @@
     }
     
     GSReturnNoIfFails(pjsua_transport_create(transportType, &transportConfig, &_transportId));
-    
+    [self setStatus:GSUserAgentStateConfigured];
+
     // configure account
     _account = [[GSAccount alloc] init];
     return [_account configure:_config.account];
 }
 
 - (BOOL)start {
-    GSReturnNoIfFails(pjsua_start());    
+    GSReturnNoIfFails(pjsua_start());
+    [self setStatus:GSUserAgentStateStarted];
     return YES;
 }
 
