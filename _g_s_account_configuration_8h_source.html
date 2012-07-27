@@ -117,17 +117,20 @@ $(document).ready(function(){initNavTree('_g_s_account_configuration_8h_source.h
 <div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="interface_g_s_account_configuration.html#a60e172c85c62e68c966d409f4e54b1c9">   19</a></span>&#160;<span class="keyword">@property</span> (nonatomic, copy) NSString *<a class="code" href="interface_g_s_account_configuration.html#a60e172c85c62e68c966d409f4e54b1c9" title="SIP username.">username</a>; </div>
 <div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="interface_g_s_account_configuration.html#acc98b6f3de9c91f6c76c9a90c640ffd8">   20</a></span>&#160;<span class="keyword">@property</span> (nonatomic, copy) NSString *<a class="code" href="interface_g_s_account_configuration.html#acc98b6f3de9c91f6c76c9a90c640ffd8" title="SIP password.">password</a>; </div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;+ (id)<a class="code" href="interface_g_s_account_configuration.html#a929b75b9bd28c00de25599415c384b28" title="Creates a GSAccountConfiguration instance with default configuration values.">defaultConfiguration</a>; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;+ (id)configurationWithConfiguration:(<a class="code" href="interface_g_s_account_configuration.html" title="Account configuration. Only supports &quot;digest&quot; and plain-text password authentication atm...">GSAccountConfiguration</a> *)configuration; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="code" href="interface_g_s_account_configuration.html#a3c8510f03795c5b323e36c0ca7863863">   25</a></span>&#160;<span class="keyword">@property</span> (nonatomic) BOOL <a class="code" href="interface_g_s_account_configuration.html#a3c8510f03795c5b323e36c0ca7863863" title="Allow online/status publishing for services that support them.">allowStatusPublishing</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;+ (id)<a class="code" href="interface_g_s_account_configuration.html#a929b75b9bd28c00de25599415c384b28" title="Creates a GSAccountConfiguration instance with default configuration values.">defaultConfiguration</a>; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;+ (id)configurationWithConfiguration:(<a class="code" href="interface_g_s_account_configuration.html" title="Account configuration. Only supports &quot;digest&quot; and plain-text password authentication atm...">GSAccountConfiguration</a> *)configuration; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">@end</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>GSAccountConfiguration.h</b></li>
-    <li class="footer">Generated on Mon Jul 23 2012 16:55:07 for GOSSIP by
+    <li class="footer">Generated on Fri Jul 27 2012 14:44:42 for GOSSIP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

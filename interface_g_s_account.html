@@ -161,7 +161,9 @@ Public Member Functions</h2></td></tr>
 <div class="line">    accConfig.id = [<a class="code" href="interface_g_s_p_j_util.html" title="General utilities for working with PJSIP in ObjC land.">GSPJUtil</a> <a class="code" href="interface_g_s_p_j_util.html#ab2f4d0463f26863cf4f81270d730389a" title="Creates pj_str_t from NSString prefixed with &quot;sip:&quot;. Instance lifetime depends on the NSString instan...">PJAddressWithString</a>:_config.address];</div>
 <div class="line">    accConfig.reg_uri = [<a class="code" href="interface_g_s_p_j_util.html" title="General utilities for working with PJSIP in ObjC land.">GSPJUtil</a> <a class="code" href="interface_g_s_p_j_util.html#ab2f4d0463f26863cf4f81270d730389a" title="Creates pj_str_t from NSString prefixed with &quot;sip:&quot;. Instance lifetime depends on the NSString instan...">PJAddressWithString</a>:_config.domain];</div>
 <div class="line">    accConfig.register_on_acc_add = PJ_FALSE; <span class="comment">// connect manually</span></div>
-<div class="line">    accConfig.publish_enabled = YES;</div>
+<div class="line"><span class="comment">//    accConfig.publish_enabled = YES;</span></div>
+<div class="line"><span class="comment">//    accConfig.allow_contact_rewrite = PJ_TRUE;</span></div>
+<div class="line"><span class="comment">//    accConfig.allow_via_rewrite = PJ_TRUE;</span></div>
 <div class="line">    </div>
 <div class="line">    <span class="keywordflow">if</span> (!_config.proxyServer) {</div>
 <div class="line">        accConfig.proxy_cnt = 0;</div>
@@ -178,8 +180,8 @@ Public Member Functions</h2></td></tr>
 <div class="line">    creds.data = [<a class="code" href="interface_g_s_p_j_util.html" title="General utilities for working with PJSIP in ObjC land.">GSPJUtil</a> <a class="code" href="interface_g_s_p_j_util.html#aae34f0f67289d0b9bc3ad916cf9dc642" title="Creates pj_str_t from NSString. Instance lifetime depends on the NSString instance.">PJStringWithString</a>:_config.password];</div>
 <div class="line">    creds.data_type = PJSIP_CRED_DATA_PLAIN_PASSWD;</div>
 <div class="line">    </div>
-<div class="line">    accConfig.cred_info[0] = creds;</div>
 <div class="line">    accConfig.cred_count = 1;</div>
+<div class="line">    accConfig.cred_info[0] = creds;</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// finish</span></div>
 <div class="line">    GSReturnNoIfFails(pjsua_acc_add(&amp;accConfig, PJ_TRUE, &amp;_accountId));    </div>
@@ -198,7 +200,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="interface_g_s_account.html">GSAccount</a></li>
-    <li class="footer">Generated on Mon Jul 23 2012 16:55:07 for GOSSIP by
+    <li class="footer">Generated on Fri Jul 27 2012 14:44:42 for GOSSIP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>
