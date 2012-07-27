@@ -50,6 +50,7 @@
     account.password = @"tyixr52w9k";
     account.domain = @"sip2sip.info";
     account.authRealm = @"sip2sip.info";
+    account.proxyServer = @"proxy.sipthor.net";
     [accounts addObject:account];
     
     _testAccounts = [NSArray arrayWithArray:accounts];
