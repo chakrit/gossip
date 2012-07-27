@@ -44,6 +44,14 @@
     account.password = @"RsbRokgpDZcbmuBT";
     [accounts addObject:account];
     
+    account = [GSAccountConfiguration defaultConfiguration];
+    account.address = @"chakrit@sip2sip.info";
+    account.username = @"chakrit";
+    account.password = @"tyixr52w9k";
+    account.domain = @"sip2sip.info";
+    account.authRealm = @"sip2sip.info";
+    [accounts addObject:account];
+    
     _testAccounts = [NSArray arrayWithArray:accounts];
 }
 
