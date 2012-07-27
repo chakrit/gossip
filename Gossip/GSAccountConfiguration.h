@@ -19,6 +19,8 @@
 @property (nonatomic, copy) NSString *username; ///< SIP username.
 @property (nonatomic, copy) NSString *password; ///< SIP password.
 
+@property (nonatomic) BOOL enableStatusPublishing; ///< Enable online/status publishing for services that support them.
+
 + (id)defaultConfiguration; ///< Creates a GSAccountConfiguration instance with default configuration values.
 + (id)configurationWithConfiguration:(GSAccountConfiguration *)configuration; ///< Copy constructor.
 

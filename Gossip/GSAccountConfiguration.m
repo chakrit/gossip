@@ -18,6 +18,8 @@
 @synthesize username = _username;
 @synthesize password = _password;
 
+@synthesize enableStatusPublishing = _enableStatusPublishing;
+
 + (id)defaultConfiguration {
     return [[self alloc] init];
 }
@@ -38,6 +40,9 @@
     _authRealm = @"*";
     _username = nil;
     _password = nil;
+    
+    // can prevent registration for services which don't support it so NO by default.
+    _enableStatusPublishing = NO;
     return self;
 }
 
@@ -63,6 +68,7 @@
     replica.username = self.username;
     replica.password = self.password;
     
+    replica.enableStatusPublishing = self.enableStatusPublishing;
     return replica;
 }
 

@@ -69,7 +69,7 @@
     accConfig.id = [GSPJUtil PJAddressWithString:_config.address];
     accConfig.reg_uri = [GSPJUtil PJAddressWithString:_config.domain];
     accConfig.register_on_acc_add = PJ_FALSE; // connect manually
-    accConfig.publish_enabled = YES;
+    accConfig.publish_enabled = _config.enableStatusPublishing ? PJ_TRUE : PJ_FALSE;
     
     if (!_config.proxyServer) {
         accConfig.proxy_cnt = 0;
@@ -86,8 +86,8 @@
     creds.data = [GSPJUtil PJStringWithString:_config.password];
     creds.data_type = PJSIP_CRED_DATA_PLAIN_PASSWD;
     
-    accConfig.cred_info[0] = creds;
     accConfig.cred_count = 1;
+    accConfig.cred_info[0] = creds;
 
     // finish
     GSReturnNoIfFails(pjsua_acc_add(&accConfig, PJ_TRUE, &_accountId));    
