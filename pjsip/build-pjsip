@@ -32,7 +32,7 @@ cp ../g729/pj_g729.h third_party/
 cp ../g729/pj_g729.c pjmedia/src/pjmedia-codec/g729.c # so it compiles as part of pjsip
 
 mkdir -p third_party/lib
-cp ../g729/libg729a.a third_party/lib/libg729codec-arm-apple-darwin9.a
+cp ../g729/libg729a.a third_party/lib/libg729codec-arm-apple-darwin10.a
 
 # ... and build
 ./configure-iphone | tee ../configure.log
