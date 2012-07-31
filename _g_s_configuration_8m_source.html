@@ -135,52 +135,54 @@ $(document).ready(function(){initNavTree('_g_s_configuration_8m_source.html','')
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">return</span> nil; <span class="comment">// init failed.</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">// default values</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    _logLevel = 4;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    _consoleLogLevel = 4;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    _logLevel = 2;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    _consoleLogLevel = 2;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    </div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    _transportType = GSUDPTransportType;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">// clock rates taken from Siphon project, not sure why 8k</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// maybe better to read the default from the codecs</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    _clockRate = 8000;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    _soundClockRate = 8000;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">// default volume scale to 2.0 so 1.0 is twice as loud as PJSIP would normally emit.</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    _volumeScale = 2.0;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    _account = [<a class="code" href="interface_g_s_account_configuration.html" title="Account configuration. Only supports &quot;digest&quot; and plain-text password authentication atm...">GSAccountConfiguration</a> <a class="code" href="interface_g_s_account_configuration.html#a929b75b9bd28c00de25599415c384b28" title="Creates a GSAccountConfiguration instance with default configuration values.">defaultConfiguration</a>];</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">self</span>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;- (void)dealloc {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    _account = nil;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;- (id)copyWithZone:(NSZone *)zone {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="interface_g_s_configuration.html" title="Main class for configuring a SIP user agent.">GSConfiguration</a> *replica = [[[<span class="keyword">self</span> class] allocWithZone:zone] init];</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">// TODO: Probably better to do via class_copyPropertyList.</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    replica.logLevel = <span class="keyword">self</span>.logLevel;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    replica.consoleLogLevel = <span class="keyword">self</span>.consoleLogLevel;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    replica.transportType = <span class="keyword">self</span>.transportType;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    replica.clockRate = <span class="keyword">self</span>.clockRate;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    replica.soundClockRate = <span class="keyword">self</span>.soundClockRate;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    replica.volumeScale = <span class="keyword">self</span>.volumeScale;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    replica.account = [<span class="keyword">self</span>.account copy];</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">// match clock rate to default number provided by PJSIP.</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// http://www.pjsip.org/pjsip/docs/html/structpjsua__media__config.htm#a24792c277d6c6c309eccda9047f641a5</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">// setting sound clock rate to zero makes it use the conference bridge rate</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">// http://www.pjsip.org/pjsip/docs/html/structpjsua__media__config.htm#aeb0fbbdf83b12a29903509adf16ccb3b</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    _clockRate = 16000;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    _soundClockRate = 0;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">// default volume scale to 2.0 so 1.0 is twice as loud as PJSIP would normally emit.</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    _volumeScale = 2.0;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    _account = [<a class="code" href="interface_g_s_account_configuration.html" title="Account configuration. Only supports &quot;digest&quot; and plain-text password authentication atm...">GSAccountConfiguration</a> <a class="code" href="interface_g_s_account_configuration.html#a929b75b9bd28c00de25599415c384b28" title="Creates a GSAccountConfiguration instance with default configuration values.">defaultConfiguration</a>];</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">self</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;- (void)dealloc {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    _account = nil;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;- (id)copyWithZone:(NSZone *)zone {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="interface_g_s_configuration.html" title="Main class for configuring a SIP user agent.">GSConfiguration</a> *replica = [[[<span class="keyword">self</span> class] allocWithZone:zone] init];</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="comment">// TODO: Probably better to do via class_copyPropertyList.</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    replica.logLevel = <span class="keyword">self</span>.logLevel;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    replica.consoleLogLevel = <span class="keyword">self</span>.consoleLogLevel;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    replica.transportType = <span class="keyword">self</span>.transportType;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    replica.clockRate = <span class="keyword">self</span>.clockRate;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    replica.soundClockRate = <span class="keyword">self</span>.soundClockRate;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    replica.volumeScale = <span class="keyword">self</span>.volumeScale;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">return</span> replica;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    replica.account = [<span class="keyword">self</span>.account copy];</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">return</span> replica;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keyword">@end</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>GSConfiguration.m</b></li>
-    <li class="footer">Generated on Fri Jul 27 2012 14:44:42 for GOSSIP by
+    <li class="footer">Generated on Tue Jul 31 2012 19:05:04 for GOSSIP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>
