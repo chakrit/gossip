@@ -42,9 +42,11 @@
     _transportType = GSUDPTransportType;
     
     // match clock rate to default number provided by PJSIP.
-    // REF: https://github.com/chakrit/pjsip/blob/ce232dfb407de5148c4a925a077bf50479b97ae0/pjmedia/src/pjmedia-videodev/ios_dev.m#L32
-    _clockRate = 90000;
-    _soundClockRate = 90000;
+    // http://www.pjsip.org/pjsip/docs/html/structpjsua__media__config.htm#a24792c277d6c6c309eccda9047f641a5
+    // setting sound clock rate to zero makes it use the conference bridge rate
+    // http://www.pjsip.org/pjsip/docs/html/structpjsua__media__config.htm#aeb0fbbdf83b12a29903509adf16ccb3b
+    _clockRate = 16000;
+    _soundClockRate = 0;
     
     // default volume scale to 2.0 so 1.0 is twice as loud as PJSIP would normally emit.
     _volumeScale = 2.0;
