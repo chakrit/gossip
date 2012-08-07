@@ -84,6 +84,8 @@
 		22D43D9115AAC9120099C79F /* GSECallInitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D43D8E15AAC90B0099C79F /* GSECallInitController.m */; };
 		22D43D9415AACD680099C79F /* GSECallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D43D9315AACD680099C79F /* GSECallViewController.m */; };
 		22D43D9615AACFAD0099C79F /* GSECallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D43D9515AACFAD0099C79F /* GSECallViewController.xib */; };
+		22F071BB15D12EEE00886844 /* GSToneGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 22F071B915D12EEE00886844 /* GSToneGenerator.h */; };
+		22F071BC15D12EEE00886844 /* GSToneGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F071BA15D12EEE00886844 /* GSToneGenerator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +178,8 @@
 		22D43D9215AACD680099C79F /* GSECallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSECallViewController.h; sourceTree = "<group>"; };
 		22D43D9315AACD680099C79F /* GSECallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSECallViewController.m; sourceTree = "<group>"; };
 		22D43D9515AACFAD0099C79F /* GSECallViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSECallViewController.xib; sourceTree = "<group>"; };
+		22F071B915D12EEE00886844 /* GSToneGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSToneGenerator.h; sourceTree = "<group>"; };
+		22F071BA15D12EEE00886844 /* GSToneGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSToneGenerator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -341,6 +345,7 @@
 				22B7D11715AE95A50045C54A /* GSIncomingCall.h */,
 				22D43D8015AAA5270099C79F /* GSNotifications.h */,
 				22B7D10E15AE8A8E0045C54A /* GSOutgoingCall.h */,
+				22F071B915D12EEE00886844 /* GSToneGenerator.h */,
 				225D129415B67DA40041F416 /* GSUserAgent+Private.h */,
 				22AD82DB15A5A1550000D05C /* GSUserAgent.h */,
 				224EFF8015A6C7D100CD541C /* GSAccount.m */,
@@ -350,6 +355,7 @@
 				22B7D11815AE95A50045C54A /* GSIncomingCall.m */,
 				22D43D8215AAA5FE0099C79F /* GSNotifications.m */,
 				22B7D10F15AE8A8E0045C54A /* GSOutgoingCall.m */,
+				22F071BA15D12EEE00886844 /* GSToneGenerator.m */,
 				22AD82DC15A5A1550000D05C /* GSUserAgent.m */,
 				224EFF8315A6C83C00CD541C /* Configuration */,
 				224EFF7E15A6C29900CD541C /* Util */,
@@ -408,6 +414,7 @@
 				22B7D11915AE95A50045C54A /* GSIncomingCall.h in Headers */,
 				221BED8715B034CD00464679 /* GSCodecInfo+Private.h in Headers */,
 				225D129615B67DA40041F416 /* GSUserAgent+Private.h in Headers */,
+				22F071BB15D12EEE00886844 /* GSToneGenerator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +528,7 @@
 				22B7D11115AE8A8E0045C54A /* GSOutgoingCall.m in Sources */,
 				22B7D11A15AE95A50045C54A /* GSIncomingCall.m in Sources */,
 				221BED8415B0338F00464679 /* GSCodecInfo.m in Sources */,
+				22F071BC15D12EEE00886844 /* GSToneGenerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

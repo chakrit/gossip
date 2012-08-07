@@ -175,7 +175,7 @@
     pjsua_call_id callId = GSNotifGetInt(notif, GSSIPCallIdKey);
     if (callId != _callId)
         return;
-    
+
     pjsua_call_info callInfo;
     GSReturnIfFails(pjsua_call_get_info(_callId, &callInfo));
     
