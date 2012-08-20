@@ -22,8 +22,6 @@
     float _volume;
     float _micVolume;
     float _volumeScale;
-
-    GSRingback *_ringback;
 }
 
 + (id)outgoingCallToUri:(NSString *)remoteUri fromAccount:(GSAccount *)account {
