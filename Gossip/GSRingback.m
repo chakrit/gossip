@@ -15,9 +15,8 @@
 
 
 @implementation GSRingback {
-    pj_pool_t *_pool;
-    pjmedia_port *_mediaPort;
     pjsua_conf_port_id _confPort;
+    pjsua_player_id _playerId;
 }
 
 + (id)ringbackWithSoundNamed:(NSString *)filename {
@@ -27,20 +26,23 @@
 
 - (id)initWithSoundNamed:(NSString *)filename {
     if (self = [super init]) {
+        NSBundle *bundle = [NSBundle mainBundle];
+
         _isConnected = NO;
-        _mediaPort = NULL;
         _confPort = PJSUA_INVALID_ID;
+        _playerId = PJSUA_INVALID_ID;
 
-        // create pjsua memory pool... (TODO: can't we just use the default pool?)
-        // REF: http://www.pjsip.org/pjmedia/docs/html/group__PJMEDIA__WAV__PLAYLIST.htm
-        pj_pool_factory *factory = pjsua_get_pool_factory();
-        _pool = pj_pool_create(factory, "GSRingback", 4096, 4096, NULL);
+        // resolve bundle filename
+        filename = [filename lastPathComponent];
+        filename = [bundle pathForResource:[filename stringByDeletingPathExtension]
+                                    ofType:[filename pathExtension]];
+        NSLog(@"Gossip: ringbackWithSoundNamed: %@", filename);
 
+        // create pjsua media playlist
         const pj_str_t filenames[] = { [GSPJUtil PJStringWithString:filename] };
-        const pj_str_t portLabel = pj_str("GSRingback");
+        GSReturnNilIfFails(pjsua_playlist_create(filenames, 1, NULL, 0, &_playerId));
 
-        GSReturnNilIfFails(pjmedia_wav_playlist_create(_pool, &portLabel, filenames, 1, 0, 0, 0, &_mediaPort));
-        GSReturnNilIfFails(pjsua_conf_add_port(_pool, _mediaPort, &_confPort));
+        _confPort = pjsua_player_get_conf_port(_playerId);
     }
     return self;
 }
@@ -51,14 +53,9 @@
         _confPort = PJSUA_INVALID_ID;
     }
 
-    if (!_mediaPort) {
-        GSLogIfFails(pjmedia_port_destroy(_mediaPort));
-        _mediaPort = NULL;
-    }
-
-    if (!_pool) {
-        pj_pool_release(_pool);
-        _pool = NULL;
+    if (_playerId != PJSUA_INVALID_ID) {
+        GSLogIfFails(pjsua_player_destroy(_playerId));
+        _playerId = PJSUA_INVALID_ID;
     }
 }
 
