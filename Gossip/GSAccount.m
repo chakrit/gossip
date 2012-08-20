@@ -6,6 +6,7 @@
 //
 
 #import "GSAccount.h"
+#import "GSAccount+Private.h"
 #import "GSCall.h"
 #import "GSDispatch.h"
 #import "PJSIP.h"
@@ -15,11 +16,6 @@
 @implementation GSAccount {
     GSAccountConfiguration *_config;
 }
-
-@synthesize accountId = _accountId;
-@synthesize status = _status;
-
-@synthesize delegate = _delegate;
 
 - (id)init {
     if (self = [super init]) {
@@ -56,6 +52,11 @@
     }
     
     _config = nil;
+}
+
+
+- (GSAccountConfiguration *)configuration {
+    return _config;
 }
 
 

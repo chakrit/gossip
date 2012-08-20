@@ -10,16 +10,6 @@
 
 @implementation GSAccountConfiguration
 
-@synthesize address = _address;
-@synthesize domain = _domain;
-@synthesize proxyServer = _proxyServer;
-@synthesize authScheme = _authScheme;
-@synthesize authRealm = _authRealm;
-@synthesize username = _username;
-@synthesize password = _password;
-
-@synthesize enableStatusPublishing = _enableStatusPublishing;
-
 + (id)defaultConfiguration {
     return [[self alloc] init];
 }
@@ -40,6 +30,9 @@
     _authRealm = @"*";
     _username = nil;
     _password = nil;
+
+    _enableRingback = YES;
+    _ringbackFilename = @"ringtone.wav";
     
     // can prevent registration for services which don't support it so NO by default.
     _enableStatusPublishing = NO;
@@ -69,6 +62,9 @@
     replica.password = self.password;
     
     replica.enableStatusPublishing = self.enableStatusPublishing;
+
+    replica.enableRingback = self.enableRingback;
+    replica.ringbackFilename = self.ringbackFilename;
     return replica;
 }
 

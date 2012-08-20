@@ -10,18 +10,6 @@
 
 @implementation GSConfiguration
 
-@synthesize logLevel = _logLevel;
-@synthesize consoleLogLevel = _consoleLogLevel;
-
-@synthesize transportType = _transportType;
-
-@synthesize clockRate = _clockRate;
-@synthesize soundClockRate = _soundClockRate;
-@synthesize volumeScale = _volumeScale;
-
-@synthesize account = _account;
-
-
 + (id)defaultConfiguration {
     return [[GSConfiguration alloc] init];
 }
@@ -67,12 +55,12 @@
     replica.logLevel = self.logLevel;
     replica.consoleLogLevel = self.consoleLogLevel;
     replica.transportType = self.transportType;
+
     replica.clockRate = self.clockRate;
     replica.soundClockRate = self.soundClockRate;
     replica.volumeScale = self.volumeScale;
-    
+
     replica.account = [self.account copy];
-    
     return replica;
 }
 

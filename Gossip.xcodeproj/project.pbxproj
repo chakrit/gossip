@@ -50,6 +50,10 @@
 		224EFFB615A6D7D000CD541C /* GSEConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224EFFB315A6D7C300CD541C /* GSEConfigurationViewController.m */; };
 		225D129615B67DA40041F416 /* GSUserAgent+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 225D129415B67DA40041F416 /* GSUserAgent+Private.h */; };
 		225D129C15B6B2780041F416 /* GSNotifications.h in Headers */ = {isa = PBXBuildFile; fileRef = 22D43D8015AAA5270099C79F /* GSNotifications.h */; };
+		226F92B015DB9CB00013A997 /* GSRingback.h in Headers */ = {isa = PBXBuildFile; fileRef = 226F92AE15DB9CB00013A997 /* GSRingback.h */; };
+		226F92B115DB9CB00013A997 /* GSRingback.m in Sources */ = {isa = PBXBuildFile; fileRef = 226F92AF15DB9CB00013A997 /* GSRingback.m */; };
+		226F92B215DB9D260013A997 /* ringtone.wav in Resources */ = {isa = PBXBuildFile; fileRef = 22C0F0F115D52676006947BC /* ringtone.wav */; };
+		227F444015E23004007C364C /* GSAccount+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 227F443E15E23004007C364C /* GSAccount+Private.h */; };
 		22ABC40815C7F50F001C7985 /* libg729codec-arm-apple-darwin10.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22ABC3F415C7F50F001C7985 /* libg729codec-arm-apple-darwin10.a */; };
 		22ABC40915C7F50F001C7985 /* libg7221codec-arm-apple-darwin10.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22ABC3F515C7F50F001C7985 /* libg7221codec-arm-apple-darwin10.a */; };
 		22ABC40A15C7F50F001C7985 /* libgsmcodec-arm-apple-darwin10.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22ABC3F615C7F50F001C7985 /* libgsmcodec-arm-apple-darwin10.a */; };
@@ -84,8 +88,6 @@
 		22D43D9115AAC9120099C79F /* GSECallInitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D43D8E15AAC90B0099C79F /* GSECallInitController.m */; };
 		22D43D9415AACD680099C79F /* GSECallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D43D9315AACD680099C79F /* GSECallViewController.m */; };
 		22D43D9615AACFAD0099C79F /* GSECallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D43D9515AACFAD0099C79F /* GSECallViewController.xib */; };
-		22F071BB15D12EEE00886844 /* GSToneGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 22F071B915D12EEE00886844 /* GSToneGenerator.h */; };
-		22F071BC15D12EEE00886844 /* GSToneGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F071BA15D12EEE00886844 /* GSToneGenerator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +141,9 @@
 		224EFFB215A6D7C300CD541C /* GSEConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSEConfigurationViewController.h; sourceTree = "<group>"; };
 		224EFFB315A6D7C300CD541C /* GSEConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSEConfigurationViewController.m; sourceTree = "<group>"; };
 		225D129415B67DA40041F416 /* GSUserAgent+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GSUserAgent+Private.h"; sourceTree = "<group>"; };
+		226F92AE15DB9CB00013A997 /* GSRingback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSRingback.h; sourceTree = "<group>"; };
+		226F92AF15DB9CB00013A997 /* GSRingback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSRingback.m; sourceTree = "<group>"; };
+		227F443E15E23004007C364C /* GSAccount+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GSAccount+Private.h"; sourceTree = "<group>"; };
 		22ABC3F415C7F50F001C7985 /* libg729codec-arm-apple-darwin10.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libg729codec-arm-apple-darwin10.a"; path = "pjsip/lib/libg729codec-arm-apple-darwin10.a"; sourceTree = "<group>"; };
 		22ABC3F515C7F50F001C7985 /* libg7221codec-arm-apple-darwin10.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libg7221codec-arm-apple-darwin10.a"; path = "pjsip/lib/libg7221codec-arm-apple-darwin10.a"; sourceTree = "<group>"; };
 		22ABC3F615C7F50F001C7985 /* libgsmcodec-arm-apple-darwin10.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgsmcodec-arm-apple-darwin10.a"; path = "pjsip/lib/libgsmcodec-arm-apple-darwin10.a"; sourceTree = "<group>"; };
@@ -169,6 +174,7 @@
 		22B7D11315AE93DC0045C54A /* GSCall+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GSCall+Private.h"; sourceTree = "<group>"; };
 		22B7D11715AE95A50045C54A /* GSIncomingCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSIncomingCall.h; sourceTree = "<group>"; };
 		22B7D11815AE95A50045C54A /* GSIncomingCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSIncomingCall.m; sourceTree = "<group>"; };
+		22C0F0F115D52676006947BC /* ringtone.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ringtone.wav; sourceTree = "<group>"; };
 		22D43D8015AAA5270099C79F /* GSNotifications.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSNotifications.h; sourceTree = "<group>"; };
 		22D43D8215AAA5FE0099C79F /* GSNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSNotifications.m; sourceTree = "<group>"; };
 		22D43D8415AAC1C40099C79F /* GSCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSCall.h; sourceTree = "<group>"; };
@@ -178,8 +184,6 @@
 		22D43D9215AACD680099C79F /* GSECallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSECallViewController.h; sourceTree = "<group>"; };
 		22D43D9315AACD680099C79F /* GSECallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSECallViewController.m; sourceTree = "<group>"; };
 		22D43D9515AACFAD0099C79F /* GSECallViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSECallViewController.xib; sourceTree = "<group>"; };
-		22F071B915D12EEE00886844 /* GSToneGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSToneGenerator.h; sourceTree = "<group>"; };
-		22F071BA15D12EEE00886844 /* GSToneGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSToneGenerator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +281,7 @@
 				224EFFB315A6D7C300CD541C /* GSEConfigurationViewController.m */,
 				224A004715A6FD9800CC5890 /* GSEMenuViewController.m */,
 				224EFFAA15A6D37D00CD541C /* GSERootViewController.m */,
+				22C0F0F115D52676006947BC /* ringtone.wav */,
 				22D43D9515AACFAD0099C79F /* GSECallViewController.xib */,
 				224A004C15A6FFBC00CC5890 /* GSEMenuViewController.xib */,
 				224EFF9415A6D27600CD541C /* Supporting Files */,
@@ -336,6 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				224EFF7815A6BA9000CD541C /* Gossip.h */,
+				227F443E15E23004007C364C /* GSAccount+Private.h */,
 				224EFF7F15A6C7D100CD541C /* GSAccount.h */,
 				22B7D11315AE93DC0045C54A /* GSCall+Private.h */,
 				22D43D8415AAC1C40099C79F /* GSCall.h */,
@@ -345,7 +351,7 @@
 				22B7D11715AE95A50045C54A /* GSIncomingCall.h */,
 				22D43D8015AAA5270099C79F /* GSNotifications.h */,
 				22B7D10E15AE8A8E0045C54A /* GSOutgoingCall.h */,
-				22F071B915D12EEE00886844 /* GSToneGenerator.h */,
+				226F92AE15DB9CB00013A997 /* GSRingback.h */,
 				225D129415B67DA40041F416 /* GSUserAgent+Private.h */,
 				22AD82DB15A5A1550000D05C /* GSUserAgent.h */,
 				224EFF8015A6C7D100CD541C /* GSAccount.m */,
@@ -355,7 +361,7 @@
 				22B7D11815AE95A50045C54A /* GSIncomingCall.m */,
 				22D43D8215AAA5FE0099C79F /* GSNotifications.m */,
 				22B7D10F15AE8A8E0045C54A /* GSOutgoingCall.m */,
-				22F071BA15D12EEE00886844 /* GSToneGenerator.m */,
+				226F92AF15DB9CB00013A997 /* GSRingback.m */,
 				22AD82DC15A5A1550000D05C /* GSUserAgent.m */,
 				224EFF8315A6C83C00CD541C /* Configuration */,
 				224EFF7E15A6C29900CD541C /* Util */,
@@ -414,7 +420,8 @@
 				22B7D11915AE95A50045C54A /* GSIncomingCall.h in Headers */,
 				221BED8715B034CD00464679 /* GSCodecInfo+Private.h in Headers */,
 				225D129615B67DA40041F416 /* GSUserAgent+Private.h in Headers */,
-				22F071BB15D12EEE00886844 /* GSToneGenerator.h in Headers */,
+				226F92B015DB9CB00013A997 /* GSRingback.h in Headers */,
+				227F444015E23004007C364C /* GSAccount+Private.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +499,7 @@
 				224EFF9815A6D27600CD541C /* InfoPlist.strings in Resources */,
 				224A004D15A6FFBC00CC5890 /* GSEMenuViewController.xib in Resources */,
 				22D43D9615AACFAD0099C79F /* GSECallViewController.xib in Resources */,
+				226F92B215DB9D260013A997 /* ringtone.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,7 +536,7 @@
 				22B7D11115AE8A8E0045C54A /* GSOutgoingCall.m in Sources */,
 				22B7D11A15AE95A50045C54A /* GSIncomingCall.m in Sources */,
 				221BED8415B0338F00464679 /* GSCodecInfo.m in Sources */,
-				22F071BC15D12EEE00886844 /* GSToneGenerator.m in Sources */,
+				226F92B115DB9CB00013A997 /* GSRingback.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

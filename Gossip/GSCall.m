@@ -7,9 +7,11 @@
 
 #import "GSCall.h"
 #import "GSCall+Private.h"
+#import "GSAccount+Private.h"
 #import "GSDispatch.h"
 #import "GSIncomingCall.h"
 #import "GSOutgoingCall.h"
+#import "GSRingback.h"
 #import "GSUserAgent+Private.h"
 #import "PJSIP.h"
 #import "Util.h"
@@ -20,10 +22,9 @@
     float _volume;
     float _micVolume;
     float _volumeScale;
-}
 
-@synthesize account = _account;
-@synthesize status = _status;
+    GSRingback *_ringback;
+}
 
 + (id)outgoingCallToUri:(NSString *)remoteUri fromAccount:(GSAccount *)account {
     GSOutgoingCall *call = [GSOutgoingCall alloc];
@@ -46,14 +47,21 @@
 
 - (id)initWithAccount:(GSAccount *)account {
     if (self = [super init]) {
+        GSAccountConfiguration *config = account.configuration;
+
         _account = account;
         _status = GSCallStatusReady;
         _callId = PJSUA_INVALID_ID;
         
+        _ringback = nil;
+        if (config.enableRingback) {
+            _ringback = [GSRingback ringbackWithSoundNamed:config.ringbackFilename];
+        }
+
         _volumeScale = [GSUserAgent sharedAgent].configuration.volumeScale;
         _volume = 1.0 / _volumeScale;
         _micVolume = 1.0 / _volumeScale;
-        
+
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         [center addObserver:self
                    selector:@selector(callStateDidChange:)
@@ -71,12 +79,18 @@
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center removeObserver:self];
 
+    if (_ringback && _ringback.isConnected) {
+        [_ringback stop];
+        _ringback = nil;
+    }
+
     if (_callId != PJSUA_INVALID_ID && pjsua_call_is_active(_callId)) {
         GSLogIfFails(pjsua_call_hangup(_callId, 0, NULL, NULL));
     }
     
     _account = nil;
     _callId = PJSUA_INVALID_ID;
+    _ringback = nil;
 }
 
 
@@ -150,11 +164,17 @@
             
         case PJSIP_INV_STATE_CALLING:
         case PJSIP_INV_STATE_INCOMING: {
+            if (!!_ringback && !_ringback.isConnected)
+                [_ringback play];
+
             callStatus = GSCallStatusCalling;
         } break;
             
         case PJSIP_INV_STATE_EARLY:
         case PJSIP_INV_STATE_CONNECTING: {
+            if (!!_ringback && _ringback.isConnected);
+                [_ringback stop];
+            
             callStatus = GSCallStatusConnecting;
         } break;
             
