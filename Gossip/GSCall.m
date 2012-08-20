@@ -147,6 +147,21 @@
 }
 
 
+- (void)startRingback {
+    if (!_ringback || _ringback.isConnected)
+        return;
+
+    [_ringback play];
+}
+
+- (void)stopRingback {
+    if (!(_ringback && _ringback.isConnected))
+        return;
+
+    [_ringback stop];
+}
+
+
 - (void)callStateDidChange:(NSNotification *)notif {
     pjsua_call_id callId = GSNotifGetInt(notif, GSSIPCallIdKey);
     pjsua_acc_id accountId = GSNotifGetInt(notif, GSSIPAccountIdKey);
@@ -169,20 +184,17 @@
             
         case PJSIP_INV_STATE_EARLY:
         case PJSIP_INV_STATE_CONNECTING: {
-            if (!!_ringback && !_ringback.isConnected)
-                [_ringback play];
-
+            [self startRingback];
             callStatus = GSCallStatusConnecting;
         } break;
             
         case PJSIP_INV_STATE_CONFIRMED: {
-            if (!!_ringback && _ringback.isConnected)
-                [_ringback stop];
-
+            [self stopRingback];
             callStatus = GSCallStatusConnected;
         } break;
             
         case PJSIP_INV_STATE_DISCONNECTED: {
+            [self stopRingback];
             callStatus = GSCallStatusDisconnected;
         } break;
     }
@@ -222,7 +234,7 @@
     pjsua_call_get_info(_callId, &callInfo);
     if (callInfo.media_status == PJSUA_CALL_MEDIA_ACTIVE) {
         
-        // scale volume so 1.0 is 2x louder
+        // scale volume as per configured volume scale
         volume *= _volumeScale;
         micVolume *= _volumeScale;
         pjsua_conf_port_id callPort = pjsua_call_get_conf_port(_callId);
