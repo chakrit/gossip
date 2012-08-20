@@ -118,14 +118,14 @@ $(document).ready(function(){initNavTree('_g_s_configuration_8h_source.html','')
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="interface_g_s_configuration.html">   22</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="interface_g_s_configuration.html" title="Main class for configuring a SIP user agent.">GSConfiguration</a> : NSObject &lt;NSCopying&gt;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">@property</span> (nonatomic) NSUInteger logLevel;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">@property</span> (nonatomic) NSUInteger consoleLogLevel;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="code" href="interface_g_s_configuration.html#a214648ed6b6d08a4c8758144e388389a">   24</a></span>&#160;<span class="keyword">@property</span> (nonatomic) NSUInteger <a class="code" href="interface_g_s_configuration.html#a214648ed6b6d08a4c8758144e388389a" title="PJSIP log level.">logLevel</a>; </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="code" href="interface_g_s_configuration.html#ae21513c87c97c33a36a7ff00dc00e184">   25</a></span>&#160;<span class="keyword">@property</span> (nonatomic) NSUInteger <a class="code" href="interface_g_s_configuration.html#ae21513c87c97c33a36a7ff00dc00e184" title="PJSIP console output level.">consoleLogLevel</a>; </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">@property</span> (nonatomic) GSTransportType transportType;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="interface_g_s_configuration.html#aa74791cba0a7f22ed0d93bce71e1b79c">   27</a></span>&#160;<span class="keyword">@property</span> (nonatomic) GSTransportType <a class="code" href="interface_g_s_configuration.html#aa74791cba0a7f22ed0d93bce71e1b79c" title="Transport type to use for connection.">transportType</a>; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">@property</span> (nonatomic) NSUInteger clockRate;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">@property</span> (nonatomic) NSUInteger soundClockRate;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">@property</span> (nonatomic) <span class="keywordtype">float</span> volumeScale;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="code" href="interface_g_s_configuration.html#afd6b7245afab45e31323d1fb6f4357fc">   29</a></span>&#160;<span class="keyword">@property</span> (nonatomic) NSUInteger <a class="code" href="interface_g_s_configuration.html#afd6b7245afab45e31323d1fb6f4357fc" title="PJSIP clock rate.">clockRate</a>; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="code" href="interface_g_s_configuration.html#a76880a2798d63f71a91db4aeede83b78">   30</a></span>&#160;<span class="keyword">@property</span> (nonatomic) NSUInteger <a class="code" href="interface_g_s_configuration.html#a76880a2798d63f71a91db4aeede83b78" title="PJSIP sound clock rate.">soundClockRate</a>; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="interface_g_s_configuration.html#aba891a7bba8aca358532e048cc24ab72">   31</a></span>&#160;<span class="keyword">@property</span> (nonatomic) <span class="keywordtype">float</span> <a class="code" href="interface_g_s_configuration.html#aba891a7bba8aca358532e048cc24ab72" title="Used for scaling volumes up and down.">volumeScale</a>; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">@property</span> (nonatomic, strong) <a class="code" href="interface_g_s_account_configuration.html" title="Account configuration. Only supports &quot;digest&quot; and plain-text password authentication atm...">GSAccountConfiguration</a> *account;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
@@ -139,7 +139,7 @@ $(document).ready(function(){initNavTree('_g_s_configuration_8h_source.html','')
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>GSConfiguration.h</b></li>
-    <li class="footer">Generated on Tue Jul 31 2012 19:05:04 for GOSSIP by
+    <li class="footer">Generated on Mon Aug 20 2012 18:36:56 for GOSSIP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

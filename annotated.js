@@ -7,5 +7,6 @@ var annotated =
     [ "GSCodecInfo", "interface_g_s_codec_info.html", "interface_g_s_codec_info" ],
     [ "GSConfiguration", "interface_g_s_configuration.html", "interface_g_s_configuration" ],
     [ "GSPJUtil", "interface_g_s_p_j_util.html", "interface_g_s_p_j_util" ],
+    [ "GSRingback", "interface_g_s_ringback.html", "interface_g_s_ringback" ],
     [ "GSUserAgent", "interface_g_s_user_agent.html", "interface_g_s_user_agent" ]
 ];

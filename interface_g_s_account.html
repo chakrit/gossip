@@ -148,49 +148,10 @@ Public Member Functions</h2></td></tr>
 <p>Configures account with the specified configuration. </p>
 <p>Must be run once and only once before using the <a class="el" href="interface_g_s_account.html" title="Represents a single PJSIP account. Only one account per session is supported right now...">GSAccount</a> instance. Usually this is called automatically by the <a class="el" href="interface_g_s_user_agent.html" title="Mains SIP user agent interface. Applications should configure the shared instance on startup...">GSUserAgent</a> instance. </p>
 
-<p>Definition at line <a class="el" href="_g_s_account_8m_source.html#l00062">62</a> of file <a class="el" href="_g_s_account_8m_source.html">GSAccount.m</a>.</p>
-
-<p>References <a class="el" href="_g_s_p_j_util_8m_source.html#l00055">GSPJUtil::PJAddressWithString:</a>, and <a class="el" href="_g_s_p_j_util_8m_source.html#l00047">GSPJUtil::PJStringWithString:</a>.</p>
-<div class="fragment"><div class="line">                 :(<a class="code" href="interface_g_s_account_configuration.html" title="Account configuration. Only supports &quot;digest&quot; and plain-text password authentication atm...">GSAccountConfiguration</a> *)configuration {</div>
-<div class="line">    _config = [configuration copy];</div>
-<div class="line">    </div>
-<div class="line">    <span class="comment">// prepare account config</span></div>
-<div class="line">    pjsua_acc_config accConfig;</div>
-<div class="line">    pjsua_acc_config_default(&amp;accConfig);</div>
-<div class="line">    </div>
-<div class="line">    accConfig.id = [<a class="code" href="interface_g_s_p_j_util.html" title="General utilities for working with PJSIP in ObjC land.">GSPJUtil</a> <a class="code" href="interface_g_s_p_j_util.html#ab2f4d0463f26863cf4f81270d730389a" title="Creates pj_str_t from NSString prefixed with &quot;sip:&quot;. Instance lifetime depends on the NSString instan...">PJAddressWithString</a>:_config.address];</div>
-<div class="line">    accConfig.reg_uri = [<a class="code" href="interface_g_s_p_j_util.html" title="General utilities for working with PJSIP in ObjC land.">GSPJUtil</a> <a class="code" href="interface_g_s_p_j_util.html#ab2f4d0463f26863cf4f81270d730389a" title="Creates pj_str_t from NSString prefixed with &quot;sip:&quot;. Instance lifetime depends on the NSString instan...">PJAddressWithString</a>:_config.domain];</div>
-<div class="line">    accConfig.register_on_acc_add = PJ_FALSE; <span class="comment">// connect manually</span></div>
-<div class="line">    accConfig.publish_enabled = _config.enableStatusPublishing ? PJ_TRUE : PJ_FALSE;</div>
-<div class="line">    </div>
-<div class="line">    <span class="keywordflow">if</span> (!_config.proxyServer) {</div>
-<div class="line">        accConfig.proxy_cnt = 0;</div>
-<div class="line">    } <span class="keywordflow">else</span> {</div>
-<div class="line">        accConfig.proxy_cnt = 1;</div>
-<div class="line">        accConfig.proxy[0] = [<a class="code" href="interface_g_s_p_j_util.html" title="General utilities for working with PJSIP in ObjC land.">GSPJUtil</a> <a class="code" href="interface_g_s_p_j_util.html#ab2f4d0463f26863cf4f81270d730389a" title="Creates pj_str_t from NSString prefixed with &quot;sip:&quot;. Instance lifetime depends on the NSString instan...">PJAddressWithString</a>:_config.proxyServer];</div>
-<div class="line">    }</div>
-<div class="line">    </div>
-<div class="line">    <span class="comment">// adds credentials info</span></div>
-<div class="line">    pjsip_cred_info creds;</div>
-<div class="line">    creds.scheme = [<a class="code" href="interface_g_s_p_j_util.html" title="General utilities for working with PJSIP in ObjC land.">GSPJUtil</a> <a class="code" href="interface_g_s_p_j_util.html#aae34f0f67289d0b9bc3ad916cf9dc642" title="Creates pj_str_t from NSString. Instance lifetime depends on the NSString instance.">PJStringWithString</a>:_config.authScheme];</div>
-<div class="line">    creds.realm = [<a class="code" href="interface_g_s_p_j_util.html" title="General utilities for working with PJSIP in ObjC land.">GSPJUtil</a> <a class="code" href="interface_g_s_p_j_util.html#aae34f0f67289d0b9bc3ad916cf9dc642" title="Creates pj_str_t from NSString. Instance lifetime depends on the NSString instance.">PJStringWithString</a>:_config.authRealm];</div>
-<div class="line">    creds.username = [<a class="code" href="interface_g_s_p_j_util.html" title="General utilities for working with PJSIP in ObjC land.">GSPJUtil</a> <a class="code" href="interface_g_s_p_j_util.html#aae34f0f67289d0b9bc3ad916cf9dc642" title="Creates pj_str_t from NSString. Instance lifetime depends on the NSString instance.">PJStringWithString</a>:_config.username];</div>
-<div class="line">    creds.data = [<a class="code" href="interface_g_s_p_j_util.html" title="General utilities for working with PJSIP in ObjC land.">GSPJUtil</a> <a class="code" href="interface_g_s_p_j_util.html#aae34f0f67289d0b9bc3ad916cf9dc642" title="Creates pj_str_t from NSString. Instance lifetime depends on the NSString instance.">PJStringWithString</a>:_config.password];</div>
-<div class="line">    creds.data_type = PJSIP_CRED_DATA_PLAIN_PASSWD;</div>
-<div class="line">    </div>
-<div class="line">    accConfig.cred_count = 1;</div>
-<div class="line">    accConfig.cred_info[0] = creds;</div>
-<div class="line"></div>
-<div class="line">    <span class="comment">// finish</span></div>
-<div class="line">    GSReturnNoIfFails(pjsua_acc_add(&amp;accConfig, PJ_TRUE, &amp;_accountId));    </div>
-<div class="line">    <span class="keywordflow">return</span> YES;</div>
-<div class="line">}</div>
-</div><!-- fragment -->
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="_g_s_account_8h_source.html">GSAccount.h</a></li>
-<li><a class="el" href="_g_s_account_8m_source.html">GSAccount.m</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -198,7 +159,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="interface_g_s_account.html">GSAccount</a></li>
-    <li class="footer">Generated on Tue Jul 31 2012 19:05:04 for GOSSIP by
+    <li class="footer">Generated on Mon Aug 20 2012 18:36:56 for GOSSIP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

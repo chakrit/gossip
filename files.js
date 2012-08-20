@@ -21,6 +21,8 @@ var files =
     [ "GSOutgoingCall.m", "_g_s_outgoing_call_8m_source.html", null ],
     [ "GSPJUtil.h", "_g_s_p_j_util_8h_source.html", null ],
     [ "GSPJUtil.m", "_g_s_p_j_util_8m_source.html", null ],
+    [ "GSRingback.h", "_g_s_ringback_8h_source.html", null ],
+    [ "GSRingback.m", "_g_s_ringback_8m_source.html", null ],
     [ "GSUserAgent.h", "_g_s_user_agent_8h_source.html", null ],
     [ "GSUserAgent.m", "_g_s_user_agent_8m_source.html", null ],
     [ "PJSIP.h", "_p_j_s_i_p_8h_source.html", null ],

@@ -7,5 +7,6 @@ var searchData=
   ['gscodecinfo',['GSCodecInfo',['../interface_g_s_codec_info.html',1,'']]],
   ['gsconfiguration',['GSConfiguration',['../interface_g_s_configuration.html',1,'']]],
   ['gspjutil',['GSPJUtil',['../interface_g_s_p_j_util.html',1,'']]],
+  ['gsringback',['GSRingback',['../interface_g_s_ringback.html',1,'']]],
   ['gsuseragent',['GSUserAgent',['../interface_g_s_user_agent.html',1,'']]]
 ];

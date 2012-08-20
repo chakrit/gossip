@@ -109,76 +109,73 @@ $(document).ready(function(){initNavTree('_g_s_account_configuration_8m_source.h
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">@implementation </span><a class="code" href="interface_g_s_account_configuration.html" title="Account configuration. Only supports &quot;digest&quot; and plain-text password authentication atm...">GSAccountConfiguration</a></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">@synthesize</span> <a class="code" href="interface_g_s_account_configuration.html#a444397aa067cf65287a72615bdbdf076" title="SIP address.">address</a> = _address;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">@synthesize</span> <a class="code" href="interface_g_s_account_configuration.html#a10f83bae6e9c5171a100f808552cfb92" title="SIP domain.">domain</a> = _domain;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">@synthesize</span> <a class="code" href="interface_g_s_account_configuration.html#a6beb0fe5d01e114db960527f08484794" title="SIP outbound proxy server.">proxyServer</a> = _proxyServer;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">@synthesize</span> <a class="code" href="interface_g_s_account_configuration.html#ac9ed3de07a10f04e839bf9f880a1f26a" title="Authentication scheme. Defaults to &quot;digest&quot;.">authScheme</a> = _authScheme;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">@synthesize</span> <a class="code" href="interface_g_s_account_configuration.html#af77dd285e217d1dc73aa63c46ff1ac3c" title="Authentication realm. Defaults to &quot;*&quot;.">authRealm</a> = _authRealm;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">@synthesize</span> <a class="code" href="interface_g_s_account_configuration.html#a60e172c85c62e68c966d409f4e54b1c9" title="SIP username.">username</a> = _username;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">@synthesize</span> <a class="code" href="interface_g_s_account_configuration.html#acc98b6f3de9c91f6c76c9a90c640ffd8" title="SIP password.">password</a> = _password;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="interface_g_s_account_configuration.html#a929b75b9bd28c00de25599415c384b28">   13</a></span>&#160;+ (id)<a class="code" href="interface_g_s_account_configuration.html#a929b75b9bd28c00de25599415c384b28" title="Creates a GSAccountConfiguration instance with default configuration values.">defaultConfiguration</a> {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">return</span> [[<span class="keyword">self</span> alloc] init];</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="interface_g_s_account_configuration.html#a7792eeb98e6937df7eb1961675801444">   17</a></span>&#160;+ (id)configurationWithConfiguration:(<a class="code" href="interface_g_s_account_configuration.html" title="Account configuration. Only supports &quot;digest&quot; and plain-text password authentication atm...">GSAccountConfiguration</a> *)configuration {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">return</span> [configuration copy];</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">@synthesize</span> <a class="code" href="interface_g_s_account_configuration.html#a5a099060ad57629397912f62524edb6d" title="Enable online/status publishing for services that support them.">enableStatusPublishing</a> = _enableStatusPublishing;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="code" href="interface_g_s_account_configuration.html#a929b75b9bd28c00de25599415c384b28">   23</a></span>&#160;+ (id)<a class="code" href="interface_g_s_account_configuration.html#a929b75b9bd28c00de25599415c384b28" title="Creates a GSAccountConfiguration instance with default configuration values.">defaultConfiguration</a> {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">return</span> [[<span class="keyword">self</span> alloc] init];</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="interface_g_s_account_configuration.html#a7792eeb98e6937df7eb1961675801444">   27</a></span>&#160;+ (id)configurationWithConfiguration:(<a class="code" href="interface_g_s_account_configuration.html" title="Account configuration. Only supports &quot;digest&quot; and plain-text password authentication atm...">GSAccountConfiguration</a> *)configuration {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">return</span> [configuration copy];</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;- (id)init {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">if</span> (!(<span class="keyword">self</span> = [super init]))</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">return</span> nil; <span class="comment">// super init failed.</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    _address = nil;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    _domain = nil;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    _proxyServer = nil;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    _authScheme = <span class="stringliteral">@&quot;digest&quot;</span>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    _authRealm = <span class="stringliteral">@&quot;*&quot;</span>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    _username = nil;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    _password = nil;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">// can prevent registration for services which don&#39;t support it so NO by default.</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    _enableStatusPublishing = NO;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">self</span>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;- (void)dealloc {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    _address = nil;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    _domain = nil;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    _proxyServer = nil;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    _authScheme = nil;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    _authRealm = nil;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    _username = nil;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    _password = nil;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;- (id)copyWithZone:(NSZone *)zone {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="interface_g_s_account_configuration.html" title="Account configuration. Only supports &quot;digest&quot; and plain-text password authentication atm...">GSAccountConfiguration</a> *replica = [<a class="code" href="interface_g_s_account_configuration.html" title="Account configuration. Only supports &quot;digest&quot; and plain-text password authentication atm...">GSAccountConfiguration</a> <a class="code" href="interface_g_s_account_configuration.html#a929b75b9bd28c00de25599415c384b28" title="Creates a GSAccountConfiguration instance with default configuration values.">defaultConfiguration</a>];</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    replica.<a class="code" href="interface_g_s_account_configuration.html#a444397aa067cf65287a72615bdbdf076" title="SIP address.">address</a> = <span class="keyword">self</span>.address;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    replica.<a class="code" href="interface_g_s_account_configuration.html#a10f83bae6e9c5171a100f808552cfb92" title="SIP domain.">domain</a> = <span class="keyword">self</span>.domain;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    replica.<a class="code" href="interface_g_s_account_configuration.html#a6beb0fe5d01e114db960527f08484794" title="SIP outbound proxy server.">proxyServer</a> = <span class="keyword">self</span>.proxyServer;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    replica.<a class="code" href="interface_g_s_account_configuration.html#ac9ed3de07a10f04e839bf9f880a1f26a" title="Authentication scheme. Defaults to &quot;digest&quot;.">authScheme</a> = <span class="keyword">self</span>.authScheme;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    replica.<a class="code" href="interface_g_s_account_configuration.html#af77dd285e217d1dc73aa63c46ff1ac3c" title="Authentication realm. Defaults to &quot;*&quot;.">authRealm</a> = <span class="keyword">self</span>.authRealm;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    replica.<a class="code" href="interface_g_s_account_configuration.html#a60e172c85c62e68c966d409f4e54b1c9" title="SIP username.">username</a> = <span class="keyword">self</span>.username;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    replica.<a class="code" href="interface_g_s_account_configuration.html#acc98b6f3de9c91f6c76c9a90c640ffd8" title="SIP password.">password</a> = <span class="keyword">self</span>.password;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    replica.<a class="code" href="interface_g_s_account_configuration.html#a5a099060ad57629397912f62524edb6d" title="Enable online/status publishing for services that support them.">enableStatusPublishing</a> = <span class="keyword">self</span>.enableStatusPublishing;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">return</span> replica;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;- (id)init {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">if</span> (!(<span class="keyword">self</span> = [super init]))</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">return</span> nil; <span class="comment">// super init failed.</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    _address = nil;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    _domain = nil;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    _proxyServer = nil;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    _authScheme = <span class="stringliteral">@&quot;digest&quot;</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    _authRealm = <span class="stringliteral">@&quot;*&quot;</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    _username = nil;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    _password = nil;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    _enableRingback = YES;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    _ringbackFilename = <span class="stringliteral">@&quot;ringtone.wav&quot;</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// can prevent registration for services which don&#39;t support it so NO by default.</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    _enableStatusPublishing = NO;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">self</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;- (void)dealloc {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    _address = nil;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    _domain = nil;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    _proxyServer = nil;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    _authScheme = nil;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    _authRealm = nil;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    _username = nil;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    _password = nil;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    _ringbackFilename = nil;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;- (id)copyWithZone:(NSZone *)zone {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="interface_g_s_account_configuration.html" title="Account configuration. Only supports &quot;digest&quot; and plain-text password authentication atm...">GSAccountConfiguration</a> *replica = [<a class="code" href="interface_g_s_account_configuration.html" title="Account configuration. Only supports &quot;digest&quot; and plain-text password authentication atm...">GSAccountConfiguration</a> <a class="code" href="interface_g_s_account_configuration.html#a929b75b9bd28c00de25599415c384b28" title="Creates a GSAccountConfiguration instance with default configuration values.">defaultConfiguration</a>];</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    replica.<a class="code" href="interface_g_s_account_configuration.html#a444397aa067cf65287a72615bdbdf076" title="SIP address.">address</a> = <span class="keyword">self</span>.address;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    replica.<a class="code" href="interface_g_s_account_configuration.html#a10f83bae6e9c5171a100f808552cfb92" title="SIP domain.">domain</a> = <span class="keyword">self</span>.domain;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    replica.<a class="code" href="interface_g_s_account_configuration.html#a6beb0fe5d01e114db960527f08484794" title="SIP outbound proxy server.">proxyServer</a> = <span class="keyword">self</span>.proxyServer;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    replica.<a class="code" href="interface_g_s_account_configuration.html#ac9ed3de07a10f04e839bf9f880a1f26a" title="Authentication scheme. Defaults to &quot;digest&quot;.">authScheme</a> = <span class="keyword">self</span>.authScheme;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    replica.<a class="code" href="interface_g_s_account_configuration.html#af77dd285e217d1dc73aa63c46ff1ac3c" title="Authentication realm. Defaults to &quot;*&quot;.">authRealm</a> = <span class="keyword">self</span>.authRealm;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    replica.<a class="code" href="interface_g_s_account_configuration.html#a60e172c85c62e68c966d409f4e54b1c9" title="SIP username.">username</a> = <span class="keyword">self</span>.username;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    replica.<a class="code" href="interface_g_s_account_configuration.html#acc98b6f3de9c91f6c76c9a90c640ffd8" title="SIP password.">password</a> = <span class="keyword">self</span>.password;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    replica.<a class="code" href="interface_g_s_account_configuration.html#a5a099060ad57629397912f62524edb6d" title="Enable online/status publishing for services that support them.">enableStatusPublishing</a> = <span class="keyword">self</span>.enableStatusPublishing;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    replica.<a class="code" href="interface_g_s_account_configuration.html#aaa7ef0c90a5d8630a6e5021e787a29fa" title="Enable automatic ringback sounds.">enableRingback</a> = <span class="keyword">self</span>.enableRingback;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    replica.<a class="code" href="interface_g_s_account_configuration.html#ac5e60f9de3bf6ec74de6a2ef693e3f80" title="Filename to play as ringback sounds. Defaults to &quot;ringtone.wav&quot; so you can just include it in your bu...">ringbackFilename</a> = <span class="keyword">self</span>.ringbackFilename;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">return</span> replica;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">@end</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>GSAccountConfiguration.m</b></li>
-    <li class="footer">Generated on Tue Jul 31 2012 19:05:04 for GOSSIP by
+    <li class="footer">Generated on Mon Aug 20 2012 18:36:56 for GOSSIP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>
