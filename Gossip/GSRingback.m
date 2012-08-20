@@ -15,6 +15,9 @@
 
 
 @implementation GSRingback {
+    float _volume;
+    float _volumeScale;
+
     pjsua_conf_port_id _confPort;
     pjsua_player_id _playerId;
 }
@@ -31,6 +34,9 @@
         _isConnected = NO;
         _confPort = PJSUA_INVALID_ID;
         _playerId = PJSUA_INVALID_ID;
+
+        _volumeScale = [GSUserAgent sharedAgent].configuration.volumeScale;
+        _volume = 0.5 / _volumeScale; // half volume by default
 
         // resolve bundle filename
         filename = [filename lastPathComponent];
@@ -55,18 +61,32 @@
 }
 
 
-- (void)play {
-    GSAssert(!_isConnected, @"Already connected to a call.");
+- (BOOL)setVolume:(float)volume {
+    GSAssert(0.0 <= volume && volume <= 1.0, @"Volume value must be between 0.0 and 1.0");
 
-    GSLogIfFails(pjsua_conf_connect(_confPort, 0));
-    _isConnected = YES;
+    _volume = volume;
+    volume *= _volumeScale;
+    GSReturnNoIfFails(pjsua_conf_adjust_rx_level(_confPort, volume));
+    GSReturnNoIfFails(pjsua_conf_adjust_tx_level(_confPort, volume));
+
+    return YES;
 }
 
-- (void)stop {
+
+- (BOOL)play {
+    GSAssert(!_isConnected, @"Already connected to a call.");
+
+    GSReturnNoIfFails(pjsua_conf_connect(_confPort, 0));
+    _isConnected = YES;
+    return YES;
+}
+
+- (BOOL)stop {
     GSAssert(_isConnected, @"Not connected to a call.");
 
-    GSLogIfFails(pjsua_conf_disconnect(_confPort, 0));
+    GSReturnNoIfFails(pjsua_conf_disconnect(_confPort, 0));
     _isConnected = NO;
+    return YES;
 }
 
 
