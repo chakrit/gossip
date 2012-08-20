@@ -7,7 +7,6 @@
 //
 
 #import "GSRingback.h"
-#import "GSCall+Private.h"
 #import "GSUserAgent.h"
 #import "GSUserAgent+Private.h"
 #import "PJSIP.h"
@@ -31,7 +30,7 @@
     if (self = [super init]) {
         NSBundle *bundle = [NSBundle mainBundle];
 
-        _isConnected = NO;
+        _isPlaying = NO;
         _confPort = PJSUA_INVALID_ID;
         _playerId = PJSUA_INVALID_ID;
 
@@ -74,18 +73,18 @@
 
 
 - (BOOL)play {
-    GSAssert(!_isConnected, @"Already connected to a call.");
+    GSAssert(!_isPlaying, @"Already connected to a call.");
 
     GSReturnNoIfFails(pjsua_conf_connect(_confPort, 0));
-    _isConnected = YES;
+    _isPlaying = YES;
     return YES;
 }
 
 - (BOOL)stop {
-    GSAssert(_isConnected, @"Not connected to a call.");
+    GSAssert(_isPlaying, @"Not connected to a call.");
 
     GSReturnNoIfFails(pjsua_conf_disconnect(_confPort, 0));
-    _isConnected = NO;
+    _isPlaying = NO;
     return YES;
 }
 
