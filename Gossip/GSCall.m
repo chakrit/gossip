@@ -164,21 +164,21 @@
             
         case PJSIP_INV_STATE_CALLING:
         case PJSIP_INV_STATE_INCOMING: {
-            if (!!_ringback && !_ringback.isConnected)
-                [_ringback play];
-
             callStatus = GSCallStatusCalling;
         } break;
             
         case PJSIP_INV_STATE_EARLY:
         case PJSIP_INV_STATE_CONNECTING: {
-            if (!!_ringback && _ringback.isConnected);
-                [_ringback stop];
-            
+            if (!!_ringback && !_ringback.isConnected)
+                [_ringback play];
+
             callStatus = GSCallStatusConnecting;
         } break;
             
         case PJSIP_INV_STATE_CONFIRMED: {
+            if (!!_ringback && _ringback.isConnected)
+                [_ringback stop];
+
             callStatus = GSCallStatusConnected;
         } break;
             
