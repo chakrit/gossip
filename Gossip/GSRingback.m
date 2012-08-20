@@ -48,11 +48,6 @@
 }
 
 - (void)dealloc {
-    if (_confPort != PJSUA_INVALID_ID) {
-        GSLogIfFails(pjsua_conf_remove_port(_confPort));
-        _confPort = PJSUA_INVALID_ID;
-    }
-
     if (_playerId != PJSUA_INVALID_ID) {
         GSLogIfFails(pjsua_player_destroy(_playerId));
         _playerId = PJSUA_INVALID_ID;
