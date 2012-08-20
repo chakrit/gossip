@@ -13,7 +13,7 @@
 /// Ringback sound player.
 @interface GSRingback : NSObject
 
-@property (nonatomic, readonly) BOOL isConnected; ///< Returns wether ringback is already playing or not.
+@property (nonatomic, readonly) BOOL isPlaying; ///< Returns wether ringback is already playing or not.
 @property (nonatomic, readonly) float volume; ///< Returns current ringback volume.
 
 /// Creates GSRingback instance with ringback tone from the specified filename.

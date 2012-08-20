@@ -79,7 +79,7 @@
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center removeObserver:self];
 
-    if (_ringback && _ringback.isConnected) {
+    if (_ringback && _ringback.isPlaying) {
         [_ringback stop];
         _ringback = nil;
     }
@@ -148,14 +148,14 @@
 
 
 - (void)startRingback {
-    if (!_ringback || _ringback.isConnected)
+    if (!_ringback || _ringback.isPlaying)
         return;
 
     [_ringback play];
 }
 
 - (void)stopRingback {
-    if (!(_ringback && _ringback.isConnected))
+    if (!(_ringback && _ringback.isPlaying))
         return;
 
     [_ringback stop];
