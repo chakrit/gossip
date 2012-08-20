@@ -47,6 +47,7 @@
     _authRealm = nil;
     _username = nil;
     _password = nil;
+    _ringbackFilename = nil;
 }
 
 
