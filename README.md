@@ -19,3 +19,11 @@ Before Gossip will builds, you must do one of the following.
 * Copy the file `pjsip/config_site.h` to `pjlib/include/pj/config_site.h` as this is required
   by both PJSIP and Gossip and use the PJSIP builds already provided by Gossip.
 
+### LICENSE
+
+This code is in public domain.
+
+We do not own the license nor the copyright of the PJSIP source code which are included
+with Gossip. Check the [PJSIP licensing](http://www.pjsip.org/licensing.htm) for more
+information.
+
