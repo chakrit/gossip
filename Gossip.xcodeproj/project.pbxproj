@@ -53,6 +53,7 @@
 		226F92B015DB9CB00013A997 /* GSRingback.h in Headers */ = {isa = PBXBuildFile; fileRef = 226F92AE15DB9CB00013A997 /* GSRingback.h */; };
 		226F92B115DB9CB00013A997 /* GSRingback.m in Sources */ = {isa = PBXBuildFile; fileRef = 226F92AF15DB9CB00013A997 /* GSRingback.m */; };
 		226F92B215DB9D260013A997 /* ringtone.wav in Resources */ = {isa = PBXBuildFile; fileRef = 22C0F0F115D52676006947BC /* ringtone.wav */; };
+		227D1BC7161ADE2D003247EB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 227D1BC6161ADE2D003247EB /* Default-568h@2x.png */; };
 		227F444015E23004007C364C /* GSAccount+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 227F443E15E23004007C364C /* GSAccount+Private.h */; };
 		22ABC40815C7F50F001C7985 /* libg729codec-arm-apple-darwin10.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22ABC3F415C7F50F001C7985 /* libg729codec-arm-apple-darwin10.a */; };
 		22ABC40915C7F50F001C7985 /* libg7221codec-arm-apple-darwin10.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22ABC3F515C7F50F001C7985 /* libg7221codec-arm-apple-darwin10.a */; };
@@ -143,6 +144,7 @@
 		225D129415B67DA40041F416 /* GSUserAgent+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GSUserAgent+Private.h"; sourceTree = "<group>"; };
 		226F92AE15DB9CB00013A997 /* GSRingback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSRingback.h; sourceTree = "<group>"; };
 		226F92AF15DB9CB00013A997 /* GSRingback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSRingback.m; sourceTree = "<group>"; };
+		227D1BC6161ADE2D003247EB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		227F443E15E23004007C364C /* GSAccount+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GSAccount+Private.h"; sourceTree = "<group>"; };
 		22ABC3F415C7F50F001C7985 /* libg729codec-arm-apple-darwin10.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libg729codec-arm-apple-darwin10.a"; path = "pjsip/lib/libg729codec-arm-apple-darwin10.a"; sourceTree = "<group>"; };
 		22ABC3F515C7F50F001C7985 /* libg7221codec-arm-apple-darwin10.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libg7221codec-arm-apple-darwin10.a"; path = "pjsip/lib/libg7221codec-arm-apple-darwin10.a"; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				224EFFB315A6D7C300CD541C /* GSEConfigurationViewController.m */,
 				224A004715A6FD9800CC5890 /* GSEMenuViewController.m */,
 				224EFFAA15A6D37D00CD541C /* GSERootViewController.m */,
+				227D1BC6161ADE2D003247EB /* Default-568h@2x.png */,
 				22C0F0F115D52676006947BC /* ringtone.wav */,
 				22D43D9515AACFAD0099C79F /* GSECallViewController.xib */,
 				224A004C15A6FFBC00CC5890 /* GSEMenuViewController.xib */,
@@ -500,6 +503,7 @@
 				224A004D15A6FFBC00CC5890 /* GSEMenuViewController.xib in Resources */,
 				22D43D9615AACFAD0099C79F /* GSECallViewController.xib in Resources */,
 				226F92B215DB9D260013A997 /* ringtone.wav in Resources */,
+				227D1BC7161ADE2D003247EB /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
