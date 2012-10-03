@@ -47,4 +47,8 @@ done
 echo
 echo "### includes"
 find source | grep "\\include$"
+echo
+echo "### arch"
+find source | grep "\.a$" | xargs lipo -info 2>/dev/null \
+  | grep "architecture" | sed -El "s/^.+\: .+\/(.+) is architecture\: (.+)$/\\1 - \\2/g"
 
