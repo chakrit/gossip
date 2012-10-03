@@ -19,9 +19,6 @@ git clean -xdf
 git reset --hard HEAD
 
 # configure PJSIP builds
-cp ../config_site.h pjlib/include/pj/config_site.h
-cat pjlib/include/pj/config_site.h
-
 export ARCH="-arch armv7"
 
 # apply G729 patch and copy all needed stuff into PJSIP source tree.
