@@ -107,6 +107,13 @@
     [_account disconnect];
 }
 
+- (IBAction)onSwitchAccount:(id)sender {
+    if ([[GSUserAgent sharedAgent] destroy]) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+}
+
+
 - (IBAction)userDidTapMakeCall {
     if (!_callInit) {
         _callInit = [[GSECallInitController alloc] init];
