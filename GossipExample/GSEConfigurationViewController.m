@@ -53,20 +53,33 @@
     account.proxyServer = @"proxy.sipthor.net";
     [accounts addObject:account];
     
+    /*
+    account = [GSAccountConfiguration defaultConfiguration];
+    account.address = @"1664470@sipgate.co.uk";
+    account.username = @"1664470";
+    account.password = @"N34TYU8M";
+    account.domain = @"sipgate.co.uk";
+    account.proxyServer = @"sipgate.co.uk";
+    [accounts addObject:account];*/
+    
     _testAccounts = [NSArray arrayWithArray:accounts];
 }
 
 - (void)loadView {
     CGRect frame = CGRectMake(0, 0, 320, 480);
     
-    UITableView *tableView = [UITableView alloc];
-    tableView = [tableView initWithFrame:frame style:UITableViewStylePlain];
-    [tableView setDelegate:self];
-    [tableView setDataSource:self];
+    _tableView = [UITableView alloc];
+    _tableView = [_tableView initWithFrame:frame style:UITableViewStylePlain];
+    [_tableView setDelegate:self];
+    [_tableView setDataSource:self];
     
     UIView *container = [[UIView alloc] init];
-    [container addSubview:tableView];
+    [container addSubview:_tableView];
     [self setView:container];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [_tableView deselectRowAtIndexPath:[_tableView indexPathForSelectedRow] animated:YES];
 }
 
 - (void)dealloc {

@@ -42,6 +42,12 @@
     return self;
 }
 
+- (void)disconnectAndClearAccountID {
+    [self disconnect];
+    _accountId = PJSUA_INVALID_ID;
+    _config = nil;
+}
+
 - (void)dealloc {
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center removeObserver:self];

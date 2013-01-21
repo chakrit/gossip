@@ -577,6 +577,8 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/pjsip/lib\"",
 					"\"$(SRCROOT)/pjsip\"",
+					"\"$(SRCROOT)/pjsip/g729\"",
+					"\"$(SRCROOT)/pjsip/source/third_party/lib\"",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -595,6 +597,8 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/pjsip/lib\"",
 					"\"$(SRCROOT)/pjsip\"",
+					"\"$(SRCROOT)/pjsip/g729\"",
+					"\"$(SRCROOT)/pjsip/source/third_party/lib\"",
 				);
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "";
@@ -666,6 +670,17 @@
 				DSTROOT = /tmp/Gossip.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/pjsip/source/pjlib/include",
+					"$(SRCROOT)/pjsip/source/pjlib-util/include",
+					"$(SRCROOT)/pjsip/source/pjmedia/include",
+					"$(SRCROOT)/pjsip/source/pjnath/include",
+					"$(SRCROOT)/pjsip/source/pjsip/include",
+					"$(SRCROOT)/pjsip/source/third_party/resample/include",
+					"$(SRCROOT)/pjsip/source/third_party/speex/include",
+					"$(SRCROOT)/pjsip/source/third_party/srtp/crypto/include",
+					"$(SRCROOT)/pjsip/source/third_party/srtp/include",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/pjsip/lib\"",
