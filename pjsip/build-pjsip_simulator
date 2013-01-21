@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# A script to compile for iOS device.
+# A script to compile for iOS simulator.
 
 pushd .
 cd source
@@ -21,7 +21,13 @@ git clean -xdf
 git reset --hard HEAD
 
 # configure PJSIP builds
-export ARCH="-arch armv7"
+export ARCH="-arch i386" 
+export DEVPATH=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer
+export CFLAGS="-O2 -m32 -miphoneos-version-min=6.0"
+# NOTE: The following variables' default value are auto-configured at runtime. No need to set.
+# export LDFLAGS="-O2 -m32"
+# export CC=/Applications/Xcode.app/Contents/Developer/usr/bin # this breaks C compiler
+# export IPHONESDK=iPhoneSimulator6.0.sdk 
 
 # apply G729 patch and copy all needed stuff into PJSIP source tree.
 git apply --stat ../g729/enable_g729.patch
