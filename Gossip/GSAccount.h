@@ -47,4 +47,6 @@ typedef enum {
 - (BOOL)connect; ///< Connects and begin registering with the configured SIP registration server.
 - (BOOL)disconnect; ///< Unregister from the SIP registration server and disconnects.
 
+- (void)disconnectAndClearAccountID; ///< disconnect and clear accountID. Should not be called directly. Used by GSUserAgent destroy method.
+
 @end

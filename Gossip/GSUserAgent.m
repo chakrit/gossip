@@ -22,15 +22,25 @@
 @synthesize account = _account;
 @synthesize status = _status;
 
+static GSUserAgent *agent = nil;
 
 + (GSUserAgent *)sharedAgent {
-    static GSUserAgent *agent = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{ agent = [[GSUserAgent alloc] init]; });
     
     return agent;
 }
 
+- (BOOL)destroy {
+    [_account disconnectAndClearAccountID];
+    _account = nil;
+    _config = nil;
+    
+    _transportId = PJSUA_INVALID_ID;
+    self.status = GSUserAgentStateUninitialized;
+    pj_status_t t = pjsua_destroy();
+    return t == PJ_SUCCESS;
+}
 
 - (id)init {
     if (self = [super init]) {
