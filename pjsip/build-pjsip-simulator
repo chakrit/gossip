@@ -24,6 +24,7 @@ git reset --hard HEAD
 export ARCH="-arch i386" 
 export DEVPATH=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer
 export CFLAGS="-O2 -m32 -miphoneos-version-min=6.0"
+
 # NOTE: The following variables' default value are auto-configured at runtime. No need to set.
 # export LDFLAGS="-O2 -m32"
 # export CC=/Applications/Xcode.app/Contents/Developer/usr/bin # this breaks C compiler
