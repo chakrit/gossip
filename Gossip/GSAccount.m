@@ -9,6 +9,7 @@
 #import "GSAccount+Private.h"
 #import "GSCall.h"
 #import "GSDispatch.h"
+#import "GSUserAgent.h"
 #import "PJSIP.h"
 #import "Util.h"
 
@@ -42,21 +43,17 @@
     return self;
 }
 
-- (void)disconnectAndClearAccountID {
-    [self disconnect];
-    _accountId = PJSUA_INVALID_ID;
-    _config = nil;
-}
-
 - (void)dealloc {
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center removeObserver:self];
-    
-    if (_accountId != PJSUA_INVALID_ID) {
+
+    GSUserAgent *agent = [GSUserAgent sharedAgent];
+    if (_accountId != PJSUA_INVALID_ID && [agent status] != GSUserAgentStateDestroyed) {
         GSLogIfFails(pjsua_acc_del(_accountId));
         _accountId = PJSUA_INVALID_ID;
     }
-    
+
+    _accountId = PJSUA_INVALID_ID;
     _config = nil;
 }
 

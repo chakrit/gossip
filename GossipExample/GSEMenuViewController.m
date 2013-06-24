@@ -107,10 +107,9 @@
     [_account disconnect];
 }
 
-- (IBAction)onSwitchAccount:(id)sender {
-    if ([[GSUserAgent sharedAgent] destroy]) {
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    }
+- (IBAction)userDidTapSwitchAccount:(id)sender {
+    [[GSUserAgent sharedAgent] reset];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 

@@ -15,7 +15,7 @@ typedef enum {
     GSUserAgentStateCreated = 1,
     GSUserAgentStateConfigured = 2,
     GSUserAgentStateStarted = 3,
-    GSUserAgentStateDestroyed = -1, // TODO: No need for this state?
+    GSUserAgentStateDestroyed = -1, // TODO: Remove? Since it's equivalent to uninitialized.
 } GSUserAgentState;
 
 
@@ -53,6 +53,12 @@ typedef enum {
  *  to the SIP server to listen for incoming calls (or making outgoing calls.)
  */
 - (BOOL)start;
+
+/// Resets the user agent to an unconfigured state.
+/** You will need to call GSUserAgent::configure() and GSUserAgent::start() again.
+ *  You may use this method to resets and reconnect user agent to a different account.
+ */
+- (BOOL)reset;
 
 /// Gets an array of GSCodecInfo for codecs loaded by PJSIP.
 - (NSArray *)arrayOfAvailableCodecs;
