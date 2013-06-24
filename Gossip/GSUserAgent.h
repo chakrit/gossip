@@ -36,9 +36,6 @@ typedef enum {
 /// Obtains the shared user agent instance.
 + (GSUserAgent *)sharedAgent;
 
-/// disconnect and clear existing account data for account switching.
-- (BOOL)destroy; 
-
 /// Configure the agent for use.
 /** This method must be called on application startup and before using any SIP functionality.
  *  Check http://www.pjsip.org/pjsip/docs/html/structpjsua__acc__config.htm for additional reference. */
