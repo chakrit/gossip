@@ -1,8 +1,8 @@
 diff --git a/aconfigure b/aconfigure
-index f8715ed..f227d17 100755
+index 784838c..9533f55 100755
 --- a/aconfigure
 +++ b/aconfigure
-@@ -652,6 +652,7 @@ ac_resample_dll
+@@ -644,6 +644,7 @@ ac_resample_dll
  ac_no_ilbc_codec
  ac_no_speex_codec
  ac_no_g7221_codec
@@ -10,7 +10,7 @@ index f8715ed..f227d17 100755
  ac_no_g722_codec
  ac_no_gsm_codec
  ac_no_l16_codec
-@@ -770,6 +771,7 @@ enable_l16_codec
+@@ -762,6 +763,7 @@ enable_l16_codec
  enable_gsm_codec
  enable_g722_codec
  enable_g7221_codec
@@ -18,7 +18,7 @@ index f8715ed..f227d17 100755
  enable_speex_codec
  enable_ilbc_codec
  enable_libsamplerate
-@@ -1433,6 +1435,7 @@ Optional Features:
+@@ -1421,6 +1423,7 @@ Optional Features:
    --disable-gsm-codec     Exclude GSM codec in the build
    --disable-g722-codec    Exclude G.722 codec in the build
    --disable-g7221-codec   Exclude G.7221 codec in the build
@@ -26,11 +26,11 @@ index f8715ed..f227d17 100755
    --disable-speex-codec   Exclude Speex codecs in the build
    --disable-ilbc-codec    Exclude iLBC codec in the build
    --enable-libsamplerate  Link with libsamplerate when available. Note that
-@@ -5980,6 +5983,22 @@ fi
+@@ -5948,6 +5951,20 @@ $as_echo "Checking if G.722.1 codec is disabled...no" >&6; }
+ fi
  
  
- 
-+# Check whether --enable-g729-codec was given.
++# Check whether --enable-g7221-codec was given.
 +if test "${enable_g729_codec+set}" = set; then :
 +  enableval=$enable_g729_codec; if test "$enable_g729_codec" = "no"; then
 +		ac_no_g729_codec=1
@@ -44,16 +44,14 @@ index f8715ed..f227d17 100755
 +$as_echo "Checking if G.729 codec is disabled...no" >&6; }
 +fi
 +
-+
-+
+ 
  # Check whether --enable-speex-codec was given.
  if test "${enable_speex_codec+set}" = set; then :
-   enableval=$enable_speex_codec; if test "$enable_speex_codec" = "no"; then
 diff --git a/aconfigure.ac b/aconfigure.ac
-index a6d6250..6258a92 100644
+index be2f2ae..ae47ea1 100644
 --- a/aconfigure.ac
 +++ b/aconfigure.ac
-@@ -795,6 +795,18 @@ AC_ARG_ENABLE(g7221-codec,
+@@ -785,6 +785,18 @@ AC_ARG_ENABLE(g7221-codec,
  	       fi],
  	      AC_MSG_RESULT([Checking if G.722.1 codec is disabled...no]))
  
@@ -89,13 +87,13 @@ index 5ea6e79..2c8b9df 100644
  ifeq (@ac_external_pa@,1)
  # External PA
 diff --git a/pjmedia/build/Makefile b/pjmedia/build/Makefile
-index 39b8d65..d5ee3ce 100644
+index 2f97296..70a34a0 100644
 --- a/pjmedia/build/Makefile
 +++ b/pjmedia/build/Makefile
-@@ -115,9 +115,9 @@ export PJMEDIA_CODEC_OBJS += audio_codecs.o ffmpeg_vid_codecs.o \
+@@ -114,9 +114,9 @@ export PJMEDIA_CODEC_OBJS += audio_codecs.o ffmpeg_vid_codecs.o \
  			h263_packetizer.o h264_packetizer.o \
  			$(OS_OBJS) $(M_OBJS) $(CC_OBJS) $(HOST_OBJS) \
- 			ipp_codecs.o opencore_amr.o silk.o $(CODEC_OBJS) \
+ 			ipp_codecs.o $(CODEC_OBJS) \
 -                        g7221_sdp_match.o amr_sdp_match.o
 +                        g7221_sdp_match.o amr_sdp_match.o g729.o
  export PJMEDIA_CODEC_CFLAGS += $(_CFLAGS) $(GSM_CFLAGS) $(SPEEX_CFLAGS) \
@@ -117,14 +115,14 @@ index 7904594..020e67d 100644
  export CODEC_OBJS=
  
 diff --git a/pjmedia/include/pjmedia-codec/config.h b/pjmedia/include/pjmedia-codec/config.h
-index 875c821..319f89d 100644
+index 99b1d91..fa52475 100644
 --- a/pjmedia/include/pjmedia-codec/config.h
 +++ b/pjmedia/include/pjmedia-codec/config.h
 @@ -313,6 +313,13 @@
  #endif
  
  /**
-+ * G.729 codec is diabled by default.
++ * G729 codec is disabled by default
 + */
 +#ifndef PJMEDIA_HAS_G729_CODEC
 +#   define PJMEDIA_HAS_G729_CODEC 0
@@ -135,7 +133,7 @@ index 875c821..319f89d 100644
   * See https://trac.pjsip.org/repos/ticket/1388 for some info.
   *
 diff --git a/pjmedia/include/pjmedia-codec/config_auto.h.in b/pjmedia/include/pjmedia-codec/config_auto.h.in
-index 746c1fc..e3ca9fd 100644
+index c469d79..56afd1b 100644
 --- a/pjmedia/include/pjmedia-codec/config_auto.h.in
 +++ b/pjmedia/include/pjmedia-codec/config_auto.h.in
 @@ -69,6 +69,11 @@
@@ -151,7 +149,7 @@ index 746c1fc..e3ca9fd 100644
  #ifndef PJMEDIA_HAS_OPENCORE_AMRNB_CODEC
  #undef PJMEDIA_HAS_OPENCORE_AMRNB_CODEC
 diff --git a/pjmedia/src/pjmedia-codec/audio_codecs.c b/pjmedia/src/pjmedia-codec/audio_codecs.c
-index d8eb555..c57cd14 100644
+index 1fbd038..1f6110f 100644
 --- a/pjmedia/src/pjmedia-codec/audio_codecs.c
 +++ b/pjmedia/src/pjmedia-codec/audio_codecs.c
 @@ -100,6 +100,12 @@ pjmedia_codec_register_audio_codecs(pjmedia_endpt *endpt,
