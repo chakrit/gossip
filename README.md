@@ -28,9 +28,10 @@ same thing but with compilation flags and env vars set for running it on the sim
 
 ### LICENSE
 
-This code is in public domain.
-
 We do not own the license nor the copyright of the PJSIP source code which are included
 with Gossip. Check the [PJSIP licensing](http://www.pjsip.org/licensing.htm) for more
 information.
+
+Otherwise the Gossip codebase is public domain. See [LICENSE](LICENSE.md) for the full
+text.
 
