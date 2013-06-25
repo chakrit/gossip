@@ -39,18 +39,6 @@ make dep | tee ../make-dep.log
 make | tee ../make.log
 popd
 
-# copy all built static libs into one folder so it's easy to use.
-for x in `find source | grep "\.a$"`
-do
-  cp ./$x ./lib
-done
-
-# list all include folders for convenience (when configuring the xcode target)
-echo
-echo "### includes"
-find source | grep "\\include$"
-echo
-echo "### arch"
-find source | grep "\.a$" | xargs lipo -info 2>/dev/null \
-  | grep "architecture" | sed -El "s/^.+\: .+\/(.+) is architecture\: (.+)$/\\1 - \\2/g"
+./copy-libs
+./show-info
 
