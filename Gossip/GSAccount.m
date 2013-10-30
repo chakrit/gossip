@@ -9,13 +9,12 @@
 #import "GSAccount+Private.h"
 #import "GSCall.h"
 #import "GSDispatch.h"
+#import "GSUserAgent.h"
 #import "PJSIP.h"
 #import "Util.h"
 
 
-@implementation GSAccount {
-    GSAccountConfiguration *_config;
-}
+@implementation GSAccount
 
 - (id)init {
     if (self = [super init]) {
@@ -42,21 +41,17 @@
     return self;
 }
 
-- (void)disconnectAndClearAccountID {
-    [self disconnect];
-    _accountId = PJSUA_INVALID_ID;
-    _config = nil;
-}
-
 - (void)dealloc {
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center removeObserver:self];
-    
-    if (_accountId != PJSUA_INVALID_ID) {
+
+    GSUserAgent *agent = [GSUserAgent sharedAgent];
+    if (_accountId != PJSUA_INVALID_ID && [agent status] != GSUserAgentStateDestroyed) {
         GSLogIfFails(pjsua_acc_del(_accountId));
         _accountId = PJSUA_INVALID_ID;
     }
-    
+
+    _accountId = PJSUA_INVALID_ID;
     _config = nil;
 }
 
@@ -112,7 +107,7 @@
 
 - (BOOL)disconnect {
     NSAssert(!!_config, @"GSAccount not configured.");
-        
+    
     GSReturnNoIfFails(pjsua_acc_set_online_status(_accountId, PJ_FALSE));
     GSReturnNoIfFails(pjsua_acc_set_registration(_accountId, PJ_FALSE));
     return YES;
@@ -123,9 +118,7 @@
     if (_status == newStatus) // don't send KVO notices unless it really changes.
         return;
     
-    [self willChangeValueForKey:@"status"];
     _status = newStatus;
-    [self didChangeValueForKey:@"status"];
 }
 
 

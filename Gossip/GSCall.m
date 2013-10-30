@@ -15,7 +15,7 @@
 #import "GSUserAgent+Private.h"
 #import "PJSIP.h"
 #import "Util.h"
-
+#import "GSCallInfo.h"
 
 @implementation GSCall {
     pjsua_call_id _callId;
@@ -28,13 +28,16 @@
     GSOutgoingCall *call = [GSOutgoingCall alloc];
     call = [call initWithRemoteUri:remoteUri fromAccount:account];
     
+    // Fake local and remote address for now because _callId is still PJSUA_INVALID_ID until
+    // after GSCall -begin method is called.
+    call.info.localAddress = call.account.config.address;
+    call.info.remoteAddress = remoteUri;
     return call;
 }
 
 + (id)incomingCallWithId:(NSInteger)callId toAccount:(GSAccount *)account {
     GSIncomingCall *call = [GSIncomingCall alloc];
     call = [call initWithCallId:callId toAccount:account];
-
     return call;
 }
 
@@ -50,7 +53,8 @@
         _account = account;
         _status = GSCallStatusReady;
         _callId = PJSUA_INVALID_ID;
-        
+        _info = [[GSCallInfo alloc] initWithGSCall:self];
+
         _ringback = nil;
         if (config.enableRingback) {
             _ringback = [GSRingback ringbackWithSoundNamed:config.ringbackFilename];
@@ -97,15 +101,17 @@
 }
 
 - (void)setCallId:(NSInteger)callId {
-    [self willChangeValueForKey:@"callId"];
+    //[self willChangeValueForKey:@"callId"];
     _callId = callId;
-    [self didChangeValueForKey:@"callId"];
+    // Recreate call info because now we have call id.
+    _info = [[GSCallInfo alloc] initWithGSCall:self];
+    //[self didChangeValueForKey:@"callId"];
 }
 
 - (void)setStatus:(GSCallStatus)status {
-    [self willChangeValueForKey:@"status"];
+    //[self willChangeValueForKey:@"status"];
     _status = status;
-    [self didChangeValueForKey:@"status"];
+    //[self didChangeValueForKey:@"status"];
 }
 
 
@@ -194,6 +200,9 @@
         case PJSIP_INV_STATE_DISCONNECTED: {
             [self stopRingback];
             callStatus = GSCallStatusDisconnected;
+//            if ([self.delegate respondsToSelector:@selector(callDidEnd:error:)]) {
+//                [self.delegate callDidEnd:self error:nil];
+//            }
         } break;
     }
     

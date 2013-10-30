@@ -35,6 +35,7 @@ typedef enum {
 @interface GSAccount : NSObject
 
 @property (nonatomic, readonly) NSInteger accountId; ///< Account Id, automatically assigned by PJSIP.
+@property (nonatomic, readonly) GSAccountConfiguration *config; ///< Account Configuration. Set with -configure: method.
 @property (nonatomic, readonly) GSAccountStatus status; ///< Account registration status. Supports KVO notification.
 
 @property (nonatomic, unsafe_unretained) id<GSAccountDelegate> delegate; ///< Account activity delegate.
@@ -46,7 +47,5 @@ typedef enum {
 
 - (BOOL)connect; ///< Connects and begin registering with the configured SIP registration server.
 - (BOOL)disconnect; ///< Unregister from the SIP registration server and disconnects.
-
-- (void)disconnectAndClearAccountID; ///< disconnect and clear accountID. Should not be called directly. Used by GSUserAgent destroy method.
 
 @end

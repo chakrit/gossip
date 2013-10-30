@@ -46,9 +46,12 @@
 }
 
 - (BOOL)end {
-    NSAssert(self.callId != PJSUA_INVALID_ID, @"Call has not begun yet.");    
-    GSReturnNoIfFails(pjsua_call_hangup(self.callId, 0, NULL, NULL));
-    
+    if (self.callId == PJSUA_INVALID_ID) {
+        NSLog(@"Call has not begun yet.");
+    }
+    else {
+        GSReturnNoIfFails(pjsua_call_hangup(self.callId, 0, NULL, NULL));
+	}
     [self setStatus:GSCallStatusDisconnected];
     [self setCallId:PJSUA_INVALID_ID];
     return YES;
