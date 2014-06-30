@@ -25,7 +25,7 @@
 #define PJMEDIA_HAS_VIDEO 1
 #import <pj/config_site.h>
 
-// Place any requried PJSIP includes/imports *below* this line
+// Place any required PJSIP includes/imports *below* this line
 #import <pjsip/sip_transport_tls.h>
 #import <pjsip/sip_multipart.h>
 #import <pjsua-lib/pjsua.h>
@@ -33,3 +33,4 @@
 #import <pj/string.h>
 #import <pjsip/sip_errno.h>
 #import <pjmedia/format.h>
+#import <pjsip/sip_endpoint.h>
