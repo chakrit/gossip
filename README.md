@@ -35,3 +35,10 @@ information.
 Otherwise the Gossip codebase is public domain. See [LICENSE](LICENSE.md) for the full
 text.
 
+### CONTRIBUTORS
+
+```
+ 136	Chakrit Wichian
+   5	Hlung
+   1	Thane Brimhall
+```
