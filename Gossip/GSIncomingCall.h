@@ -10,6 +10,6 @@
 
 @interface GSIncomingCall : GSCall
 
-- (id)initWithCallId:(NSInteger)callId toAccount:(GSAccount *)account;
+- (id)initWithCallId:(int)callId toAccount:(GSAccount *)account;
 
 @end

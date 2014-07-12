@@ -34,7 +34,7 @@ typedef enum {
 /// Represents a single PJSIP account. Only one account per session is supported right now.
 @interface GSAccount : NSObject
 
-@property (nonatomic, readonly) NSInteger accountId; ///< Account Id, automatically assigned by PJSIP.
+@property (nonatomic, readonly) int accountId; ///< Account Id, automatically assigned by PJSIP.
 @property (nonatomic, readonly) GSAccountStatus status; ///< Account registration status. Supports KVO notification.
 
 @property (nonatomic, unsafe_unretained) id<GSAccountDelegate> delegate; ///< Account activity delegate.

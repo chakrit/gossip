@@ -31,7 +31,7 @@
     return call;
 }
 
-+ (id)incomingCallWithId:(NSInteger)callId toAccount:(GSAccount *)account {
++ (id)incomingCallWithId:(int)callId toAccount:(GSAccount *)account {
     GSIncomingCall *call = [GSIncomingCall alloc];
     call = [call initWithCallId:callId toAccount:account];
 
@@ -92,11 +92,11 @@
 }
 
 
-- (NSInteger)callId {
+- (int)callId {
     return _callId;
 }
 
-- (void)setCallId:(NSInteger)callId {
+- (void)setCallId:(int)callId {
     [self willChangeValueForKey:@"callId"];
     _callId = callId;
     [self didChangeValueForKey:@"callId"];
