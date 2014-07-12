@@ -16,10 +16,11 @@ the GOSSIP repository also contains:
 # USAGE
 
 1. Clone the GOSSIP sources.
-2. (optional) Use the provided script to build your custom version of PJSIP.
-3. Adds the GOSSIP xcodeproj as reference to your main application project. Either
+2. Make sure to also clone PJSIP submodule as we need the PJSIP headers.
+3. (optional) Use the provided script to build your custom version of PJSIP.
+4. Adds the GOSSIP xcodeproj as reference to your main application project. Either
    workspace reference or as a subproject should works.
-4. Initializes `GSUserAgent` on application starts.
+5. Initializes `GSUserAgent` on application starts.
 
 Check the [GSUserAgent documentation][5] for further instructions.
 
