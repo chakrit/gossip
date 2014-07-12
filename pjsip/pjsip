@@ -17,10 +17,12 @@ pjsip clean         # cleans the pjsip source folder.
 pjsip all           # build fat binary that works on all architectures.
 pjsip armv7         # build armv7 static lib.
 pjsip armv7s        # build armv7s static lib.
+pjsip arm64         # build arm64 static lib.
 pjsip i386          # build i386 static lib.
 
 pjsip info armv7    # show architecture information for armv7 libs.
 pjsip info armv7s   # show architecture information for armv7s libs.
+pjsip info arm64    # show architecture information for arm64 libs.
 pjsip info i386     # show architecture information for i386 libs.
 EOF
 }
@@ -56,6 +58,7 @@ find src | grep "\\include$" | sort
 
 function armv7() { _build "armv7"; }
 function armv7s() { _build "armv7s"; }
+function arm64() { _build "arm64"; }
 
 function i386() {
 export DEVPATH=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer
@@ -65,7 +68,7 @@ _build "i386"
 }
 
 function all() {
-armv7 && echo && armv7s && echo && i386
+armv7 && echo && armv7s && echo && arm64 && echo && i386
 echo
 _merge
 }
@@ -105,6 +108,7 @@ cd "$BASE_DIR"
 for lib in `find lib/i386/*.a`; do
   lipo -arch armv7 lib/armv7/${lib##*/} \
     -arch armv7s lib/armv7s/${lib##*/} \
+    -arch arm64 lib/arm64/${lib##*/} \
     -arch i386 lib/i386/${lib##*/} \
     -create -output lib/${lib##*/}
 done | tee "$BASE_DIR"/merge.log
