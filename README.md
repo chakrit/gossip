@@ -1,5 +1,4 @@
-GOSSIP
-======
+# GOSSIP
 
 An Objective-C convenience wrapper around the PJSIP client library. In addition to that,
 the GOSSIP repository also contains:
@@ -10,11 +9,11 @@ the GOSSIP repository also contains:
 * Utility script for compiling PJSIP - This automates the process described by the
   [Getting Started - iPhone][2] guide on the PJSIP website.
 
-* Pre-built fat PJSIP binaries - Pre-built fat binaries that runs on armv7, armv7s, arm64
-  and i386. You can also build each architecture individually by yourself using the
-  provided script.
+* Pre-built fat PJSIP binaries - These run on armv7, armv7s, arm64 and i386 out of the
+  box. You can also build each architecture individually by yourself using the
+  aforementioned script.
 
-### USAGE
+# USAGE
 
 1. Clone the GOSSIP sources.
 2. (optional) Use the provided script to build your custom version of PJSIP.
@@ -28,11 +27,12 @@ I can add support for CocoaPods if there is demand. I have opted not to work on 
 just yet due to the need to reference PJSIP headers (which in turn has a lot of
 architecture-specific macro `#ifdefs` that sometimes break badly.)
 
-### PJSIP BUILDS
+# BUILD PJSIPs
 
 Before GOSSIP will build, you must first have a working PJSIP binary either by:
 
-* Using the pre-built binaries already available in this repository.
+* Using the pre-built binaries already available in this repository. In which case, you
+  should not need to do anything.
 * Use the `gossip/pjsip/pjsip` script to build a version of PJSIP that suit your needs.
 
 For example, to create a new build for `arm64`, try the following:
@@ -44,7 +44,16 @@ $ ./pjsip arm64
 $ ./pjsip info arm64
 ```
 
-### LICENSE
+Or to create new fat binaries on your machine, try the following:
+
+```sh
+cd gossip
+cd pjsip
+./pjsip all
+./pjsip info .
+```
+
+# LICENSE
 
 We do not own the license nor the copyright of the PJSIP source code and derivatives which
 are required for GOSSIP to function. Check the
@@ -53,12 +62,12 @@ are required for GOSSIP to function. Check the
 Otherwise the Gossip codebase is public domain. See the [LICENSE.md](LICENSE.md) file for
 the full details.
 
-### SUPPORT
+# SUPPORT
 
 Please file a [new GitHub issue][3]. I am also available at service [at] chakrit.net or
 over Twitter as [@chakrit][4].
 
-### CONTRIBUTORS
+# CONTRIBUTORS
 
 ```
    144	Chakrit Wichian
