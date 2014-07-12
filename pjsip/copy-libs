@@ -1,9 +1,0 @@
-#!/bin/sh
-
-# Copy all libs files from various folders inside PJSIP sources to lib/
-mkdir -p ./lib
-for x in `find source | grep "\.a$"`
-do
-  cp -v ./$x ./lib
-done
-
