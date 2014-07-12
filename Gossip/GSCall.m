@@ -145,6 +145,12 @@
 }
 
 
+- (BOOL)sendDTMFDigits:(NSString *)digits {
+    pj_str_t pjDigits = [GSPJUtil PJStringWithString:digits];
+    pjsua_call_dial_dtmf(_callId, &pjDigits);
+}
+
+
 - (void)startRingback {
     if (!_ringback || _ringback.isPlaying)
         return;

@@ -53,4 +53,6 @@ typedef enum {
 - (BOOL)begin; ///< Begins calling for outgoing call or answer incoming call.
 - (BOOL)end; ///< Stop calling and/or hangup call.
 
+- (BOOL)sendDTMFDigits:(NSString *)digits; ///< Sends DTMF digits over the call.
+
 @end
