@@ -206,8 +206,8 @@
         } break;
     }
     
-    __block id self_ = self;
-    dispatch_async(dispatch_get_main_queue(), ^{ [self_ setStatus:callStatus]; });
+    __weak typeof(self) weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{ [weakSelf setStatus:callStatus]; });
 }
 
 - (void)callMediaStateDidChange:(NSNotification *)notif {

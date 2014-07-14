@@ -14,15 +14,18 @@
 #import "Util.h"
 
 
-@implementation GSAccount
+@implementation GSAccount {
+    long *_desc;
+    NSDictionary *connectDict;
+}
 
 - (id)init {
     if (self = [super init]) {
         _accountId = PJSUA_INVALID_ID;
         _status = GSAccountStatusOffline;
         _config = nil;
-        
         _delegate = nil;
+        _desc = malloc(sizeof(long)*PJ_THREAD_DESC_SIZE);
         
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         [center addObserver:self
@@ -96,13 +99,84 @@
     return YES;
 }
 
+static const NSString *keyAccount = @"account";
+static const NSString *keyBlock = @"block";
 
-- (BOOL)connect {
+- (void)connectWithCompletion:(void (^)(BOOL success))block {
     NSAssert(!!_config, @"GSAccount not configured.");
 
+    // Spawn new thread for SIP connection. Because doing so in main thread may cause 10 sec
+    // freeze when waiting for server response. All the work below is just to prepare
+    // for `pj_thread_register()`.
+    pj_caching_pool cach_pool;
+    pj_caching_pool_init(&cach_pool, &pj_pool_factory_default_policy, 0);
+    pj_pool_factory *mem = &cach_pool.factory;
+    pj_pool_t *pool = pj_pool_create(mem, NULL, 4000, 4000, NULL);
+    if (pool == NULL) {
+        FGLogErrorWithClsName(@"failed creating a caching pool for thread");
+        BLOCK_SAFE_RUN(block, NO);
+    }
+    
+    pj_thread_t *thread;
+    const char *thread_name = "fingi_sip_thread";
+    
+    // WARNING!! connectDict needs to be retained during the function execution, else it will
+    // crash when running on device!!! Also setting a dictionary key with nill will crash.
+    NSMutableDictionary *m = [NSMutableDictionary dictionary];
+    NSNumber *numAccId = @(_accountId);
+    if (numAccId) m[keyAccount] = numAccId;
+    if (block) m[keyBlock] = block;
+    
+    connectDict = [NSDictionary dictionaryWithDictionary:m];
+    pj_status_t status_create = pj_thread_create(pool, thread_name,
+                                                 (pj_thread_proc*)&connectInBackground,
+                                                 (__bridge void *)(connectDict),
+                                                 PJ_THREAD_DEFAULT_STACK_SIZE,
+                                                 0, &thread);
+    if (status_create != PJ_SUCCESS) {
+        FGLogErrorWithClsName(@"failed creating thread");
+        BLOCK_SAFE_RUN(block, NO);
+    }
+    
+    // execute `-connectInBackground:`
+    pj_status_t status_reg = pj_thread_register(thread_name, _desc, &thread);
+    if (status_reg != PJ_SUCCESS) {
+        FGLogErrorWithClsName(@"failed registering thread");
+        BLOCK_SAFE_RUN(block, NO);
+    }
+    
+    FGLogVerboseWithClsName(@"background thread registered");
+
+    /*
+    // this may freeze main thread
     GSReturnNoIfFails(pjsua_acc_set_registration(_accountId, PJ_TRUE));
-    GSReturnNoIfFails(pjsua_acc_set_online_status(_accountId, PJ_TRUE));    
+    GSReturnNoIfFails(pjsua_acc_set_online_status(_accountId, PJ_TRUE));
     return YES;
+     */
+}
+
+// NOTE: cannot use `self` in here
+// NOTE2: block callbacks need to be run on main thread
+static void connectInBackground(NSDictionary *dict) {
+    if (NSDictionary_isDictionary(dict) == NO) {
+        FGLogErrorWithClsAndFuncName(@"dict is missing");
+        return;
+    }
+    
+    NSInteger accId = [dict[keyAccount] integerValue];
+    void (^block)(BOOL success) = dict[keyBlock];
+
+    pj_status_t status_reg = pjsua_acc_set_registration(accId, PJ_TRUE);
+    if (status_reg != PJ_SUCCESS) {
+        BLOCK_SAFE_RUN_MAINTHREAD(block, NO);
+        return;
+    }
+    pj_status_t status_online = pjsua_acc_set_online_status(accId, PJ_TRUE);
+    if (status_online != PJ_SUCCESS) {
+        BLOCK_SAFE_RUN_MAINTHREAD(block, NO);
+        return;
+    }
+    BLOCK_SAFE_RUN_MAINTHREAD(block, YES);
 }
 
 - (BOOL)disconnect {
@@ -150,8 +224,8 @@
     GSAccountStatus accStatus = 0;
     accStatus = renew ? GSAccountStatusConnecting : GSAccountStatusDisconnecting;
 
-    __block id self_ = self;
-    dispatch_async(dispatch_get_main_queue(), ^{ [self_ setStatus:accStatus]; });
+    __weak typeof(self) weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{ [weakSelf setStatus:accStatus]; });
 }
 
 - (void)registrationStateDidChange:(NSNotification *)notif {
@@ -180,8 +254,8 @@
         }
     }
     
-    __block id self_ = self;
-    dispatch_async(dispatch_get_main_queue(), ^{ [self_ setStatus:accStatus]; });
+    __weak typeof(self) weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{ [weakSelf setStatus:accStatus]; });
 }
 
 @end

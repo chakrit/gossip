@@ -83,7 +83,7 @@
 }
 
 - (NSString*)description {
-    return [NSString stringWithFormat:@"[<%@> address: %@\n username: %@\n password: %@\n domain: %@\n proxy: %@]",
+    return [NSString stringWithFormat:@"[<%@>\n address: %@\n username: %@\n password: %@\n domain: %@\n proxy: %@]",
             NSStringFromClass(self.class),self.address,self.username,self.password,self.domain,self.proxyServer];
 }
 

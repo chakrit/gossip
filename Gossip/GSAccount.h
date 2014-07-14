@@ -45,7 +45,7 @@ typedef enum {
  *  Usually this is called automatically by the GSUserAgent instance. */
 - (BOOL)configure:(GSAccountConfiguration *)configuration;
 
-- (BOOL)connect; ///< Connects and begin registering with the configured SIP registration server.
+- (void)connectWithCompletion:(void (^)(BOOL success))block; ///< Connects and begin registering with the configured SIP registration server.
 - (BOOL)disconnect; ///< Unregister from the SIP registration server and disconnects.
 
 @end

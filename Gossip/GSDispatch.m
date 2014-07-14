@@ -40,7 +40,7 @@ static dispatch_queue_t _queue = NULL;
 //   dictionary lookups on the receiver side probably wouldn't hurt much.
 
 + (void)dispatchRegistrationStarted:(pjsua_acc_id)accountId renew:(pj_bool_t)renew {
-    NSLog(@"Gossip: dispatchRegistrationStarted(%d, %d)", accountId, renew);
+    //NSLog(@"Gossip: dispatchRegistrationStarted(%d, %d)", accountId, renew);
     
     NSDictionary *info = nil;
     info = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -54,7 +54,7 @@ static dispatch_queue_t _queue = NULL;
 }
 
 + (void)dispatchRegistrationState:(pjsua_acc_id)accountId {
-    NSLog(@"Gossip: dispatchRegistrationState(%d)", accountId);
+    //NSLog(@"Gossip: dispatchRegistrationState(%d)", accountId);
     
     NSDictionary *info = nil;
     info = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:accountId]
@@ -69,7 +69,7 @@ static dispatch_queue_t _queue = NULL;
 + (void)dispatchIncomingCall:(pjsua_acc_id)accountId
                       callId:(pjsua_call_id)callId
                         data:(pjsip_rx_data *)data {
-    NSLog(@"Gossip: dispatchIncomingCall(%d, %d)", accountId, callId);
+    //NSLog(@"Gossip: dispatchIncomingCall(%d, %d)", accountId, callId);
     
     NSDictionary *info = nil;
     info = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -84,7 +84,7 @@ static dispatch_queue_t _queue = NULL;
 }
 
 + (void)dispatchCallMediaState:(pjsua_call_id)callId {
-    NSLog(@"Gossip: dispatchCallMediaState(%d)", callId);
+    //NSLog(@"Gossip: dispatchCallMediaState(%d)", callId);
     
     NSDictionary *info = nil;
     info = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:callId]
@@ -97,7 +97,7 @@ static dispatch_queue_t _queue = NULL;
 }
 
 + (void)dispatchCallState:(pjsua_call_id)callId event:(pjsip_event *)e {
-    NSLog(@"Gossip: dispatchCallState(%d)", callId);
+    //NSLog(@"Gossip: dispatchCallState(%d)", callId);
 
     NSDictionary *info = nil;
     info = [NSDictionary dictionaryWithObjectsAndKeys:
