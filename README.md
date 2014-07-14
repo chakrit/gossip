@@ -24,6 +24,15 @@ the GOSSIP repository also contains:
 
 Check the [GSUserAgent documentation][5] for further instructions.
 
+Example of a successful `git clone` command:
+
+```bash
+git clone git://github.com/chakrit/gossip.git
+cd gossip
+git submodule init
+git submodule update --recursive
+```
+
 I can add support for CocoaPods if there is demand. I have opted not to work on this
 just yet due to the need to reference PJSIP headers (which in turn has a lot of
 architecture-specific macro `#ifdefs` that sometimes break badly.)
