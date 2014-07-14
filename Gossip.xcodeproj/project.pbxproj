@@ -638,8 +638,15 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/pjsip/src/pjlib/includexxx",
 					"$(SRCROOT)/pjsip/src/pjlib/include",
+					"$(SRCROOT)/pjsip/src/pjlib-util/include",
+					"$(SRCROOT)/pjsip/src/pjmedia/include",
+					"$(SRCROOT)/pjsip/src/pjnath/include",
+					"$(SRCROOT)/pjsip/src/pjsip/include",
+					"$(SRCROOT)/pjsip/src/third_party/resample/include",
+					"$(SRCROOT)/pjsip/src/third_party/speex/include",
+					"$(SRCROOT)/pjsip/src/third_party/srtp/crypto/include",
+					"$(SRCROOT)/pjsip/src/third_party/srtp/include",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				SDKROOT = iphoneos;
