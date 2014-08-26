@@ -21,13 +21,13 @@ typedef enum {
 /// Main class for configuring a SIP user agent.
 @interface GSConfiguration : NSObject <NSCopying>
 
-@property (nonatomic) NSUInteger logLevel; ///< PJSIP log level.
-@property (nonatomic) NSUInteger consoleLogLevel; ///< PJSIP console output level.
+@property (nonatomic) unsigned int logLevel; ///< PJSIP log level.
+@property (nonatomic) unsigned int consoleLogLevel; ///< PJSIP console output level.
 
 @property (nonatomic) GSTransportType transportType; ///< Transport type to use for connection.
 
-@property (nonatomic) NSUInteger clockRate; ///< PJSIP clock rate.
-@property (nonatomic) NSUInteger soundClockRate; ///< PJSIP sound clock rate.
+@property (nonatomic) unsigned int clockRate; ///< PJSIP clock rate.
+@property (nonatomic) unsigned int soundClockRate; ///< PJSIP sound clock rate.
 @property (nonatomic) float volumeScale; ///< Used for scaling volumes up and down.
 
 @property (strong, nonatomic) GSAccountConfiguration *account;

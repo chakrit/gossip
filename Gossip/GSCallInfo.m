@@ -8,6 +8,7 @@
 
 #import "GSCallInfo.h"
 #import "GSPJUtil.h"
+#import "GSCall.h"
 
 @implementation NSString (GSCallInfo)
 // change @"<sip:name@sip.com>" to @"name@sip.com"
@@ -66,8 +67,8 @@
     self.localAddress = [[NSString stringWithFormat:@"%@",[GSPJUtil stringWithPJString:&callInfo.local_info]] removeSipTag];
     
     NSArray *a = [[NSString stringWithFormat:@"%@",[GSPJUtil stringWithPJString:&callInfo.remote_info]] nameAndAddressComponents];
-    self.remoteAddress = valueWithDefault(a[1], nil);
-    self.remoteName = valueWithDefault(a[0], nil);
+    self.remoteAddress = a[1];
+    self.remoteName = a[0];
     
     self.callID = [NSString stringWithFormat:@"%@",[GSPJUtil stringWithPJString:&callInfo.call_id]];
 }

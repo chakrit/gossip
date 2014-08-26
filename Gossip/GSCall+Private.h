@@ -11,7 +11,7 @@
 @interface GSCall (Private)
 
 // private setter for internal use
-- (void)setCallId:(NSInteger)callId;
+- (void)setCallId:(int)callId;
 - (void)setStatus:(GSCallStatus)status;
 
 @end

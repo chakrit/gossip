@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class GSCall;
+
 /// Information accompanying GSCall derived from pjsua_call_get_info() function.
 @interface GSCallInfo : NSObject
 

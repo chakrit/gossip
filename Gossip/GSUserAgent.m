@@ -103,6 +103,15 @@
     
     GSReturnNoIfFails(pjsua_init(&uaConfig, &logConfig, &mediaConfig));
     
+    // Configure the DNS resolvers to also handle SRV records
+    pjsip_endpoint* endpoint = pjsua_get_pjsip_endpt();
+    pj_dns_resolver* resolver;
+    pj_str_t google_dns = [GSPJUtil PJStringWithString:@"8.8.8.8"];
+    struct pj_str_t servers[] = { google_dns };
+    GSReturnNoIfFails(pjsip_endpt_create_resolver(endpoint, &resolver));
+    GSReturnNoIfFails(pj_dns_resolver_set_ns(resolver, 1, servers, nil));
+    GSReturnNoIfFails(pjsip_endpt_set_resolver(endpoint, resolver));
+    
     // create UDP transport
     // TODO: Make configurable? (which transport type to use/other transport opts)
     // TODO: Make separate class? since things like public_addr might be useful to some.
