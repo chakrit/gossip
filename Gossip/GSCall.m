@@ -101,17 +101,18 @@
 }
     
 - (void)setCallId:(int)callId {
-    //[self willChangeValueForKey:@"callId"];
+    // No need to call -willChangeValueForKey, -didChangeValueForKey here.
+    // Observer is triggered when setting var.
     _callId = callId;
+    
     // Recreate call info because now we have call id.
     _info = [[GSCallInfo alloc] initWithGSCall:self];
-    //[self didChangeValueForKey:@"callId"];
 }
 
 - (void)setStatus:(GSCallStatus)status {
-    //[self willChangeValueForKey:@"status"];
+    // No need to call -willChangeValueForKey, -didChangeValueForKey here.
+    // Observer is triggered when setting var.
     _status = status;
-    //[self didChangeValueForKey:@"status"];
 }
 
 

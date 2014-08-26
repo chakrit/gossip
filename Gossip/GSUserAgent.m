@@ -67,9 +67,7 @@
 }
 
 - (void)setStatus:(GSUserAgentState)status {
-    [self willChangeValueForKey:@"status"];
     _status = status;
-    [self didChangeValueForKey:@"status"];
 }
 
 
