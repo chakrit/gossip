@@ -6,7 +6,6 @@
 //
 
 
-@interface GSEConfigurationViewController : UIViewController {
-    UITableView *_tableView;
-}
+@interface GSEConfigurationViewController : UIViewController
+
 @end

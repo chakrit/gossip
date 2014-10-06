@@ -100,17 +100,16 @@
 
 
 - (IBAction)userDidTapConnect {
-    [_account connect];
+    [_account connectWithCompletion:nil];
 }
 
 - (IBAction)userDidTapDisconnect {
     [_account disconnect];
 }
 
-- (IBAction)onSwitchAccount:(id)sender {
-    if ([[GSUserAgent sharedAgent] destroy]) {
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    }
+- (IBAction)userDidTapSwitchAccount:(id)sender {
+    [[GSUserAgent sharedAgent] reset];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 

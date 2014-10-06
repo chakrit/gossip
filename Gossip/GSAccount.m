@@ -102,6 +102,9 @@
 static const NSString *keyAccount = @"account";
 static const NSString *keyBlock = @"block";
 
+#define GS_BLOCK_SAFE_RUN(block, ...) { if (block) (block)(__VA_ARGS__); }
+#define GS_BLOCK_SAFE_RUN_MAINTHREAD(block, ...) { dispatch_async(dispatch_get_main_queue(), ^(void) { if (block) (block)(__VA_ARGS__); }); }
+
 - (void)connectWithCompletion:(void (^)(BOOL success))block {
     NSAssert(!!_config, @"GSAccount not configured.");
 
@@ -113,8 +116,8 @@ static const NSString *keyBlock = @"block";
     pj_pool_factory *mem = &cach_pool.factory;
     pj_pool_t *pool = pj_pool_create(mem, NULL, 4000, 4000, NULL);
     if (pool == NULL) {
-        FGLogErrorWithClsName(@"failed creating a caching pool for thread");
-        BLOCK_SAFE_RUN(block, NO);
+        NSLog(@"failed creating a caching pool for thread");
+        GS_BLOCK_SAFE_RUN(block, NO);
     }
     
     pj_thread_t *thread;
@@ -134,18 +137,18 @@ static const NSString *keyBlock = @"block";
                                                  PJ_THREAD_DEFAULT_STACK_SIZE,
                                                  0, &thread);
     if (status_create != PJ_SUCCESS) {
-        FGLogErrorWithClsName(@"failed creating thread");
-        BLOCK_SAFE_RUN(block, NO);
+        NSLog(@"failed creating thread");
+        GS_BLOCK_SAFE_RUN(block, NO);
     }
     
     // execute `-connectInBackground:`
     pj_status_t status_reg = pj_thread_register(thread_name, _desc, &thread);
     if (status_reg != PJ_SUCCESS) {
-        FGLogErrorWithClsName(@"failed registering thread");
-        BLOCK_SAFE_RUN(block, NO);
+        NSLog(@"failed registering thread");
+        GS_BLOCK_SAFE_RUN(block, NO);
     }
     
-    FGLogVerboseWithClsName(@"background thread registered");
+    NSLog(@"background thread registered");
 
     /*
     // this may freeze main thread
@@ -158,8 +161,8 @@ static const NSString *keyBlock = @"block";
 // NOTE: cannot use `self` in here
 // NOTE2: block callbacks need to be run on main thread
 static void connectInBackground(NSDictionary *dict) {
-    if (NSDictionary_isDictionary(dict) == NO) {
-        FGLogErrorWithClsAndFuncName(@"dict is missing");
+    if ([dict isKindOfClass:[NSDictionary class]] == NO) {
+        NSLog(@"dict is missing");
         return;
     }
     
@@ -168,15 +171,15 @@ static void connectInBackground(NSDictionary *dict) {
 
     pj_status_t status_reg = pjsua_acc_set_registration(accId, PJ_TRUE);
     if (status_reg != PJ_SUCCESS) {
-        BLOCK_SAFE_RUN_MAINTHREAD(block, NO);
+        GS_BLOCK_SAFE_RUN_MAINTHREAD(block, NO);
         return;
     }
     pj_status_t status_online = pjsua_acc_set_online_status(accId, PJ_TRUE);
     if (status_online != PJ_SUCCESS) {
-        BLOCK_SAFE_RUN_MAINTHREAD(block, NO);
+        GS_BLOCK_SAFE_RUN_MAINTHREAD(block, NO);
         return;
     }
-    BLOCK_SAFE_RUN_MAINTHREAD(block, YES);
+    GS_BLOCK_SAFE_RUN_MAINTHREAD(block, YES);
 }
 
 - (BOOL)disconnect {

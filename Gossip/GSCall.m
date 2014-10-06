@@ -35,7 +35,7 @@
     return call;
 }
 
-+ (id)incomingCallWithId:(NSInteger)callId toAccount:(GSAccount *)account {
++ (id)incomingCallWithId:(int)callId toAccount:(GSAccount *)account {
     GSIncomingCall *call = [GSIncomingCall alloc];
     call = [call initWithCallId:callId toAccount:account];
     return call;
@@ -96,22 +96,23 @@
 }
 
 
-- (NSInteger)callId {
+- (int)callId {
     return _callId;
 }
-
-- (void)setCallId:(NSInteger)callId {
-    //[self willChangeValueForKey:@"callId"];
+    
+- (void)setCallId:(int)callId {
+    // No need to call -willChangeValueForKey, -didChangeValueForKey here.
+    // Observer is triggered when setting var.
     _callId = callId;
+    
     // Recreate call info because now we have call id.
     _info = [[GSCallInfo alloc] initWithGSCall:self];
-    //[self didChangeValueForKey:@"callId"];
 }
 
 - (void)setStatus:(GSCallStatus)status {
-    //[self willChangeValueForKey:@"status"];
+    // No need to call -willChangeValueForKey, -didChangeValueForKey here.
+    // Observer is triggered when setting var.
     _status = status;
-    //[self didChangeValueForKey:@"status"];
 }
 
 
@@ -148,6 +149,12 @@
 - (BOOL)end {
     // for child overrides only
     return NO;
+}
+
+
+- (BOOL)sendDTMFDigits:(NSString *)digits {
+    pj_str_t pjDigits = [GSPJUtil PJStringWithString:digits];
+    pjsua_call_dial_dtmf(_callId, &pjDigits);
 }
 
 

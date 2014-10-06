@@ -15,5 +15,8 @@ xcuserdata
 profile
 *.moved-aside
 
+# CocoaPods stuff
+.ruby-version
+
 # Exclude OS X folder attributes
 .DS_Store
