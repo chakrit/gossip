@@ -163,7 +163,7 @@ static void connectInBackground(NSDictionary *dict) {
         return;
     }
     
-    NSInteger accId = [dict[keyAccount] integerValue];
+    int accId = [dict[keyAccount] intValue];
     void (^block)(BOOL success) = dict[keyBlock];
 
     pj_status_t status_reg = pjsua_acc_set_registration(accId, PJ_TRUE);
