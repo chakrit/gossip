@@ -67,14 +67,15 @@
 }
 
 - (void)setStatus:(GSUserAgentState)status {
-    [self willChangeValueForKey:@"status"];
     _status = status;
-    [self didChangeValueForKey:@"status"];
 }
 
 
 - (BOOL)configure:(GSConfiguration *)config {
-    GSAssert(!_config, @"Gossip: User agent is already configured.");
+    //GSAssert(!_config, @"Gossip: User agent is already configured.");
+    
+    if (_config) [self reset];
+    
     _config = [config copy];
     
     // create agent

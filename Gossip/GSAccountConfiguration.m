@@ -50,6 +50,19 @@
     _ringbackFilename = nil;
 }
 
+- (BOOL)hasString:(NSString*)string {
+    return ( [(string) isKindOfClass:[NSString class]] && ((NSString*)(string)).length>0 );
+}
+
+- (void)setDomain:(NSString *)domain {
+    if ([self hasString:domain]) _domain = [domain copy];
+    else _domain = nil;
+}
+
+- (void)setProxyServer:(NSString *)proxyServer {
+    if ([self hasString:proxyServer]) _proxyServer = [proxyServer copy];
+    else _proxyServer = nil;
+}
 
 - (id)copyWithZone:(NSZone *)zone {
     GSAccountConfiguration *replica = [GSAccountConfiguration defaultConfiguration];
@@ -67,6 +80,11 @@
     replica.enableRingback = self.enableRingback;
     replica.ringbackFilename = self.ringbackFilename;
     return replica;
+}
+
+- (NSString*)description {
+    return [NSString stringWithFormat:@"[<%@>\n address: %@\n username: %@\n password: %@\n domain: %@\n proxy: %@]",
+            NSStringFromClass(self.class),self.address,self.username,self.password,self.domain,self.proxyServer];
 }
 
 @end

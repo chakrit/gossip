@@ -99,20 +99,24 @@
 - (int)callId {
     return _callId;
 }
-    
+
+<<<<<<< HEAD
+- (void)setCallId:(NSInteger)callId {
+    //[self willChangeValueForKey:@"callId"];
+=======
 - (void)setCallId:(int)callId {
-    // No need to call -willChangeValueForKey, -didChangeValueForKey here.
-    // Observer is triggered when setting var.
+    [self willChangeValueForKey:@"callId"];
+>>>>>>> 3b509b3a6cb9f9dfc6f3dbb2d844469c7c319477
     _callId = callId;
-    
     // Recreate call info because now we have call id.
     _info = [[GSCallInfo alloc] initWithGSCall:self];
+    //[self didChangeValueForKey:@"callId"];
 }
 
 - (void)setStatus:(GSCallStatus)status {
-    // No need to call -willChangeValueForKey, -didChangeValueForKey here.
-    // Observer is triggered when setting var.
+    //[self willChangeValueForKey:@"status"];
     _status = status;
+    //[self didChangeValueForKey:@"status"];
 }
 
 

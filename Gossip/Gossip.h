@@ -15,4 +15,5 @@
 #import "GSUserAgent.h"
 #import "GSAccount.h"
 #import "GSCall.h"
+#import "GSCallInfo.h"
 #import "GSCodecInfo.h"

@@ -100,7 +100,7 @@
 
 
 - (IBAction)userDidTapConnect {
-    [_account connect];
+    [_account connectWithCompletion:nil];
 }
 
 - (IBAction)userDidTapDisconnect {
