@@ -8,7 +8,6 @@
 #import "GSUserAgent.h"
 #import "GSConfiguration.h"
 
-
 @interface GSUserAgent (Private)
 
 @property (nonatomic, readonly) GSConfiguration *configuration;

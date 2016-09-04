@@ -5,19 +5,23 @@
 //  Created by Chakrit Wichian on 7/5/12.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
+
 #import "GSAccount.h"
 #import "GSConfiguration.h"
+#import "GSReachability.h"
 
+NS_ASSUME_NONNULL_BEGIN
 
-typedef enum {
+extern NSString *GSUserAgentNetworkReachabilityChangedNotification;
+
+typedef NS_ENUM(NSInteger, GSUserAgentState) {
     GSUserAgentStateUninitialized = 0,
     GSUserAgentStateCreated = 1,
     GSUserAgentStateConfigured = 2,
     GSUserAgentStateStarted = 3,
-    GSUserAgentStateDestroyed = -1, // TODO: Remove? Since it's equivalent to uninitialized.
-} GSUserAgentState;
-
+    GSUserAgentStateDestroyed = -1 // TODO: Remove? Since it's equivalent to uninitialized.
+};
 
 /// Mains SIP user agent interface. Applications should configure the shared instance on startup.
 /** Only a single GSUserAgent may be created for each application since PJSIP only supports a single user agent at a time.
@@ -30,11 +34,12 @@ typedef enum {
  */
 @interface GSUserAgent : NSObject
 
-@property (nonatomic, strong, readonly) GSAccount *account; ///< Default GSAccount instance with the configured SIP account registration.
+@property (nonatomic, strong, readonly, nullable) GSAccount *account; ///< Default GSAccount instance with the configured SIP account registration.
 @property (nonatomic, readonly) GSUserAgentState status; ///< User agent configuration state. Supports KVO notification.
+@property (nonatomic, nullable, readonly) GSConfiguration *configuration;
 
 /// Obtains the shared user agent instance.
-+ (GSUserAgent *)sharedAgent;
++ (instancetype)sharedAgent;
 
 /// Configure the agent for use.
 /** This method must be called on application startup and before using any SIP functionality.
@@ -57,7 +62,15 @@ typedef enum {
  */
 - (BOOL)reset;
 
+- (BOOL)updateSTUNServers;
+
 /// Gets an array of GSCodecInfo for codecs loaded by PJSIP.
-- (NSArray *)arrayOfAvailableCodecs;
+- (nullable NSArray *)arrayOfAvailableCodecs;
+
+/// Pre iOS 9 handler to be used with UIApplication APIs. This is the PJSIP keep alive solution for TCP transports.
+- (void)backgroundKeepAliveHandler;
+- (GSNetworkStatus)currentReachabilityStatus;
 
 @end
+
+NS_ASSUME_NONNULL_END

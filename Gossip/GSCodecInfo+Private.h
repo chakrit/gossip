@@ -8,9 +8,8 @@
 #import "GSCodecInfo.h"
 #import "PJSIP.h"
 
-
 @interface GSCodecInfo (Private)
 
-- (id)initWithCodecInfo:(pjsua_codec_info *)codecInfo;
+- (instancetype)initWithCodecInfo:(pjsua_codec_info *)codecInfo;
 
 @end

@@ -7,11 +7,12 @@
 
 #import "GSCall.h"
 
-
 @interface GSCall (Private)
 
+@property (nonatomic, nullable, readwrite) NSDictionary <NSString *, NSString *> *inviteHeaders;
+
 // private setter for internal use
-- (void)setCallId:(int)callId;
+- (void)setCallId:(pjsua_call_id)callId;
 - (void)setStatus:(GSCallStatus)status;
 
 @end

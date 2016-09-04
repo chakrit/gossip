@@ -14,13 +14,24 @@ GSConstSynthesize(GSSIPRegistrationDidStartNotification);
 GSConstSynthesize(GSSIPCallStateDidChangeNotification);
 GSConstSynthesize(GSSIPIncomingCallNotification);
 GSConstSynthesize(GSSIPCallMediaStateDidChangeNotification);
+GSConstSynthesize(GSSIPCallMediaEventNotification);
+GSConstSynthesize(GSSIPTransportStateDidChangeNotification);
+GSConstSynthesize(GSSIPSTUNResolutionCompleteNotification);
+GSConstSynthesize(GSSIPNATDetectedNotification);
+GSConstSynthesize(GSSIPParsedCancelReasonHeaderNotification);
 
 GSConstSynthesize(GSVolumeDidChangeNotification);
 
 GSConstSynthesize(GSSIPAccountIdKey);
 GSConstSynthesize(GSSIPRenewKey);
 GSConstSynthesize(GSSIPCallIdKey);
+
+GSConstSynthesize(GSSIPTransportStateKey);
+GSConstSynthesize(GSSIPTransportKey);
+GSConstSynthesize(GSSIPTransportStateInfoKey);
+
 GSConstSynthesize(GSSIPDataKey);
+GSConstSynthesize(GSSIPMediaIdKey);
 
 GSConstSynthesize(GSVolumeKey);
 GSConstSynthesize(GSMicVolumeKey);

@@ -7,11 +7,10 @@
 //
 
 #import "GSAccount.h"
-#import "GSAccountConfiguration.h"
-
 
 @interface GSAccount (Private)
 
-@property (nonatomic, readonly, copy) GSAccountConfiguration *configuration;
+- (pj_status_t)networkAddressChanged;
+- (pj_status_t)disconnectWithoutReachability;
 
 @end

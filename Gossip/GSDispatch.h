@@ -5,10 +5,10 @@
 //  Created by Chakrit Wichian on 7/6/12.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
+
 #import "PJSIP.h"
 #import "GSNotifications.h" // almost always needed by importers
-
 
 @interface GSDispatch : NSObject
 
