@@ -88,6 +88,9 @@
 		22D43D9115AAC9120099C79F /* GSECallInitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D43D8E15AAC90B0099C79F /* GSECallInitController.m */; };
 		22D43D9415AACD680099C79F /* GSECallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D43D9315AACD680099C79F /* GSECallViewController.m */; };
 		22D43D9615AACFAD0099C79F /* GSECallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D43D9515AACFAD0099C79F /* GSECallViewController.xib */; };
+		4935915D1D7BF92C0007DE44 /* RFC3326ReasonParser.c in Sources */ = {isa = PBXBuildFile; fileRef = 4935915B1D7BF92C0007DE44 /* RFC3326ReasonParser.c */; };
+		4935915E1D7BF92C0007DE44 /* RFC3326ReasonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 4935915C1D7BF92C0007DE44 /* RFC3326ReasonParser.h */; };
+		493591601D7BF95A0007DE44 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4935915F1D7BF95A0007DE44 /* libresolv.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -184,6 +187,9 @@
 		22D43D9215AACD680099C79F /* GSECallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSECallViewController.h; sourceTree = "<group>"; };
 		22D43D9315AACD680099C79F /* GSECallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSECallViewController.m; sourceTree = "<group>"; };
 		22D43D9515AACFAD0099C79F /* GSECallViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSECallViewController.xib; sourceTree = "<group>"; };
+		4935915B1D7BF92C0007DE44 /* RFC3326ReasonParser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = RFC3326ReasonParser.c; sourceTree = "<group>"; };
+		4935915C1D7BF92C0007DE44 /* RFC3326ReasonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFC3326ReasonParser.h; sourceTree = "<group>"; };
+		4935915F1D7BF95A0007DE44 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +214,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				493591601D7BF95A0007DE44 /* libresolv.tbd in Frameworks */,
 				224AFFF715A6E9F600CC5890 /* CoreGraphics.framework in Frameworks */,
 				22639AE919718AC4004BD40C /* libpjnath-arm-apple-darwin9.a in Frameworks */,
 				22639AE219718AC4004BD40C /* libilbccodec-arm-apple-darwin9.a in Frameworks */,
@@ -325,6 +332,7 @@
 		22AD824515A5987C0000D05C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4935915F1D7BF95A0007DE44 /* libresolv.tbd */,
 				2242FB9115A6D8F500B34D4F /* AudioToolbox.framework */,
 				2242FB9315A6D8FC00B34D4F /* AVFoundation.framework */,
 				2242FB8C15A6D8B000B34D4F /* CFNetwork.framework */,
@@ -340,6 +348,8 @@
 		22AD824815A5987C0000D05C /* Gossip */ = {
 			isa = PBXGroup;
 			children = (
+				4935915B1D7BF92C0007DE44 /* RFC3326ReasonParser.c */,
+				4935915C1D7BF92C0007DE44 /* RFC3326ReasonParser.h */,
 				224EFF7815A6BA9000CD541C /* Gossip.h */,
 				227F443E15E23004007C364C /* GSAccount+Private.h */,
 				224EFF7F15A6C7D100CD541C /* GSAccount.h */,
@@ -407,6 +417,7 @@
 				224EFF7515A6B97F00CD541C /* GSConfiguration.h in Headers */,
 				224EFF8115A6C7D100CD541C /* GSAccount.h in Headers */,
 				22AD82DD15A5A1550000D05C /* GSUserAgent.h in Headers */,
+				4935915E1D7BF92C0007DE44 /* RFC3326ReasonParser.h in Headers */,
 				221BED8315B0338F00464679 /* GSCodecInfo.h in Headers */,
 				22D43D8615AAC1C40099C79F /* GSCall.h in Headers */,
 				225D129C15B6B2780041F416 /* GSNotifications.h in Headers */,
@@ -526,6 +537,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22AD82DE15A5A1550000D05C /* GSUserAgent.m in Sources */,
+				4935915D1D7BF92C0007DE44 /* RFC3326ReasonParser.c in Sources */,
 				224EFF7615A6B97F00CD541C /* GSConfiguration.m in Sources */,
 				224EFF8215A6C7D100CD541C /* GSAccount.m in Sources */,
 				224EFF8715A6CC1F00CD541C /* GSAccountConfiguration.m in Sources */,
@@ -604,6 +616,7 @@
 		22AD824E15A5987C0000D05C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
@@ -633,6 +646,7 @@
 		22AD824F15A5987C0000D05C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;

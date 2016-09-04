@@ -10,18 +10,17 @@
 #import "PJSIP.h"
 #import "Util.h"
 
-
 @implementation GSCodecInfo {
     pjsua_codec_info _info;
 }
 
 - (id)initWithCodecInfo:(pjsua_codec_info *)codecInfo {
-    if (self = [super init]) {
+    self = [super init];
+    if (self) {
         _info = *codecInfo;
     }
     return self;
 }
-
 
 - (NSString *)codecId {
     return [GSPJUtil stringWithPJString:&_info.codec_id];
@@ -45,7 +44,6 @@
 - (BOOL)setMaxPriority {
     return [self setPriority:254];
 }
-
 
 - (BOOL)disable {
     return [self setPriority:0]; // 0 disables the codec as said in pjsua online doc

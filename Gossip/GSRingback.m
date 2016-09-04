@@ -4,14 +4,12 @@
 //
 //  Created by Chakrit Wichian on 8/15/12.
 //
-//
 
 #import "GSRingback.h"
 #import "GSUserAgent.h"
 #import "GSUserAgent+Private.h"
 #import "PJSIP.h"
 #import "Util.h"
-
 
 @implementation GSRingback {
     float _volume;
@@ -21,13 +19,13 @@
     pjsua_player_id _playerId;
 }
 
-+ (id)ringbackWithSoundNamed:(NSString *)filename {
++ (instancetype)ringbackWithSoundNamed:(NSString *)filename {
     return [[self alloc] initWithSoundNamed:filename];
 }
 
-
-- (id)initWithSoundNamed:(NSString *)filename {
-    if (self = [super init]) {
+- (instancetype)initWithSoundNamed:(NSString *)filename {
+    self = [super init];
+    if (self) {
         NSBundle *bundle = [NSBundle mainBundle];
 
         _isPlaying = NO;
@@ -41,7 +39,7 @@
         filename = [filename lastPathComponent];
         filename = [bundle pathForResource:[filename stringByDeletingPathExtension]
                                     ofType:[filename pathExtension]];
-        NSLog(@"Gossip: ringbackWithSoundNamed: %@", filename);
+        PJ_LOG(3, (__FILENAME__, "ringbackWithSoundNamed: %@", filename.UTF8String));
 
         // create pjsua media playlist
         const pj_str_t filenames[] = { [GSPJUtil PJStringWithString:filename] };
@@ -59,7 +57,6 @@
     }
 }
 
-
 - (BOOL)setVolume:(float)volume {
     GSAssert(0.0 <= volume && volume <= 1.0, @"Volume value must be between 0.0 and 1.0");
 
@@ -70,7 +67,6 @@
 
     return YES;
 }
-
 
 - (BOOL)play {
     GSAssert(!_isPlaying, @"Already connected to a call.");
@@ -87,6 +83,5 @@
     _isPlaying = NO;
     return YES;
 }
-
 
 @end

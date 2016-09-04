@@ -5,8 +5,7 @@
 //  Created by Chakrit Wichian on 7/13/12.
 //
 
-#import <Foundation/Foundation.h>
-
+@import Foundation;
 
 /// Contains information for a codec.
 @interface GSCodecInfo : NSObject

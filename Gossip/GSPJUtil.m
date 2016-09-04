@@ -7,7 +7,6 @@
 
 #import "GSPJUtil.h"
 
-
 @implementation GSPJUtil
 
 + (NSError *)errorWithSIPStatus:(pj_status_t)status {
@@ -33,27 +32,35 @@
     return err;
 }
 
-
 + (NSString *)stringWithPJString:(const pj_str_t *)pjString {
-    NSString *result = [NSString alloc];
-    result = [result initWithBytesNoCopy:pjString->ptr
-                                  length:pjString->slen
-                                encoding:NSASCIIStringEncoding
-                            freeWhenDone:NO];
+    return [[NSString alloc] initWithBytes:pjString->ptr
+                                    length:pjString->slen
+                                  encoding:NSUTF8StringEncoding];
+}
+
++ (BOOL)verifySIPURIString:(nonnull NSString *)URIString {
+    return [self verifySIPURICString:[URIString cStringUsingEncoding:NSUTF8StringEncoding]];
+}
+
++ (BOOL)verifySIPURICString:(const char *)URIString {
+    NSParameterAssert(URIString);
+    if (!URIString) {
+        return NO;
+    }
     
-    return result;
+    if (pjsua_verify_sip_url(URIString) == PJ_SUCCESS) {
+        return YES;
+    }
+    
+    return NO;
 }
 
 + (pj_str_t)PJStringWithString:(NSString *)string {
     const char *cStr = [string cStringUsingEncoding:NSASCIIStringEncoding]; // TODO: UTF8?
-
+    
     pj_str_t result;
     pj_cstr(&result, cStr);
     return result;
-}
-
-+ (pj_str_t)PJAddressWithString:(NSString *)string {
-    return [self PJStringWithString:[@"sip:" stringByAppendingString:string]];
 }
 
 @end
